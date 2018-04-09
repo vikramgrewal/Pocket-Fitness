@@ -1,5 +1,5 @@
 # Pocket Fitness
----
+
 This is an IOS application that makes tracking your fitness journey easier and more enjoyable than ever.
 
 ### Reason for Development
