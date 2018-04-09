@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F702B9FC207AD52D00326E59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702B9FB207AD52D00326E59 /* AppDelegate.swift */; };
+		F702B9FE207AD52D00326E59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702B9FD207AD52D00326E59 /* ViewController.swift */; };
+		F702BA01207AD52D00326E59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F702B9FF207AD52D00326E59 /* Main.storyboard */; };
+		F702BA03207AD52D00326E59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F702BA02207AD52D00326E59 /* Assets.xcassets */; };
+		F702BA06207AD52D00326E59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F702BA04207AD52D00326E59 /* LaunchScreen.storyboard */; };
+		F702BA11207AD52D00326E59 /* Pocket_FitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702BA10207AD52D00326E59 /* Pocket_FitnessTests.swift */; };
+		F702BA1C207AD52D00326E59 /* Pocket_FitnessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702BA1B207AD52D00326E59 /* Pocket_FitnessUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F702BA0D207AD52D00326E59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F702B9F0207AD52D00326E59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F702B9F7207AD52D00326E59;
+			remoteInfo = "Pocket Fitness";
+		};
+		F702BA18207AD52D00326E59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F702B9F0207AD52D00326E59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F702B9F7207AD52D00326E59;
+			remoteInfo = "Pocket Fitness";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F702B9F8207AD52D00326E59 /* Pocket Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F702B9FB207AD52D00326E59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F702B9FD207AD52D00326E59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F702BA00207AD52D00326E59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F702BA02207AD52D00326E59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F702BA05207AD52D00326E59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F702BA07207AD52D00326E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F702BA0C207AD52D00326E59 /* Pocket FitnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pocket FitnessTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F702BA10207AD52D00326E59 /* Pocket_FitnessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pocket_FitnessTests.swift; sourceTree = "<group>"; };
+		F702BA12207AD52D00326E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F702BA17207AD52D00326E59 /* Pocket FitnessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pocket FitnessUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F702BA1B207AD52D00326E59 /* Pocket_FitnessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pocket_FitnessUITests.swift; sourceTree = "<group>"; };
+		F702BA1D207AD52D00326E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F702B9F5207AD52D00326E59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F702BA09207AD52D00326E59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F702BA14207AD52D00326E59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F702B9EF207AD52D00326E59 = {
+			isa = PBXGroup;
+			children = (
+				F702B9FA207AD52D00326E59 /* Pocket Fitness */,
+				F702BA0F207AD52D00326E59 /* Pocket FitnessTests */,
+				F702BA1A207AD52D00326E59 /* Pocket FitnessUITests */,
+				F702B9F9207AD52D00326E59 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F702B9F9207AD52D00326E59 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F702B9F8207AD52D00326E59 /* Pocket Fitness.app */,
+				F702BA0C207AD52D00326E59 /* Pocket FitnessTests.xctest */,
+				F702BA17207AD52D00326E59 /* Pocket FitnessUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F702B9FA207AD52D00326E59 /* Pocket Fitness */ = {
+			isa = PBXGroup;
+			children = (
+				F702B9FB207AD52D00326E59 /* AppDelegate.swift */,
+				F702B9FD207AD52D00326E59 /* ViewController.swift */,
+				F702B9FF207AD52D00326E59 /* Main.storyboard */,
+				F702BA02207AD52D00326E59 /* Assets.xcassets */,
+				F702BA04207AD52D00326E59 /* LaunchScreen.storyboard */,
+				F702BA07207AD52D00326E59 /* Info.plist */,
+			);
+			path = "Pocket Fitness";
+			sourceTree = "<group>";
+		};
+		F702BA0F207AD52D00326E59 /* Pocket FitnessTests */ = {
+			isa = PBXGroup;
+			children = (
+				F702BA10207AD52D00326E59 /* Pocket_FitnessTests.swift */,
+				F702BA12207AD52D00326E59 /* Info.plist */,
+			);
+			path = "Pocket FitnessTests";
+			sourceTree = "<group>";
+		};
+		F702BA1A207AD52D00326E59 /* Pocket FitnessUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F702BA1B207AD52D00326E59 /* Pocket_FitnessUITests.swift */,
+				F702BA1D207AD52D00326E59 /* Info.plist */,
+			);
+			path = "Pocket FitnessUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F702B9F7207AD52D00326E59 /* Pocket Fitness */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F702BA20207AD52D00326E59 /* Build configuration list for PBXNativeTarget "Pocket Fitness" */;
+			buildPhases = (
+				F702B9F4207AD52D00326E59 /* Sources */,
+				F702B9F5207AD52D00326E59 /* Frameworks */,
+				F702B9F6207AD52D00326E59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pocket Fitness";
+			productName = "Pocket Fitness";
+			productReference = F702B9F8207AD52D00326E59 /* Pocket Fitness.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F702BA0B207AD52D00326E59 /* Pocket FitnessTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F702BA23207AD52D00326E59 /* Build configuration list for PBXNativeTarget "Pocket FitnessTests" */;
+			buildPhases = (
+				F702BA08207AD52D00326E59 /* Sources */,
+				F702BA09207AD52D00326E59 /* Frameworks */,
+				F702BA0A207AD52D00326E59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F702BA0E207AD52D00326E59 /* PBXTargetDependency */,
+			);
+			name = "Pocket FitnessTests";
+			productName = "Pocket FitnessTests";
+			productReference = F702BA0C207AD52D00326E59 /* Pocket FitnessTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F702BA16207AD52D00326E59 /* Pocket FitnessUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F702BA26207AD52D00326E59 /* Build configuration list for PBXNativeTarget "Pocket FitnessUITests" */;
+			buildPhases = (
+				F702BA13207AD52D00326E59 /* Sources */,
+				F702BA14207AD52D00326E59 /* Frameworks */,
+				F702BA15207AD52D00326E59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F702BA19207AD52D00326E59 /* PBXTargetDependency */,
+			);
+			name = "Pocket FitnessUITests";
+			productName = "Pocket FitnessUITests";
+			productReference = F702BA17207AD52D00326E59 /* Pocket FitnessUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F702B9F0207AD52D00326E59 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Vikram Work/School";
+				TargetAttributes = {
+					F702B9F7207AD52D00326E59 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					F702BA0B207AD52D00326E59 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F702B9F7207AD52D00326E59;
+					};
+					F702BA16207AD52D00326E59 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F702B9F7207AD52D00326E59;
+					};
+				};
+			};
+			buildConfigurationList = F702B9F3207AD52D00326E59 /* Build configuration list for PBXProject "Pocket Fitness" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F702B9EF207AD52D00326E59;
+			productRefGroup = F702B9F9207AD52D00326E59 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F702B9F7207AD52D00326E59 /* Pocket Fitness */,
+				F702BA0B207AD52D00326E59 /* Pocket FitnessTests */,
+				F702BA16207AD52D00326E59 /* Pocket FitnessUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F702B9F6207AD52D00326E59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F702BA06207AD52D00326E59 /* LaunchScreen.storyboard in Resources */,
+				F702BA03207AD52D00326E59 /* Assets.xcassets in Resources */,
+				F702BA01207AD52D00326E59 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F702BA0A207AD52D00326E59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F702BA15207AD52D00326E59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F702B9F4207AD52D00326E59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F702B9FE207AD52D00326E59 /* ViewController.swift in Sources */,
+				F702B9FC207AD52D00326E59 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F702BA08207AD52D00326E59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F702BA11207AD52D00326E59 /* Pocket_FitnessTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F702BA13207AD52D00326E59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F702BA1C207AD52D00326E59 /* Pocket_FitnessUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F702BA0E207AD52D00326E59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F702B9F7207AD52D00326E59 /* Pocket Fitness */;
+			targetProxy = F702BA0D207AD52D00326E59 /* PBXContainerItemProxy */;
+		};
+		F702BA19207AD52D00326E59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F702B9F7207AD52D00326E59 /* Pocket Fitness */;
+			targetProxy = F702BA18207AD52D00326E59 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F702B9FF207AD52D00326E59 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F702BA00207AD52D00326E59 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F702BA04207AD52D00326E59 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F702BA05207AD52D00326E59 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F702BA1E207AD52D00326E59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F702BA1F207AD52D00326E59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F702BA21207AD52D00326E59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C7NV2676P8;
+				INFOPLIST_FILE = "Pocket Fitness/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vikramgrewal.Pocket-Fitness";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F702BA22207AD52D00326E59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C7NV2676P8;
+				INFOPLIST_FILE = "Pocket Fitness/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vikramgrewal.Pocket-Fitness";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F702BA24207AD52D00326E59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C7NV2676P8;
+				INFOPLIST_FILE = "Pocket FitnessTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vikramgrewal.Pocket-FitnessTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pocket Fitness.app/Pocket Fitness";
+			};
+			name = Debug;
+		};
+		F702BA25207AD52D00326E59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C7NV2676P8;
+				INFOPLIST_FILE = "Pocket FitnessTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vikramgrewal.Pocket-FitnessTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pocket Fitness.app/Pocket Fitness";
+			};
+			name = Release;
+		};
+		F702BA27207AD52D00326E59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C7NV2676P8;
+				INFOPLIST_FILE = "Pocket FitnessUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vikramgrewal.Pocket-FitnessUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pocket Fitness";
+			};
+			name = Debug;
+		};
+		F702BA28207AD52D00326E59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C7NV2676P8;
+				INFOPLIST_FILE = "Pocket FitnessUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vikramgrewal.Pocket-FitnessUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pocket Fitness";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F702B9F3207AD52D00326E59 /* Build configuration list for PBXProject "Pocket Fitness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F702BA1E207AD52D00326E59 /* Debug */,
+				F702BA1F207AD52D00326E59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F702BA20207AD52D00326E59 /* Build configuration list for PBXNativeTarget "Pocket Fitness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F702BA21207AD52D00326E59 /* Debug */,
+				F702BA22207AD52D00326E59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F702BA23207AD52D00326E59 /* Build configuration list for PBXNativeTarget "Pocket FitnessTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F702BA24207AD52D00326E59 /* Debug */,
+				F702BA25207AD52D00326E59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F702BA26207AD52D00326E59 /* Build configuration list for PBXNativeTarget "Pocket FitnessUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F702BA27207AD52D00326E59 /* Debug */,
+				F702BA28207AD52D00326E59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F702B9F0207AD52D00326E59 /* Project object */;
+}
