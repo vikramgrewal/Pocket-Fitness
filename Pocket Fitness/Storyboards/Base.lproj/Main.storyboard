@@ -42,6 +42,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+<<<<<<< HEAD
         <!--Exercises-->
         <scene sceneID="qT1-hH-OXD">
             <objects>
@@ -126,5 +127,7 @@
             </objects>
             <point key="canvasLocation" x="930" y="4"/>
         </scene>
+=======
+>>>>>>> 32e5c320868ed4fc8545d727eb5cf647efd991a9
     </scenes>
 </document>
