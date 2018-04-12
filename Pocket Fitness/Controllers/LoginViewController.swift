@@ -33,6 +33,7 @@ class LoginViewController: UIViewController {
 
    func setupFacebookLogin() {
       facebookLoginButton.addTarget(self, action: #selector(loginButtonClicked), for: .touchUpInside)
+
    }
 
    @objc func loginButtonClicked()  {
@@ -60,12 +61,20 @@ class LoginViewController: UIViewController {
       }
    }
 
+
    func checkCredentials() {
+
+      let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+
       if UserSession.isLoggedIn()   {
-         print("Logged in")
+         alertVC.title = "Logged In"
       }  else  {
-         print("Not logged in")
+         alertVC.title = "Not logged in"
       }
+      alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+      present(alertVC, animated: true, completion: nil)
+
    }
 
     /*
