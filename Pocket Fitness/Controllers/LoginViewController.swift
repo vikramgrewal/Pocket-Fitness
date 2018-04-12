@@ -19,6 +19,8 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
          setupFacebookLogin()
+
+         checkCredentials()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,11 +39,29 @@ class LoginViewController: UIViewController {
          case .failed(let error):
             print(error)
          case .success(let grantedPermissions, let declinedPermissions, let token):
-            print("User successfully logged in")
+            let retrievedToken = token.authenticationToken
+            let refreshDate = token.refreshDate
+            let expirationDate = token.expirationDate
+            let userId = token.userId!
+
+            let user = User(userId: userId, retrievedToken: retrievedToken, refreshDate: refreshDate, expirationDate: expirationDate)
+
+            DispatchQueue.main.async {
+               UserSession.login(user: user)
+            }
+            
          case .cancelled:
             print("User cancelled log in")
          }
 
+      }
+   }
+
+   func checkCredentials() {
+      if UserSession.isLoggedIn()   {
+         print("Logged in")
+      }  else  {
+         print("Not logged in")
       }
    }
 

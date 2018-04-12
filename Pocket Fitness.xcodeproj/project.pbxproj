@@ -17,6 +17,8 @@
 		F702BA11207AD52D00326E59 /* Pocket_FitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702BA10207AD52D00326E59 /* Pocket_FitnessTests.swift */; };
 		F702BA1C207AD52D00326E59 /* Pocket_FitnessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702BA1B207AD52D00326E59 /* Pocket_FitnessUITests.swift */; };
 		F732BA12207ED54A002EBF27 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F732BA11207ED54A002EBF27 /* LoginViewController.swift */; };
+		F76FC2A1207EE31C0017C560 /* AuthenticationKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76FC2A0207EE31C0017C560 /* AuthenticationKeychain.swift */; };
+		F76FC2A3207EF3510017C560 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76FC2A2207EF3510017C560 /* User.swift */; };
 		F77035386418932B7CF7A708 /* Pods_Pocket_Fitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7996C3789AB124093AF2C355 /* Pods_Pocket_Fitness.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,8 @@
 		F702BA1B207AD52D00326E59 /* Pocket_FitnessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pocket_FitnessUITests.swift; sourceTree = "<group>"; };
 		F702BA1D207AD52D00326E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F732BA11207ED54A002EBF27 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F76FC2A0207EE31C0017C560 /* AuthenticationKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationKeychain.swift; sourceTree = "<group>"; };
+		F76FC2A2207EF3510017C560 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,13 +143,12 @@
 		F702B9FA207AD52D00326E59 /* Pocket Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				F76FC29F207EE3040017C560 /* Models */,
+				F76FC29E207EE2F30017C560 /* Storyboards */,
+				F76FC29D207EE2E50017C560 /* Controllers */,
 				F702B9FB207AD52D00326E59 /* AppDelegate.swift */,
-				F702B9FD207AD52D00326E59 /* ViewController.swift */,
-				F702B9FF207AD52D00326E59 /* Main.storyboard */,
 				F702BA02207AD52D00326E59 /* Assets.xcassets */,
-				F702BA04207AD52D00326E59 /* LaunchScreen.storyboard */,
 				F702BA07207AD52D00326E59 /* Info.plist */,
-				F732BA11207ED54A002EBF27 /* LoginViewController.swift */,
 			);
 			path = "Pocket Fitness";
 			sourceTree = "<group>";
@@ -166,6 +169,33 @@
 				F702BA1D207AD52D00326E59 /* Info.plist */,
 			);
 			path = "Pocket FitnessUITests";
+			sourceTree = "<group>";
+		};
+		F76FC29D207EE2E50017C560 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F702B9FD207AD52D00326E59 /* ViewController.swift */,
+				F732BA11207ED54A002EBF27 /* LoginViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F76FC29E207EE2F30017C560 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F702B9FF207AD52D00326E59 /* Main.storyboard */,
+				F702BA04207AD52D00326E59 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F76FC29F207EE3040017C560 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F76FC2A0207EE31C0017C560 /* AuthenticationKeychain.swift */,
+				F76FC2A2207EF3510017C560 /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,6 +506,8 @@
 				F732BA12207ED54A002EBF27 /* LoginViewController.swift in Sources */,
 				F702B9FE207AD52D00326E59 /* ViewController.swift in Sources */,
 				F702B9FC207AD52D00326E59 /* AppDelegate.swift in Sources */,
+				F76FC2A3207EF3510017C560 /* User.swift in Sources */,
+				F76FC2A1207EE31C0017C560 /* AuthenticationKeychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
