@@ -67,11 +67,8 @@ class LoginViewController: UIViewController {
       let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
 
       if UserSession.isLoggedIn()   {
-<<<<<<< HEAD
          alertVC.title = "Logged In"
-=======
          print("Logged in")
->>>>>>> 32e5c320868ed4fc8545d727eb5cf647efd991a9
       }  else  {
          alertVC.title = "Not logged in"
       }
