@@ -62,9 +62,7 @@ class LoginViewController: UIViewController {
 
    func checkCredentials() {
       if UserSession.isLoggedIn()   {
-         DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "loggedInSegue", sender: self)
-         }
+         print("Logged in")
       }  else  {
          print("Not logged in")
       }
