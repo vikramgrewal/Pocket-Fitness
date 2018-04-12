@@ -9,6 +9,7 @@
 import Foundation
 
 let loginKey = "isLoggedIn"
+let defaults = UserDefaults.standard
 
 struct User {
    let userId, retrievedToken : String
@@ -23,16 +24,17 @@ class UserSession {
    }
 
    static func login(user : User)   {
-      UserDefaults.standard.setValue(true, forKey: loginKey)
-      UserDefaults.standard.synchronize()
+      defaults.setValue(true, forKey: loginKey)
+      defaults.synchronize()
       KeychainController.saveID(ID: user.userId as NSString)
       KeychainController.saveToken(token: user.retrievedToken as NSString)
       KeychainController.saveTokenRefreshDate(refreshDate: user.refreshDate as NSDate)
       KeychainController.saveTokenExpirationDate(expirationDate: user.expirationDate as NSDate)
    }
 
-   static func logout(user : User)  {
-      UserDefaults.setValue(false, forKey: loginKey)
+   static func logout()  {
+      defaults.setValue(false, forKey: loginKey)
+      defaults.synchronize()
    }
 
 }

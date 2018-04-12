@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Pocket_Fitness" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginView" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Pocket_Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,10 +37,39 @@
                     </view>
                     <connections>
                         <outlet property="facebookLoginButton" destination="SqT-GL-KmI" id="u6m-XE-Je9"/>
+                        <segue destination="gmQ-nl-UjU" kind="show" identifier="loggedInSegue" id="DdQ-Xs-nbE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qjV-z4-CTY">
+            <objects>
+                <viewController id="gmQ-nl-UjU" customClass="ViewController" customModule="Pocket_Fitness" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XDu-Of-gWO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgc-24-0Jz">
+                                <rect key="frame" x="163" y="318" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Mgc-24-0Jz" firstAttribute="centerX" secondItem="XDu-Of-gWO" secondAttribute="centerX" id="JHY-ZV-DOi"/>
+                            <constraint firstItem="Mgc-24-0Jz" firstAttribute="centerY" secondItem="XDu-Of-gWO" secondAttribute="centerY" id="shC-mt-eYl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gjQ-j5-RSH"/>
+                    </view>
+                    <connections>
+                        <outlet property="logoutButton" destination="Mgc-24-0Jz" id="uNV-S5-wqz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gYJ-44-5iX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1586" y="30"/>
         </scene>
     </scenes>
 </document>

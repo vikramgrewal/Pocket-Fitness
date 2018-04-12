@@ -20,8 +20,11 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
          setupFacebookLogin()
 
-         checkCredentials()
     }
+
+   override func viewDidAppear(_ animated: Bool) {
+      checkCredentials()
+   }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -59,7 +62,9 @@ class LoginViewController: UIViewController {
 
    func checkCredentials() {
       if UserSession.isLoggedIn()   {
-         print("Logged in")
+         DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "loggedInSegue", sender: self)
+         }
       }  else  {
          print("Not logged in")
       }
