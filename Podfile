@@ -9,6 +9,7 @@ target 'Pocket Fitness' do
    pod 'FacebookCore'
    pod 'FacebookLogin'
    pod 'FacebookShare'
+   pod 'Material', '~> 2.14'
 
   target 'Pocket FitnessTests' do
     inherit! :search_paths

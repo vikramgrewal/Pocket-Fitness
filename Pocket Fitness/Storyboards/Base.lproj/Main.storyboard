@@ -45,7 +45,7 @@
         <!--Exercises-->
         <scene sceneID="qT1-hH-OXD">
             <objects>
-                <viewController id="rtK-cl-Gtd" sceneMemberID="viewController">
+                <viewController id="rtK-cl-Gtd" customClass="ExercisesViewController" customModule="Pocket_Fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iWU-DA-Dzh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

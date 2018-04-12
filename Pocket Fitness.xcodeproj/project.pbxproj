@@ -15,6 +15,7 @@
 		F702BA06207AD52D00326E59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F702BA04207AD52D00326E59 /* LaunchScreen.storyboard */; };
 		F702BA11207AD52D00326E59 /* Pocket_FitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702BA10207AD52D00326E59 /* Pocket_FitnessTests.swift */; };
 		F702BA1C207AD52D00326E59 /* Pocket_FitnessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702BA1B207AD52D00326E59 /* Pocket_FitnessUITests.swift */; };
+		F70A6919207FFC5500F9598F /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70A6918207FFC5500F9598F /* ExercisesViewController.swift */; };
 		F732BA12207ED54A002EBF27 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F732BA11207ED54A002EBF27 /* LoginViewController.swift */; };
 		F76FC2A1207EE31C0017C560 /* AuthenticationKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76FC2A0207EE31C0017C560 /* AuthenticationKeychain.swift */; };
 		F76FC2A3207EF3510017C560 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76FC2A2207EF3510017C560 /* User.swift */; };
@@ -60,6 +61,7 @@
 		F702BA17207AD52D00326E59 /* Pocket FitnessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pocket FitnessUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F702BA1B207AD52D00326E59 /* Pocket_FitnessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pocket_FitnessUITests.swift; sourceTree = "<group>"; };
 		F702BA1D207AD52D00326E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F70A6918207FFC5500F9598F /* ExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
 		F732BA11207ED54A002EBF27 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F76FC2A0207EE31C0017C560 /* AuthenticationKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationKeychain.swift; sourceTree = "<group>"; };
 		F76FC2A2207EF3510017C560 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				F732BA11207ED54A002EBF27 /* LoginViewController.swift */,
+				F70A6918207FFC5500F9598F /* ExercisesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -366,6 +369,8 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
+				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -376,6 +381,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -504,6 +511,7 @@
 				F702B9FC207AD52D00326E59 /* AppDelegate.swift in Sources */,
 				F76FC2A3207EF3510017C560 /* User.swift in Sources */,
 				F76FC2A1207EE31C0017C560 /* AuthenticationKeychain.swift in Sources */,
+				F70A6919207FFC5500F9598F /* ExercisesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
