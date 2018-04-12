@@ -10,7 +10,6 @@
 		5EA842A46997E869ACA719F2 /* Pods_Pocket_FitnessTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC60AE645BB68005168A274 /* Pods_Pocket_FitnessTests.framework */; };
 		66A02B278140DEA43BB0C6B3 /* Pods_Pocket_FitnessUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3F54663E5D52F0FDEB49D1 /* Pods_Pocket_FitnessUITests.framework */; };
 		F702B9FC207AD52D00326E59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702B9FB207AD52D00326E59 /* AppDelegate.swift */; };
-		F702B9FE207AD52D00326E59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702B9FD207AD52D00326E59 /* ViewController.swift */; };
 		F702BA01207AD52D00326E59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F702B9FF207AD52D00326E59 /* Main.storyboard */; };
 		F702BA03207AD52D00326E59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F702BA02207AD52D00326E59 /* Assets.xcassets */; };
 		F702BA06207AD52D00326E59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F702BA04207AD52D00326E59 /* LaunchScreen.storyboard */; };
@@ -51,7 +50,6 @@
 		E77A86B652B29B9B975D0D91 /* Pods-Pocket FitnessUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket FitnessUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket FitnessUITests/Pods-Pocket FitnessUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F702B9F8207AD52D00326E59 /* Pocket Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F702B9FB207AD52D00326E59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F702B9FD207AD52D00326E59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F702BA00207AD52D00326E59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F702BA02207AD52D00326E59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F702BA05207AD52D00326E59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 		F76FC29D207EE2E50017C560 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F702B9FD207AD52D00326E59 /* ViewController.swift */,
 				F732BA11207ED54A002EBF27 /* LoginViewController.swift */,
 			);
 			path = Controllers;
@@ -504,7 +501,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F732BA12207ED54A002EBF27 /* LoginViewController.swift in Sources */,
-				F702B9FE207AD52D00326E59 /* ViewController.swift in Sources */,
 				F702B9FC207AD52D00326E59 /* AppDelegate.swift in Sources */,
 				F76FC2A3207EF3510017C560 /* User.swift in Sources */,
 				F76FC2A1207EE31C0017C560 /* AuthenticationKeychain.swift in Sources */,
