@@ -41,6 +41,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-81" y="21"/>
         </scene>
         <!--Exercises-->
         <scene sceneID="qT1-hH-OXD">
@@ -49,14 +50,57 @@
                     <view key="view" contentMode="scaleToFill" id="iWU-DA-Dzh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ocd-Tu-gR4">
+                                <rect key="frame" x="0.0" y="70" width="375" height="548"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ocd-Tu-gR4" firstAttribute="bottom" secondItem="UJX-fI-xhn" secondAttribute="bottom" id="PtQ-fc-5ce"/>
+                            <constraint firstItem="UJX-fI-xhn" firstAttribute="trailing" secondItem="ocd-Tu-gR4" secondAttribute="trailing" id="Skg-n9-h3x"/>
+                            <constraint firstItem="ocd-Tu-gR4" firstAttribute="top" secondItem="UJX-fI-xhn" secondAttribute="top" constant="50" id="Vlm-ca-OYE"/>
+                            <constraint firstItem="ocd-Tu-gR4" firstAttribute="leading" secondItem="UJX-fI-xhn" secondAttribute="leading" id="mk9-o6-B2s"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UJX-fI-xhn"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Exercises" id="HaH-rI-pFd" userLabel="Exercises"/>
+                    <connections>
+                        <outlet property="exercisesTableView" destination="ocd-Tu-gR4" id="yy7-7K-zM1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eXu-3k-lVw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1884" y="-90"/>
+        </scene>
+        <!--Exercises Table View Controller-->
+        <scene sceneID="3D9-Bp-K61">
+            <objects>
+                <tableViewController id="wi7-5O-oXs" customClass="ExercisesTableViewController" customModule="Pocket_Fitness" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="D46-yF-SIV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Zr7-Go-R1z">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zr7-Go-R1z" id="BYJ-ka-JtV">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wi7-5O-oXs" id="JB0-kv-FLq"/>
+                            <outlet property="delegate" destination="wi7-5O-oXs" id="YJP-qg-tfX"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fkp-ap-Liu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2724" y="-90"/>
         </scene>
         <!--Explore-->
         <scene sceneID="ANa-Jt-RiT">
