@@ -14,22 +14,31 @@ class ExercisesViewController: UIViewController {
    var exercises : [Exercise]!
    var filteredExercises : [Exercise]!
    var exercisesSearchBarController : ExercisesSearchBarController!
-
-   @IBOutlet weak var exercisesTableView: UITableView!
+   var exerciseView : ExercisesView!
 
    override func viewDidLoad() {
-        super.viewDidLoad()
+     super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-         prepareSearchBar()
+     // Do any additional setup after loading the view.
 
-         setData()
+
+      setData()
+      setView()
+      prepareSearchDelegate()
+      prepareTableDelegate()
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+   func setView() {
+      let parentFrame = self.view.frame
+      exerciseView = ExercisesView(frame: parentFrame)
+      view.addSubview(exerciseView)
+   }
     
 
     /*
@@ -45,19 +54,15 @@ class ExercisesViewController: UIViewController {
 }
 
 extension ExercisesViewController : SearchBarDelegate {
-   internal func prepareSearchBar() {
+   internal func prepareSearchDelegate() {
 
       exercisesSearchBarController = ExercisesSearchBarController()
-      let searchBarFrame = CGRect(x: 0, y: 20, width: view.bounds.size.width, height: 50)
-      exercisesSearchBarController.searchBar.frame = searchBarFrame
 
       // Access the searchBar.
-      guard let searchBar = exercisesSearchBarController?.searchBar else {
+      guard let searchBar = exerciseView.searchBar else {
          debugPrint("Didn't find search bar")
          return
       }
-
-      view.addSubview(searchBar)
 
       searchBar.endEditing(true)
       searchBar.delegate = self
@@ -74,16 +79,19 @@ extension ExercisesViewController : SearchBarDelegate {
          filteredExercises.removeAll()
          exercisesSearchBarController?.isEditing = false
       }
-      exercisesTableView.reloadData()
+      exerciseView.tableView.reloadData()
    }
 
    func searchBar(searchBar: SearchBar, didClear textField: UITextField, with text: String?) {
-      filteredExercises.removeAll()
-      exercisesSearchBarController?.isEditing = false
+      DispatchQueue.main.async {
+      self.filteredExercises.removeAll()
+      self.exercisesSearchBarController?.isEditing = false
       if text != nil && text?.count == 0 {
-         exercisesSearchBarController.searchBar.endEditing(true)
+         self.exerciseView.searchBar.endEditing(true)
       }
-      exercisesTableView.reloadData()
+         self.exerciseView.tableView.reloadData()
+      }
+
    }
 
 
@@ -92,8 +100,17 @@ extension ExercisesViewController : SearchBarDelegate {
 
 extension ExercisesViewController : UITableViewDelegate, UITableViewDataSource {
 
+   internal func prepareTableDelegate()   {
+
+      exerciseView.tableView.delegate = self
+      exerciseView.tableView.dataSource = self
+      exerciseView.tableView.separatorStyle = .singleLine
+      exerciseView.tableView.separatorColor = .black
+      exerciseView.tableView.reloadData()
+   }
+
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      guard let data = exercises else {
+      guard let _ = exercises else {
          return 0
       }
       if !exercisesSearchBarController.isEditing {
@@ -114,28 +131,129 @@ extension ExercisesViewController : UITableViewDelegate, UITableViewDataSource {
          cell.textLabel?.text = data.exerciseName
       }
 
+      let cellOption = UIView()
+      cell.addSubview(cellOption)
+      cellOption.backgroundColor = .red
+
+      let trailing = cellOption.trailingAnchor.constraint(equalTo: cell.trailingAnchor)
+      let top = cellOption.topAnchor.constraint(equalTo: cell.topAnchor)
+      let bottom = cellOption.bottomAnchor.constraint(equalTo: cell.bottomAnchor)
+      let width = NSLayoutConstraint(item: cellOption, attribute: .width,
+                                     relatedBy: .equal, toItem: nil,
+                                     attribute: .notAnAttribute, multiplier: 1.0,
+                                     constant: 50)
+
+      let constraints = [trailing, top, bottom, width]
+      cellOption.translatesAutoresizingMaskIntoConstraints = false
+      NSLayoutConstraint.activate(constraints)
+
+//      let holdGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleHoldGesture(_:)))
+//      cell.addGestureRecognizer(holdGestureRecognizer)
+
+      let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(_:)))
+      cell.addGestureRecognizer(tapGestureRecognizer)
+
+      let optionGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleOptionTapGesture(_:)))
+      cellOption.addGestureRecognizer(optionGestureRecognizer)
       return cell
+   }
+
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      // You other cell selected functions here ...
+      // then add the below at the end of it.
+      exerciseView.tableView.deselectRow(at: indexPath, animated: true)
+   }
+
+   @objc func handleOptionTapGesture(_ gesture: UITapGestureRecognizer)  {
+
+      let location = gesture.location(in: exerciseView.tableView)
+      guard let indexPath = exerciseView.tableView.indexPathForRow(at: location) else {
+         return
+      }
+      let row = indexPath.row
+      let cell = exerciseView.tableView.cellForRow(at: indexPath)
+
+      let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .actionSheet)
+
+      let addExerciseAction = UIAlertAction(title: "Add Exercise To Workout", style: .default, handler: {
+         (alert: UIAlertAction!) -> Void in
+         print("File Deleted")
+      })
+
+      let deleteExerciseAction = UIAlertAction(title: "Delete Exercise", style: .default, handler: {
+         (alert: UIAlertAction!) -> Void in
+         print("File Saved")
+      })
+
+      let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+         (alert: UIAlertAction!) -> Void in
+         print("Cancelled")
+      })
+
+      optionMenu.addAction(addExerciseAction)
+      optionMenu.addAction(deleteExerciseAction)
+      optionMenu.addAction(cancelAction)
+
+      self.present(optionMenu, animated: true, completion: nil)
+
+   }
+
+   @objc func handleTapGesture(_ gesture: UITapGestureRecognizer)  {
+
+      let location = gesture.location(in: exerciseView.tableView)
+      guard let indexPath = exerciseView.tableView.indexPathForRow(at: location) else {
+         return
+      }
+      let row = indexPath.row
+
+      let cell = exerciseView.tableView.cellForRow(at: indexPath)
+
+      let addExerciseVC = AddExerciseViewController()
+      addExerciseVC.modalPresentationStyle = .overFullScreen
+      present(addExerciseVC, animated: true, completion: nil)
+
+//      if !exercisesSearchBarController.isEditing {
+//         print(exercises[row].exerciseName)
+//      }  else  {
+//         print(filteredExercises[row].exerciseName)
+//      }
+
    }
 
    // Takes care of table view
    internal func setData() {
 
-      let exerciseNames = ["Deadlift", "Bench Press", "Dips", "Military Press"]
-      let exerciseBodyParts = ["Back", "Chest", "Triceps", "Shoulders"]
-      var exercises : [Exercise] = [Exercise]()
+      exercises = [Exercise]()
       filteredExercises = [Exercise]()
-      for index in 0...exerciseNames.count-1   {
-         let uuid = UUID()
-         let exerciseName = exerciseNames[index]
-         let exerciseBodyPart = exerciseBodyParts[index]
-         let exercise = Exercise(exerciseId: uuid, exerciseName: exerciseName,
-                                 exerciseBodyPart: exerciseBodyPart)
-         exercises.append(exercise)
+
+      let path = Bundle.main.path(forResource: "exercises", ofType: "json")
+      let url = URL(fileURLWithPath: path!)
+
+      do {
+         let data = try Data(contentsOf: url)
+         let object = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: AnyObject]
+         if let dictionary = object as? [String: AnyObject] {
+            guard let jsonExercises = object["exercises"] as? [[String: Any]]   else {
+               return
+            }
+            for exercise in jsonExercises {
+               let exerciseName = exercise["name"] as! String
+               let exerciseMuscleGroup = exercise["muscle"] as! String
+               let exerciseType = exercise["type"] as! String
+               exercises.append(Exercise(exerciseName: exerciseName, exerciseBodyPart: exerciseMuscleGroup,
+                                         exerciseType: exerciseType))
+            }
+         }
+
+      }  catch {
+         print(error)
       }
-      self.exercises = exercises
-      exercisesTableView.delegate = self
-      exercisesTableView.dataSource = self
-      exercisesTableView.reloadData()
+
+      let filter = ExerciseFilter(exercises: exercises)
+      print(filter.sortCases)
+
    }
+
+
 
 }

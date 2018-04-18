@@ -1,0 +1,3834 @@
+{
+    "exercises": [
+        {
+            "name": "3/4 Sit-Up",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Ab Crunch Machine",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Ab Roller",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Advanced Kettlebell Windmill",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Air Bike",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Alternate Heel Touchers",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Ab Rollout",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Ab Rollout - On Knees",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Rollout from Bench",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Side Bend",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Bent Press",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Bent-Knee Hip Raise",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Bosu Ball Cable Crunch With Side Bends",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Bosu Ball Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Bottoms Up",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Breakdancer",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Butt-Ups",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Judo Flip",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Reverse Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Russian Twists",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Seated Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Cocoons",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Crab Toe Touch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Cross Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Cross-Body Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Crunch - Hands Overhead",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Crunch - Legs On Exercise Ball",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Crunches",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Dead Bug",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Decline Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Decline Oblique Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Decline Reverse Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Double Kettlebell Windmill",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Side Bend",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell V-Sit Cross Jab",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Elbow to Knee",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Exercise Ball Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Exercise Ball Pull-In",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Flat Bench Leg Pull-In",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Flat Bench Lying Leg Raise",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Frog Sit-Ups",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Full Moon",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Gorilla Chin/Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Hanging Leg Raise",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Hanging Oblique Knee Raise",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Hanging Pike",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Jackknife Sit-Up",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Janda Sit-Up",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell 3-Point Extension",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Figure 8",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Pass Between The Legs",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Windmill",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Knee/Hip Raise On Parallel Bars",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Kneeling Cable Crunch With Alternating Oblique Twists",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Landmine 180's",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Leg Pull-In",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Medicine Ball Rotational Throw",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Oblique Cable Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Oblique Crunches",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Oblique Crunches - On The Floor",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm High-Pulley Cable Side Bends",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Medicine Ball Slam",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Otis-Up",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Pallof Press",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Pallof Press With Rotation",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Partner 3-Touch Motion Russian Twist",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Partner Facing Planks With Alternating High-Five",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Partner Hanging Knee Raise With Manual Resistance",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Partner Hanging Knee Raise With Throw Down",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Partner Lying Leg Raise With Lateral Throw Down",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Partner Lying Leg Raise With Throw Down",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Partner Side-To-Side Russian Twist & Pass",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Partner Sit-Up With High-Five",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Partner Target Sit-Up",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Plank",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Plate Twist",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Press Sit-Up",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Reverse Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Rope Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Russian Twist",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Barbell Twist",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Flat Bench Leg Pull-In",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Leg Tucks",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Scissor Kick",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Shoulder Tap",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Side Bridge",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Side Jackknife",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Sit-Up",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Skin The Cat To Push-Up",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Machine Hip Raise",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Spell Caster",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Spider Crawl",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Stability Ball Pike With Knee Tuck",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Cable Lift",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Cable Wood Chop",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Rope Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Straight-Legged Hip Raise",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Suitcase Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Suspended Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Suspended Fallout",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Suspended Reverse Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Tuck Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "V-Sit Lying Down Ball Throw And Catch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Waiter's Carry",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Weighted Ball Side Bend",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Weighted Crunches",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Weighted Sit-Ups - With Bands",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Weighted Suitcase Crunch",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Wind Sprints",
+            "muscle": "Abdominals",
+            "type": "Strength"
+        },
+        {
+            "name": "Clam",
+            "muscle": "Abductors",
+            "type": "Strength"
+        },
+        {
+            "name": "Fire Hydrant",
+            "muscle": "Abductors",
+            "type": "Strength"
+        },
+        {
+            "name": "Lateral Band Walk",
+            "muscle": "Abductors",
+            "type": "Strength"
+        },
+        {
+            "name": "Monster Walk",
+            "muscle": "Abductors",
+            "type": "Strength"
+        },
+        {
+            "name": "Thigh Abductor",
+            "muscle": "Abductors",
+            "type": "Strength"
+        },
+        {
+            "name": "Band Hip Adductions",
+            "muscle": "Adductors",
+            "type": "Strength"
+        },
+        {
+            "name": "Thigh Adductor",
+            "muscle": "Adductors",
+            "type": "Strength"
+        },
+        {
+            "name": "Alternate Hammer Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Alternate Incline Dumbbell Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Curls Lying Against An Incline",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Biceps Curl To Shoulder Press",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Hammer Curls - Rope Attachment",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Preacher Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Close-Grip EZ Bar Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Close-Grip EZ-Bar Curl with Band",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Close-Grip Standing Barbell Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Concentration Curls",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Cross Body Hammer Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Drag Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Alternate Bicep Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Bicep Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Prone Incline Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "EZ-Bar Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Flexor Incline Dumbbell Curls",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Hammer Curls",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Hammer Plate Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "High Cable Curls",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Incline Dumbbell Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Incline Hammer Curls",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Incline Inner Biceps Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Lying Cable Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Lying Close-Grip Bar Curl On High Pulley",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Lying High Bench Barbell Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Lying Supine Dumbbell Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Machine Bicep Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Machine Preacher Curls",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "One Arm Dumbbell Preacher Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Plank Dumbbell Biceps Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Overhead Cable Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Preacher Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Preacher Hammer Dumbbell Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Reverse Barbell Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Reverse Barbell Preacher Curls",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Reverse Cable Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Reverse Plate Curls",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Close-Grip Concentration Barbell Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Dumbbell Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Dumbbell Inner Biceps Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Straight-Bar Curl Superset",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Spider Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Biceps Cable Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Concentration Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Dumbbell Reverse Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Inner-Biceps Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing One-Arm Cable Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing One-Arm Dumbbell Curl Over Incline Bench",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Suspended Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Two-Arm Dumbbell Preacher Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Wide-Grip Standing Barbell Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Zottman Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Zottman Preacher Curl",
+            "muscle": "Biceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Balance Board",
+            "muscle": "Calves",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Seated Calf Raise",
+            "muscle": "Calves",
+            "type": "Strength"
+        },
+        {
+            "name": "Calf Press",
+            "muscle": "Calves",
+            "type": "Strength"
+        },
+        {
+            "name": "Calf Press On The Leg Press Machine",
+            "muscle": "Calves",
+            "type": "Strength"
+        },
+        {
+            "name": "Calf Raise On A Dumbbell",
+            "muscle": "Calves",
+            "type": "Strength"
+        },
+        {
+            "name": "Calf Raises - With Bands",
+            "muscle": "Calves",
+            "type": "Strength"
+        },
+        {
+            "name": "Donkey Calf Raises",
+            "muscle": "Calves",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Seated One-Leg Calf Raise",
+            "muscle": "Calves",
+            "type": "Strength"
+        },
+        {
+            "name": "Rocking Standing Calf Raise",
+            "muscle": "Calves",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Calf Raise",
+            "muscle": "Calves",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Machine Calf Raise",
+            "muscle": "Calves",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Machine Reverse Calf Raises",
+            "muscle": "Calves",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Barbell Calf Raise",
+            "muscle": "Calves",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Calf Raises",
+            "muscle": "Calves",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Dumbbell Calf Raise",
+            "muscle": "Calves",
+            "type": "Strength"
+        },
+        {
+            "name": "Alternating Floor Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Around The Worlds",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Bar Throw And Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Bench Press - Medium Grip",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Bench Press-Wide Grip",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Guillotine Bench Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Incline Bench Press Medium-Grip",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Bench Press - With Bands",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Bent-Arm Dumbbell Pullover",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Bodyweight Flyes",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Bosu Ball Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Burpee To Medicine Ball Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Butterfly",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Chest Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Crossover",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Iron Cross",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Clock Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Close-Hands Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Cross Over - With Bands",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Decline Barbell Bench Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Decline Dumbbell Bench Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Decline Dumbbell Flyes",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Decline Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Decline Smith Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Diamond Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Dips - Chest Version",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Dive Bomber Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Bench Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Bench Press with Neutral Grip",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Flyes",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Extended Range One-Arm Kettlebell Floor Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Feet-Elevated TRX Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Flat Bench Cable Flyes",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Front Raise And Pullover",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Hammer Grip Incline DB Bench Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Hand Release Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Incline Cable Chest Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Incline Cable Flye",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Incline Dumbbell Bench With Palms Facing In",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Incline Dumbbell Flyes",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Incline Dumbbell Flyes - With A Twist",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Incline Dumbbell Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Incline Dumbbell Press Reverse-Grip",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Incline Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Incline Push-Up Medium",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Incline Push-Up Reverse Grip",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Incline Push-Up Wide",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Isometric Wipers",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Leg-Over Floor Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Leverage Chest Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Leverage Decline Chest Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Leverage Incline Chest Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Low Cable Crossover",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Machine Bench Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Medicine-Ball Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Neck Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "One Arm Dumbbell Bench Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Flat Bench Dumbbell Flye",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Kettlebell Floor Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Plyo Kettlebell Pushups",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Push Up to Side Plank",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Push-Up Wide",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Push-Ups With Feet Elevated",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Push-Ups With Feet On An Exercise Ball",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Pushups",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Pushups (Close and Wide Hand Positions)",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Side To Side Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Single-Arm Cable Crossover",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Single-Arm Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Machine Bench Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Machine Decline Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Machine Incline Bench Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Staggered Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Cable Chest Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Straight-Arm Dumbbell Pullover",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Suspended Chest Fly",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Suspended Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Suspended Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Svend Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Tiger-Bend Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Typewriter Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Weighted Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Weighted Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Wide-Grip Barbell Bench Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Wide-Grip Decline Barbell Bench Press",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Wide-Grip Decline Barbell Pullover",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Wide-Hands Push-Up",
+            "muscle": "Chest",
+            "type": "Strength"
+        },
+        {
+            "name": "Bottoms-Up Clean From The Hang Position",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Wrist Curl",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Lying Pronation",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Lying Supination",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Finger Curls",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Palms-Down Dumbbell Wrist Curl Over A Bench",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Palms-Down Wrist Curl Over A Bench",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Palms-Up Barbell Wrist Curl Over A Bench",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Palms-Up Dumbbell Wrist Curl Over A Bench",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Partner Farmer's Walk Competition",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Partner Suitcase Carry Competition",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Plate Pinch",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Dumbbell Palms-Down Wrist Curl",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Dumbbell Palms-Up Wrist Curl",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated One-Arm Dumbbell Palms-Down Wrist Curl",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated One-Arm Dumbbell Palms-Up Wrist Curl",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Palm-Up Barbell Wrist Curl",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Palms-Down Barbell Wrist Curl",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Two-Arm Palms-Up Low-Pulley Wrist Curl",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Olympic Plate Hand Squeeze",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Palms-Up Barbell Behind The Back Wrist Curl",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Suitcase Dumbbell Carry",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Wrist Roller",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Wrist Rotations with Straight Bar",
+            "muscle": "Forearms",
+            "type": "Strength"
+        },
+        {
+            "name": "Butt Lift (Bridge)",
+            "muscle": "Glutes",
+            "type": "Strength"
+        },
+        {
+            "name": "Downward Facing Balance",
+            "muscle": "Glutes",
+            "type": "Strength"
+        },
+        {
+            "name": "Flutter Kicks",
+            "muscle": "Glutes",
+            "type": "Strength"
+        },
+        {
+            "name": "Glute Bridge Hamstring Walkout",
+            "muscle": "Glutes",
+            "type": "Strength"
+        },
+        {
+            "name": "Glute Kickback",
+            "muscle": "Glutes",
+            "type": "Strength"
+        },
+        {
+            "name": "Hip Extension with Bands",
+            "muscle": "Glutes",
+            "type": "Strength"
+        },
+        {
+            "name": "Leg Lift",
+            "muscle": "Glutes",
+            "type": "Strength"
+        },
+        {
+            "name": "Neck Bridge Supine",
+            "muscle": "Glutes",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Legged Cable Kickback",
+            "muscle": "Glutes",
+            "type": "Strength"
+        },
+        {
+            "name": "Physioball Hip Bridge",
+            "muscle": "Glutes",
+            "type": "Strength"
+        },
+        {
+            "name": "Pull Through",
+            "muscle": "Glutes",
+            "type": "Strength"
+        },
+        {
+            "name": "Single Leg Glute Bridge",
+            "muscle": "Glutes",
+            "type": "Strength"
+        },
+        {
+            "name": "Step-up with Knee Raise",
+            "muscle": "Glutes",
+            "type": "Strength"
+        },
+        {
+            "name": "Suspended Hip Thrust",
+            "muscle": "Glutes",
+            "type": "Strength"
+        },
+        {
+            "name": "Alternating Hang Clean",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Ball Leg Curl",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Deadlift",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Double Kettlebell Alternating Hang Clean",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Clean",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Floor Glute-Ham Raise",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Dead Clean",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Hang Clean",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell One-Legged Deadlift",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Lunge Pass Through",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Lying Leg Curls",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Natural Glute Ham Raise",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Kettlebell Clean",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Kettlebell Swings",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Open Palm Kettlebell Clean",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Open Palm Kettlebell Clean",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Platform Hamstring Slides",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Power Clean",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Prone Manual Hamstring",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Prowler Sprint",
+            "muscle": "Hamstrings",
+            "type": "Cardio"
+        },
+        {
+            "name": "Reverse Hyperextension",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Romanian Deadlift",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Romanian Deadlift With Dumbbells",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Romanian Deadlift with Kettlebell",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Band Hamstring Curl",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Leg Curl",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Single Leg Deadlift",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Machine Hang Power Clean",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Machine Stiff-Legged Deadlift",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Snatch Pull",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Leg Curl",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Stiff-Legged Barbell Deadlift",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Stiff-Legged Deadlift",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Stiff-Legged Dumbbell Deadlift",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Suspended Leg Curl",
+            "muscle": "Hamstrings",
+            "type": "Strength"
+        },
+        {
+            "name": "Around The World Pull-Up",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Assisted Chin-Up",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Band Assisted Pull-Up",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Bent-Arm Barbell Pullover",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Incline Pushdown",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Chin-Up",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Close-Grip Front Lat Pulldown",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Elevated Cable Rows",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Full Range-Of-Motion Lat Pulldown",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Gironda Sternum Chins",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Kipping Muscle Up",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Kneeling High Pulley Row",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Kneeling Single-Arm High Pulley Row",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "L-Sit Chin-Up",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Leverage Iso Row",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "London Bridges",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Machine-Assisted Pull-Up",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Muscle Up",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Negative Pull-Up",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Neutral-Grip Pull Ups",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "One Arm Lat Pulldown",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Pullups",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Rockers (Pullover To Press) Straight Bar",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Rocky Pull-Ups/Pulldowns",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Rope Climb",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Rope Straight-Arm Pulldown",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Shotgun Row",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Side To Side Chins",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Straight-Arm Pulldown",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Underhand Cable Pulldowns",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "V-Bar Pulldown",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "V-Bar Pullup",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Weighted Pull Ups",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Wide-Grip Lat Pulldown",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Wide-Grip Pull-Up",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Wide-Grip Pulldown Behind The Neck",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Wide-Grip Rear Pull-Up",
+            "muscle": "Lats",
+            "type": "Strength"
+        },
+        {
+            "name": "Hyperextensions (Back Extensions)",
+            "muscle": "Lower Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Hyperextensions With No Hyperextension Bench",
+            "muscle": "Lower Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Partner Flat-Bench Back Extension",
+            "muscle": "Lower Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Partner Flat-Bench Back Extension With Hold",
+            "muscle": "Lower Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Partner Supermans With Alternating High-Five",
+            "muscle": "Lower Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Back Extension",
+            "muscle": "Lower Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Stiff Leg Barbell Good Morning",
+            "muscle": "Lower Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Weighted Ball Hyperextension",
+            "muscle": "Lower Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Alternating Kettlebell Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Alternating Renegade Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Deadlift Bent Row Complex",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Bent Over Barbell Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Bent Over One-Arm Long Bar Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Bent Over Two-Arm Long Bar Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Bent Over Two-Dumbbell Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Bent Over Two-Dumbbell Row With Palms In",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Bodyweight Mid Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Incline Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Incline Bench Pull",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Inverted Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Inverted Row with Straps",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Leverage High Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Lying Cambered Barbell Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Lying T-Bar Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Man Maker",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Middle Back Shrug",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Mixed Grip Chin",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "One Arm Chin-Up",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Dumbbell Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Kettlebell Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Long Bar Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Partner Facing Feet-Elevated Side Plank With Band Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Partner Facing Plank With Band Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Partner Facing Side Plank With Band Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Pendlay Rown",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Plate Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Reverse Grip Bent-Over Rows",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Cable Rows",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated One-arm Cable Pulley Rows",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Single-Arm Landmine Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Sled Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Machine Bent Over Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Straight Bar Bench Mid Rows",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Suspended Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "T-Bar Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "T-Bar Row with Handle",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Two-Arm Kettlebell Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Yates Row",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Yates Row Reverse Grip",
+            "muscle": "Middle Back",
+            "type": "Strength"
+        },
+        {
+            "name": "Isometric Neck Exercise - Front And Back",
+            "muscle": "Neck",
+            "type": "Strength"
+        },
+        {
+            "name": "Isometric Neck Exercise - Sides",
+            "muscle": "Neck",
+            "type": "Strength"
+        },
+        {
+            "name": "Lying Face Down Plate Neck Resistance",
+            "muscle": "Neck",
+            "type": "Strength"
+        },
+        {
+            "name": "Lying Face Up Plate Neck Resistance",
+            "muscle": "Neck",
+            "type": "Strength"
+        },
+        {
+            "name": "Neck Bridge Prone",
+            "muscle": "Neck",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Head Harness Neck Resistance",
+            "muscle": "Neck",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Front-To-Back Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Full Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Hack Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Lunge",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Reverse Lunge",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Side Split Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Squat To A Bench",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Squat To A Box",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Step Ups",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Thruster",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Walking Lunge",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Bicycling",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Bicycling, Stationary",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Bodyweight Lunge",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Bodyweight Reverse Lunge",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Bodyweight Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Bodyweight Walking Lunge",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Bosu Ball Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Box Squat with Chains",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Burpee",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Butt Kicks",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Cable Deadlifts",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Hip Adduction",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Chair Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Close-Stance Dumbbell Front Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Defensive Slide",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Double Under",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Dumbbell Alternating Lunge",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Front Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Goblet Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Lunge and Curl",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Lunges",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Overhead Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Pistol Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Rear Lunge",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Squat Snatch",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Squat To A Bench",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Step Ups",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Walking Lunge",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Elevated Back Lunge",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Elliptical Trainer",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Fast Kick With Arm Circles",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Football Up-Down",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Forward Band Walk",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Freehand Jump Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Front Barbell Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Front Barbell Squat To A Bench",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Front Squat (Bodybuilder)",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Front Squat (Clean Grip)",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Front Squat Push Press",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Front Squats With Two Kettlebells",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Front-To-Back Squat With Belt",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Goblet Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Hack Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "High Knee Jog",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Hip Flexion with Band",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Jefferson Squats",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Jog In Place",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Jogging-Treadmill",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Jumping Jack",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Kettlebell Curtsy Lunge",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Pistol Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Side Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Squat Clean",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Sumo Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Thruster Progression",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Lateral Speed Step",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Leg Extensions",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Leg Press",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Leverage Deadlift",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Lunge Sprint",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Lying Machine Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Machine Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Narrow Stance Hack Squats",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Narrow Stance Leg Press",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Narrow Stance Squats",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "One Leg Barbell Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Overhead Kettlebell Squats",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Side Deadlift",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Pistol Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Plie Dumbbell Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Recumbent Bike",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Rope Jumping",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Rowing, Stationary",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Running, Treadmill",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Seated Leg Press",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Side Lunge",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Side Lunge Touching Heel",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Single Arm Overhead Kettlebell Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Single-Arm Dumbbell Overhead Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Single-Leg High Box Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Single-Leg Leg Extension",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Single-Leg Press",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Single-Leg Skater Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Single-Leg Squat To Box",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Skating",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Slow Jog",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Smith Machine Leg Press",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Machine Pistol Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Machine Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Single-Leg Split Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Speed Squats",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Split Squat with Dumbbells",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Split Squat With Kettlebells",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Squat Jerk",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Squat with Plate Movers",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Squats - With Bands",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Stairmaster",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Step Mill",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Suspended Split Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Thigh Killa",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Trail Running/Walking",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Trap Bar Deadlift",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Vertical Mountain Climber",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Walking High Knees",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Walking Lunge With Overhead Weight",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Walking, Treadmill",
+            "muscle": "Quadriceps",
+            "type": "Cardio"
+        },
+        {
+            "name": "Wall Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Weighted Jump Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Weighted Sissy Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Weighted Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Wide-Stance Barbell Squat",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Wide-Stance Leg Press",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Zercher Squats",
+            "muscle": "Quadriceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Alternating Cable Shoulder Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Alternating Deltoid Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Alternating Kettlebell Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Anti-Gravity Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Arnold Dumbbell Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Back Flyes - With Bands",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Band Pull Apart",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Front Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Incline Shoulder Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Rear Delt Row",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Shoulder Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Battling Ropes",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Bear Crawl Fire Feet",
+            "muscle": "Shoulders",
+            "type": "Cardio"
+        },
+        {
+            "name": "Bear Crawl Shoulder Tap",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Bent Over Dumbbell Rear Delt Raise With Head On Bench",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Bent Over Low-Pulley Side Lateral",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Bradford/Rocky Presses",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Internal Rotation",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Rear Delt Fly",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Rope Rear-Delt Rows",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Seated Lateral Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Shoulder Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Car Drivers",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Clean and Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Cuban Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Double Kettlebell Jerk",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Double Kettlebell Push Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Double Kettlebell Snatch",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Clean And Jerk",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Incline Shoulder Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Lying One-Arm Rear Lateral Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Lying Rear Lateral Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell One-Arm Shoulder Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell One-Arm Upright Row",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Rear Delt Row",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Scaption",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Shoulder Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Squat To Shoulder Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "External Rotation",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "External Rotation with Band",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "External Rotation with Cable",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Face Pull",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Front Cable Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Front Dumbbell Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Front Dumbbell Raise Using Towel",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Front Incline Dumbbell Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Front Plate Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Front Two-Dumbbell Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Half-kneeling Dumbbell Shoulder Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Hand Stand Push-Up",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Handstand Push-Ups",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Internal Rotation with Band",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Iron Cross",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Arnold Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Pirate Ships",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Seated Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Seesaw Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Thruster",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Turkish Get-Up (Lunge style)",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Turkish Get-Up (Squat style)",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Landmine Linear Jammer",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Lateral Raise - With Bands",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Leverage Shoulder Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Low Pulley Row To Neck",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Lying One-Arm Lateral Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Lying Rear Delt Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Machine Lateral Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Machine Shoulder (Military) Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Incline Lateral Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Kettlebell Clean and Jerk",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Kettlebell Jerk",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Kettlebell Military Press To The Side",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Kettlebell Para Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Kettlebell Push Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Kettlebell Snatch",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Kettlebell Split Jerk",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Kettlebell Split Snatch",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "One-Arm Side Laterals",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Plate Shoulder Circle Big To Small Rotation",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Power Partials",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Punches",
+            "muscle": "Shoulders",
+            "type": "Cardio"
+        },
+        {
+            "name": "Reverse Flyes",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Reverse Flyes With External Rotation",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Reverse Machine Flyes",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Barbell Military Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Bent-Over Rear Delt Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Cable Shoulder Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Dumbbell Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Side Lateral Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "See-Saw Press (Alternating Side Press)",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Shoulder Press - With Bands",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Side Lateral Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Side Laterals to Front Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Single Dumbbell Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Single-Arm Linear Jammer",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Sled Overhead Backward Walk",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Sled Reverse Flye",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Incline Shoulder Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Machine One-Arm Upright Row",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Machine Overhead Shoulder Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Snatch-Grip Behind-The-Neck Overhead Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Alternating Dumbbell Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Barbell Press Behind Neck",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Bradford Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Dumbbell Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Dumbbell Straight-Arm Front Delt Raise Above Head",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Front Barbell Raise Over Head",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Low-Pulley Deltoid Raise",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Military Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Palm-In One-Arm Dumbbell Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Palms-In Dumbbell Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Straight Raises on Incline Bench",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Suspended Back Fly",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Two-Arm Kettlebell Clean",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Two-Arm Kettlebell Jerk",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Two-Arm Kettlebell Military Press",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Upright Barbell Row",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Wall Shoulder Tap",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Wall Walk",
+            "muscle": "Shoulders",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Shrug",
+            "muscle": "Traps",
+            "type": "Strength"
+        },
+        {
+            "name": "Barbell Shrug Behind The Back",
+            "muscle": "Traps",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Shrugs",
+            "muscle": "Traps",
+            "type": "Strength"
+        },
+        {
+            "name": "Calf-Machine Shoulder Shrug",
+            "muscle": "Traps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Shrug",
+            "muscle": "Traps",
+            "type": "Strength"
+        },
+        {
+            "name": "Kettlebell Sumo High Pull",
+            "muscle": "Traps",
+            "type": "Strength"
+        },
+        {
+            "name": "Leverage Shrug",
+            "muscle": "Traps",
+            "type": "Strength"
+        },
+        {
+            "name": "Scapular Pull-Up",
+            "muscle": "Traps",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Machine Behind the Back Shrug",
+            "muscle": "Traps",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Machine Shrug",
+            "muscle": "Traps",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Machine Upright Row",
+            "muscle": "Traps",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Dumbbell Upright Row",
+            "muscle": "Traps",
+            "type": "Strength"
+        },
+        {
+            "name": "Upright Cable Row",
+            "muscle": "Traps",
+            "type": "Strength"
+        },
+        {
+            "name": "Upright Row - With Bands",
+            "muscle": "Traps",
+            "type": "Strength"
+        },
+        {
+            "name": "Band Skull Crusher",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Bench Dips",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Body Tricep Press",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Body Triceps Press Using Flat Bench",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Body-Up",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Incline Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Lying Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable One Arm Tricep Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Cable Rope Overhead Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Close-Grip Barbell Bench Press",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Close-Grip Dumbbell Press",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Close-Grip EZ-Bar Press",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Close-Grip Push-Up off of a Dumbbell",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Cobra Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Decline Close-Grip Bench To Skull Crusher",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Decline Dumbbell Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Decline EZ Bar Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dip Machine",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dips - Triceps Version",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell One-Arm Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Dumbbell Tricep Extension -Pronated Grip",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "EZ-Bar Skullcrusher",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Incline Barbell Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Incline Push-Up Close-Grip",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "JM Press",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "JM Press",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "JM Press With Bands",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Kneeling Cable Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Low Cable Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Lying Close-Grip Barbell Triceps Extension Behind The Head",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Lying Close-Grip Barbell Triceps Press To Chin",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Lying Dumbbell Tricep Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Lying Triceps Press",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Machine Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "One Arm Floor Press",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "One Arm Pronated Dumbbell Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "One Arm Supinated Dumbbell Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Parallel Bar Dip",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Push-Ups - Close Triceps Position",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Reverse Grip Triceps Pushdown",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Reverse Triceps Bench Press",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Ring Dips",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Russian Bar Dip",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Bent-Over One-Arm Dumbbell Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Bent-Over Two-Arm Dumbbell Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Seated Triceps Press",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Sled Overhead Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Smith Machine Close-Grip Bench Press",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Speed Band Overhead Triceps",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Bent-Over One-Arm Dumbbell Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Bent-Over Two-Arm Dumbbell Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Dumbbell Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Low-Pulley One-Arm Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing One-Arm Dumbbell Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Overhead Barbell Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Standing Towel Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Suspended Triceps Press",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Tate Press",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Tricep Dumbbell Kickback",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Triceps Overhead Extension with Rope",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Triceps Plank Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Triceps Pushdown",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Triceps Pushdown - Rope Attachment",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Triceps Pushdown - V-Bar Attachment",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "V-Sit Dumbbell Triceps Extension",
+            "muscle": "Triceps",
+            "type": "Strength"
+        },
+        {
+            "name": "Weighted Bench Dip",
+            "muscle": "Triceps",
+            "type": "Strength"
+        }
+    ]
+}

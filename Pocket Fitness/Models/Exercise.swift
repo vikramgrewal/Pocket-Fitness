@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct Exercise {
-   var exerciseId : UUID
-   var exerciseName, exerciseBodyPart : String
+struct Exercise : Decodable {
+   
+   var exerciseName, exerciseBodyPart, exerciseType : String
+
+   private enum CodingKeys : String, CodingKey {
+      case exerciseName = "name", exerciseBodyPart = "muslce", exerciseType = "type"
+   }
+
 }

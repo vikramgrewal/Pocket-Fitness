@@ -17,9 +17,15 @@
 		F702BA1C207AD52D00326E59 /* Pocket_FitnessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702BA1B207AD52D00326E59 /* Pocket_FitnessUITests.swift */; };
 		F70A6919207FFC5500F9598F /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70A6918207FFC5500F9598F /* ExercisesViewController.swift */; };
 		F732BA12207ED54A002EBF27 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F732BA11207ED54A002EBF27 /* LoginViewController.swift */; };
+		F735EA50208680FF002AB4AC /* AddExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F735EA4F208680FF002AB4AC /* AddExerciseView.swift */; };
+		F73F751D20851ED600FA510F /* ExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73F751C20851ED600FA510F /* ExercisesView.swift */; };
+		F73F751F2085B38300FA510F /* AddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73F751E2085B38300FA510F /* AddExerciseViewController.swift */; };
+		F73F75212085B4A800FA510F /* ExercisesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73F75202085B4A800FA510F /* ExercisesNavigationController.swift */; };
 		F76FC2A1207EE31C0017C560 /* AuthenticationKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76FC2A0207EE31C0017C560 /* AuthenticationKeychain.swift */; };
 		F76FC2A3207EF3510017C560 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76FC2A2207EF3510017C560 /* User.swift */; };
 		F77035386418932B7CF7A708 /* Pods_Pocket_Fitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7996C3789AB124093AF2C355 /* Pods_Pocket_Fitness.framework */; };
+		F790E311208406A000FAB55D /* ExerciseFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F790E310208406A000FAB55D /* ExerciseFilter.swift */; };
+		F790E31320840FD000FAB55D /* exercises.json in Resources */ = {isa = PBXBuildFile; fileRef = F790E31220840FD000FAB55D /* exercises.json */; };
 		F7AA26DB2080438600B31D83 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AA26DA2080438600B31D83 /* Exercise.swift */; };
 		F7D7F959208005BB003148DC /* ExercisesSearchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D7F958208005BB003148DC /* ExercisesSearchBarController.swift */; };
 /* End PBXBuildFile section */
@@ -65,8 +71,14 @@
 		F702BA1D207AD52D00326E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F70A6918207FFC5500F9598F /* ExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
 		F732BA11207ED54A002EBF27 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F735EA4F208680FF002AB4AC /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
+		F73F751C20851ED600FA510F /* ExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesView.swift; sourceTree = "<group>"; };
+		F73F751E2085B38300FA510F /* AddExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseViewController.swift; sourceTree = "<group>"; };
+		F73F75202085B4A800FA510F /* ExercisesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesNavigationController.swift; sourceTree = "<group>"; };
 		F76FC2A0207EE31C0017C560 /* AuthenticationKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationKeychain.swift; sourceTree = "<group>"; };
 		F76FC2A2207EF3510017C560 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F790E310208406A000FAB55D /* ExerciseFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseFilter.swift; sourceTree = "<group>"; };
+		F790E31220840FD000FAB55D /* exercises.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exercises.json; sourceTree = "<group>"; };
 		F7AA26DA2080438600B31D83 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		F7D7F958208005BB003148DC /* ExercisesSearchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesSearchBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,9 +159,11 @@
 		F702B9FA207AD52D00326E59 /* Pocket Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				F73F751B20851EB800FA510F /* Views */,
 				F76FC29F207EE3040017C560 /* Models */,
 				F76FC29E207EE2F30017C560 /* Storyboards */,
 				F76FC29D207EE2E50017C560 /* Controllers */,
+				F75DCCAC2083E24B0014C350 /* Resources */,
 				F702B9FB207AD52D00326E59 /* AppDelegate.swift */,
 				F702BA02207AD52D00326E59 /* Assets.xcassets */,
 				F702BA07207AD52D00326E59 /* Info.plist */,
@@ -175,12 +189,31 @@
 			path = "Pocket FitnessUITests";
 			sourceTree = "<group>";
 		};
+		F73F751B20851EB800FA510F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F73F751C20851ED600FA510F /* ExercisesView.swift */,
+				F735EA4F208680FF002AB4AC /* AddExerciseView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F75DCCAC2083E24B0014C350 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F790E31220840FD000FAB55D /* exercises.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		F76FC29D207EE2E50017C560 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				F732BA11207ED54A002EBF27 /* LoginViewController.swift */,
 				F70A6918207FFC5500F9598F /* ExercisesViewController.swift */,
 				F7D7F958208005BB003148DC /* ExercisesSearchBarController.swift */,
+				F73F751E2085B38300FA510F /* AddExerciseViewController.swift */,
+				F73F75202085B4A800FA510F /* ExercisesNavigationController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -200,6 +233,7 @@
 				F76FC2A0207EE31C0017C560 /* AuthenticationKeychain.swift */,
 				F76FC2A2207EF3510017C560 /* User.swift */,
 				F7AA26DA2080438600B31D83 /* Exercise.swift */,
+				F790E310208406A000FAB55D /* ExerciseFilter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -321,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F702BA06207AD52D00326E59 /* LaunchScreen.storyboard in Resources */,
+				F790E31320840FD000FAB55D /* exercises.json in Resources */,
 				F702BA03207AD52D00326E59 /* Assets.xcassets in Resources */,
 				F702BA01207AD52D00326E59 /* Main.storyboard in Resources */,
 			);
@@ -513,11 +548,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F73F751D20851ED600FA510F /* ExercisesView.swift in Sources */,
 				F732BA12207ED54A002EBF27 /* LoginViewController.swift in Sources */,
+				F73F751F2085B38300FA510F /* AddExerciseViewController.swift in Sources */,
 				F702B9FC207AD52D00326E59 /* AppDelegate.swift in Sources */,
+				F735EA50208680FF002AB4AC /* AddExerciseView.swift in Sources */,
 				F76FC2A3207EF3510017C560 /* User.swift in Sources */,
 				F76FC2A1207EE31C0017C560 /* AuthenticationKeychain.swift in Sources */,
 				F7AA26DB2080438600B31D83 /* Exercise.swift in Sources */,
+				F73F75212085B4A800FA510F /* ExercisesNavigationController.swift in Sources */,
+				F790E311208406A000FAB55D /* ExerciseFilter.swift in Sources */,
 				F70A6919207FFC5500F9598F /* ExercisesViewController.swift in Sources */,
 				F7D7F959208005BB003148DC /* ExercisesSearchBarController.swift in Sources */,
 			);
