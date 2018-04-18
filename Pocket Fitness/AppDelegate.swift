@@ -7,15 +7,28 @@
 //
 
 import UIKit
+import Material
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
    var window: UIWindow?
+   var tabBarController : UITabBarController!
 
 
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
       // Override point for customization after application launch.
+
+      tabBarController = UITabBarController()
+      let windowFrame = UIScreen.main.bounds
+      window = UIWindow(frame: windowFrame)
+      window?.rootViewController = tabBarController
+      window?.makeKeyAndVisible()
+
+      let exercisesVC = ExercisesViewController()
+      tabBarController.viewControllers = [exercisesVC]
+      let exerciseVCTab = tabBarController.tabBar.items?[0]
+      exerciseVCTab?.title = "Exercises"
       return true
    }
 
