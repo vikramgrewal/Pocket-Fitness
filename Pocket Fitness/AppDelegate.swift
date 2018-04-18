@@ -25,10 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       window?.rootViewController = tabBarController
       window?.makeKeyAndVisible()
 
-      let exercisesVC = ExercisesViewController()
-      tabBarController.viewControllers = [exercisesVC]
-      let exerciseVCTab = tabBarController.tabBar.items?[0]
-      exerciseVCTab?.title = "Exercises"
       return true
    }
 
