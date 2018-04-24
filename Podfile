@@ -10,6 +10,8 @@ target 'Pocket Fitness' do
    pod 'FacebookLogin'
    pod 'FacebookShare'
    pod 'Material', '~> 2.14'
+   pod 'SwipeCellKit'
+   pod 'Eureka'
 
   target 'Pocket FitnessTests' do
     inherit! :search_paths
