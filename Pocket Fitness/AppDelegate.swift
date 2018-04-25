@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Material
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       let windowFrame = UIScreen.main.bounds
       window = UIWindow(frame: windowFrame)
       window?.rootViewController = tabBarController
+
+      let workoutsVC = WorkoutsViewController()
+      let workoutsNavigationController = UINavigationController(rootViewController: workoutsVC)
+      tabBarController.viewControllers = [workoutsNavigationController]
       window?.makeKeyAndVisible()
 
       return true
