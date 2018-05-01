@@ -8,11 +8,14 @@
 
 import UIKit
 import SwipeCellKit
+import Koyomi
 
 class WorkoutsViewController: UIViewController {
 
    var searchController : UISearchController!
    var tableViewController : UITableViewController!
+   var calendarHeightConstraint : NSLayoutConstraint!
+   var koyomi : Koyomi!
    var workouts : [Workout]?
 
     override func viewDidLoad() {
@@ -21,7 +24,7 @@ class WorkoutsViewController: UIViewController {
       initializeTestData()
       setUpView()
 
-        // Do any additional setup after loading the view.
+      // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,6 +45,7 @@ class WorkoutsViewController: UIViewController {
       definesPresentationContext = false
       extendedLayoutIncludesOpaqueBars = !(navigationController?.navigationBar.isTranslucent)!
       setUpSearchBar()
+      setUpCalendar()
       setUpTableView()
    }
     
@@ -67,8 +71,37 @@ extension WorkoutsViewController {
       navigationItem.leftBarButtonItem = UIBarButtonItem(title: "C", style: .plain, target: self, action: nil)
       navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .plain, target: self, action: nil)
       searchController.hidesNavigationBarDuringPresentation = false
+      navigationItem.leftBarButtonItem?.action = #selector(toggleCalendar)
    }
 
+   @objc func toggleCalendar()   {
+      if(calendarHeightConstraint.constant == 0)  {
+         calendarHeightConstraint.constant = 200
+      }  else  {
+         calendarHeightConstraint.constant = 0
+      }
+      UIView.animate(withDuration: 0.5){
+         self.view.layoutIfNeeded()
+      }
+   }
+
+}
+
+extension WorkoutsViewController {
+
+   func setUpCalendar() {
+      koyomi = Koyomi(frame: .zero, sectionSpace: 1.5, cellSpace: 0.5, inset: .init(top: 1, left: 1, bottom: 1, right: 1), weekCellHeight: 25)
+      koyomi.selectionMode = .sequence(style: .background)
+      koyomi.selectedStyleColor = .lightGray
+      koyomi.style = .tealBlue
+      view.addSubview(koyomi)
+      koyomi.translatesAutoresizingMaskIntoConstraints = false
+      koyomi.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+      koyomi.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+      koyomi.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+      calendarHeightConstraint = NSLayoutConstraint(item: koyomi, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 0.0)
+      calendarHeightConstraint.isActive = true
+   }
 }
 
 extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
@@ -82,28 +115,64 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
 
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-      let contentView = UIView()
-      contentView.translatesAutoresizingMaskIntoConstraints = false
-      cell.addSubview(contentView)
-      cell.selectionStyle = .none
-      cell.backgroundColor = .clear
-      contentView.topAnchor.constraint(equalTo: cell.topAnchor, constant: 15.0).isActive = true
-      contentView.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 15.0).isActive = true
-      contentView.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
-      contentView.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: -15.0).isActive = true
-      contentView.layer.shadowOffset = CGSize(width: 1, height: 1)
-      contentView.layer.shadowColor = UIColor.black.cgColor
-      contentView.layer.shadowRadius = 3
-      contentView.layer.shadowOpacity = 0.25
-      contentView.backgroundColor = .white
+      cell.layer.shadowOffset = CGSize(width: 1, height: 1)
+      cell.layer.shadowColor = UIColor.black.cgColor
+      cell.layer.shadowRadius = 3
+      cell.layer.shadowOpacity = 0.25
+
       let dateView = UIView()
+      cell.addSubview(dateView)
       dateView.translatesAutoresizingMaskIntoConstraints = false
-      contentView.addSubview(dateView)
-      dateView.backgroundColor = .blue
-      dateView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-      dateView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-      dateView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+      dateView.leadingAnchor.constraint(equalTo: cell.leadingAnchor).isActive = true
+      dateView.topAnchor.constraint(equalTo: cell.topAnchor).isActive = true
+      dateView.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
       dateView.widthAnchor.constraint(equalToConstant: 90.0).isActive = true
+
+      let monthLabel = UILabel()
+      dateView.addSubview(monthLabel)
+      monthLabel.text = workouts![indexPath.row].month
+      monthLabel.textAlignment = .center
+      monthLabel.font = UIFont(name: "Helvetica", size: 20)
+      monthLabel.translatesAutoresizingMaskIntoConstraints = false
+      monthLabel.leadingAnchor.constraint(equalTo: dateView.leadingAnchor).isActive = true
+      monthLabel.topAnchor.constraint(equalTo: dateView.topAnchor, constant: 5.0).isActive = true
+      monthLabel.trailingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
+      monthLabel.heightAnchor.constraint(equalToConstant: 22).isActive = true
+
+      let dayLabel = UILabel()
+      dateView.addSubview(dayLabel)
+      dayLabel.text = workouts![indexPath.row].day
+      dayLabel.textAlignment = .center
+      dayLabel.font = UIFont(name: "Helvetica", size: 30)
+      dayLabel.translatesAutoresizingMaskIntoConstraints = false
+      dayLabel.leadingAnchor.constraint(equalTo: dateView.leadingAnchor).isActive = true
+      dayLabel.topAnchor.constraint(equalTo: monthLabel.bottomAnchor).isActive = true
+      dayLabel.trailingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
+      dayLabel.heightAnchor.constraint(equalToConstant: 36).isActive = true
+
+      let yearLabel = UILabel()
+      dateView.addSubview(yearLabel)
+      yearLabel.text = workouts![indexPath.row].year
+      yearLabel.textAlignment = .center
+      yearLabel.font = UIFont(name: "Helvetica", size: 20)
+      yearLabel.translatesAutoresizingMaskIntoConstraints = false
+      yearLabel.leadingAnchor.constraint(equalTo: dateView.leadingAnchor).isActive = true
+      yearLabel.topAnchor.constraint(equalTo: dayLabel.bottomAnchor).isActive = true
+      yearLabel.trailingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
+      yearLabel.bottomAnchor.constraint(equalTo: dateView.bottomAnchor, constant: -5.0).isActive = true
+      yearLabel.heightAnchor.constraint(equalToConstant: 22).isActive = true
+
+      let workoutLabel = UILabel()
+      cell.addSubview(workoutLabel)
+      workoutLabel.text = workouts![indexPath.row].name
+      workoutLabel.textAlignment = .left
+      workoutLabel.font = UIFont(name: "Helvetica", size: 30)
+      workoutLabel.translatesAutoresizingMaskIntoConstraints = false
+      workoutLabel.leadingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
+      workoutLabel.topAnchor.constraint(equalTo: cell.topAnchor).isActive = true
+      workoutLabel.trailingAnchor.constraint(equalTo: cell.trailingAnchor).isActive = true
+      workoutLabel.bottomAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
+
       return cell
    }
 
@@ -124,7 +193,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       tableViewController.tableView.leadingAnchor.constraint(equalTo:
          view.safeAreaLayoutGuide.leadingAnchor).isActive = true
       tableViewController.tableView.topAnchor.constraint(equalTo:
-         view.safeAreaLayoutGuide.topAnchor).isActive = true
+         koyomi.bottomAnchor, constant: 5.0).isActive = true
       tableViewController.tableView.trailingAnchor.constraint(equalTo:
          view.safeAreaLayoutGuide.trailingAnchor).isActive = true
       tableViewController.tableView.bottomAnchor.constraint(equalTo:
