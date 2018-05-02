@@ -25,6 +25,13 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.31.1):
     - FBSDKCoreKit (~> 4.31.1)
+  - Material (2.15.0):
+    - Material/Core (= 2.15.0)
+  - Material/Core (2.15.0):
+    - Motion (~> 1.3.0)
+  - Motion (1.3.5):
+    - Motion/Core (= 1.3.5)
+  - Motion/Core (1.3.5)
   - SwipeCellKit (2.1.0)
 
 DEPENDENCIES:
@@ -32,7 +39,22 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - Material
   - SwipeCellKit
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Bolts
+    - Eureka
+    - FacebookCore
+    - FacebookLogin
+    - FacebookShare
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - FBSDKShareKit
+    - Material
+    - Motion
+    - SwipeCellKit
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
@@ -43,8 +65,10 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: e08ccfcefa7bc1347a07c276dac9bf6c7fe57024
   FBSDKLoginKit: 99797ac39252fef6f72600b886f6ee60b4b29cab
   FBSDKShareKit: e640c41c9fcd61929eeb3d0c21ad335103e7cb62
+  Material: 00e32bb5e61b3f749044897b2d93acd8bf33faa4
+  Motion: 9f74d115d7f72bb5380a8e3cde2f8a1fc898ac36
   SwipeCellKit: 80bdb188166484d8a0d813d9fd7748ad33181815
 
-PODFILE CHECKSUM: 039b50ea212aed4b65f01af6cb05fc681397b118
+PODFILE CHECKSUM: 5ffbf6f7fa579a12e52aa9253904717ae6853afa
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0
