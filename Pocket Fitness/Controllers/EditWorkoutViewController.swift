@@ -51,6 +51,21 @@ class EditWorkoutViewController: FormViewController {
          section.header?.height = { 45 }
          section.tag = "workoutExercisesSection"
       }
+//      <<< PickerInlineRow<Int>() {
+//         $0.title = "Weight"
+//         $0.options = { return [0, 1, 2, 3 , 4, 5, 6, 7] }()
+//      }  <<< PickerInlineRow<Int>() {
+//         $0.title = "Sets"
+//         $0.options = { return [0, 1, 2, 3 , 4, 5, 6, 7] }()
+//      }
+
+      func towns(for country: String) -> [String] {
+         if country == "Germany" {
+            return ["Berlin"]
+         } else {
+            return ["Vienna"]
+         }
+      }
 
       let button = UIButton()
       button.backgroundColor = .white
@@ -78,7 +93,6 @@ class EditWorkoutViewController: FormViewController {
          return
       }
       self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-
    }
 
 

@@ -201,7 +201,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
 
 
    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-      return 90.0
+      return 70.0
    }
 
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -215,47 +215,44 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       dateView.leadingAnchor.constraint(equalTo: cell.leadingAnchor).isActive = true
       dateView.topAnchor.constraint(equalTo: cell.topAnchor).isActive = true
       dateView.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
-      dateView.widthAnchor.constraint(equalToConstant: 90.0).isActive = true
+      dateView.widthAnchor.constraint(equalToConstant: 70.0).isActive = true
 
       let dayLabel = UILabel()
       dayLabel.backgroundColor = .clear
       dateView.addSubview(dayLabel)
       dayLabel.text = workouts![indexPath.row].day
       dayLabel.textAlignment = .center
-      dayLabel.font = UIFont(name: "Helvetica", size: 22)
+      dayLabel.font = UIFont(name: "Helvetica", size: 18)
       dayLabel.translatesAutoresizingMaskIntoConstraints = false
       dayLabel.leadingAnchor.constraint(equalTo: dateView.leadingAnchor).isActive = true
-//      dayLabel.topAnchor.constraint(equalTo: monthLabel.bottomAnchor).isActive = true
       dayLabel.trailingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
-      dayLabel.centerYAnchor.constraint(equalTo: dateView.centerYAnchor)
-      dayLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
+      dayLabel.centerYAnchor.constraint(equalTo: dateView.centerYAnchor).isActive = true
+      dayLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
 
       let monthLabel = UILabel()
       monthLabel.backgroundColor = .clear
       dateView.addSubview(monthLabel)
       monthLabel.text = workouts![indexPath.row].month
       monthLabel.textAlignment = .center
-      monthLabel.font = UIFont(name: "Helvetica", size: 16)
+      monthLabel.font = UIFont(name: "Helvetica", size: 14)
       monthLabel.translatesAutoresizingMaskIntoConstraints = false
       monthLabel.leadingAnchor.constraint(equalTo: dateView.leadingAnchor).isActive = true
-//      monthLabel.topAnchor.constraint(equalTo: dateView.topAnchor, constant: 5.0).isActive = true
       monthLabel.trailingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
       monthLabel.bottomAnchor.constraint(equalTo: dayLabel.topAnchor).isActive = true
-      monthLabel.heightAnchor.constraint(equalToConstant: 18).isActive = true
-      monthLabel.topAnchor.constraint(equalTo: dayLabel.topAnchor, constant: 15)
+      monthLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
+//      monthLabel.topAnchor.constraint(equalTo: dateView.topAnchor, constant: 8.0).isActive = true
 
       let yearLabel = UILabel()
       yearLabel.backgroundColor = .clear
       dateView.addSubview(yearLabel)
       yearLabel.text = workouts![indexPath.row].year
       yearLabel.textAlignment = .center
-      yearLabel.font = UIFont(name: "Helvetica", size: 16)
+      yearLabel.font = UIFont(name: "Helvetica", size: 14)
       yearLabel.translatesAutoresizingMaskIntoConstraints = false
       yearLabel.leadingAnchor.constraint(equalTo: dateView.leadingAnchor).isActive = true
-//      yearLabel.topAnchor.constraint(equalTo: dayLabel.bottomAnchor).isActive = true
       yearLabel.trailingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
-      yearLabel.bottomAnchor.constraint(equalTo: dateView.bottomAnchor, constant: -15.0).isActive = true
-      yearLabel.heightAnchor.constraint(equalToConstant: 18).isActive = true
+//      yearLabel.bottomAnchor.constraint(equalTo: dateView.bottomAnchor, constant: -9.0).isActive = true
+      yearLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
       yearLabel.topAnchor.constraint(equalTo: dayLabel.bottomAnchor).isActive = true
 
       let workoutLabel = UILabel()
@@ -263,7 +260,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       cell.addSubview(workoutLabel)
       workoutLabel.text = workouts![indexPath.row].name
       workoutLabel.textAlignment = .left
-      workoutLabel.font = UIFont(name: "Helvetica", size: 25)
+      workoutLabel.font = UIFont(name: "Helvetica", size: 18)
       workoutLabel.translatesAutoresizingMaskIntoConstraints = false
       workoutLabel.leadingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
       workoutLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 7.5).isActive = true
@@ -276,7 +273,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       cell.addSubview(workoutSetsLabel)
       workoutSetsLabel.text = "5 Sets"
       workoutSetsLabel.textAlignment = .left
-      workoutSetsLabel.font = UIFont(name: "Helvetica", size: 16)
+      workoutSetsLabel.font = UIFont(name: "Helvetica", size: 14)
       workoutSetsLabel.textColor = .lightGray
       workoutSetsLabel.translatesAutoresizingMaskIntoConstraints = false
       workoutSetsLabel.leadingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
@@ -290,13 +287,13 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
 
    func setUpTableView()   {
       tableViewController = UITableViewController(style: .plain)
-      tableViewController.tableView.estimatedRowHeight = 90.0
+      tableViewController.tableView.estimatedRowHeight = 70.0
       tableViewController.tableView.rowHeight = UITableViewAutomaticDimension
       tableViewController.tableView.backgroundColor = .clear
       tableViewController.tableView.delegate = self
       tableViewController.tableView.dataSource = self
       tableViewController.tableView.separatorStyle = .singleLine
-      tableViewController.tableView.separatorInset = UIEdgeInsets(top: 0, left: 90, bottom: 0, right: 0)
+      tableViewController.tableView.separatorInset = UIEdgeInsets(top: 0, left: 70, bottom: 0, right: 0)
       tableViewController.tableView.tableFooterView = UIView()
       tableViewController.tableView.translatesAutoresizingMaskIntoConstraints = false
       view.addSubview(tableViewController.tableView)
