@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Material
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       window?.rootViewController = tabBarController
 
       let exerciseVC = ExercisesViewController()
-      let navigationController = NavigationController(rootViewController: SearchBarController(rootViewController: exerciseVC))
+      let navigationController = UINavigationController(rootViewController: exerciseVC)
 
       let tabBarControllers = [navigationController]
       tabBarControllers[0].title = "Exercises"

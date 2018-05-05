@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import Material
 import SwipeCellKit
 
 class ExercisesViewController: UIViewController {
 
    var testExercises : [[TestExercise?]]!
-   var tableView : TableView!
-   var addExerciseButton : Button!
+   var tableView : UITableView!
+   var searchController: UISearchController!
 
    override func viewDidLoad() {
       testExercises = [[],[]]
@@ -48,79 +47,40 @@ class ExercisesViewController: UIViewController {
 
    override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(true)
-      navigationController?.setNavigationBarHidden(true, animated: true)
-   }
-
-   override func viewWillDisappear(_ animated: Bool) {
-      super.viewWillDisappear(true)
-      navigationController?.setNavigationBarHidden(false, animated: false)
+      if let index = tableView.indexPathForSelectedRow{
+         self.tableView.deselectRow(at: index, animated: true)
+      }
    }
 
    private func setLayout()   {
       setUpView()
       view.addSubview(tableView)
-      view.addSubview(addExerciseButton)
-      addExerciseButton.addTarget(self, action: #selector(createNewExercise), for: .touchUpInside)
       tableView.separatorStyle = .singleLine
       tableView.tableFooterView = UIView()
       tableView.delegate = self
       tableView.dataSource = self
-      searchBarController?.searchBar.delegate = self
       setConstraints()
    }
 
    private func setConstraints() {
       setTableConstraints()
-      setButtonConstraints()
    }
 
    func setUpView()  {
 
       view.backgroundColor = .white
+      setUpSearchBar()
       setUpTableView()
-      setUpAddExerciseButton()
-
    }
 
    func setUpTableView()   {
-      tableView = TableView()
+      tableView = UITableView()
       tableView.translatesAutoresizingMaskIntoConstraints = false
       guard tableView !== nil else {
          print("Error retrieving table view")
          return
       }
 
-   }
-
-   func setUpAddExerciseButton() {
-      addExerciseButton = Button()
-      addExerciseButton.translatesAutoresizingMaskIntoConstraints = false
-      addExerciseButton.backgroundColor = .lightGray
-      addExerciseButton.titleEdgeInsets.right = 10
-      addExerciseButton.titleEdgeInsets.left = 10
-      addExerciseButton.titleEdgeInsets.bottom = 10
-      addExerciseButton.titleEdgeInsets.top = 10
-      addExerciseButton.titleLabel?.adjustsFontSizeToFitWidth = true
-      addExerciseButton.titleLabel?.font = UIFont(name:"Times New Roman", size: 24)
-      addExerciseButton.setTitle("Add Exercise", for: .normal)
-      addExerciseButton.setTitleColor(.white, for: .normal)
-      guard addExerciseButton !== nil else {
-         print("Error retrieving button")
-         return
-      }
-
-   }
-
-   private func setButtonConstraints() {
-      let bottom = addExerciseButton.bottomAnchor.constraint(equalTo:
-         view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
-      let trailing = addExerciseButton.trailingAnchor.constraint(equalTo:
-         view.safeAreaLayoutGuide.trailingAnchor, constant: -10)
-      let height = NSLayoutConstraint(item: addExerciseButton,
-                                      attribute: .height, relatedBy: .equal, toItem: nil,
-                                      attribute: .notAnAttribute, multiplier: 1.0, constant: 60)
-      let constraints = [bottom, trailing, height]
-      NSLayoutConstraint.activate(constraints)
    }
 
    private func setTableConstraints()  {
@@ -130,13 +90,11 @@ class ExercisesViewController: UIViewController {
       let trailing = tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
       let constraints = [bottom,trailing, leading, top]
       NSLayoutConstraint.activate(constraints)
-      let insets = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
-      tableView.contentInset = insets
    }
 
 }
 
-extension ExercisesViewController : SearchBarDelegate, SwipeTableViewCellDelegate {
+extension ExercisesViewController : UISearchBarDelegate, SwipeTableViewCellDelegate {
    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
 
       guard orientation == .right else { return nil }
@@ -152,14 +110,25 @@ extension ExercisesViewController : SearchBarDelegate, SwipeTableViewCellDelegat
    }
 
 
-   func searchBar(searchBar: SearchBar, didChange textField: UITextField, with text: String?)   {
+   @available(iOS 2.0, *)
+   public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar)   {
 
    }
 
-   func searchBar(searchBar: SearchBar, didClear textField: UITextField, with text: String?) {
-      searchBar.endEditing(true)
+   @available(iOS 2.0, *)
+   public func searchBarTextDidEndEditing(_ searchBar: UISearchBar)  {
+
    }
 
+   func setUpSearchBar()   {
+      searchController = UISearchController(searchResultsController: nil)
+      navigationItem.titleView = searchController.searchBar
+      let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+      navigationItem.rightBarButtonItem = addButton
+      addButton.action = #selector(createNewExercise)
+      searchController.searchBar.sizeToFit()
+      searchController.hidesNavigationBarDuringPresentation = false
+   }
 
 }
 

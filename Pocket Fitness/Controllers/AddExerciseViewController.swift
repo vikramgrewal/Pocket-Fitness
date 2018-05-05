@@ -31,18 +31,18 @@ class AddExerciseViewController: FormViewController {
 
    func setUpNavigation()  {
       navigationController?.navigationBar.barStyle = .default
-      let navTitle = UILabel()
-      navTitle.translatesAutoresizingMaskIntoConstraints = false
-      navigationController?.navigationBar.addSubview(navTitle)
-      navTitle.text = "Edit Exercise"
-      let xConstraint = NSLayoutConstraint(item: navTitle, attribute: .centerX,
-                        relatedBy: .equal, toItem: navigationController?.navigationBar,
-                        attribute: .centerX, multiplier: 1.0, constant: 0)
-      let yConstraint = NSLayoutConstraint(item: navTitle, attribute: .centerY,
-                                           relatedBy: .equal, toItem: navigationController?.navigationBar,
-                                           attribute: .centerY, multiplier: 1.0, constant: 0)
-      let constraints = [xConstraint, yConstraint]
-      NSLayoutConstraint.activate(constraints)
+//      let navTitle = UILabel()
+//      navTitle.translatesAutoresizingMaskIntoConstraints = false
+//      navigationController?.navigationBar.addSubview(navTitle)
+//      navTitle.text = "Edit Exercise"
+//      let xConstraint = NSLayoutConstraint(item: navTitle, attribute: .centerX,
+//                        relatedBy: .equal, toItem: navigationController?.navigationBar,
+//                        attribute: .centerX, multiplier: 1.0, constant: 0)
+//      let yConstraint = NSLayoutConstraint(item: navTitle, attribute: .centerY,
+//                                           relatedBy: .equal, toItem: navigationController?.navigationBar,
+//                                           attribute: .centerY, multiplier: 1.0, constant: 0)
+//      let constraints = [xConstraint, yConstraint]
+//      NSLayoutConstraint.activate(constraints)
 
       let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: nil)
       navigationItem.rightBarButtonItem = saveButton
