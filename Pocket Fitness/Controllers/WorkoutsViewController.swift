@@ -82,15 +82,15 @@ extension WorkoutsViewController {
       searchController.searchBar.sizeToFit()
       navigationItem.titleView = searchController.searchBar
       navigationItem.leftBarButtonItem = UIBarButtonItem(title: "C", style: .plain, target: self, action: nil)
-      navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .plain, target: self, action: nil)
+      let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewWorkout))
+      navigationItem.rightBarButtonItem = addButton
       searchController.hidesNavigationBarDuringPresentation = false
       navigationItem.leftBarButtonItem?.action = #selector(toggleCalendar)
-      navigationItem.rightBarButtonItem?.action = #selector(addNewWorkout)
    }
 
    @objc func toggleCalendar()   {
       if(calendarHeightConstraint.constant == 0)  {
-         calendarHeightConstraint.constant = 225
+         calendarHeightConstraint.constant = 205
          koyomi.isHidden = false
          calendarMonthLabel.isHidden = false
       }  else  {
@@ -152,13 +152,13 @@ extension WorkoutsViewController {
       calendarMonthLabel = UILabel()
       calendarView.addSubview(calendarMonthLabel)
       calendarMonthLabel.textColor = .black
-      calendarMonthLabel.font = UIFont(name: "Helvetica", size: 25)
+      calendarMonthLabel.font = UIFont(name: "Helvetica", size: 18)
       calendarMonthLabel.isHidden = true
       calendarMonthLabel.translatesAutoresizingMaskIntoConstraints = false
       calendarMonthLabel.topAnchor.constraint(equalTo: calendarView.topAnchor).isActive = true
       calendarMonthLabel.leadingAnchor.constraint(equalTo: calendarView.leadingAnchor).isActive = true
       calendarMonthLabel.trailingAnchor.constraint(equalTo: calendarView.trailingAnchor).isActive = true
-      calendarMonthLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+      calendarMonthLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
       calendarMonthLabel.textAlignment = .center
       koyomi = Koyomi(frame: .zero, sectionSpace: 1.5, cellSpace: 0.5, inset: .init(top: 1, left: 1, bottom: 1, right: 1), weekCellHeight: 25)
       koyomi.isHidden = true
@@ -168,7 +168,7 @@ extension WorkoutsViewController {
       resetLabelText()
       calendarView.addSubview(koyomi)
       koyomi.translatesAutoresizingMaskIntoConstraints = false
-      koyomi.topAnchor.constraint(equalTo: calendarView.topAnchor, constant:50.0).isActive = true
+      koyomi.topAnchor.constraint(equalTo: calendarView.topAnchor, constant:30.0).isActive = true
       koyomi.leadingAnchor.constraint(equalTo: calendarView.leadingAnchor).isActive = true
       koyomi.trailingAnchor.constraint(equalTo: calendarView.trailingAnchor).isActive = true
       koyomi.heightAnchor.constraint(equalToConstant: 175).isActive = true
@@ -305,10 +305,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
          view.safeAreaLayoutGuide.trailingAnchor).isActive = true
       tableViewController.tableView.bottomAnchor.constraint(equalTo:
          view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-
    }
-
-
 
 }
 

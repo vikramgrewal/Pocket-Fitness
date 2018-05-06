@@ -84,10 +84,46 @@ class EditWorkoutViewController: FormViewController {
       guard let _ = form.sectionBy(tag: "workoutExercisesSection")   else {
          return
       }
-      form +++ Section("Exercise 1") <<< TextRow()   {
-         $0.title = "Exercise Name" //4
-         $0.placeholder = "e.g. Bench Press"
+      let section = Section() {
+         $0.tag = "Wow"
       }
+
+      form.append(section)
+
+      let pushRow = PushRow<String>()   {
+         $0.title = "Exercise Name"
+         $0.options = ["Bench Press", "Dips"]
+      }
+
+      let splitExerciseSetRow = SplitRow<PickerInputRow<Float>,PickerInputRow<Int>>(){
+         $0.rowLeftPercentage = 50.0 / 100.0
+         $0.rowLeft = PickerInputRow<Float>(){
+            $0.title = "Weight"
+            $0.options = [1,2,3,4]
+         }
+         $0.rowRight = PickerInputRow<Int>(){
+            $0.title = "Reps"
+            $0.options = [1,2,3,4]
+         }
+
+      }.onChange{
+            print("SplitRow.onChange:","left:",$0.value?.left,"right:",$0.value?.right)
+            print($0.section?.tag)
+      }
+
+         
+      let addButton = ButtonRow() {
+         $0.title = "Add Set"
+      }.cellUpdate { cell, row in
+         cell.textLabel?.textColor = .white
+         cell.backgroundColor = UIColor(red: 74.0/255.0, green: 185.0/255.0, blue: 55.0/255.0, alpha: 1.0)
+      }
+
+      section.append(pushRow)
+
+      section.append(splitExerciseSetRow)
+
+      section.append(addButton)
 
       guard let indexPath = form.last?.last?.indexPath else {
          return
