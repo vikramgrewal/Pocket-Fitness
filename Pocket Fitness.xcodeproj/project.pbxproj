@@ -15,11 +15,10 @@
 		F702BA11207AD52D00326E59 /* Pocket_FitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702BA10207AD52D00326E59 /* Pocket_FitnessTests.swift */; };
 		F702BA1C207AD52D00326E59 /* Pocket_FitnessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702BA1B207AD52D00326E59 /* Pocket_FitnessUITests.swift */; };
 		F75C89732098FDC300D9453B /* EditWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75C89722098FDC300D9453B /* EditWorkoutViewController.swift */; };
-		F7638845209E7DAB00641125 /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7638844209E7DAB00641125 /* CustomPicker.swift */; };
 		F77035386418932B7CF7A708 /* Pods_Pocket_Fitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7996C3789AB124093AF2C355 /* Pods_Pocket_Fitness.framework */; };
 		F790E31320840FD000FAB55D /* exercises.json in Resources */ = {isa = PBXBuildFile; fileRef = F790E31220840FD000FAB55D /* exercises.json */; };
 		F7BB1058208FEC4C00E84D5B /* WorkoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB1057208FEC4C00E84D5B /* WorkoutsViewController.swift */; };
-		F7FD4691209A616B008EBCEE /* StrengthExerciseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD4690209A616B008EBCEE /* StrengthExerciseSet.swift */; };
+		F7F61E58209FCC1700CDE03C /* StrengthExerciseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F61E57209FCC1700CDE03C /* StrengthExerciseSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,10 +60,9 @@
 		F702BA1B207AD52D00326E59 /* Pocket_FitnessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pocket_FitnessUITests.swift; sourceTree = "<group>"; };
 		F702BA1D207AD52D00326E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F75C89722098FDC300D9453B /* EditWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutViewController.swift; sourceTree = "<group>"; };
-		F7638844209E7DAB00641125 /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
 		F790E31220840FD000FAB55D /* exercises.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exercises.json; sourceTree = "<group>"; };
 		F7BB1057208FEC4C00E84D5B /* WorkoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsViewController.swift; sourceTree = "<group>"; };
-		F7FD4690209A616B008EBCEE /* StrengthExerciseSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrengthExerciseSet.swift; sourceTree = "<group>"; };
+		F7F61E57209FCC1700CDE03C /* StrengthExerciseSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrengthExerciseSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,8 +198,7 @@
 		F7FD468F209A6138008EBCEE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F7FD4690209A616B008EBCEE /* StrengthExerciseSet.swift */,
-				F7638844209E7DAB00641125 /* CustomPicker.swift */,
+				F7F61E57209FCC1700CDE03C /* StrengthExerciseSet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -517,9 +514,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7638845209E7DAB00641125 /* CustomPicker.swift in Sources */,
+				F7F61E58209FCC1700CDE03C /* StrengthExerciseSet.swift in Sources */,
 				F75C89732098FDC300D9453B /* EditWorkoutViewController.swift in Sources */,
-				F7FD4691209A616B008EBCEE /* StrengthExerciseSet.swift in Sources */,
 				F7BB1058208FEC4C00E84D5B /* WorkoutsViewController.swift in Sources */,
 				F702B9FC207AD52D00326E59 /* AppDelegate.swift in Sources */,
 			);

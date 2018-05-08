@@ -88,25 +88,7 @@ extension WorkoutsViewController {
       navigationItem.leftBarButtonItem?.action = #selector(toggleCalendar)
    }
 
-   @objc func toggleCalendar()   {
-      if(calendarHeightConstraint.constant == 0)  {
-         calendarHeightConstraint.constant = 205
-         koyomi.isHidden = false
-         calendarMonthLabel.isHidden = false
-      }  else  {
-         calendarHeightConstraint.constant = 0
-         let deadlineTime = DispatchTime.now() + .milliseconds(500)
-         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-            self.koyomi.display(in: .current)
-            self.resetLabelText()
-            self.koyomi.isHidden = true
-            self.calendarMonthLabel.isHidden = true
-         }
-      }
-      UIView.animate(withDuration: 0.5){
-         self.view.layoutIfNeeded()
-      }
-   }
+
 
    @objc func addNewWorkout() {
       DispatchQueue.main.async(execute: {
@@ -115,26 +97,7 @@ extension WorkoutsViewController {
       })
    }
 
-   @objc func calendarSwipeGesture(gesture: UIGestureRecognizer) {
 
-      if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-
-         switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.right:
-               koyomi.display(in: .previous)
-            case UISwipeGestureRecognizerDirection.left:
-               koyomi.display(in: .next)
-            default:
-               break
-         }
-         resetLabelText()
-      }
-   }
-
-   func resetLabelText()   {
-      calendarMonthLabel.text = koyomi.currentDateString(withFormat: "MMMM") + " " +
-         koyomi.currentDateString(withFormat: "YYYY")
-   }
 
 }
 
@@ -181,6 +144,48 @@ extension WorkoutsViewController {
       swipeLeft.direction = UISwipeGestureRecognizerDirection.left
       koyomi.addGestureRecognizer(swipeLeft)
    }
+
+   @objc func calendarSwipeGesture(gesture: UIGestureRecognizer) {
+
+      if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+
+         switch swipeGesture.direction {
+         case UISwipeGestureRecognizerDirection.right:
+            koyomi.display(in: .previous)
+         case UISwipeGestureRecognizerDirection.left:
+            koyomi.display(in: .next)
+         default:
+            break
+         }
+         resetLabelText()
+      }
+   }
+
+   func resetLabelText()   {
+      calendarMonthLabel.text = koyomi.currentDateString(withFormat: "MMMM") + " " +
+         koyomi.currentDateString(withFormat: "YYYY")
+   }
+
+   @objc func toggleCalendar()   {
+      if(calendarHeightConstraint.constant == 0)  {
+         calendarHeightConstraint.constant = 205
+         koyomi.isHidden = false
+         calendarMonthLabel.isHidden = false
+      }  else  {
+         calendarHeightConstraint.constant = 0
+         let deadlineTime = DispatchTime.now() + .milliseconds(500)
+         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            self.koyomi.display(in: .current)
+            self.resetLabelText()
+            self.koyomi.isHidden = true
+            self.calendarMonthLabel.isHidden = true
+         }
+      }
+      UIView.animate(withDuration: 0.5){
+         self.view.layoutIfNeeded()
+      }
+   }
+
 }
 
 extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
@@ -240,7 +245,6 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       monthLabel.trailingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
       monthLabel.bottomAnchor.constraint(equalTo: dayLabel.topAnchor).isActive = true
       monthLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
-//      monthLabel.topAnchor.constraint(equalTo: dateView.topAnchor, constant: 8.0).isActive = true
 
       let yearLabel = UILabel()
       yearLabel.backgroundColor = .clear
@@ -251,7 +255,6 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       yearLabel.translatesAutoresizingMaskIntoConstraints = false
       yearLabel.leadingAnchor.constraint(equalTo: dateView.leadingAnchor).isActive = true
       yearLabel.trailingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
-//      yearLabel.bottomAnchor.constraint(equalTo: dateView.bottomAnchor, constant: -9.0).isActive = true
       yearLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
       yearLabel.topAnchor.constraint(equalTo: dayLabel.bottomAnchor).isActive = true
 

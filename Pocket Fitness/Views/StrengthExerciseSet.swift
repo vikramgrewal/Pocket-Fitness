@@ -1,107 +1,147 @@
-import UIKit
+import Foundation
 import Eureka
 
-final class StrengthExerciseSetCell: Cell<Bool>, CellType, UITextFieldDelegate {
+public class ExerciseSet {
 
+   var workoutExerciseId : String?
+   var exerciseSetId : String?
+   var exerciseSetReps : Int?
+   var exerciseSetWeight : Float?
+   var exerciseSetDate : Date?
+   var exerciseSetTime : Date?
 
-//   @IBOutlet weak var userImageView: UIImageView!
-//   @IBOutlet weak var nameLabel: UILabel!
-//   @IBOutlet weak var emailLabel: UILabel!
-//   @IBOutlet weak var dateLabel: UILabel!
-   var weightInputContainer : UIView!
-   var weightInput : UITextField!
-   var weightInputLabel : UILabel!
-   var repsInputContainer : UIView!
-   var repsInput : UITextField!
-   var repsInputLabel : UILabel!
-   var textFieldDelegate : UITextFieldDelegate!
-
-   required init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-      super.init(style: style, reuseIdentifier: reuseIdentifier)
+   init(workoutExerciseId : String?, exerciseSetId : String?, exerciseSetReps : Int?,
+        exerciseSetWeight : Float?, exerciseSetDate : Date?, exerciseSetTime : Date?) {
+      self.workoutExerciseId = workoutExerciseId
+      self.exerciseSetReps = exerciseSetReps
+      self.exerciseSetWeight = exerciseSetWeight
+      self.exerciseSetDate = exerciseSetDate
+      self.exerciseSetTime = exerciseSetTime
    }
 
-   required init?(coder aDecoder: NSCoder) {
-      super.init(coder: aDecoder)
-   }
-
-   override func setup() {
-      super.setup()
-
-
-      height = { 45 }
-
-      weightInputContainer = UIView()
-      addSubview(weightInputContainer)
-      weightInputContainer.translatesAutoresizingMaskIntoConstraints = false
-      weightInputContainer.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-      weightInputContainer.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-      weightInputContainer.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 23.0).isActive = true
-      weightInputContainer.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor).isActive = true
-
-      weightInputLabel = UILabel()
-      weightInputLabel.text = "Weight"
-      weightInputContainer.addSubview(weightInputLabel)
-      weightInputLabel.translatesAutoresizingMaskIntoConstraints = false
-      weightInputLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
-      weightInputLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-      weightInputLabel.leadingAnchor.constraint(equalTo: weightInputContainer.leadingAnchor).isActive = true
-      weightInputLabel.trailingAnchor.constraint(equalTo: weightInputContainer.centerXAnchor).isActive = true
-
-      weightInput = UITextField()
-      weightInput.placeholder = "0"
-      weightInput.keyboardType = .decimalPad
-      weightInputContainer.addSubview(weightInput)
-      weightInput.translatesAutoresizingMaskIntoConstraints = false
-      weightInput.topAnchor.constraint(equalTo: topAnchor).isActive = true
-      weightInput.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-      weightInput.leadingAnchor.constraint(equalTo: weightInputContainer.centerXAnchor).isActive = true
-      weightInput.trailingAnchor.constraint(equalTo: weightInputContainer.trailingAnchor).isActive = true
-
-      repsInputContainer = UIView()
-      addSubview(repsInputContainer)
-      repsInputContainer.translatesAutoresizingMaskIntoConstraints = false
-      repsInputContainer.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-      repsInputContainer.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-      repsInputContainer.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor, constant: 23.0).isActive = true
-      repsInputContainer.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
-
-      repsInputLabel = UILabel()
-      repsInputLabel.text = "Reps"
-      repsInputContainer.addSubview(repsInputLabel)
-      repsInputLabel.translatesAutoresizingMaskIntoConstraints = false
-      repsInputLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
-      repsInputLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-      repsInputLabel.leadingAnchor.constraint(equalTo: repsInputContainer.leadingAnchor).isActive = true
-      repsInputLabel.trailingAnchor.constraint(equalTo: repsInputContainer.centerXAnchor).isActive = true
-
-      repsInput = UITextField()
-      repsInput.placeholder = "0"
-      repsInput.keyboardType = .decimalPad
-      repsInputContainer.addSubview(repsInput)
-      repsInput.translatesAutoresizingMaskIntoConstraints = false
-      repsInput.topAnchor.constraint(equalTo: topAnchor).isActive = true
-      repsInput.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-      repsInput.leadingAnchor.constraint(equalTo: repsInputContainer.centerXAnchor).isActive = true
-      repsInput.trailingAnchor.constraint(equalTo: repsInputContainer.trailingAnchor).isActive = true
-   }
-
-   func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-      return false
-   }
-
-   override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-      if action == #selector(UIResponderStandardEditActions.paste(_:)) {
-         return false
-      }
-      return super.canPerformAction(action, withSender: sender)
+   init(workoutExerciseId : String?) {
+      self.workoutExerciseId = workoutExerciseId
    }
 
 }
 
-final class StrengthExerciseSetRow: Row<StrengthExerciseSetCell>, RowType {
-   required init(tag: String?) {
+extension ExerciseSet : Equatable {
+
+   public static func == (lhs: ExerciseSet, rhs: ExerciseSet) -> Bool {
+      return lhs.exerciseSetId == rhs.exerciseSetId
+   }
+
+}
+
+public class _StrengthExerciseSetRow: Row<StrengthExerciseSetCell> {
+
+   public required init(tag: String?) {
       super.init(tag: tag)
 
-      cellProvider = CellProvider<StrengthExerciseSetCell>()
+      // The cellProvider is what we use to "connect" the nib file with our custom design
+      // GenericPasswordCell must be the class of the UITableViewCell contained in the GenericPasswordCell.xib file
+
    }
+
+}
+
+public final class StrengthExerciseSetRow: _StrengthExerciseSetRow, RowType { }
+
+public class StrengthExerciseSetCell: Cell<String>, CellType {
+
+   // Outlets to be connected with our nib file views.
+   var weightsViewAmount : UITextField!
+   var repsViewAmount : UITextField!
+
+   // Computed property in order to access to the properties of our Row
+   var strengthExerciseSetRow: _StrengthExerciseSetRow {
+      return row as! _StrengthExerciseSetRow
+   }
+
+   // Since we will be updating the cell height depending on the hidden
+   // state of the hintLabel, we need to have two height values available
+   // and set the `height` closure of Eureka's cells with those.
+   
+   // Cell's constructor
+   public required init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+      super.init(style: style, reuseIdentifier: reuseIdentifier)
+   }
+
+   public required init?(coder aDecoder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+   }
+
+   // MARK - Overrides
+
+   // Here we will setup our cell's behavior and style.
+   public override func setup() {
+      super.setup()
+
+      height = { 44 }
+      selectionStyle = .none
+
+      let weightsTextfieldLabel = UITextField()
+      weightsTextfieldLabel.textColor = .gray
+      weightsTextfieldLabel.text = "Weight"
+      weightsTextfieldLabel.isUserInteractionEnabled = false
+      weightsTextfieldLabel.translatesAutoresizingMaskIntoConstraints = false
+
+      addSubview(weightsTextfieldLabel)
+
+      weightsTextfieldLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 23).isActive = true
+      weightsTextfieldLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
+      weightsTextfieldLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+      weightsTextfieldLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.25).isActive = true
+
+      weightsViewAmount = UITextField()
+      weightsViewAmount.keyboardType = .decimalPad
+      weightsViewAmount.placeholder = "0"
+      weightsViewAmount.translatesAutoresizingMaskIntoConstraints = false
+
+      addSubview(weightsViewAmount)
+
+      weightsViewAmount.leadingAnchor.constraint(equalTo: weightsTextfieldLabel.trailingAnchor).isActive = true
+      weightsViewAmount.topAnchor.constraint(equalTo: topAnchor).isActive = true
+      weightsViewAmount.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+      weightsViewAmount.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.25).isActive = true
+
+      let repsTextfieldLabel = UITextField()
+      repsTextfieldLabel.textColor = .gray
+      repsTextfieldLabel.text = "Reps"
+      repsTextfieldLabel.isUserInteractionEnabled = false
+      repsTextfieldLabel.translatesAutoresizingMaskIntoConstraints = false
+
+      addSubview(repsTextfieldLabel)
+
+      repsTextfieldLabel.leadingAnchor.constraint(equalTo: weightsViewAmount.trailingAnchor).isActive = true
+      repsTextfieldLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
+      repsTextfieldLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+      repsTextfieldLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.25).isActive = true
+
+      repsViewAmount = UITextField()
+      repsViewAmount.keyboardType = .numberPad
+      repsViewAmount.placeholder = "0"
+      repsViewAmount.translatesAutoresizingMaskIntoConstraints = false
+
+      addSubview(repsViewAmount)
+
+      repsViewAmount.leadingAnchor.constraint(equalTo: repsTextfieldLabel.trailingAnchor).isActive = true
+      repsViewAmount.topAnchor.constraint(equalTo: topAnchor).isActive = true
+      repsViewAmount.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+      repsViewAmount.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -23).isActive = true
+
+      // set the validator to the strength view in order to
+      // give it the chance to layout itself accordingly
+   }
+
+   override public func update() {
+      super.update()
+
+   }
+
+   // MARK - Callbacks
+
+   // MARK - Helpers
+   
+
 }
