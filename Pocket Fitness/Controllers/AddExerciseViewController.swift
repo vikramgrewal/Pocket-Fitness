@@ -31,18 +31,6 @@ class AddExerciseViewController: FormViewController {
 
    func setUpNavigation()  {
       navigationController?.navigationBar.barStyle = .default
-//      let navTitle = UILabel()
-//      navTitle.translatesAutoresizingMaskIntoConstraints = false
-//      navigationController?.navigationBar.addSubview(navTitle)
-//      navTitle.text = "Edit Exercise"
-//      let xConstraint = NSLayoutConstraint(item: navTitle, attribute: .centerX,
-//                        relatedBy: .equal, toItem: navigationController?.navigationBar,
-//                        attribute: .centerX, multiplier: 1.0, constant: 0)
-//      let yConstraint = NSLayoutConstraint(item: navTitle, attribute: .centerY,
-//                                           relatedBy: .equal, toItem: navigationController?.navigationBar,
-//                                           attribute: .centerY, multiplier: 1.0, constant: 0)
-//      let constraints = [xConstraint, yConstraint]
-//      NSLayoutConstraint.activate(constraints)
 
       let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: nil)
       navigationItem.rightBarButtonItem = saveButton
@@ -86,7 +74,7 @@ class AddExerciseViewController: FormViewController {
             row.value = self.exerciseName
          }
          <<< TextRow(){ row in
-            row.placeholder = "Exercise Category"
+            row.placeholder = "Exercise Muscle Group"
             row.tag = "exerciseCategoryRow"
             row.onChange { row in
                if let exerciseCategory = row.value {
@@ -118,7 +106,7 @@ class AddExerciseViewController: FormViewController {
    func addDeleteButton()  {
       let deleteButton = UIButton()
       deleteButton.setTitle("Delete Exercise", for: .normal)
-      deleteButton.backgroundColor = .red
+      deleteButton.backgroundColor = UIColor(red: 246.0/255.0, green: 53.0/255.0, blue: 76.0/255.0, alpha: 1.0)
       deleteButton.translatesAutoresizingMaskIntoConstraints = false
       let bottom = deleteButton.bottomAnchor.constraint(equalTo:
          view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
