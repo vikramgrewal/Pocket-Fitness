@@ -21,26 +21,6 @@ class ExercisesViewController: UIViewController {
       testExercises[0].append(TestExercise(name: "Dips", muscleGroup: "Chest"))
       testExercises[1].append(TestExercise(name: "Quad Extensions", muscleGroup: "Legs"))
       testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
 
       setLayout()
    }
@@ -106,7 +86,7 @@ extension ExercisesViewController : UISearchBarDelegate, SwipeTableViewCellDeleg
          print("Start delete procedure for exercise")
       }
 
-      return [deleteAction, addToWorkoutAction]
+      return [deleteAction]
    }
 
 
@@ -153,7 +133,7 @@ extension ExercisesViewController : UITableViewDelegate, UITableViewDataSource {
 
       let height = NSLayoutConstraint.init(item: cell, attribute: .height,
                                   relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
-                                  multiplier: 1.0, constant: 55)
+                                  multiplier: 1.0, constant: 50)
       let constraints = [height]
       NSLayoutConstraint.activate(constraints)
       return cell
