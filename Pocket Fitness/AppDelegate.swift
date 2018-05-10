@@ -26,14 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
       let workoutsVC = WorkoutsViewController()
       let workoutsNavigationController = UINavigationController(rootViewController: workoutsVC)
-      tabBarController.viewControllers = [workoutsNavigationController]
-      window?.makeKeyAndVisible()
 
       let exerciseVC = ExercisesViewController()
-      let navigationController = UINavigationController(rootViewController: exerciseVC)
+      let exerciseNavigationController = UINavigationController(rootViewController: exerciseVC)
 
-      let tabBarControllers = [navigationController]
-      tabBarControllers[0].title = "Exercises"
+      let tabBarControllers = [workoutsNavigationController, exerciseNavigationController]
+      tabBarControllers[0].title = "Workouts"
+      tabBarControllers[1].title = "Exercises"
       tabBarController.viewControllers = tabBarControllers
 
       window?.makeKeyAndVisible()
