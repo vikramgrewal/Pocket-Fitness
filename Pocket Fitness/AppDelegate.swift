@@ -21,7 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       window = UIWindow(frame: windowFrame)
       window?.backgroundColor = .white
       tabBarController = UITabBarController()
+      tabBarController.tabBar.barTintColor = .groupTableViewBackground
       window?.rootViewController = tabBarController
+
+      let workoutsVC = WorkoutsViewController()
+      let workoutsNavigationController = UINavigationController(rootViewController: workoutsVC)
+      tabBarController.viewControllers = [workoutsNavigationController]
+      window?.makeKeyAndVisible()
 
       let exerciseVC = ExercisesViewController()
       let navigationController = UINavigationController(rootViewController: exerciseVC)

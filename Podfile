@@ -6,12 +6,12 @@ target 'Pocket Fitness' do
   use_frameworks!
 
   # Pods for Pocket Fitness
-  pod 'FacebookCore'
-  pod 'FacebookLogin'
-  pod 'FacebookShare'
-  pod 'SwipeCellKit'
-  pod 'Eureka'
-  pod 'Koyomi'
+   pod 'FacebookCore'
+   pod 'FacebookLogin'
+   pod 'FacebookShare'
+   pod 'SwipeCellKit'
+   pod 'Eureka'
+   pod 'Koyomi'
 
   target 'Pocket FitnessTests' do
     inherit! :search_paths
