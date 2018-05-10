@@ -15,6 +15,7 @@ class EditWorkoutViewController: FormViewController {
    var pickerViewHeight, pickerCompleteViewTrailing : NSLayoutConstraint?
    var pickerCompleteView : UIButton?
    var pickerVC : WorkoutExerciseSetPickerViewController?
+   var workout : Workout?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,6 +108,10 @@ class EditWorkoutViewController: FormViewController {
             onDismiss: { vc in let _ = vc.navigationController?.popViewController(animated: true) }
          )
 
+      }.onChange { row in
+         if row.value != nil {
+            row.cell.isUserInteractionEnabled = false
+         }
       }
 
       let addButton = ButtonRow() {
@@ -149,7 +154,7 @@ class EditWorkoutViewController: FormViewController {
                      return
                   }
 
-                  self.togglePickerView()
+                  self.openPickerView()
                   self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
             }
 
@@ -209,6 +214,7 @@ extension EditWorkoutViewController {
       pickerCompleteView?.setTitle("Done", for: .normal)
       pickerCompleteView?.setTitleColor(.white, for: .normal)
       view.addSubview(pickerCompleteView!)
+      pickerCompleteView?.addTarget(self, action: #selector(closePickerView), for: .touchUpInside)
       pickerCompleteView?.translatesAutoresizingMaskIntoConstraints = false
       pickerCompleteView?.heightAnchor.constraint(equalToConstant: 44).isActive = true
       pickerCompleteView?.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
@@ -218,22 +224,32 @@ extension EditWorkoutViewController {
 
    }
 
-   func togglePickerView() {
+   func openPickerView() {
 
       if pickerViewHeight?.constant == 0 {
-         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 160+54, right: 0)
+
          pickerViewHeight?.constant = -160
          pickerCompleteViewTrailing?.constant = -160 - 44
-      }  else {
-         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 54, right: 0)
+
+         UIView.animate(withDuration: 0.5) {
+            self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 160+54, right: 0)
+            self.view.layoutIfNeeded()
+         }
+
+      }
+
+   }
+
+   @objc func closePickerView()  {
+      if pickerViewHeight?.constant != 0 {
          pickerViewHeight?.constant = 0
          pickerCompleteViewTrailing?.constant = 0
-      }
 
-      UIView.animate(withDuration: 0.5) {
-         self.view.layoutIfNeeded()
+         UIView.animate(withDuration: 0.5) {
+            self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 54, right: 0)
+            self.view.layoutIfNeeded()
+         }
       }
-
    }
 
    

@@ -2,14 +2,14 @@ import Foundation
 
 public class ExerciseSet {
 
-   var workoutExerciseId : String?
-   var exerciseSetId : String?
+   var workoutExerciseId : Int64?
+   var exerciseSetId : Int64?
    var exerciseSetReps : Int?
    var exerciseSetWeight : Float?
    var exerciseSetDate : Date?
    var exerciseSetTime : Date?
 
-   init(workoutExerciseId : String?, exerciseSetId : String?, exerciseSetReps : Int?,
+   init(workoutExerciseId : Int64?, exerciseSetId : Int64?, exerciseSetReps : Int?,
         exerciseSetWeight : Float?, exerciseSetDate : Date?, exerciseSetTime : Date?) {
       self.workoutExerciseId = workoutExerciseId
       self.exerciseSetReps = exerciseSetReps
@@ -18,7 +18,7 @@ public class ExerciseSet {
       self.exerciseSetTime = exerciseSetTime
    }
 
-   init(workoutExerciseId : String?) {
+   init(workoutExerciseId : Int64?) {
       self.workoutExerciseId = workoutExerciseId
    }
 
@@ -27,7 +27,7 @@ public class ExerciseSet {
 extension ExerciseSet : Equatable {
 
    public static func == (lhs: ExerciseSet, rhs: ExerciseSet) -> Bool {
-      return lhs.exerciseSetId == rhs.exerciseSetId
+      return lhs.workoutExerciseId == rhs.workoutExerciseId
    }
 
 }

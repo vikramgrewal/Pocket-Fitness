@@ -40,15 +40,15 @@ class WorkoutsViewController: UIViewController {
     }
 
    func initializeTestData()   {
-      workouts = [Workout]()
-      workouts!.append(Workout(name: "Chest", month: "Jan", day: "17", year: "2017"))
-      workouts!.append(Workout(name: "Tris", month: "Jan", day: "16", year: "2017"))
-      workouts!.append(Workout(name: "Legs", month: "Jan", day: "15", year: "2017"))
-      workouts!.append(Workout(name: "Legs", month: "Jan", day: "14", year: "2017"))
-      workouts!.append(Workout(name: "Arms", month: "Jan", day: "13", year: "2017"))
-      workouts!.append(Workout(name: "Speed Work", month: "Jan", day: "12", year: "2017"))
-      workouts!.append(Workout(name: "Hamstrings", month: "Jan", day: "11", year: "2017"))
-      workouts!.append(Workout(name: "Basketball Training", month: "Jan", day: "10", year: "2017"))
+//      workouts = [Workout]()
+//      workouts!.append(Workout(name: "Chest", month: "Jan", day: "17", year: "2017"))
+//      workouts!.append(Workout(name: "Tris", month: "Jan", day: "16", year: "2017"))
+//      workouts!.append(Workout(name: "Legs", month: "Jan", day: "15", year: "2017"))
+//      workouts!.append(Workout(name: "Legs", month: "Jan", day: "14", year: "2017"))
+//      workouts!.append(Workout(name: "Arms", month: "Jan", day: "13", year: "2017"))
+//      workouts!.append(Workout(name: "Speed Work", month: "Jan", day: "12", year: "2017"))
+//      workouts!.append(Workout(name: "Hamstrings", month: "Jan", day: "11", year: "2017"))
+//      workouts!.append(Workout(name: "Basketball Training", month: "Jan", day: "10", year: "2017"))
    }
 
    func setUpView()  {
@@ -92,13 +92,12 @@ extension WorkoutsViewController {
    @objc func addNewWorkout() {
 
       DispatchQueue.main.async(execute: {
+         // Create a new workout in the database and pass that workout object to next view controller
          let editWorkoutVC = EditWorkoutViewController()
          self.navigationController?.pushViewController(editWorkoutVC, animated: true)
       })
       
    }
-
-
 
 }
 
