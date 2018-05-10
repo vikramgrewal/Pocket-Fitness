@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		5EA842A46997E869ACA719F2 /* Pods_Pocket_FitnessTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC60AE645BB68005168A274 /* Pods_Pocket_FitnessTests.framework */; };
 		66A02B278140DEA43BB0C6B3 /* Pods_Pocket_FitnessUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3F54663E5D52F0FDEB49D1 /* Pods_Pocket_FitnessUITests.framework */; };
-		F702B9FC207AD52D00326E59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702B9FB207AD52D00326E59 /* AppDelegate.swift */; };
+		A1D8F689209A8230005153D4 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8F688209A8230005153D4 /* ExercisesViewController.swift */; };
+		A1D8F68B209A824E005153D4 /* AddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8F68A209A824E005153D4 /* AddExerciseViewController.swift */; };
 		F702BA03207AD52D00326E59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F702BA02207AD52D00326E59 /* Assets.xcassets */; };
 		F702BA06207AD52D00326E59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F702BA04207AD52D00326E59 /* LaunchScreen.storyboard */; };
 		F702BA11207AD52D00326E59 /* Pocket_FitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702BA10207AD52D00326E59 /* Pocket_FitnessTests.swift */; };
 		F702BA1C207AD52D00326E59 /* Pocket_FitnessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702BA1B207AD52D00326E59 /* Pocket_FitnessUITests.swift */; };
+		F75A1C83209A8B4D008E1DED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75A1C82209A8B4D008E1DED /* AppDelegate.swift */; };
 		F712A7EF20A4DA11006C392A /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = F712A7EE20A4DA11006C392A /* Exercise.swift */; };
 		F72D365E20A3BA6A0025F487 /* CustomExerciseSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D365D20A3BA6A0025F487 /* CustomExerciseSelectorView.swift */; };
 		F72D366020A3CBA60025F487 /* WorkoutExerciseSetPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D365F20A3CBA60025F487 /* WorkoutExerciseSetPickerViewController.swift */; };
@@ -51,10 +53,11 @@
 		4393FA9C6A7AA297D84E1AB3 /* Pods-Pocket Fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket Fitness.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket Fitness/Pods-Pocket Fitness.release.xcconfig"; sourceTree = "<group>"; };
 		7025AE70120C70CFB07F2D9C /* Pods-Pocket FitnessUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket FitnessUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket FitnessUITests/Pods-Pocket FitnessUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7996C3789AB124093AF2C355 /* Pods_Pocket_Fitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pocket_Fitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1D8F688209A8230005153D4 /* ExercisesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
+		A1D8F68A209A824E005153D4 /* AddExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseViewController.swift; sourceTree = "<group>"; };
 		D6EF546828780B0AC04F68D0 /* Pods-Pocket Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket Fitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket Fitness/Pods-Pocket Fitness.debug.xcconfig"; sourceTree = "<group>"; };
 		E77A86B652B29B9B975D0D91 /* Pods-Pocket FitnessUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket FitnessUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket FitnessUITests/Pods-Pocket FitnessUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F702B9F8207AD52D00326E59 /* Pocket Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F702B9FB207AD52D00326E59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F702BA02207AD52D00326E59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F702BA05207AD52D00326E59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F702BA07207AD52D00326E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 		F702BA17207AD52D00326E59 /* Pocket FitnessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pocket FitnessUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F702BA1B207AD52D00326E59 /* Pocket_FitnessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pocket_FitnessUITests.swift; sourceTree = "<group>"; };
 		F702BA1D207AD52D00326E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F75A1C82209A8B4D008E1DED /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Pocket Fitness/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		F712A7EE20A4DA11006C392A /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		F72D365D20A3BA6A0025F487 /* CustomExerciseSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExerciseSelectorView.swift; sourceTree = "<group>"; };
 		F72D365F20A3CBA60025F487 /* WorkoutExerciseSetPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseSetPickerViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +130,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A1D8F685209A81BF005153D4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A1D8F68A209A824E005153D4 /* AddExerciseViewController.swift */,
+				A1D8F688209A8230005153D4 /* ExercisesViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A1D8F68C209A8281005153D4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F702B9EF207AD52D00326E59 = {
 			isa = PBXGroup;
 			children = (
@@ -151,12 +171,13 @@
 		F702B9FA207AD52D00326E59 /* Pocket Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				F75A1C82209A8B4D008E1DED /* AppDelegate.swift */,
 				F7CBA81920A22D000072F676 /* Models */,
 				F7FD468F209A6138008EBCEE /* Views */,
 				F77F366B2086F03B00B75932 /* Controllers */,
+
 				F76FC29E207EE2F30017C560 /* Storyboards */,
 				F75DCCAC2083E24B0014C350 /* Resources */,
-				F702B9FB207AD52D00326E59 /* AppDelegate.swift */,
 				F702BA02207AD52D00326E59 /* Assets.xcassets */,
 				F702BA07207AD52D00326E59 /* Info.plist */,
 			);
@@ -197,6 +218,7 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+
 		F77F366B2086F03B00B75932 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,7 +260,7 @@
 				F702B9F5207AD52D00326E59 /* Frameworks */,
 				F702B9F6207AD52D00326E59 /* Resources */,
 				3DD1240850EFCB1588ACACAB /* [CP] Embed Pods Frameworks */,
-				D7F0B7714D6AD9D218C2E04A /* [CP] Copy Pods Resources */,
+				597A03FA772C45B8024D71CF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -257,8 +279,8 @@
 				F702BA08207AD52D00326E59 /* Sources */,
 				F702BA09207AD52D00326E59 /* Frameworks */,
 				F702BA0A207AD52D00326E59 /* Resources */,
-				88392FDE4A9BB49589FA9F08 /* [CP] Embed Pods Frameworks */,
-				7166DE66F2059CBF7FA8DC48 /* [CP] Copy Pods Resources */,
+				EB82548FA857B2B21882073C /* [CP] Embed Pods Frameworks */,
+				2249DB1607CFEA8EE0B35915 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -278,8 +300,8 @@
 				F702BA13207AD52D00326E59 /* Sources */,
 				F702BA14207AD52D00326E59 /* Frameworks */,
 				F702BA15207AD52D00326E59 /* Resources */,
-				D9B7FCB9B23D256BEA18336A /* [CP] Embed Pods Frameworks */,
-				5757336B92399A7EE9E7DBDD /* [CP] Copy Pods Resources */,
+				B80D1C1BB60882FC2363174D /* [CP] Embed Pods Frameworks */,
+				75FE50F52D346651F7ADE220 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -365,6 +387,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2249DB1607CFEA8EE0B35915 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pocket FitnessTests/Pods-Pocket FitnessTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2949C1FF2EE0F9C3BBB242A5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -437,7 +474,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5757336B92399A7EE9E7DBDD /* [CP] Copy Pods Resources */ = {
+		597A03FA772C45B8024D71CF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pocket Fitness/Pods-Pocket Fitness-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75FE50F52D346651F7ADE220 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -452,22 +504,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pocket FitnessUITests/Pods-Pocket FitnessUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7166DE66F2059CBF7FA8DC48 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pocket FitnessTests/Pods-Pocket FitnessTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		88392FDE4A9BB49589FA9F08 /* [CP] Embed Pods Frameworks */ = {
+		B80D1C1BB60882FC2363174D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -479,7 +516,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pocket FitnessTests/Pods-Pocket FitnessTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pocket FitnessUITests/Pods-Pocket FitnessUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CD2DD45F7AA14BF5DF66BFE9 /* [CP] Check Pods Manifest.lock */ = {
@@ -500,22 +537,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D7F0B7714D6AD9D218C2E04A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pocket Fitness/Pods-Pocket Fitness-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D9B7FCB9B23D256BEA18336A /* [CP] Embed Pods Frameworks */ = {
+		EB82548FA857B2B21882073C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -527,7 +549,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pocket FitnessUITests/Pods-Pocket FitnessUITests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pocket FitnessTests/Pods-Pocket FitnessTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -537,6 +559,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F75A1C83209A8B4D008E1DED /* AppDelegate.swift in Sources */,
+				A1D8F68B209A824E005153D4 /* AddExerciseViewController.swift in Sources */,
+				A1D8F689209A8230005153D4 /* ExercisesViewController.swift in Sources */,
 				F7CBA81B20A22D200072F676 /* ExerciseSet.swift in Sources */,
 				F7CBA81F20A22D810072F676 /* StrengthExerciseSetCell.swift in Sources */,
 				F75C89732098FDC300D9453B /* EditWorkoutViewController.swift in Sources */,
@@ -544,7 +569,6 @@
 				F7BB1058208FEC4C00E84D5B /* WorkoutsViewController.swift in Sources */,
 				F7CBA81D20A22D3F0072F676 /* StrengthExerciseSetRow.swift in Sources */,
 				F72D365E20A3BA6A0025F487 /* CustomExerciseSelectorView.swift in Sources */,
-				F702B9FC207AD52D00326E59 /* AppDelegate.swift in Sources */,
 				F712A7EF20A4DA11006C392A /* Exercise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

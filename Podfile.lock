@@ -19,9 +19,9 @@ PODS:
     - FacebookCore (~> 0.3)
     - FBSDKCoreKit (~> 4.27)
     - FBSDKShareKit (~> 4.27)
-  - FBSDKCoreKit (4.31.1):
+  - FBSDKCoreKit (4.33.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.31.1):
+  - FBSDKLoginKit (4.33.0):
     - FBSDKCoreKit
   - FBSDKShareKit (4.31.1):
     - FBSDKCoreKit (~> 4.31.1)
