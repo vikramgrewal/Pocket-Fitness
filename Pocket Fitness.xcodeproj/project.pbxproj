@@ -11,8 +11,6 @@
 		66A02B278140DEA43BB0C6B3 /* Pods_Pocket_FitnessUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3F54663E5D52F0FDEB49D1 /* Pods_Pocket_FitnessUITests.framework */; };
 		A1D8F689209A8230005153D4 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8F688209A8230005153D4 /* ExercisesViewController.swift */; };
 		A1D8F68B209A824E005153D4 /* AddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8F68A209A824E005153D4 /* AddExerciseViewController.swift */; };
-		A1D8F68F209A829A005153D4 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8F68D209A829A005153D4 /* Exercise.swift */; };
-		A1D8F690209A829A005153D4 /* ExerciseFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8F68E209A829A005153D4 /* ExerciseFilter.swift */; };
 		F702BA03207AD52D00326E59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F702BA02207AD52D00326E59 /* Assets.xcassets */; };
 		F702BA06207AD52D00326E59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F702BA04207AD52D00326E59 /* LaunchScreen.storyboard */; };
 		F702BA11207AD52D00326E59 /* Pocket_FitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702BA10207AD52D00326E59 /* Pocket_FitnessTests.swift */; };
@@ -49,8 +47,6 @@
 		7996C3789AB124093AF2C355 /* Pods_Pocket_Fitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pocket_Fitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1D8F688209A8230005153D4 /* ExercisesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
 		A1D8F68A209A824E005153D4 /* AddExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseViewController.swift; sourceTree = "<group>"; };
-		A1D8F68D209A829A005153D4 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
-		A1D8F68E209A829A005153D4 /* ExerciseFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseFilter.swift; sourceTree = "<group>"; };
 		D6EF546828780B0AC04F68D0 /* Pods-Pocket Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket Fitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket Fitness/Pods-Pocket Fitness.debug.xcconfig"; sourceTree = "<group>"; };
 		E77A86B652B29B9B975D0D91 /* Pods-Pocket FitnessUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket FitnessUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket FitnessUITests/Pods-Pocket FitnessUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F702B9F8207AD52D00326E59 /* Pocket Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,8 +126,6 @@
 		A1D8F68C209A8281005153D4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A1D8F68D209A829A005153D4 /* Exercise.swift */,
-				A1D8F68E209A829A005153D4 /* ExerciseFilter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -519,8 +513,6 @@
 			files = (
 				F75A1C83209A8B4D008E1DED /* AppDelegate.swift in Sources */,
 				A1D8F68B209A824E005153D4 /* AddExerciseViewController.swift in Sources */,
-				A1D8F68F209A829A005153D4 /* Exercise.swift in Sources */,
-				A1D8F690209A829A005153D4 /* ExerciseFilter.swift in Sources */,
 				A1D8F689209A8230005153D4 /* ExercisesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

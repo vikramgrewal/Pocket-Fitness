@@ -40,18 +40,10 @@ class AddExerciseViewController: FormViewController {
       navigationItem.rightBarButtonItem?.action = #selector(saveExercise)
    }
 
-   @objc func saveExercise() {
-      if let _ = exerciseId  {
-
-      }  else {
-
-      }
-   }
-
    func setView() {
       view.backgroundColor = .white
       setForm()
-      guard let _ = exerciseId else {
+      guard exerciseId != nil else {
          return
       }
       addDeleteButton()
@@ -115,11 +107,19 @@ class AddExerciseViewController: FormViewController {
       let trailing = deleteButton.trailingAnchor.constraint(equalTo:
          view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
       let height = NSLayoutConstraint.init(item: deleteButton, attribute: .height,
-                      relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
-                      multiplier: 1.0, constant: 50)
+                                           relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
+                                           multiplier: 1.0, constant: 50)
       let constraints = [bottom, leading, trailing, height]
       view.addSubview(deleteButton)
       NSLayoutConstraint.activate(constraints)
+   }
+
+   @objc func saveExercise() {
+      if exerciseId != nil {
+         // Update existing exercise
+      }  else {
+         // Save new exercise to database and validate information
+      }
    }
     
 

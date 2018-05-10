@@ -11,18 +11,19 @@ import SwipeCellKit
 
 class ExercisesViewController: UIViewController {
 
-   var testExercises : [[TestExercise?]]!
+   var testExercises : [[TestExercise?]]?
    var tableView : UITableView!
    var searchController: UISearchController!
 
    override func viewDidLoad() {
       testExercises = [[],[]]
-      testExercises[0].append(TestExercise(name: "Benchpress", muscleGroup: "Chest"))
-      testExercises[0].append(TestExercise(name: "Dips", muscleGroup: "Chest"))
-      testExercises[1].append(TestExercise(name: "Quad Extensions", muscleGroup: "Legs"))
-      testExercises[1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
+      testExercises![0].append(TestExercise(name: "Benchpress", muscleGroup: "Chest"))
+      testExercises![0].append(TestExercise(name: "Dips", muscleGroup: "Chest"))
+      testExercises![1].append(TestExercise(name: "Quad Extensions", muscleGroup: "Legs"))
+      testExercises![1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
 
-      setLayout()
+      setUpView()
+      setConstraints()
    }
 
    override func viewWillAppear(_ animated: Bool) {
@@ -30,16 +31,6 @@ class ExercisesViewController: UIViewController {
       if let index = tableView.indexPathForSelectedRow{
          self.tableView.deselectRow(at: index, animated: true)
       }
-   }
-
-   private func setLayout()   {
-      setUpView()
-      view.addSubview(tableView)
-      tableView.separatorStyle = .singleLine
-      tableView.tableFooterView = UIView()
-      tableView.delegate = self
-      tableView.dataSource = self
-      setConstraints()
    }
 
    private func setConstraints() {
@@ -55,6 +46,11 @@ class ExercisesViewController: UIViewController {
 
    func setUpTableView()   {
       tableView = UITableView()
+      tableView.separatorStyle = .singleLine
+      tableView.tableFooterView = UIView()
+      tableView.delegate = self
+      tableView.dataSource = self
+      view.addSubview(tableView)
       tableView.translatesAutoresizingMaskIntoConstraints = false
       guard tableView !== nil else {
          print("Error retrieving table view")
@@ -114,7 +110,10 @@ extension ExercisesViewController : UISearchBarDelegate, SwipeTableViewCellDeleg
 
 extension ExercisesViewController : UITableViewDelegate, UITableViewDataSource {
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return testExercises[section].count
+      guard let count = testExercises?[section].count else {
+         return 0
+      }
+      return count
    }
 
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -122,7 +121,7 @@ extension ExercisesViewController : UITableViewDelegate, UITableViewDataSource {
       cell.delegate = self
 
       cell.selectionStyle = .default
-      if let cellName = testExercises[indexPath.section][indexPath.row]?.name {
+      if let cellName = testExercises![indexPath.section][indexPath.row]?.name {
          cell.textLabel?.text = cellName
       }  else {
          cell.textLabel?.text = ""
@@ -140,23 +139,32 @@ extension ExercisesViewController : UITableViewDelegate, UITableViewDataSource {
    }
 
    func  numberOfSections(in tableView: UITableView) -> Int {
-      if testExercises.count > 0 {
+      guard let sectionCount = testExercises?.count else {
+         setEmptyTableView()
+         return 0
+      }
+
+      if sectionCount > 0 {
          tableView.backgroundView = nil
-         return testExercises.count
+         return sectionCount
       } else {
-         let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: view.bounds.size.height))
-         messageLabel.text = "Retrieving data.\nPlease wait."
-         messageLabel.numberOfLines = 0;
-         messageLabel.textAlignment = .center;
-         messageLabel.font = UIFont(name: "HelveticaNeue", size: 20.0)!
-         messageLabel.sizeToFit()
-         tableView.backgroundView = messageLabel;
+         setEmptyTableView()
       }
       return 0
    }
 
+   func setEmptyTableView()   {
+      let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: view.bounds.size.height))
+      messageLabel.text = "Retrieving data.\nPlease wait."
+      messageLabel.numberOfLines = 0;
+      messageLabel.textAlignment = .center;
+      messageLabel.font = UIFont(name: "HelveticaNeue", size: 20.0)!
+      messageLabel.sizeToFit()
+      tableView.backgroundView = messageLabel;
+   }
+
    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-      guard let sectionExercise = testExercises[section][0] else {
+      guard let sectionExercise = testExercises?[section][0] else {
          return "Default"
       }
       return sectionExercise.muscleGroup
@@ -170,7 +178,8 @@ extension ExercisesViewController : UITableViewDelegate, UITableViewDataSource {
             if let tappedCell = tableView.cellForRow(at: tapIndexPath) {
                let section = tapIndexPath.section
                let row = tapIndexPath.row
-               guard let exercise = testExercises[section][row]   else {
+               // Handle some fetching from database for exercise
+               guard let exercise = testExercises?[section][row]   else {
                   return
                }
                addExerciseVC.exerciseId = "123"
