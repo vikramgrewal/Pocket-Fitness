@@ -11,6 +11,11 @@ import Eureka
 
 class EditWorkoutViewController: FormViewController {
 
+   var workoutExerciseSetPickerView : UIPickerView?
+   var pickerViewHeight, pickerCompleteViewTrailing : NSLayoutConstraint?
+   var pickerCompleteView : UIButton?
+   var pickerVC : WorkoutExerciseSetPickerViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,94 +32,39 @@ class EditWorkoutViewController: FormViewController {
       view.backgroundColor = .white
       setUpDefaultForm()
       setUpAddExerciseButton()
-
-   }
-
-   @objc func addNewExercise()   {
-      guard let _ = form.sectionBy(tag: "workoutExercisesSection")   else {
-         return
-      }
-      let section = Section() {
-         $0.tag = "workoutExerciseId"
-      }
-
-      form.append(section)
-
-      let pushRow = PushRow<String>()   {
-         $0.title = "Exercise Name"
-         $0.options = ["Bench Press", "Dips"]
-      }
-      
-
-      let strengthExerciseSetRow = StrengthExerciseSetRow()
-
-      let addButton = ButtonRow() {
-         $0.title = "Add Set"
-      }.cellUpdate { cell, row in
-         cell.textLabel?.textColor = .white
-         cell.backgroundColor = UIColor(red: 255.0/255.0, green: 182.0/255.0, blue: 55.0/255.0, alpha: 1.0)
-      }.onCellSelection{ cell, row in
-
-         guard var workoutExerciseSection : Section = row.section else {
-            return
-         }
-         guard let indexPath = row.indexPath else {
-            return
-         }
-         guard let sectionTag = workoutExerciseSection.tag else {
-            return
-         }
-         guard let indexOfRow = row.section?.index(of: row) else {
-            return
-         }
-
-         var workoutExerciseSet : StrengthExerciseSetRow = StrengthExerciseSetRow()
-
-         workoutExerciseSection.insert(workoutExerciseSet, at: indexOfRow)
-
-         self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
-
-      }
-
-      section.append(pushRow)
-
-      section.append(strengthExerciseSetRow)
-
-      section.append(addButton)
-
-      guard let indexPath = form.last?.last?.indexPath else {
-         return
-      }
-      self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+      setUpPickerView()
+      setUpPickerCompleteView()
    }
 
    func setUpDefaultForm()  {
       form
-         +++ Section("Workout Information")   { section in
-            section.header?.height = { 45 }
+         +++ Section()   { section in
+            section.header?.height = { 44 }
          }
-         <<< TextRow() { // 3
-            $0.title = "Workout Name" //4
+         <<< TextRow() {
+            $0.title = "Workout Name"
             $0.placeholder = "e.g. Legs"
             $0.tag = "workoutNameRow"
          }
          <<< DateTimeRow() {
-            $0.title = "Workout Date" //2
-            $0.value = Date() //3
-            $0.maximumDate = Date() //4
+            $0.title = "Workout Date"
+            $0.value = Date()
+            $0.maximumDate = Date()
             $0.tag = "workoutDateRow"
-            $0.onChange { [unowned self] row in //5
-            }
+//            $0.onChange { [unowned self] row in
+//            }
          }
-         <<< TextRow() { // 3
-            $0.title = "Workout Notes" //4
-            $0.placeholder = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+         <<< TextRow() {
+            $0.title = "Workout Notes"
+            $0.placeholder = "e.g pain in left hip during squats"
             $0.tag = "workoutNotesRow"
          }
-         +++ Section("Workout Exercises")   { section in
-            section.header?.height = { 45 }
-            section.tag = "workoutExercisesSection"
+         +++ Section("Workout Exercises")   {
+            $0.header?.height = { 0 }
+            $0.tag = "workoutExercisesSection"
+            $0.footer?.height = { 0 }
       }
+
       tableView.contentInset = UIEdgeInsetsMake(0, 0, 54, 0);
    }
 
@@ -133,7 +83,93 @@ class EditWorkoutViewController: FormViewController {
    }
 
 
-    
+   @objc func addNewExercise()   {
+
+      guard let workoutExercisesSection = form.sectionBy(tag: "workoutExercisesSection")   else {
+         return
+      }
+
+      // Write new exercise to database using some model
+      let newExerciseId = UUID().uuidString
+
+      let newExerciseSection = Section() {
+         $0.tag = newExerciseId
+         $0.header?.height = { 0 }
+      }
+
+      form.append(newExerciseSection)
+
+      let exerciseNameRow = PushRow<String>()   {
+         $0.title = "Exercise Name"
+
+         $0.presentationMode = PresentationMode.show(
+            controllerProvider: ControllerProvider.callback(builder: { return MyPushViewController() }),
+            onDismiss: { vc in let _ = vc.navigationController?.popViewController(animated: true) }
+         )
+
+      }
+
+      let addButton = ButtonRow() {
+         $0.title = "Add Set"
+         }.cellUpdate { cell, row in
+            cell.textLabel?.textColor = .white
+            cell.backgroundColor = UIColor(red: 255.0/255.0, green: 182.0/255.0, blue: 55.0/255.0, alpha: 1.0)
+         }.onCellSelection{ cell, row in
+
+            guard var workoutExerciseSection : Section = row.section else {
+               return
+            }
+
+            guard let indexPath = row.indexPath else {
+               return
+            }
+
+            guard let workoutExerciseSectionTag = workoutExerciseSection.tag else {
+               return
+            }
+
+            guard let indexOfRow = row.section?.index(of: row) else {
+               return
+            }
+
+            guard let firstRow = workoutExerciseSection.first as? PushRow<String> else {
+               return
+            }
+
+            guard let exerciseValue = firstRow.value else {
+               let alertController = UIAlertController.init(title: "Warning", message: "Select an exercise!", preferredStyle: .alert)
+               alertController.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+               self.present(alertController, animated: true, completion: nil)
+               return
+            }
+
+            let workoutExerciseSet = StrengthExerciseSetRow(tag: nil, workoutId: "workoutId", workoutExerciseId: workoutExerciseSectionTag)
+            .onCellSelection { cell, row in
+                  guard let indexPath = row.indexPath else {
+                     return
+                  }
+
+                  self.togglePickerView()
+                  self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+            }
+
+            workoutExerciseSection.insert(workoutExerciseSet, at: indexOfRow)
+
+            self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+
+      }
+
+      newExerciseSection.append(exerciseNameRow)
+
+      newExerciseSection.append(addButton)
+
+      newExerciseSection.footer?.height = { 44 }
+
+      guard let indexPath = form.last?.last?.indexPath else {
+         return
+      }
+      self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+   }
 
     /*
     // MARK: - Navigation
@@ -146,3 +182,63 @@ class EditWorkoutViewController: FormViewController {
     */
 
 }
+
+// Handles all logic for setting up picker view and toggling control
+extension EditWorkoutViewController {
+
+   func setUpPickerView()  {
+
+      pickerVC = WorkoutExerciseSetPickerViewController()
+      pickerVC?.setUp()
+      workoutExerciseSetPickerView = pickerVC?.workoutExerciseSetPickerView
+      view.addSubview(workoutExerciseSetPickerView!)
+      workoutExerciseSetPickerView?.layer.zPosition = 10
+      workoutExerciseSetPickerView?.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+      workoutExerciseSetPickerView?.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+      workoutExerciseSetPickerView?.heightAnchor.constraint(equalToConstant: 160).isActive = true
+      pickerViewHeight = workoutExerciseSetPickerView?.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+      pickerViewHeight?.isActive = true
+
+   }
+
+   func setUpPickerCompleteView() {
+
+      pickerCompleteView = UIButton()
+      pickerCompleteView?.layer.zPosition = 11
+      pickerCompleteView?.backgroundColor = UIColor(red: 53/255, green: 103/255, blue: 172/255, alpha: 1.0)
+      pickerCompleteView?.setTitle("Done", for: .normal)
+      pickerCompleteView?.setTitleColor(.white, for: .normal)
+      view.addSubview(pickerCompleteView!)
+      pickerCompleteView?.translatesAutoresizingMaskIntoConstraints = false
+      pickerCompleteView?.heightAnchor.constraint(equalToConstant: 44).isActive = true
+      pickerCompleteView?.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+      pickerCompleteView?.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+      pickerCompleteViewTrailing = pickerCompleteView?.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+      pickerCompleteViewTrailing?.isActive = true
+
+   }
+
+   func togglePickerView() {
+
+      if pickerViewHeight?.constant == 0 {
+         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 160+54, right: 0)
+         pickerViewHeight?.constant = -160
+         pickerCompleteViewTrailing?.constant = -160 - 44
+      }  else {
+         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 54, right: 0)
+         pickerViewHeight?.constant = 0
+         pickerCompleteViewTrailing?.constant = 0
+      }
+
+      UIView.animate(withDuration: 0.5) {
+         self.view.layoutIfNeeded()
+      }
+
+   }
+
+   
+
+}
+
+
+

@@ -1,51 +1,13 @@
+//
+//  StrengthExerciseSetCell.swift
+//  Pocket Fitness
+//
+//  Created by Vikram Work/School on 5/8/18.
+//  Copyright © 2018 Vikram Work/School. All rights reserved.
+//
+
 import Foundation
 import Eureka
-
-public class ExerciseSet {
-
-   var workoutExerciseId : String?
-   var exerciseSetId : String?
-   var exerciseSetReps : Int?
-   var exerciseSetWeight : Float?
-   var exerciseSetDate : Date?
-   var exerciseSetTime : Date?
-
-   init(workoutExerciseId : String?, exerciseSetId : String?, exerciseSetReps : Int?,
-        exerciseSetWeight : Float?, exerciseSetDate : Date?, exerciseSetTime : Date?) {
-      self.workoutExerciseId = workoutExerciseId
-      self.exerciseSetReps = exerciseSetReps
-      self.exerciseSetWeight = exerciseSetWeight
-      self.exerciseSetDate = exerciseSetDate
-      self.exerciseSetTime = exerciseSetTime
-   }
-
-   init(workoutExerciseId : String?) {
-      self.workoutExerciseId = workoutExerciseId
-   }
-
-}
-
-extension ExerciseSet : Equatable {
-
-   public static func == (lhs: ExerciseSet, rhs: ExerciseSet) -> Bool {
-      return lhs.exerciseSetId == rhs.exerciseSetId
-   }
-
-}
-
-public class _StrengthExerciseSetRow: Row<StrengthExerciseSetCell> {
-
-   public required init(tag: String?) {
-      super.init(tag: tag)
-
-      // The cellProvider is what we use to "connect" the nib file with our custom design
-      // GenericPasswordCell must be the class of the UITableViewCell contained in the GenericPasswordCell.xib file
-
-   }
-
-}
-
-public final class StrengthExerciseSetRow: _StrengthExerciseSetRow, RowType { }
 
 public class StrengthExerciseSetCell: Cell<String>, CellType {
 
@@ -61,7 +23,7 @@ public class StrengthExerciseSetCell: Cell<String>, CellType {
    // Since we will be updating the cell height depending on the hidden
    // state of the hintLabel, we need to have two height values available
    // and set the `height` closure of Eureka's cells with those.
-   
+
    // Cell's constructor
    public required init(style: UITableViewCellStyle, reuseIdentifier: String?) {
       super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -94,7 +56,8 @@ public class StrengthExerciseSetCell: Cell<String>, CellType {
       weightsTextfieldLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.25).isActive = true
 
       weightsViewAmount = UITextField()
-      weightsViewAmount.keyboardType = .decimalPad
+//      weightsViewAmount.keyboardType = .decimalPad
+      weightsViewAmount.isUserInteractionEnabled = false
       weightsViewAmount.placeholder = "0"
       weightsViewAmount.translatesAutoresizingMaskIntoConstraints = false
 
@@ -119,7 +82,8 @@ public class StrengthExerciseSetCell: Cell<String>, CellType {
       repsTextfieldLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.25).isActive = true
 
       repsViewAmount = UITextField()
-      repsViewAmount.keyboardType = .numberPad
+//      repsViewAmount.keyboardType = .numberPad
+      repsViewAmount.isUserInteractionEnabled = false
       repsViewAmount.placeholder = "0"
       repsViewAmount.translatesAutoresizingMaskIntoConstraints = false
 
@@ -142,6 +106,6 @@ public class StrengthExerciseSetCell: Cell<String>, CellType {
    // MARK - Callbacks
 
    // MARK - Helpers
-   
+
 
 }

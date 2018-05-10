@@ -114,7 +114,8 @@ extension WorkoutsViewController {
       calendarHeightConstraint.isActive = true
       calendarMonthLabel = UILabel()
       calendarView.addSubview(calendarMonthLabel)
-      calendarMonthLabel.textColor = .black
+      calendarMonthLabel.textColor = .white
+      calendarMonthLabel.backgroundColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
       calendarMonthLabel.font = UIFont(name: "Helvetica", size: 18)
       calendarMonthLabel.isHidden = true
       calendarMonthLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -126,8 +127,11 @@ extension WorkoutsViewController {
       koyomi = Koyomi(frame: .zero, sectionSpace: 1.5, cellSpace: 0.5, inset: .init(top: 1, left: 1, bottom: 1, right: 1), weekCellHeight: 25)
       koyomi.isHidden = true
       koyomi.selectionMode = .sequence(style: .background)
-      koyomi.selectedStyleColor = .lightGray
-      koyomi.style = .tealBlue
+      koyomi.selectedStyleColor = UIColor(red: 255.0/255.0, green: 182.0/255.0, blue: 55.0/255.0, alpha: 1.0)
+      koyomi.weekColor = .white
+      koyomi.weekBackgrondColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
+//      koyomi.style = .tealBlue
+      koyomi.separatorColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
       resetLabelText()
       calendarView.addSubview(koyomi)
       koyomi.translatesAutoresizingMaskIntoConstraints = false
@@ -144,6 +148,8 @@ extension WorkoutsViewController {
       swipeLeft.direction = UISwipeGestureRecognizerDirection.left
       koyomi.addGestureRecognizer(swipeLeft)
    }
+
+
 
    @objc func calendarSwipeGesture(gesture: UIGestureRecognizer) {
 
