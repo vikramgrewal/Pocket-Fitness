@@ -25,6 +25,7 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.31.1):
     - FBSDKCoreKit (~> 4.31.1)
+  - Koyomi (1.2.7)
   - SwipeCellKit (2.1.0)
 
 DEPENDENCIES:
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - Koyomi
   - SwipeCellKit
 
 SPEC CHECKSUMS:
@@ -43,6 +45,10 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: e08ccfcefa7bc1347a07c276dac9bf6c7fe57024
   FBSDKLoginKit: 99797ac39252fef6f72600b886f6ee60b4b29cab
   FBSDKShareKit: e640c41c9fcd61929eeb3d0c21ad335103e7cb62
+  Koyomi: f03615b8d2bb5a5a4752c6404a9794ed7ef7b327
+  SwipeCellKit: 80bdb188166484d8a0d813d9fd7748ad33181815
+
+PODFILE CHECKSUM: 2b9ffc077757ba2713f441f5c0da230fe66e7e07
   SwipeCellKit: 80bdb188166484d8a0d813d9fd7748ad33181815
 
 PODFILE CHECKSUM: 039b50ea212aed4b65f01af6cb05fc681397b118

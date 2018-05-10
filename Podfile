@@ -11,6 +11,7 @@ target 'Pocket Fitness' do
    pod 'FacebookShare'
    pod 'SwipeCellKit'
    pod 'Eureka'
+   pod 'Koyomi'
 
   target 'Pocket FitnessTests' do
     inherit! :search_paths
