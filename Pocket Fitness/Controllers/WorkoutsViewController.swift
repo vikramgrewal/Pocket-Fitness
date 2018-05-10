@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwipeCellKit
 import Koyomi
 
 class WorkoutsViewController: UIViewController {
@@ -91,10 +90,12 @@ extension WorkoutsViewController {
 
 
    @objc func addNewWorkout() {
+
       DispatchQueue.main.async(execute: {
          let editWorkoutVC = EditWorkoutViewController()
          self.navigationController?.pushViewController(editWorkoutVC, animated: true)
       })
+      
    }
 
 
@@ -127,10 +128,11 @@ extension WorkoutsViewController {
       koyomi = Koyomi(frame: .zero, sectionSpace: 1.5, cellSpace: 0.5, inset: .init(top: 1, left: 1, bottom: 1, right: 1), weekCellHeight: 25)
       koyomi.isHidden = true
       koyomi.selectionMode = .sequence(style: .background)
-      koyomi.selectedStyleColor = UIColor(red: 255.0/255.0, green: 182.0/255.0, blue: 55.0/255.0, alpha: 1.0)
+      koyomi.selectedStyleColor = UIColor(red: 255.0/255.0, green: 198.0/255.0, blue: 99.0/255.0, alpha: 1.0)
       koyomi.weekColor = .white
       koyomi.weekBackgrondColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
-//      koyomi.style = .tealBlue
+      koyomi.holidayColor.saturday = .darkGray
+      koyomi.holidayColor.sunday = .darkGray
       koyomi.separatorColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
       resetLabelText()
       calendarView.addSubview(koyomi)
