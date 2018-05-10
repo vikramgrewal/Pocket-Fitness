@@ -14,14 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    var window: UIWindow?
    var tabBarController : UITabBarController!
 
-
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
       // Override point for customization after application launch.
 
-      tabBarController = UITabBarController()
-      tabBarController.tabBar.barTintColor = .groupTableViewBackground
       let windowFrame = UIScreen.main.bounds
       window = UIWindow(frame: windowFrame)
+      window?.backgroundColor = .white
+      tabBarController = UITabBarController()
+      tabBarController.tabBar.barTintColor = .groupTableViewBackground
       window?.rootViewController = tabBarController
 
       let workoutsVC = WorkoutsViewController()
@@ -29,6 +29,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       tabBarController.viewControllers = [workoutsNavigationController]
       window?.makeKeyAndVisible()
 
+      let exerciseVC = ExercisesViewController()
+      let navigationController = UINavigationController(rootViewController: exerciseVC)
+
+      let tabBarControllers = [navigationController]
+      tabBarControllers[0].title = "Exercises"
+      tabBarController.viewControllers = tabBarControllers
+
+      window?.makeKeyAndVisible()
       return true
    }
 
