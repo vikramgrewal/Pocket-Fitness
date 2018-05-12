@@ -40,6 +40,20 @@ DEPENDENCIES:
   - SQLite.swift (~> 0.11.5)
   - SwipeCellKit
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Bolts
+    - Eureka
+    - FacebookCore
+    - FacebookLogin
+    - FacebookShare
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - FBSDKShareKit
+    - Koyomi
+    - SQLite.swift
+    - SwipeCellKit
+
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
@@ -55,4 +69,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 39a24f2800eb6bf021f662df9562ed45fa43d438
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0
