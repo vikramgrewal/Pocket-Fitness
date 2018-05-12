@@ -40,19 +40,11 @@ class WorkoutsViewController: UIViewController {
     }
 
    func initializeTestData()   {
-//      workouts = [Workout]()
-//      workouts!.append(Workout(name: "Chest", month: "Jan", day: "17", year: "2017"))
-//      workouts!.append(Workout(name: "Tris", month: "Jan", day: "16", year: "2017"))
-//      workouts!.append(Workout(name: "Legs", month: "Jan", day: "15", year: "2017"))
-//      workouts!.append(Workout(name: "Legs", month: "Jan", day: "14", year: "2017"))
-//      workouts!.append(Workout(name: "Arms", month: "Jan", day: "13", year: "2017"))
-//      workouts!.append(Workout(name: "Speed Work", month: "Jan", day: "12", year: "2017"))
-//      workouts!.append(Workout(name: "Hamstrings", month: "Jan", day: "11", year: "2017"))
-//      workouts!.append(Workout(name: "Basketball Training", month: "Jan", day: "10", year: "2017"))
+      workouts = [Workout]()
+      workouts?.append(Workout(workoutId: 123, workoutName: "Chest", workoutDate: Date(), workoutNotes: "", userId: 123, userWeight: 10.5))
    }
 
    func setUpView()  {
-      title = "Workouts"
       view.backgroundColor = .white
       definesPresentationContext = false
       extendedLayoutIncludesOpaqueBars = !(navigationController?.navigationBar.isTranslucent)!
@@ -117,6 +109,7 @@ extension WorkoutsViewController {
       calendarMonthLabel.textColor = .white
       calendarMonthLabel.backgroundColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
       calendarMonthLabel.font = UIFont(name: "Helvetica", size: 18)
+      calendarMonthLabel.alpha = 0.0
       calendarMonthLabel.isHidden = true
       calendarMonthLabel.translatesAutoresizingMaskIntoConstraints = false
       calendarMonthLabel.topAnchor.constraint(equalTo: calendarView.topAnchor).isActive = true
@@ -125,6 +118,7 @@ extension WorkoutsViewController {
       calendarMonthLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
       calendarMonthLabel.textAlignment = .center
       koyomi = Koyomi(frame: .zero, sectionSpace: 1.5, cellSpace: 0.5, inset: .init(top: 1, left: 1, bottom: 1, right: 1), weekCellHeight: 25)
+      koyomi.alpha = 0.0
       koyomi.isHidden = true
       koyomi.selectionMode = .sequence(style: .background)
       koyomi.selectedStyleColor = UIColor(red: 255.0/255.0, green: 198.0/255.0, blue: 99.0/255.0, alpha: 1.0)
@@ -176,20 +170,25 @@ extension WorkoutsViewController {
    @objc func toggleCalendar()   {
       if(calendarHeightConstraint.constant == 0)  {
          calendarHeightConstraint.constant = 205
-         koyomi.isHidden = false
-         calendarMonthLabel.isHidden = false
+         self.koyomi.isHidden = false
+         self.calendarMonthLabel.isHidden = false
+         UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
+            self.koyomi.alpha = 1
+            self.calendarMonthLabel.alpha = 1
+            self.view.layoutIfNeeded()
+         })
       }  else  {
          calendarHeightConstraint.constant = 0
-         let deadlineTime = DispatchTime.now() + .milliseconds(500)
-         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-            self.koyomi.display(in: .current)
-            self.resetLabelText()
+         koyomi.display(in: .current)
+         resetLabelText()
+         UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
+            self.koyomi.alpha = 0
+            self.calendarMonthLabel.alpha = 0
+            self.view.layoutIfNeeded()
+         }, completion: { _ in
             self.koyomi.isHidden = true
             self.calendarMonthLabel.isHidden = true
-         }
-      }
-      UIView.animate(withDuration: 0.5){
-         self.view.layoutIfNeeded()
+         })
       }
    }
 
@@ -198,10 +197,10 @@ extension WorkoutsViewController {
 extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
 
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      guard let workouts = self.workouts else {
+      guard let workoutCount = workouts?.count else {
          return 0
       }
-      return workouts.count
+      return workoutCount
    }
 
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -229,10 +228,12 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       dateView.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
       dateView.widthAnchor.constraint(equalToConstant: 70.0).isActive = true
 
+      // TODO: Get the month and format all the part of the date you will need to do
+
       let dayLabel = UILabel()
       dayLabel.backgroundColor = .clear
       dateView.addSubview(dayLabel)
-      dayLabel.text = workouts![indexPath.row].day
+      dayLabel.text = ""
       dayLabel.textAlignment = .center
       dayLabel.font = UIFont(name: "Helvetica", size: 18)
       dayLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -244,7 +245,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       let monthLabel = UILabel()
       monthLabel.backgroundColor = .clear
       dateView.addSubview(monthLabel)
-      monthLabel.text = workouts![indexPath.row].month
+      monthLabel.text = ""
       monthLabel.textAlignment = .center
       monthLabel.font = UIFont(name: "Helvetica", size: 14)
       monthLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -256,7 +257,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       let yearLabel = UILabel()
       yearLabel.backgroundColor = .clear
       dateView.addSubview(yearLabel)
-      yearLabel.text = workouts![indexPath.row].year
+      yearLabel.text = ""
       yearLabel.textAlignment = .center
       yearLabel.font = UIFont(name: "Helvetica", size: 14)
       yearLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -268,7 +269,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       let workoutLabel = UILabel()
       workoutLabel.backgroundColor = .clear
       cell.addSubview(workoutLabel)
-      workoutLabel.text = workouts![indexPath.row].name
+      workoutLabel.text = workouts![indexPath.row].workoutName
       workoutLabel.textAlignment = .left
       workoutLabel.font = UIFont(name: "Helvetica", size: 18)
       workoutLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -290,6 +291,23 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       workoutSetsLabel.trailingAnchor.constraint(equalTo: cell.trailingAnchor).isActive = true
       workoutSetsLabel.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
       workoutSetsLabel.topAnchor.constraint(equalTo: workoutLabel.bottomAnchor).isActive = true
+
+      if let workoutDate = workouts?[indexPath.row].workoutDate {
+         let dateFormatter = DateFormatter()
+         dateFormatter.dateFormat = "dd"
+         let dayString = dateFormatter.string(from: workoutDate)
+
+         dateFormatter.dateFormat = "MMMM"
+         let monthString = dateFormatter.string(from: workoutDate)
+
+         dateFormatter.dateFormat = "YYYY"
+         let yearString = dateFormatter.string(from: workoutDate)
+
+         dayLabel.text = dayString
+         monthLabel.text = monthString
+         yearLabel.text = yearString
+
+      }
 
       return cell
    }
@@ -317,8 +335,4 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
          view.safeAreaLayoutGuide.bottomAnchor).isActive = true
    }
 
-}
-
-struct Workout {
-   var name, month, day, year : String
 }

@@ -1,30 +1,38 @@
-//
-//  Exercise.swift
-//  Pocket Fitness
-//
-//  Created by Vikram Work/School on 5/10/18.
-//  Copyright © 2018 Vikram Work/School. All rights reserved.
-//
-
 import Foundation
 
-class Exercise {
+public class Exercise {
 
-   var exerciseId : Int64, exerciseName : String,
-   exerciseMuscle : String, exerciseType : String
+   var exerciseId : Int64? // Primary key
+   var exerciseName : String? // Unique
+   var exerciseType : String?
+   var exerciseMuscle : String?
+   var userId : Int64? // Foreign key
 
-   init(exerciseId : Int64, exerciseName : String, exerciseMuscle : String, exerciseType : String) {
+   init(exerciseId : Int64?, exerciseName : String?, exerciseType : String?, exerciseMuscle : String?, userId : Int64?)   {
       self.exerciseId = exerciseId
       self.exerciseName = exerciseName
-      self.exerciseMuscle = exerciseMuscle
       self.exerciseType = exerciseType
+      self.exerciseMuscle = exerciseMuscle
+      self.userId = userId
    }
+
 }
 
 extension Exercise : Equatable {
-   
-   static func == (lhs: Exercise, rhs: Exercise) -> Bool {
+
+   public static func == (lhs: Exercise, rhs: Exercise) -> Bool {
       return lhs.exerciseName == rhs.exerciseName
+   }
+
+}
+
+
+// Take care of all database fetching below
+extension Exercise {
+
+   public static func getAllExercises() -> [Exercise] {
+      print("Fetching all exercises")
+      return [Exercise]()
    }
 
 }

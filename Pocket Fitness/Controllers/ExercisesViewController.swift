@@ -11,19 +11,24 @@ import SwipeCellKit
 
 class ExercisesViewController: UIViewController {
 
-   var testExercises : [[TestExercise?]]?
+   var exercises : [Exercise]?
    var tableView : UITableView!
    var searchController: UISearchController!
 
    override func viewDidLoad() {
-      testExercises = [[],[]]
-      testExercises![0].append(TestExercise(name: "Benchpress", muscleGroup: "Chest"))
-      testExercises![0].append(TestExercise(name: "Dips", muscleGroup: "Chest"))
-      testExercises![1].append(TestExercise(name: "Quad Extensions", muscleGroup: "Legs"))
-      testExercises![1].append(TestExercise(name: "Squat", muscleGroup: "Legs"))
-
+      exercises = [Exercise]()
+      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
+      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
+      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
+      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
+      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
+      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
+      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
+      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
+      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
+      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
+      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
       setUpView()
-      setConstraints()
    }
 
    override func viewWillAppear(_ animated: Bool) {
@@ -31,10 +36,6 @@ class ExercisesViewController: UIViewController {
       if let index = tableView.indexPathForSelectedRow{
          self.tableView.deselectRow(at: index, animated: true)
       }
-   }
-
-   private func setConstraints() {
-      setTableConstraints()
    }
 
    func setUpView()  {
@@ -56,21 +57,29 @@ class ExercisesViewController: UIViewController {
          print("Error retrieving table view")
          return
       }
-
-   }
-
-   private func setTableConstraints()  {
       let top = tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
       let bottom = tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
       let leading = tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
       let trailing = tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
       let constraints = [bottom,trailing, leading, top]
       NSLayoutConstraint.activate(constraints)
+
    }
 
 }
 
 extension ExercisesViewController : UISearchBarDelegate, SwipeTableViewCellDelegate {
+
+   func setUpSearchBar()   {
+      searchController = UISearchController(searchResultsController: nil)
+      navigationItem.titleView = searchController.searchBar
+      let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+      navigationItem.rightBarButtonItem = addButton
+      addButton.action = #selector(createNewExercise)
+      searchController.searchBar.sizeToFit()
+      searchController.hidesNavigationBarDuringPresentation = false
+   }
+
    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
 
       guard orientation == .right else { return nil }
@@ -96,100 +105,71 @@ extension ExercisesViewController : UISearchBarDelegate, SwipeTableViewCellDeleg
 
    }
 
-   func setUpSearchBar()   {
-      searchController = UISearchController(searchResultsController: nil)
-      navigationItem.titleView = searchController.searchBar
-      let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
-      navigationItem.rightBarButtonItem = addButton
-      addButton.action = #selector(createNewExercise)
-      searchController.searchBar.sizeToFit()
-      searchController.hidesNavigationBarDuringPresentation = false
-   }
-
 }
 
 extension ExercisesViewController : UITableViewDelegate, UITableViewDataSource {
+
+   func numberOfSections(in tableView: UITableView) -> Int {
+      return 1
+   }
+
+
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      let addExerciseVC = AddExerciseViewController()
+      let row = indexPath.row
+      guard let exercise = exercises?[row]   else {
+         return
+      }
+      addExerciseVC.exercise = exercise
+      navigationController?.pushViewController(addExerciseVC, animated: true)
+   }
+
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      guard let count = testExercises?[section].count else {
+      guard let exercisesCount = exercises?.count else {
          return 0
       }
-      return count
+      return exercisesCount
    }
 
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
       let cell = SwipeTableViewCell()
+      cell.heightAnchor.constraint(equalToConstant: 50).isActive = true
+
       cell.delegate = self
-
       cell.selectionStyle = .default
-      if let cellName = testExercises![indexPath.section][indexPath.row]?.name {
-         cell.textLabel?.text = cellName
+
+      let exerciseNameLabel = UILabel()
+      exerciseNameLabel.translatesAutoresizingMaskIntoConstraints = false
+      cell.addSubview(exerciseNameLabel)
+      exerciseNameLabel.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 22.0).isActive = true
+      exerciseNameLabel.trailingAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true
+      exerciseNameLabel.topAnchor.constraint(equalTo: cell.topAnchor).isActive = true
+      exerciseNameLabel.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
+
+      let exerciseMuscleLabel = UILabel()
+      exerciseMuscleLabel.textColor = .lightGray
+      exerciseMuscleLabel.textAlignment = NSTextAlignment.right
+      exerciseMuscleLabel.translatesAutoresizingMaskIntoConstraints = false
+      cell.addSubview(exerciseMuscleLabel)
+      exerciseMuscleLabel.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: -22.0).isActive = true
+      exerciseMuscleLabel.leadingAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true
+      exerciseMuscleLabel.topAnchor.constraint(equalTo: cell.topAnchor).isActive = true
+      exerciseMuscleLabel.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
+
+      if let exerciseName = exercises?[indexPath.row].exerciseName {
+         exerciseNameLabel.text = exerciseName
       }  else {
-         cell.textLabel?.text = ""
+         exerciseNameLabel.text = ""
       }
 
-      let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openExercise))
-      cell.addGestureRecognizer(gestureRecognizer)
+      if let exerciseMuscle = exercises?[indexPath.row].exerciseMuscle {
+         exerciseMuscleLabel.text = exerciseMuscle
+      }  else {
+         exerciseMuscleLabel.text = ""
+      }
 
-      let height = NSLayoutConstraint.init(item: cell, attribute: .height,
-                                  relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
-                                  multiplier: 1.0, constant: 50)
-      let constraints = [height]
-      NSLayoutConstraint.activate(constraints)
       return cell
-   }
-
-   func  numberOfSections(in tableView: UITableView) -> Int {
-      guard let sectionCount = testExercises?.count else {
-         setEmptyTableView()
-         return 0
-      }
-
-      if sectionCount > 0 {
-         tableView.backgroundView = nil
-         return sectionCount
-      } else {
-         setEmptyTableView()
-      }
-      return 0
-   }
-
-   func setEmptyTableView()   {
-      let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: view.bounds.size.height))
-      messageLabel.text = "Retrieving data.\nPlease wait."
-      messageLabel.numberOfLines = 0;
-      messageLabel.textAlignment = .center;
-      messageLabel.font = UIFont(name: "HelveticaNeue", size: 20.0)!
-      messageLabel.sizeToFit()
-      tableView.backgroundView = messageLabel;
-   }
-
-   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-      guard let sectionExercise = testExercises?[section][0] else {
-         return "Default"
-      }
-      return sectionExercise.muscleGroup
-   }
-
-   @objc func openExercise(gestureRecognizer : UITapGestureRecognizer) {
-      let addExerciseVC = AddExerciseViewController()
-      if gestureRecognizer.state == UIGestureRecognizerState.ended {
-         let tapLocation = gestureRecognizer.location(in: tableView)
-         if let tapIndexPath = tableView.indexPathForRow(at: tapLocation) {
-            if let tappedCell = tableView.cellForRow(at: tapIndexPath) {
-               let section = tapIndexPath.section
-               let row = tapIndexPath.row
-               // Handle some fetching from database for exercise
-               guard let exercise = testExercises?[section][row]   else {
-                  return
-               }
-               addExerciseVC.exerciseId = "123"
-               addExerciseVC.exerciseType = "Strength"
-               addExerciseVC.exerciseCategory = exercise.muscleGroup
-               addExerciseVC.exerciseName = exercise.name
-            }
-         }
-      }
-      navigationController?.pushViewController(addExerciseVC, animated: true)
    }
 
    @objc func createNewExercise()   {
@@ -197,8 +177,4 @@ extension ExercisesViewController : UITableViewDelegate, UITableViewDataSource {
       navigationController?.pushViewController(addExerciseVC, animated: true)
    }
 
-}
-
-struct TestExercise {
-   var name, muscleGroup : String
 }

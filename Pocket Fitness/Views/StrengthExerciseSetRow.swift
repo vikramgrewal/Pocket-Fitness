@@ -30,11 +30,9 @@ public class _StrengthExerciseSetRow: Row<StrengthExerciseSetCell> {
 
    init(tag : String?, workoutId : String, workoutExerciseId : String) {
       super.init(tag: tag)
-      // Use workout exercise model to write to database
-      print("Created new strength set for workout \(workoutId) and workoutExercise \(workoutExerciseId)")
    }
 
-   public func changeValue(workoutExerciseSetId : String, wweightAmount : Float)  {
+   public func changeValue(workoutExerciseSetId : String, weightAmount : Float)  {
 
    }
 
