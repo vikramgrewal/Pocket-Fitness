@@ -26,6 +26,9 @@ PODS:
   - FBSDKShareKit (4.33.0):
     - FBSDKCoreKit (~> 4.33.0)
   - Koyomi (1.2.7)
+  - SQLite.swift (0.11.5):
+    - SQLite.swift/standard (= 0.11.5)
+  - SQLite.swift/standard (0.11.5)
   - SwipeCellKit (2.2.0)
 
 DEPENDENCIES:
@@ -34,6 +37,7 @@ DEPENDENCIES:
   - FacebookLogin
   - FacebookShare
   - Koyomi
+  - SQLite.swift (~> 0.11.5)
   - SwipeCellKit
 
 SPEC CHECKSUMS:
@@ -46,8 +50,9 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: 88cb456349cfb3b554427ce4f8b43729d85dfb40
   FBSDKShareKit: b7b5002833a4104fbecad75e8e4e082e91c7a08a
   Koyomi: f03615b8d2bb5a5a4752c6404a9794ed7ef7b327
+  SQLite.swift: 6e5356850bb1791459f8c16d6ee9195b28714a2e
   SwipeCellKit: 8ae09401e1137566b187980d824310129233c959
 
-PODFILE CHECKSUM: 2b9ffc077757ba2713f441f5c0da230fe66e7e07
+PODFILE CHECKSUM: 39a24f2800eb6bf021f662df9562ed45fa43d438
 
 COCOAPODS: 1.4.0

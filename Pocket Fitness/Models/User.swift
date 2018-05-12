@@ -9,6 +9,8 @@ public class User {
    var bodyWeight : Double?
    var createdAt : Date?
 
+   static let userIdColumn = "userId"
+
    init(userId : Int64?, facebookId : String?,
         firstName : String?, lastName : String?,
         email : String?, bodyWeight : Double?,

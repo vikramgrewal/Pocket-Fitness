@@ -8,7 +8,6 @@ public class WorkoutExercise {
    var workoutExerciseDate : Date?
    var userId : Int64? // Foreign key
    
-
    init(workoutExerciseId : Int64?, workoutId : Int64?,
         exerciseId : Int64?, workoutExerciseDate : Date?, userId : Int64?) {
       self.workoutExerciseId = workoutExerciseId

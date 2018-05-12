@@ -18,6 +18,7 @@ public class WorkoutExerciseSet {
 
       self.workoutExerciseSetId = workoutExerciseSetId
       self.workoutExerciseId = workoutExerciseId
+      self.workoutId = workoutId
       self.workoutExerciseSetReps = workoutExerciseSetReps
       self.workoutExerciseSetWeight = workoutExerciseSetWeight
       self.workoutExerciseSetDate = workoutExerciseSetDate

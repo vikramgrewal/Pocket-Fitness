@@ -22,6 +22,7 @@
 		F77035386418932B7CF7A708 /* Pods_Pocket_Fitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7996C3789AB124093AF2C355 /* Pods_Pocket_Fitness.framework */; };
 		F770F5F220A4FC4D000DC8B6 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770F5F020A4FC4C000DC8B6 /* ExercisesViewController.swift */; };
 		F790E31320840FD000FAB55D /* exercises.json in Resources */ = {isa = PBXBuildFile; fileRef = F790E31220840FD000FAB55D /* exercises.json */; };
+		F79F58DA20A7930B00D8CBB4 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79F58D920A7930B00D8CBB4 /* AppDatabase.swift */; };
 		F7BB1058208FEC4C00E84D5B /* WorkoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB1057208FEC4C00E84D5B /* WorkoutsViewController.swift */; };
 		F7CBA81B20A22D200072F676 /* WorkoutExerciseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBA81A20A22D200072F676 /* WorkoutExerciseSet.swift */; };
 		F7CBA81D20A22D3F0072F676 /* StrengthExerciseSetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBA81C20A22D3F0072F676 /* StrengthExerciseSetRow.swift */; };
@@ -76,6 +77,7 @@
 		F75C89722098FDC300D9453B /* EditWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutViewController.swift; sourceTree = "<group>"; };
 		F770F5F020A4FC4C000DC8B6 /* ExercisesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
 		F790E31220840FD000FAB55D /* exercises.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exercises.json; sourceTree = "<group>"; };
+		F79F58D920A7930B00D8CBB4 /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		F7BB1057208FEC4C00E84D5B /* WorkoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsViewController.swift; sourceTree = "<group>"; };
 		F7CBA81A20A22D200072F676 /* WorkoutExerciseSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseSet.swift; sourceTree = "<group>"; };
 		F7CBA81C20A22D3F0072F676 /* StrengthExerciseSetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrengthExerciseSetRow.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		F702B9FA207AD52D00326E59 /* Pocket Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				F79F58D820A7927A00D8CBB4 /* Database */,
 				F75A1C82209A8B4D008E1DED /* AppDelegate.swift */,
 				F7CBA81920A22D000072F676 /* Models */,
 				F7FD468F209A6138008EBCEE /* Views */,
@@ -217,6 +220,14 @@
 				F72D365F20A3CBA60025F487 /* WorkoutExerciseSetPickerViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F79F58D820A7927A00D8CBB4 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				F79F58D920A7930B00D8CBB4 /* AppDatabase.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		F7CBA81920A22D000072F676 /* Models */ = {
@@ -429,6 +440,7 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 				"${BUILT_PRODUCTS_DIR}/Koyomi/Koyomi.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -442,6 +454,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Koyomi.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,6 +575,7 @@
 				F72D366020A3CBA60025F487 /* WorkoutExerciseSetPickerViewController.swift in Sources */,
 				F7BB1058208FEC4C00E84D5B /* WorkoutsViewController.swift in Sources */,
 				F7FD5AAA20A63B0200B04657 /* User.swift in Sources */,
+				F79F58DA20A7930B00D8CBB4 /* AppDatabase.swift in Sources */,
 				F7FD5AAE20A63E5500B04657 /* Workout.swift in Sources */,
 				F7CBA81D20A22D3F0072F676 /* StrengthExerciseSetRow.swift in Sources */,
 				F72D365E20A3BA6A0025F487 /* CustomExerciseSelectorView.swift in Sources */,

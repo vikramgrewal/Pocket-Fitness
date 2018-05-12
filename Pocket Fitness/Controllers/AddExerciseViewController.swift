@@ -59,7 +59,7 @@ class AddExerciseViewController: FormViewController {
          <<< PushRow<String>() { row in
             row.title = "Exercise Type"
             row.tag = "exerciseTypeRow"
-            row.options = ["Cardio", "Strength"]
+            row.options = ["Cardio", "Strength", "Bodyweight", "Other"]
             row.cell.textLabel?.textColor = .red
             guard let exerciseType = exercise?.exerciseType else {
                return

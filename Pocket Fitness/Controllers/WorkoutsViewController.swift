@@ -8,6 +8,7 @@
 
 import UIKit
 import Koyomi
+import SQLite
 
 class WorkoutsViewController: UIViewController {
 
@@ -21,6 +22,11 @@ class WorkoutsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+      // TODO: Implement log in functionality to check if user is logged in.
+      // If the user is not logged in, make sure to prompt the login view controller.
+      // If the user is logged in the person will be prompted if they want to insert
+      // default exercises into database
 
       initializeTestData()
       setUpView()

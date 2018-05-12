@@ -11,9 +11,8 @@ import Eureka
 
 class EditWorkoutViewController: FormViewController {
 
-   var workoutExerciseSetPickerView : UIPickerView?
    var pickerViewHeight, pickerCompleteViewTrailing : NSLayoutConstraint?
-   var pickerCompleteView : UIButton?
+   var pickerCompleteButton : UIButton?
    var pickerVC : WorkoutExerciseSetPickerViewController?
    var workout : Workout?
 
@@ -220,18 +219,18 @@ extension EditWorkoutViewController {
 
    func setUpPickerCompleteView() {
 
-      pickerCompleteView = UIButton()
-      pickerCompleteView?.layer.zPosition = 11
-      pickerCompleteView?.backgroundColor = UIColor(red: 53/255, green: 103/255, blue: 172/255, alpha: 1.0)
-      pickerCompleteView?.setTitle("Done", for: .normal)
-      pickerCompleteView?.setTitleColor(.white, for: .normal)
-      view.addSubview(pickerCompleteView!)
-      pickerCompleteView?.addTarget(self, action: #selector(closePickerView), for: .touchUpInside)
-      pickerCompleteView?.translatesAutoresizingMaskIntoConstraints = false
-      pickerCompleteView?.heightAnchor.constraint(equalToConstant: 44).isActive = true
-      pickerCompleteView?.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-      pickerCompleteView?.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-      pickerCompleteViewTrailing = pickerCompleteView?.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+      pickerCompleteButton = UIButton()
+      pickerCompleteButton?.layer.zPosition = 11
+      pickerCompleteButton?.backgroundColor = UIColor(red: 53/255, green: 103/255, blue: 172/255, alpha: 1.0)
+      pickerCompleteButton?.setTitle("Done", for: .normal)
+      pickerCompleteButton?.setTitleColor(.white, for: .normal)
+      view.addSubview(pickerCompleteButton!)
+      pickerCompleteButton?.addTarget(self, action: #selector(closePickerView), for: .touchUpInside)
+      pickerCompleteButton?.translatesAutoresizingMaskIntoConstraints = false
+      pickerCompleteButton?.heightAnchor.constraint(equalToConstant: 44).isActive = true
+      pickerCompleteButton?.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+      pickerCompleteButton?.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+      pickerCompleteViewTrailing = pickerCompleteButton?.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
       pickerCompleteViewTrailing?.isActive = true
 
    }

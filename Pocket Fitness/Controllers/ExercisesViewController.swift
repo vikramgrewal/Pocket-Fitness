@@ -84,9 +84,6 @@ extension ExercisesViewController : UISearchBarDelegate, SwipeTableViewCellDeleg
 
       guard orientation == .right else { return nil }
 
-      let addToWorkoutAction = SwipeAction(style: .default, title: "Add To Workout") {action, indexPath in
-         print("Start add to workout procedure")
-      }
       let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
          print("Start delete procedure for exercise")
       }

@@ -12,6 +12,7 @@ target 'Pocket Fitness' do
    pod 'SwipeCellKit'
    pod 'Eureka'
    pod 'Koyomi'
+   pod 'SQLite.swift', '~> 0.11.5'
 
   target 'Pocket FitnessTests' do
     inherit! :search_paths
