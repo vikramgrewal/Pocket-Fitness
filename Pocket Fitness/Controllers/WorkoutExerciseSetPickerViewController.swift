@@ -11,10 +11,7 @@ import UIKit
 class WorkoutExerciseSetPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
    var workoutExerciseSetPickerView : UIPickerView?
-   var exerciseType : String?
-   var exerciseSetId : String?
-   var workoutId : String?
-   var exerciseId : String?
+   var exercise : Exercise?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +35,9 @@ class WorkoutExerciseSetPickerViewController: UIViewController, UIPickerViewDele
    }
 
    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-      return 2
+      
+      return 3
+
    }
 
 
@@ -46,10 +45,12 @@ class WorkoutExerciseSetPickerViewController: UIViewController, UIPickerViewDele
    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 
       switch component {
-      case 0:
-         return 1000
-      default:
-         return 100
+         case 0:
+            return 1000
+         case 1:
+            return 8
+         default:
+            return 100
       }
 
    }
@@ -58,26 +59,35 @@ class WorkoutExerciseSetPickerViewController: UIViewController, UIPickerViewDele
    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 
       var poundsLabels : [Int] = [Int]()
+      var poundDecimalLabels : [Double] = [Double]()
       var repLabels : [Int] = [Int]()
       for poundNames in stride(from: 0, to: 1000, by: 1) {
          poundsLabels.append(poundNames)
+      }
+      for poundDecimalNames in stride(from: 0, to: 1, by: 0.125) {
+         poundDecimalLabels.append(poundDecimalNames)
       }
       for repNames in 0...250 {
          repLabels.append(repNames)
       }
       switch component {
       case 0:
-         return "\(poundsLabels[row]) lbs"
+         return "\(poundsLabels[row])"
+      case 1:
+         let poundDecimalNumber: Double = poundDecimalLabels[row]
+         let poundDecimalString = String(format: "%.3f", poundDecimalNumber).components(separatedBy: ".").last ?? "error"
+         return ".\(poundDecimalString) lbs"
       default:
          return "\(repLabels[row]) reps"
       }
 
    }
 
-   func instantiatePickerView(exerciseType : String, exerciseId : String,
-                              exerciseSetId : String, workoutId : String) {
-
-      
+   func instantiatePickerView(exercise : Exercise, workoutId : Int64, workoutExerciseId : Int64, workoutExerciseSetId : Int64) {
+      self.exercise = exercise
+      workoutExerciseSetPickerView?.reloadAllComponents()
+      workoutExerciseSetPickerView?.reloadInputViews()
+      print("Starting logging for new exercise set")
    }
 
     

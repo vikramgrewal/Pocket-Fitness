@@ -35,6 +35,7 @@ class EditWorkoutViewController: FormViewController {
       setUpAddExerciseButton()
       setUpPickerView()
       setUpPickerCompleteView()
+      navigationOptions = .Enabled
    }
 
    func setUpDefaultForm()  {
@@ -46,19 +47,30 @@ class EditWorkoutViewController: FormViewController {
             $0.title = "Workout Name"
             $0.placeholder = "e.g. Legs"
             $0.tag = "workoutNameRow"
+            guard let workoutName = workout?.workoutName else {
+               return
+            }
+            $0.value = workoutName
          }
          <<< DateTimeRow() {
             $0.title = "Workout Date"
-            $0.value = Date()
             $0.maximumDate = Date()
             $0.tag = "workoutDateRow"
 //            $0.onChange { [unowned self] row in
 //            }
+            guard let workoutDate = workout?.workoutDate else {
+               return
+            }
+            $0.value = workoutDate
          }
          <<< TextRow() {
             $0.title = "Workout Notes"
             $0.placeholder = "e.g pain in left hip during squats"
             $0.tag = "workoutNotesRow"
+            guard let workoutNotes = workout?.workoutNotes else {
+               return
+            }
+            $0.value = workoutNotes
          }
          +++ Section("Workout Exercises")   {
             $0.header?.height = { 0 }
@@ -195,13 +207,13 @@ extension EditWorkoutViewController {
 
       pickerVC = WorkoutExerciseSetPickerViewController()
       pickerVC?.setUp()
-      workoutExerciseSetPickerView = pickerVC?.workoutExerciseSetPickerView
-      view.addSubview(workoutExerciseSetPickerView!)
-      workoutExerciseSetPickerView?.layer.zPosition = 10
-      workoutExerciseSetPickerView?.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-      workoutExerciseSetPickerView?.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-      workoutExerciseSetPickerView?.heightAnchor.constraint(equalToConstant: 160).isActive = true
-      pickerViewHeight = workoutExerciseSetPickerView?.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+      view.addSubview((pickerVC?.workoutExerciseSetPickerView)!)
+      pickerVC?.workoutExerciseSetPickerView?.translatesAutoresizingMaskIntoConstraints = false
+      pickerVC?.workoutExerciseSetPickerView?.layer.zPosition = 10
+      pickerVC?.workoutExerciseSetPickerView?.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+      pickerVC?.workoutExerciseSetPickerView?.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+      pickerVC?.workoutExerciseSetPickerView?.heightAnchor.constraint(equalToConstant: 125).isActive = true
+      pickerViewHeight = pickerVC?.workoutExerciseSetPickerView?.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
       pickerViewHeight?.isActive = true
 
    }
@@ -226,13 +238,15 @@ extension EditWorkoutViewController {
 
    func openPickerView() {
 
+      let exercise = Exercise(exerciseId: 2, exerciseName: "wow", exerciseType: "Card", exerciseMuscle: "Abs", userId: 12)
+      pickerVC?.instantiatePickerView(exercise: exercise, workoutId: 12, workoutExerciseId: 12, workoutExerciseSetId: 12)
       if pickerViewHeight?.constant == 0 {
 
-         pickerViewHeight?.constant = -160
-         pickerCompleteViewTrailing?.constant = -160 - 44
+         pickerViewHeight?.constant = -125
+         pickerCompleteViewTrailing?.constant = -125 - 44
 
          UIView.animate(withDuration: 0.5) {
-            self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 160+54, right: 0)
+            self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 125+54, right: 0)
             self.view.layoutIfNeeded()
          }
 
@@ -249,6 +263,7 @@ extension EditWorkoutViewController {
             self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 54, right: 0)
             self.view.layoutIfNeeded()
          }
+         
       }
    }
 

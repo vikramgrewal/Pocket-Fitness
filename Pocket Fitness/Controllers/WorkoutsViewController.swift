@@ -205,7 +205,11 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
 
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       DispatchQueue.main.async(execute: {
+         guard let workout = self.workouts?[indexPath.row] else {
+            return
+         }
          let editWorkoutVC = EditWorkoutViewController()
+         editWorkoutVC.workout = workout
          self.navigationController?.pushViewController(editWorkoutVC, animated: true)
       })
    }
