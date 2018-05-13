@@ -16,6 +16,14 @@ public class Workout {
    var userId : Int64?
    var userWeight : Double?
 
+   // Database fields
+   static let workoutTableName = "Workout"
+   static let workoutIdColumn = "workoutId"
+   static let workoutNameColumn = "workoutName"
+   static let workoutDateColumn = "workoutDate"
+   static let workoutNotesColumn = "workoutNotes"
+   static let workoutUserWeightColumn = "workoutUserWeight"
+
    init(workoutId : Int64?, workoutName : String?, workoutDate: Date?,
       workoutNotes : String?, userId :Int64?, userWeight : Double?)   {
       self.workoutId = workoutId
@@ -25,4 +33,5 @@ public class Workout {
       self.userId = userId
       self.userWeight = userWeight
    }
+   
 }

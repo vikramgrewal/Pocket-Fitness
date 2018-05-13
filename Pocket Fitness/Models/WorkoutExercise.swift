@@ -7,6 +7,11 @@ public class WorkoutExercise {
    var exerciseId : Int64? // Foreign key
    var workoutExerciseDate : Date?
    var userId : Int64? // Foreign key
+
+   // Database
+   static let workoutExerciseTableName = "Workout"
+   static let workoutExerciseIdColumn = "workoutExerciseId"
+   static let workoutExerciseDateColumn = "workoutExerciseDate"
    
    init(workoutExerciseId : Int64?, workoutId : Int64?,
         exerciseId : Int64?, workoutExerciseDate : Date?, userId : Int64?) {

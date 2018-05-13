@@ -10,6 +10,7 @@
 import Foundation
 
 public class User {
+
    var userId : Int64?
    var facebookId : String?
    var firstName : String?
@@ -18,7 +19,15 @@ public class User {
    var bodyWeight : Double?
    var createdAt : Date?
 
+   // Database fields for columns
+   static let userTableName = "User"
    static let userIdColumn = "userId"
+   static let facebookIdColumn = "facebookId"
+   static let firstNameColumn = "firstName"
+   static let lastNameColumn = "lastName"
+   static let emailColumn = "email"
+   static let weightColumn = "weight"
+   static let createdAtColumn = "createdAt"
 
    init(userId : Int64?, facebookId : String?,
         firstName : String?, lastName : String?,
@@ -32,36 +41,12 @@ public class User {
       self.bodyWeight = bodyWeight
       self.createdAt = createdAt
    }
+
+   init(facebookId: String)   {
+      self.facebookId = facebookId
+   }
    
 
 }
 
-let loginKey = "isLoggedIn"
-let defaults = UserDefaults.standard
 
-struct User {
-   let userId, retrievedToken : String
-   let refreshDate, expirationDate : Date
-}
-
-class UserSession {
-
-   static func isLoggedIn() -> Bool {
-      let loggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn") == true ? true : false
-      return loggedIn
-   }
-
-   static func login(user : User)   {
-      defaults.setValue(true, forKey: loginKey)
-      defaults.synchronize()
-      KeychainController.saveID(ID: user.userId as NSString)
-      KeychainController.saveToken(token: user.retrievedToken as NSString)
-      KeychainController.saveTokenRefreshDate(refreshDate: user.refreshDate as NSDate)
-      KeychainController.saveTokenExpirationDate(expirationDate: user.expirationDate as NSDate)
-   }
-
-   static func logout()  {
-      defaults.setValue(false, forKey: loginKey)
-      defaults.synchronize()
-   }
-}

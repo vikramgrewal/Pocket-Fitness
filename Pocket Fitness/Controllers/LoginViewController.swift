@@ -46,9 +46,9 @@ class LoginViewController: UIViewController {
             let retrievedToken = token.authenticationToken
             let refreshDate = token.refreshDate
             let expirationDate = token.expirationDate
-            let userId = token.userId!
+            let facebookId = token.userId!
 
-            let user = User(userId: userId, retrievedToken: retrievedToken, refreshDate: refreshDate, expirationDate: expirationDate)
+            let user = User(facebookId: facebookId)
 
             DispatchQueue.main.async {
                UserSession.login(user: user)

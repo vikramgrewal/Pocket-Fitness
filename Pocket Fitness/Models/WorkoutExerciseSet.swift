@@ -11,6 +11,14 @@ public class WorkoutExerciseSet {
    var workoutExerciseSetTime : Date?
    var userId : Int64?
 
+   // Database field names
+   static let workoutExerciseSetTableName = "WorkoutExerciseSet"
+   static let workoutExerciseSetIdColumn = "workoutExerciseSetId"
+   static let workoutExerciseSetRepsColumn = "workoutExerciseSetReps"
+   static let workoutExerciseSetWeightColumn = "workoutExerciseSetWeight"
+   static let workoutExerciseSetTimeColumn = "workoutExerciseSetTime"
+   static let workoutExerciseSetDateColumn = "workoutExerciseSetDate"
+
    init(workoutExerciseSetId : Int64?, workoutExerciseId : Int64?,
         workoutId : Int64?, workoutExerciseSetReps : Int?,
         workoutExerciseSetWeight : Float?, workoutExerciseSetDate : Date?,

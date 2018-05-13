@@ -1,10 +1,3 @@
-//
-//  AuthenticationKeychain.swift
-//  Pocket Fitness
-//
-//  Created by Vikram Work/School on 4/11/18.
-//  Copyright © 2018 Vikram Work/School. All rights reserved.
-//
 import Foundation
 import Security
 

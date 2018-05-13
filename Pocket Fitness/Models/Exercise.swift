@@ -42,15 +42,6 @@ extension Exercise {
       return exercises
    }
 
-   public static func preloadExerciseTable() {
-      guard let dbConnection = AppDatabase.getConnection() else {
-         print("Error establishing connection during dropping exercise table")
-         return
-      }
-
-      let exerciseTable = Table(exerciseTableName)
-   }
-
    public static func dropExerciseTable() {
       guard let dbConnection = AppDatabase.getConnection() else {
          print("Error establishing connection during dropping exercise table")
@@ -65,6 +56,7 @@ extension Exercise {
       } catch {
          print("Error dropping Table(\"\(exerciseTableName))\"")
       }
+      
    }
 
 }

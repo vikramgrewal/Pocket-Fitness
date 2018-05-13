@@ -32,6 +32,9 @@
 		F7CBA81B20A22D200072F676 /* WorkoutExerciseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBA81A20A22D200072F676 /* WorkoutExerciseSet.swift */; };
 		F7CBA81D20A22D3F0072F676 /* StrengthExerciseSetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBA81C20A22D3F0072F676 /* StrengthExerciseSetRow.swift */; };
 		F7CBA81F20A22D810072F676 /* StrengthExerciseSetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBA81E20A22D810072F676 /* StrengthExerciseSetCell.swift */; };
+		F7EDBB4D20A7EC62007513C0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EDBB4C20A7EC62007513C0 /* LoginViewController.swift */; };
+		F7EDBB4F20A7EF46007513C0 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EDBB4E20A7EF46007513C0 /* UserSession.swift */; };
+		F7EDBB5120A7EFA6007513C0 /* AuthenticationKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EDBB5020A7EFA6007513C0 /* AuthenticationKeychain.swift */; };
 		F7FD5AAA20A63B0200B04657 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD5AA920A63B0200B04657 /* User.swift */; };
 		F7FD5AAE20A63E5500B04657 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD5AAD20A63E5500B04657 /* Workout.swift */; };
 		F7FD5AB020A6466B00B04657 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD5AAF20A6466B00B04657 /* Exercise.swift */; };
@@ -92,6 +95,9 @@
 		F7CBA81A20A22D200072F676 /* WorkoutExerciseSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseSet.swift; sourceTree = "<group>"; };
 		F7CBA81C20A22D3F0072F676 /* StrengthExerciseSetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrengthExerciseSetRow.swift; sourceTree = "<group>"; };
 		F7CBA81E20A22D810072F676 /* StrengthExerciseSetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrengthExerciseSetCell.swift; sourceTree = "<group>"; };
+		F7EDBB4C20A7EC62007513C0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F7EDBB4E20A7EF46007513C0 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		F7EDBB5020A7EFA6007513C0 /* AuthenticationKeychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationKeychain.swift; sourceTree = "<group>"; };
 		F7FD5AA920A63B0200B04657 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F7FD5AAD20A63E5500B04657 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		F7FD5AAF20A6466B00B04657 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
@@ -226,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				A1D8F68A209A824E005153D4 /* AddExerciseViewController.swift */,
+				F7EDBB4C20A7EC62007513C0 /* LoginViewController.swift */,
 				F770F5F020A4FC4C000DC8B6 /* ExercisesViewController.swift */,
 				F7BB1057208FEC4C00E84D5B /* WorkoutsViewController.swift */,
 				F75C89722098FDC300D9453B /* EditWorkoutViewController.swift */,
@@ -249,10 +256,12 @@
 			isa = PBXGroup;
 			children = (
 				F7CBA81A20A22D200072F676 /* WorkoutExerciseSet.swift */,
+				F7EDBB5020A7EFA6007513C0 /* AuthenticationKeychain.swift */,
 				F712A7EE20A4DA11006C392A /* WorkoutExercise.swift */,
 				F7FD5AA920A63B0200B04657 /* User.swift */,
 				F7FD5AAD20A63E5500B04657 /* Workout.swift */,
 				F7FD5AAF20A6466B00B04657 /* Exercise.swift */,
+				F7EDBB4E20A7EF46007513C0 /* UserSession.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -586,12 +595,15 @@
 				A1D8F68B209A824E005153D4 /* AddExerciseViewController.swift in Sources */,
 				F770F5F220A4FC4D000DC8B6 /* ExercisesViewController.swift in Sources */,
 				F7CBA81B20A22D200072F676 /* WorkoutExerciseSet.swift in Sources */,
+				F7EDBB4D20A7EC62007513C0 /* LoginViewController.swift in Sources */,
 				F7CBA81F20A22D810072F676 /* StrengthExerciseSetCell.swift in Sources */,
 				F7FD5AB020A6466B00B04657 /* Exercise.swift in Sources */,
+				F7EDBB5120A7EFA6007513C0 /* AuthenticationKeychain.swift in Sources */,
 				F75C89732098FDC300D9453B /* EditWorkoutViewController.swift in Sources */,
 				A16B184420A7B34200F2D110 /* SettingsViewController.swift in Sources */,
 				F72D366020A3CBA60025F487 /* WorkoutExerciseSetPickerViewController.swift in Sources */,
 				F7BB1058208FEC4C00E84D5B /* WorkoutsViewController.swift in Sources */,
+				F7EDBB4F20A7EF46007513C0 /* UserSession.swift in Sources */,
 				F7FD5AAA20A63B0200B04657 /* User.swift in Sources */,
 				A16B184620A7B6C100F2D110 /* TermsOfServiceViewController.swift in Sources */,
 				F79F58DA20A7930B00D8CBB4 /* AppDatabase.swift in Sources */,
