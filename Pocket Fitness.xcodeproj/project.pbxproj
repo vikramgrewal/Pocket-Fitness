@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		5EA842A46997E869ACA719F2 /* Pods_Pocket_FitnessTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC60AE645BB68005168A274 /* Pods_Pocket_FitnessTests.framework */; };
 		66A02B278140DEA43BB0C6B3 /* Pods_Pocket_FitnessUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3F54663E5D52F0FDEB49D1 /* Pods_Pocket_FitnessUITests.framework */; };
+		A16B184420A7B34200F2D110 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B184320A7B34200F2D110 /* SettingsViewController.swift */; };
+		A16B184620A7B6C100F2D110 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B184520A7B6C100F2D110 /* TermsOfServiceViewController.swift */; };
+		A16B184820A7C31C00F2D110 /* TOS.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A16B184720A7C31C00F2D110 /* TOS.pdf */; };
+		A16B184A20A7C33400F2D110 /* PrivacyPolicy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A16B184920A7C33300F2D110 /* PrivacyPolicy.pdf */; };
+		A16B184C20A7C56800F2D110 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B184B20A7C56800F2D110 /* PrivacyPolicyViewController.swift */; };
 		A1D8F68B209A824E005153D4 /* AddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8F68A209A824E005153D4 /* AddExerciseViewController.swift */; };
 		F702BA03207AD52D00326E59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F702BA02207AD52D00326E59 /* Assets.xcassets */; };
 		F702BA06207AD52D00326E59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F702BA04207AD52D00326E59 /* LaunchScreen.storyboard */; };
@@ -57,6 +62,11 @@
 		4393FA9C6A7AA297D84E1AB3 /* Pods-Pocket Fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket Fitness.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket Fitness/Pods-Pocket Fitness.release.xcconfig"; sourceTree = "<group>"; };
 		7025AE70120C70CFB07F2D9C /* Pods-Pocket FitnessUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket FitnessUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket FitnessUITests/Pods-Pocket FitnessUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7996C3789AB124093AF2C355 /* Pods_Pocket_Fitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pocket_Fitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A16B184320A7B34200F2D110 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A16B184520A7B6C100F2D110 /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
+		A16B184720A7C31C00F2D110 /* TOS.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = TOS.pdf; sourceTree = "<group>"; };
+		A16B184920A7C33300F2D110 /* PrivacyPolicy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PrivacyPolicy.pdf; sourceTree = "<group>"; };
+		A16B184B20A7C56800F2D110 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		A1D8F68A209A824E005153D4 /* AddExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseViewController.swift; sourceTree = "<group>"; };
 		D6EF546828780B0AC04F68D0 /* Pods-Pocket Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket Fitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket Fitness/Pods-Pocket Fitness.debug.xcconfig"; sourceTree = "<group>"; };
 		E77A86B652B29B9B975D0D91 /* Pods-Pocket FitnessUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket FitnessUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket FitnessUITests/Pods-Pocket FitnessUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +207,8 @@
 		F75DCCAC2083E24B0014C350 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A16B184720A7C31C00F2D110 /* TOS.pdf */,
+				A16B184920A7C33300F2D110 /* PrivacyPolicy.pdf */,
 				F790E31220840FD000FAB55D /* exercises.json */,
 			);
 			path = Resources;
@@ -218,6 +230,9 @@
 				F7BB1057208FEC4C00E84D5B /* WorkoutsViewController.swift */,
 				F75C89722098FDC300D9453B /* EditWorkoutViewController.swift */,
 				F72D365F20A3CBA60025F487 /* WorkoutExerciseSetPickerViewController.swift */,
+				A16B184320A7B34200F2D110 /* SettingsViewController.swift */,
+				A16B184520A7B6C100F2D110 /* TermsOfServiceViewController.swift */,
+				A16B184B20A7C56800F2D110 /* PrivacyPolicyViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -363,7 +378,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A16B184A20A7C33400F2D110 /* PrivacyPolicy.pdf in Resources */,
 				F702BA06207AD52D00326E59 /* LaunchScreen.storyboard in Resources */,
+				A16B184820A7C31C00F2D110 /* TOS.pdf in Resources */,
 				F790E31320840FD000FAB55D /* exercises.json in Resources */,
 				F702BA03207AD52D00326E59 /* Assets.xcassets in Resources */,
 			);
@@ -492,12 +509,15 @@
 				F7CBA81F20A22D810072F676 /* StrengthExerciseSetCell.swift in Sources */,
 				F7FD5AB020A6466B00B04657 /* Exercise.swift in Sources */,
 				F75C89732098FDC300D9453B /* EditWorkoutViewController.swift in Sources */,
+				A16B184420A7B34200F2D110 /* SettingsViewController.swift in Sources */,
 				F72D366020A3CBA60025F487 /* WorkoutExerciseSetPickerViewController.swift in Sources */,
 				F7BB1058208FEC4C00E84D5B /* WorkoutsViewController.swift in Sources */,
 				F7FD5AAA20A63B0200B04657 /* User.swift in Sources */,
+				A16B184620A7B6C100F2D110 /* TermsOfServiceViewController.swift in Sources */,
 				F79F58DA20A7930B00D8CBB4 /* AppDatabase.swift in Sources */,
 				F7FD5AAE20A63E5500B04657 /* Workout.swift in Sources */,
 				F7CBA81D20A22D3F0072F676 /* StrengthExerciseSetRow.swift in Sources */,
+				A16B184C20A7C56800F2D110 /* PrivacyPolicyViewController.swift in Sources */,
 				F72D365E20A3BA6A0025F487 /* CustomExerciseSelectorView.swift in Sources */,
 				F712A7EF20A4DA11006C392A /* WorkoutExercise.swift in Sources */,
 			);
