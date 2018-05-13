@@ -1,22 +1,12 @@
 {
     "exercises": [
         {
-            "name": "3/4 Sit-Up",
-            "muscle": "Abdominals",
-            "type": "Strength"
-        },
-        {
             "name": "Ab Crunch Machine",
             "muscle": "Abdominals",
             "type": "Strength"
         },
         {
             "name": "Ab Roller",
-            "muscle": "Abdominals",
-            "type": "Strength"
-        },
-        {
-            "name": "Advanced Kettlebell Windmill",
             "muscle": "Abdominals",
             "type": "Strength"
         },
@@ -32,16 +22,6 @@
         },
         {
             "name": "Barbell Ab Rollout",
-            "muscle": "Abdominals",
-            "type": "Strength"
-        },
-        {
-            "name": "Barbell Ab Rollout - On Knees",
-            "muscle": "Abdominals",
-            "type": "Strength"
-        },
-        {
-            "name": "Barbell Rollout from Bench",
             "muscle": "Abdominals",
             "type": "Strength"
         },
@@ -62,21 +42,6 @@
         },
         {
             "name": "Bosu Ball Cable Crunch With Side Bends",
-            "muscle": "Abdominals",
-            "type": "Strength"
-        },
-        {
-            "name": "Bosu Ball Crunch",
-            "muscle": "Abdominals",
-            "type": "Strength"
-        },
-        {
-            "name": "Bottoms Up",
-            "muscle": "Abdominals",
-            "type": "Strength"
-        },
-        {
-            "name": "Breakdancer",
             "muscle": "Abdominals",
             "type": "Strength"
         },
@@ -3731,97 +3696,12 @@
             "type": "Strength"
         },
         {
-            "name": "Sled Overhead Triceps Extension",
-            "muscle": "Triceps",
-            "type": "Strength"
-        },
-        {
-            "name": "Smith Machine Close-Grip Bench Press",
-            "muscle": "Triceps",
-            "type": "Strength"
-        },
-        {
-            "name": "Speed Band Overhead Triceps",
-            "muscle": "Triceps",
-            "type": "Strength"
-        },
-        {
-            "name": "Standing Bent-Over One-Arm Dumbbell Triceps Extension",
-            "muscle": "Triceps",
-            "type": "Strength"
-        },
-        {
-            "name": "Standing Bent-Over Two-Arm Dumbbell Triceps Extension",
-            "muscle": "Triceps",
-            "type": "Strength"
-        },
-        {
-            "name": "Standing Dumbbell Triceps Extension",
-            "muscle": "Triceps",
-            "type": "Strength"
-        },
-        {
-            "name": "Standing Low-Pulley One-Arm Triceps Extension",
-            "muscle": "Triceps",
-            "type": "Strength"
-        },
-        {
-            "name": "Standing One-Arm Dumbbell Triceps Extension",
-            "muscle": "Triceps",
-            "type": "Strength"
-        },
-        {
-            "name": "Standing Overhead Barbell Triceps Extension",
-            "muscle": "Triceps",
-            "type": "Strength"
-        },
-        {
-            "name": "Standing Towel Triceps Extension",
-            "muscle": "Triceps",
-            "type": "Strength"
-        },
-        {
-            "name": "Suspended Triceps Press",
-            "muscle": "Triceps",
-            "type": "Strength"
-        },
-        {
-            "name": "Tate Press",
-            "muscle": "Triceps",
-            "type": "Strength"
-        },
-        {
             "name": "Tricep Dumbbell Kickback",
             "muscle": "Triceps",
             "type": "Strength"
         },
         {
-            "name": "Triceps Overhead Extension with Rope",
-            "muscle": "Triceps",
-            "type": "Strength"
-        },
-        {
-            "name": "Triceps Plank Extension",
-            "muscle": "Triceps",
-            "type": "Strength"
-        },
-        {
             "name": "Triceps Pushdown",
-            "muscle": "Triceps",
-            "type": "Strength"
-        },
-        {
-            "name": "Triceps Pushdown - Rope Attachment",
-            "muscle": "Triceps",
-            "type": "Strength"
-        },
-        {
-            "name": "Triceps Pushdown - V-Bar Attachment",
-            "muscle": "Triceps",
-            "type": "Strength"
-        },
-        {
-            "name": "V-Sit Dumbbell Triceps Extension",
             "muscle": "Triceps",
             "type": "Strength"
         },

@@ -17,7 +17,7 @@ As fitness enthusiasts we've found many problems with the applications currently
 - Registration system to hold user data - *10 hours*
 - Members can log workouts - *10 hours*
 - Allow user to create custom workout routines - *10 hours*
-- Explore different workouts (Guests/Members) - *10-15 hours*
+- Explore different exercises (Guests/Members) - *10-15 hours*
 
 ### Nice to Have Features
 ---

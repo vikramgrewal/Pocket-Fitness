@@ -9,7 +9,10 @@ target 'Pocket Fitness' do
    pod 'FacebookCore'
    pod 'FacebookLogin'
    pod 'FacebookShare'
-   pod 'Material', '~> 2.14'
+   pod 'SwipeCellKit'
+   pod 'Eureka'
+   pod 'Koyomi'
+   pod 'SQLite.swift', '~> 0.11.5'
 
   target 'Pocket FitnessTests' do
     inherit! :search_paths

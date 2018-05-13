@@ -9,16 +9,32 @@
 /* Begin PBXBuildFile section */
 		5EA842A46997E869ACA719F2 /* Pods_Pocket_FitnessTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC60AE645BB68005168A274 /* Pods_Pocket_FitnessTests.framework */; };
 		66A02B278140DEA43BB0C6B3 /* Pods_Pocket_FitnessUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3F54663E5D52F0FDEB49D1 /* Pods_Pocket_FitnessUITests.framework */; };
-		F702B9FC207AD52D00326E59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702B9FB207AD52D00326E59 /* AppDelegate.swift */; };
+		A16B184420A7B34200F2D110 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B184320A7B34200F2D110 /* SettingsViewController.swift */; };
+		A16B184620A7B6C100F2D110 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B184520A7B6C100F2D110 /* TermsOfServiceViewController.swift */; };
+		A16B184820A7C31C00F2D110 /* TOS.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A16B184720A7C31C00F2D110 /* TOS.pdf */; };
+		A16B184A20A7C33400F2D110 /* PrivacyPolicy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A16B184920A7C33300F2D110 /* PrivacyPolicy.pdf */; };
+		A16B184C20A7C56800F2D110 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B184B20A7C56800F2D110 /* PrivacyPolicyViewController.swift */; };
+		A1D8F68B209A824E005153D4 /* AddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D8F68A209A824E005153D4 /* AddExerciseViewController.swift */; };
 		F702BA03207AD52D00326E59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F702BA02207AD52D00326E59 /* Assets.xcassets */; };
 		F702BA06207AD52D00326E59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F702BA04207AD52D00326E59 /* LaunchScreen.storyboard */; };
 		F702BA11207AD52D00326E59 /* Pocket_FitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702BA10207AD52D00326E59 /* Pocket_FitnessTests.swift */; };
 		F702BA1C207AD52D00326E59 /* Pocket_FitnessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702BA1B207AD52D00326E59 /* Pocket_FitnessUITests.swift */; };
-		F76FC2A1207EE31C0017C560 /* AuthenticationKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76FC2A0207EE31C0017C560 /* AuthenticationKeychain.swift */; };
-		F76FC2A3207EF3510017C560 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76FC2A2207EF3510017C560 /* User.swift */; };
+		F712A7EF20A4DA11006C392A /* WorkoutExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = F712A7EE20A4DA11006C392A /* WorkoutExercise.swift */; };
+		F72D365E20A3BA6A0025F487 /* CustomExerciseSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D365D20A3BA6A0025F487 /* CustomExerciseSelectorView.swift */; };
+		F72D366020A3CBA60025F487 /* WorkoutExerciseSetPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D365F20A3CBA60025F487 /* WorkoutExerciseSetPickerViewController.swift */; };
+		F75A1C83209A8B4D008E1DED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75A1C82209A8B4D008E1DED /* AppDelegate.swift */; };
+		F75C89732098FDC300D9453B /* EditWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75C89722098FDC300D9453B /* EditWorkoutViewController.swift */; };
 		F77035386418932B7CF7A708 /* Pods_Pocket_Fitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7996C3789AB124093AF2C355 /* Pods_Pocket_Fitness.framework */; };
-		F77F366D2086F04900B75932 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F366C2086F04900B75932 /* LoginViewController.swift */; };
+		F770F5F220A4FC4D000DC8B6 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770F5F020A4FC4C000DC8B6 /* ExercisesViewController.swift */; };
 		F790E31320840FD000FAB55D /* exercises.json in Resources */ = {isa = PBXBuildFile; fileRef = F790E31220840FD000FAB55D /* exercises.json */; };
+		F79F58DA20A7930B00D8CBB4 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79F58D920A7930B00D8CBB4 /* AppDatabase.swift */; };
+		F7BB1058208FEC4C00E84D5B /* WorkoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB1057208FEC4C00E84D5B /* WorkoutsViewController.swift */; };
+		F7CBA81B20A22D200072F676 /* WorkoutExerciseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBA81A20A22D200072F676 /* WorkoutExerciseSet.swift */; };
+		F7CBA81D20A22D3F0072F676 /* StrengthExerciseSetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBA81C20A22D3F0072F676 /* StrengthExerciseSetRow.swift */; };
+		F7CBA81F20A22D810072F676 /* StrengthExerciseSetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBA81E20A22D810072F676 /* StrengthExerciseSetCell.swift */; };
+		F7FD5AAA20A63B0200B04657 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD5AA920A63B0200B04657 /* User.swift */; };
+		F7FD5AAE20A63E5500B04657 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD5AAD20A63E5500B04657 /* Workout.swift */; };
+		F7FD5AB020A6466B00B04657 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD5AAF20A6466B00B04657 /* Exercise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,10 +62,15 @@
 		4393FA9C6A7AA297D84E1AB3 /* Pods-Pocket Fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket Fitness.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket Fitness/Pods-Pocket Fitness.release.xcconfig"; sourceTree = "<group>"; };
 		7025AE70120C70CFB07F2D9C /* Pods-Pocket FitnessUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket FitnessUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket FitnessUITests/Pods-Pocket FitnessUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7996C3789AB124093AF2C355 /* Pods_Pocket_Fitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pocket_Fitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A16B184320A7B34200F2D110 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A16B184520A7B6C100F2D110 /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
+		A16B184720A7C31C00F2D110 /* TOS.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = TOS.pdf; sourceTree = "<group>"; };
+		A16B184920A7C33300F2D110 /* PrivacyPolicy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PrivacyPolicy.pdf; sourceTree = "<group>"; };
+		A16B184B20A7C56800F2D110 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		A1D8F68A209A824E005153D4 /* AddExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseViewController.swift; sourceTree = "<group>"; };
 		D6EF546828780B0AC04F68D0 /* Pods-Pocket Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket Fitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket Fitness/Pods-Pocket Fitness.debug.xcconfig"; sourceTree = "<group>"; };
 		E77A86B652B29B9B975D0D91 /* Pods-Pocket FitnessUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pocket FitnessUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pocket FitnessUITests/Pods-Pocket FitnessUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F702B9F8207AD52D00326E59 /* Pocket Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F702B9FB207AD52D00326E59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F702BA02207AD52D00326E59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F702BA05207AD52D00326E59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F702BA07207AD52D00326E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,10 +80,21 @@
 		F702BA17207AD52D00326E59 /* Pocket FitnessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pocket FitnessUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F702BA1B207AD52D00326E59 /* Pocket_FitnessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pocket_FitnessUITests.swift; sourceTree = "<group>"; };
 		F702BA1D207AD52D00326E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F76FC2A0207EE31C0017C560 /* AuthenticationKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationKeychain.swift; sourceTree = "<group>"; };
-		F76FC2A2207EF3510017C560 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		F77F366C2086F04900B75932 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F712A7EE20A4DA11006C392A /* WorkoutExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExercise.swift; sourceTree = "<group>"; };
+		F72D365D20A3BA6A0025F487 /* CustomExerciseSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExerciseSelectorView.swift; sourceTree = "<group>"; };
+		F72D365F20A3CBA60025F487 /* WorkoutExerciseSetPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseSetPickerViewController.swift; sourceTree = "<group>"; };
+		F75A1C82209A8B4D008E1DED /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Pocket Fitness/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		F75C89722098FDC300D9453B /* EditWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutViewController.swift; sourceTree = "<group>"; };
+		F770F5F020A4FC4C000DC8B6 /* ExercisesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
 		F790E31220840FD000FAB55D /* exercises.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exercises.json; sourceTree = "<group>"; };
+		F79F58D920A7930B00D8CBB4 /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
+		F7BB1057208FEC4C00E84D5B /* WorkoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsViewController.swift; sourceTree = "<group>"; };
+		F7CBA81A20A22D200072F676 /* WorkoutExerciseSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseSet.swift; sourceTree = "<group>"; };
+		F7CBA81C20A22D3F0072F676 /* StrengthExerciseSetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrengthExerciseSetRow.swift; sourceTree = "<group>"; };
+		F7CBA81E20A22D810072F676 /* StrengthExerciseSetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrengthExerciseSetCell.swift; sourceTree = "<group>"; };
+		F7FD5AA920A63B0200B04657 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F7FD5AAD20A63E5500B04657 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		F7FD5AAF20A6466B00B04657 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,11 +173,13 @@
 		F702B9FA207AD52D00326E59 /* Pocket Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				F79F58D820A7927A00D8CBB4 /* Database */,
+				F75A1C82209A8B4D008E1DED /* AppDelegate.swift */,
+				F7CBA81920A22D000072F676 /* Models */,
+				F7FD468F209A6138008EBCEE /* Views */,
 				F77F366B2086F03B00B75932 /* Controllers */,
-				F76FC29F207EE3040017C560 /* Models */,
 				F76FC29E207EE2F30017C560 /* Storyboards */,
 				F75DCCAC2083E24B0014C350 /* Resources */,
-				F702B9FB207AD52D00326E59 /* AppDelegate.swift */,
 				F702BA02207AD52D00326E59 /* Assets.xcassets */,
 				F702BA07207AD52D00326E59 /* Info.plist */,
 			);
@@ -173,6 +207,8 @@
 		F75DCCAC2083E24B0014C350 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A16B184720A7C31C00F2D110 /* TOS.pdf */,
+				A16B184920A7C33300F2D110 /* PrivacyPolicy.pdf */,
 				F790E31220840FD000FAB55D /* exercises.json */,
 			);
 			path = Resources;
@@ -186,21 +222,49 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		F76FC29F207EE3040017C560 /* Models */ = {
+		F77F366B2086F03B00B75932 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F76FC2A0207EE31C0017C560 /* AuthenticationKeychain.swift */,
-				F76FC2A2207EF3510017C560 /* User.swift */,
+				A1D8F68A209A824E005153D4 /* AddExerciseViewController.swift */,
+				F770F5F020A4FC4C000DC8B6 /* ExercisesViewController.swift */,
+				F7BB1057208FEC4C00E84D5B /* WorkoutsViewController.swift */,
+				F75C89722098FDC300D9453B /* EditWorkoutViewController.swift */,
+				F72D365F20A3CBA60025F487 /* WorkoutExerciseSetPickerViewController.swift */,
+				A16B184320A7B34200F2D110 /* SettingsViewController.swift */,
+				A16B184520A7B6C100F2D110 /* TermsOfServiceViewController.swift */,
+				A16B184B20A7C56800F2D110 /* PrivacyPolicyViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F79F58D820A7927A00D8CBB4 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				F79F58D920A7930B00D8CBB4 /* AppDatabase.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		F7CBA81920A22D000072F676 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F7CBA81A20A22D200072F676 /* WorkoutExerciseSet.swift */,
+				F712A7EE20A4DA11006C392A /* WorkoutExercise.swift */,
+				F7FD5AA920A63B0200B04657 /* User.swift */,
+				F7FD5AAD20A63E5500B04657 /* Workout.swift */,
+				F7FD5AAF20A6466B00B04657 /* Exercise.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		F77F366B2086F03B00B75932 /* Controllers */ = {
+		F7FD468F209A6138008EBCEE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F77F366C2086F04900B75932 /* LoginViewController.swift */,
+				F7CBA81C20A22D3F0072F676 /* StrengthExerciseSetRow.swift */,
+				F7CBA81E20A22D810072F676 /* StrengthExerciseSetCell.swift */,
+				F72D365D20A3BA6A0025F487 /* CustomExerciseSelectorView.swift */,
 			);
-			path = Controllers;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,7 +279,7 @@
 				F702B9F5207AD52D00326E59 /* Frameworks */,
 				F702B9F6207AD52D00326E59 /* Resources */,
 				3DD1240850EFCB1588ACACAB /* [CP] Embed Pods Frameworks */,
-				D7F0B7714D6AD9D218C2E04A /* [CP] Copy Pods Resources */,
+				ECCCA0F499937DF068C947EF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,8 +298,8 @@
 				F702BA08207AD52D00326E59 /* Sources */,
 				F702BA09207AD52D00326E59 /* Frameworks */,
 				F702BA0A207AD52D00326E59 /* Resources */,
-				88392FDE4A9BB49589FA9F08 /* [CP] Embed Pods Frameworks */,
-				7166DE66F2059CBF7FA8DC48 /* [CP] Copy Pods Resources */,
+				B06ED706F75F5A7F5F564966 /* [CP] Embed Pods Frameworks */,
+				9EDA92EDDF3377C105E1D5C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -255,8 +319,8 @@
 				F702BA13207AD52D00326E59 /* Sources */,
 				F702BA14207AD52D00326E59 /* Frameworks */,
 				F702BA15207AD52D00326E59 /* Resources */,
-				D9B7FCB9B23D256BEA18336A /* [CP] Embed Pods Frameworks */,
-				5757336B92399A7EE9E7DBDD /* [CP] Copy Pods Resources */,
+				B0A91B5DDDDF7B0ECE00367E /* [CP] Embed Pods Frameworks */,
+				3EEBC8008165C146A73CF348 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -319,7 +383,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A16B184A20A7C33400F2D110 /* PrivacyPolicy.pdf in Resources */,
 				F702BA06207AD52D00326E59 /* LaunchScreen.storyboard in Resources */,
+				A16B184820A7C31C00F2D110 /* TOS.pdf in Resources */,
 				F790E31320840FD000FAB55D /* exercises.json in Resources */,
 				F702BA03207AD52D00326E59 /* Assets.xcassets in Resources */,
 			);
@@ -368,30 +434,49 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Pocket Fitness/Pods-Pocket Fitness-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
-				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
-				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
+				"${BUILT_PRODUCTS_DIR}/Koyomi/Koyomi.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Koyomi.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pocket Fitness/Pods-Pocket Fitness-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3EEBC8008165C146A73CF348 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pocket FitnessUITests/Pods-Pocket FitnessUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		480EE75B909824CB4D964846 /* [CP] Check Pods Manifest.lock */ = {
@@ -412,22 +497,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5757336B92399A7EE9E7DBDD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pocket FitnessUITests/Pods-Pocket FitnessUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7166DE66F2059CBF7FA8DC48 /* [CP] Copy Pods Resources */ = {
+		9EDA92EDDF3377C105E1D5C7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -442,7 +512,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pocket FitnessTests/Pods-Pocket FitnessTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		88392FDE4A9BB49589FA9F08 /* [CP] Embed Pods Frameworks */ = {
+		B06ED706F75F5A7F5F564966 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -455,6 +525,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pocket FitnessTests/Pods-Pocket FitnessTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0A91B5DDDDF7B0ECE00367E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pocket FitnessUITests/Pods-Pocket FitnessUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CD2DD45F7AA14BF5DF66BFE9 /* [CP] Check Pods Manifest.lock */ = {
@@ -475,7 +560,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D7F0B7714D6AD9D218C2E04A /* [CP] Copy Pods Resources */ = {
+		ECCCA0F499937DF068C947EF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -490,21 +575,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pocket Fitness/Pods-Pocket Fitness-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D9B7FCB9B23D256BEA18336A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pocket FitnessUITests/Pods-Pocket FitnessUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -512,10 +582,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F77F366D2086F04900B75932 /* LoginViewController.swift in Sources */,
-				F702B9FC207AD52D00326E59 /* AppDelegate.swift in Sources */,
-				F76FC2A3207EF3510017C560 /* User.swift in Sources */,
-				F76FC2A1207EE31C0017C560 /* AuthenticationKeychain.swift in Sources */,
+				F75A1C83209A8B4D008E1DED /* AppDelegate.swift in Sources */,
+				A1D8F68B209A824E005153D4 /* AddExerciseViewController.swift in Sources */,
+				F770F5F220A4FC4D000DC8B6 /* ExercisesViewController.swift in Sources */,
+				F7CBA81B20A22D200072F676 /* WorkoutExerciseSet.swift in Sources */,
+				F7CBA81F20A22D810072F676 /* StrengthExerciseSetCell.swift in Sources */,
+				F7FD5AB020A6466B00B04657 /* Exercise.swift in Sources */,
+				F75C89732098FDC300D9453B /* EditWorkoutViewController.swift in Sources */,
+				A16B184420A7B34200F2D110 /* SettingsViewController.swift in Sources */,
+				F72D366020A3CBA60025F487 /* WorkoutExerciseSetPickerViewController.swift in Sources */,
+				F7BB1058208FEC4C00E84D5B /* WorkoutsViewController.swift in Sources */,
+				F7FD5AAA20A63B0200B04657 /* User.swift in Sources */,
+				A16B184620A7B6C100F2D110 /* TermsOfServiceViewController.swift in Sources */,
+				F79F58DA20A7930B00D8CBB4 /* AppDatabase.swift in Sources */,
+				F7FD5AAE20A63E5500B04657 /* Workout.swift in Sources */,
+				F7CBA81D20A22D3F0072F676 /* StrengthExerciseSetRow.swift in Sources */,
+				A16B184C20A7C56800F2D110 /* PrivacyPolicyViewController.swift in Sources */,
+				F72D365E20A3BA6A0025F487 /* CustomExerciseSelectorView.swift in Sources */,
+				F712A7EF20A4DA11006C392A /* WorkoutExercise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
