@@ -27,6 +27,7 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
         <<< ButtonRow() { row in
             row.title = "Profile"
         }.cellUpdate { cell, row in
+            cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 13.0)
             cell.textLabel?.textColor = .black
             cell.textLabel?.textAlignment = .left
             cell.accessoryType = .disclosureIndicator
@@ -35,6 +36,7 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
         <<< ButtonRow() { row in
             row.title = "Terms of Service"
         }.cellUpdate { cell, row in
+            cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 13.0)
             cell.textLabel?.textColor = .black
             cell.textLabel?.textAlignment = .left
             cell.accessoryType = .disclosureIndicator
@@ -56,6 +58,7 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
         <<< ButtonRow() { row in
             row.title = "Privacy Policy"
         }.cellUpdate { cell, row in
+            cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 13.0)
             cell.textLabel?.textColor = .black
             cell.textLabel?.textAlignment = .left
             cell.accessoryType = .disclosureIndicator
@@ -77,6 +80,7 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
         <<< ButtonRow() { row in
             row.title = "Contact Us"
         }.cellUpdate { cell, row in
+            cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 13.0)
             cell.textLabel?.textColor = .black
             cell.textLabel?.textAlignment = .left
             cell.accessoryType = .disclosureIndicator
@@ -99,6 +103,7 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
         <<< ButtonRow() { row in
             row.title = "Log Out"
         }.cellUpdate { cell, row in
+            cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 13.0)
             cell.textLabel?.textColor = .black
             cell.textLabel?.textAlignment = .left
             cell.accessoryType = .disclosureIndicator

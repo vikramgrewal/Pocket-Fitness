@@ -47,6 +47,8 @@ class AddExerciseViewController: FormViewController {
                return
             }
             row.value = exerciseName
+         }.cellUpdate { cell, row in
+            cell.textField.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
          }
          <<< TextRow(){ row in
             row.placeholder = "Exercise Muscle Group"
@@ -55,6 +57,8 @@ class AddExerciseViewController: FormViewController {
                return
             }
             row.value = exerciseMuscle
+         }.cellUpdate { cell, row in
+               cell.textField.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
          }
          <<< PushRow<String>() { row in
             row.title = "Exercise Type"
@@ -65,6 +69,12 @@ class AddExerciseViewController: FormViewController {
                return
             }
             row.value = exerciseType
+         }.cellUpdate { cell, row in
+            cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+         }.onPresent { from, to in
+            to.selectableRowCellUpdate = { cell, row in
+               cell.textLabel!.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+            }
          }
    }
 

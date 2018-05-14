@@ -22,6 +22,7 @@
 		F712A7EF20A4DA11006C392A /* WorkoutExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = F712A7EE20A4DA11006C392A /* WorkoutExercise.swift */; };
 		F72D365E20A3BA6A0025F487 /* CustomExerciseSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D365D20A3BA6A0025F487 /* CustomExerciseSelectorView.swift */; };
 		F72D366020A3CBA60025F487 /* WorkoutExerciseSetPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D365F20A3CBA60025F487 /* WorkoutExerciseSetPickerViewController.swift */; };
+		F74FCDDC20A93509000054F8 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74FCDDB20A93509000054F8 /* Date.swift */; };
 		F75A1C83209A8B4D008E1DED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75A1C82209A8B4D008E1DED /* AppDelegate.swift */; };
 		F75C89732098FDC300D9453B /* EditWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75C89722098FDC300D9453B /* EditWorkoutViewController.swift */; };
 		F77035386418932B7CF7A708 /* Pods_Pocket_Fitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7996C3789AB124093AF2C355 /* Pods_Pocket_Fitness.framework */; };
@@ -87,6 +88,7 @@
 		F712A7EE20A4DA11006C392A /* WorkoutExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExercise.swift; sourceTree = "<group>"; };
 		F72D365D20A3BA6A0025F487 /* CustomExerciseSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExerciseSelectorView.swift; sourceTree = "<group>"; };
 		F72D365F20A3CBA60025F487 /* WorkoutExerciseSetPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseSetPickerViewController.swift; sourceTree = "<group>"; };
+		F74FCDDB20A93509000054F8 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F75A1C82209A8B4D008E1DED /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Pocket Fitness/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		F75C89722098FDC300D9453B /* EditWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutViewController.swift; sourceTree = "<group>"; };
 		F770F5F020A4FC4C000DC8B6 /* ExercisesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				F7FD5AAD20A63E5500B04657 /* Workout.swift */,
 				F7FD5AAF20A6466B00B04657 /* Exercise.swift */,
 				F7EDBB4E20A7EF46007513C0 /* UserSession.swift */,
+				F74FCDDB20A93509000054F8 /* Date.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F74FCDDC20A93509000054F8 /* Date.swift in Sources */,
 				F75A1C83209A8B4D008E1DED /* AppDelegate.swift in Sources */,
 				A1D8F68B209A824E005153D4 /* AddExerciseViewController.swift in Sources */,
 				F770F5F220A4FC4D000DC8B6 /* ExercisesViewController.swift in Sources */,

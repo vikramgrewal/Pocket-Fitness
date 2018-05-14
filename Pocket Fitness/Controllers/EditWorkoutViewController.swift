@@ -50,6 +50,9 @@ class EditWorkoutViewController: FormViewController {
                return
             }
             $0.value = workoutName
+         }.cellUpdate { cell, row in
+            cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+            cell.textField.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
          }
          <<< DateTimeRow() {
             $0.title = "Workout Date"
@@ -61,6 +64,9 @@ class EditWorkoutViewController: FormViewController {
                return
             }
             $0.value = workoutDate
+         }.cellUpdate { cell, row in
+               cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+               cell.detailTextLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
          }
          <<< TextRow() {
             $0.title = "Workout Notes"
@@ -70,6 +76,9 @@ class EditWorkoutViewController: FormViewController {
                return
             }
             $0.value = workoutNotes
+         }.cellUpdate { cell, row in
+            cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+            cell.textField.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
          }
          +++ Section("Workout Exercises")   {
             $0.header?.height = { 0 }

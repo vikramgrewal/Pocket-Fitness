@@ -26,6 +26,7 @@ class LoginViewController: UIViewController {
 
    func setUpView()  {
       facebookLoginButton = UIButton()
+      facebookLoginButton.titleLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 18.0)
       view.addSubview(facebookLoginButton)
       facebookLoginButton.translatesAutoresizingMaskIntoConstraints = false
       facebookLoginButton.setTitle("Login with Facebook", for: .normal)
