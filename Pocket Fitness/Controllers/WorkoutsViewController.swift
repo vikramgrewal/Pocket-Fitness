@@ -19,6 +19,7 @@ class WorkoutsViewController: UIViewController {
    var koyomi : Koyomi!
    var calendarView : UIView!
    var workouts : [Workout]?
+   var workoutsTableViewModel : WorkoutsTableViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -211,12 +212,24 @@ extension WorkoutsViewController {
 extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
 
    func fetchData() {
+      workoutsTableViewModel = WorkoutsTableViewModel()
       workouts = Workout.getAllWorkouts()
+      guard workouts != nil else {
+         tableViewController.tableView.reloadData()
+         return
+      }
+      workoutsTableViewModel?.workouts = workouts
+      for workout in workouts! {
+         guard let workoutId = workout.workoutId else {
+            return
+         }
+         workoutsTableViewModel?.setLabels?.append("0")
+      }
       tableViewController.tableView.reloadData()
    }
 
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      guard let workoutCount = workouts?.count else {
+      guard let workoutCount = workoutsTableViewModel?.workouts?.count else {
          return 0
       }
       return workoutCount
@@ -224,7 +237,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
 
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       DispatchQueue.main.async(execute: {
-         guard let workout = self.workouts?[indexPath.row] else {
+         guard let workout = self.workoutsTableViewModel?.workouts?[indexPath.row] else {
             return
          }
          let editWorkoutVC = EditWorkoutViewController()
@@ -258,7 +271,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       dateView.addSubview(dayLabel)
       dayLabel.text = ""
       dayLabel.textAlignment = .center
-      dayLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 14.0)
+      dayLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
       dayLabel.translatesAutoresizingMaskIntoConstraints = false
       dayLabel.leadingAnchor.constraint(equalTo: dateView.leadingAnchor).isActive = true
       dayLabel.trailingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
@@ -270,7 +283,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       dateView.addSubview(monthLabel)
       monthLabel.text = ""
       monthLabel.textAlignment = .center
-      monthLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 14.0)
+      monthLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 13.0)
       monthLabel.translatesAutoresizingMaskIntoConstraints = false
       monthLabel.leadingAnchor.constraint(equalTo: dateView.leadingAnchor).isActive = true
       monthLabel.trailingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
@@ -282,7 +295,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       dateView.addSubview(yearLabel)
       yearLabel.text = ""
       yearLabel.textAlignment = .center
-      yearLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 14.0)
+      yearLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 13.0)
       yearLabel.translatesAutoresizingMaskIntoConstraints = false
       yearLabel.leadingAnchor.constraint(equalTo: dateView.leadingAnchor).isActive = true
       yearLabel.trailingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
@@ -292,9 +305,9 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       let workoutLabel = UILabel()
       workoutLabel.backgroundColor = .clear
       cell.addSubview(workoutLabel)
-      workoutLabel.text = workouts![indexPath.row].workoutName
+      workoutLabel.text = workoutsTableViewModel?.workouts![indexPath.row].workoutName
       workoutLabel.textAlignment = .left
-      workoutLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 18.0)
+      workoutLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 17.0)
       workoutLabel.translatesAutoresizingMaskIntoConstraints = false
       workoutLabel.leadingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
       workoutLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 7.5).isActive = true
@@ -305,7 +318,8 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       workoutSetsLabel.backgroundColor = .clear
       cell.addSubview(workoutSetsLabel)
       cell.addSubview(workoutSetsLabel)
-      workoutSetsLabel.text = "5 Sets"
+      let exercisesLabel = workoutsTableViewModel?.setLabels![indexPath.row] ?? "0"
+      workoutSetsLabel.text = "\(exercisesLabel) Exercises"
       workoutSetsLabel.textAlignment = .left
       workoutSetsLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 14.0)
       workoutSetsLabel.textColor = .lightGray
@@ -315,7 +329,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       workoutSetsLabel.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
       workoutSetsLabel.topAnchor.constraint(equalTo: workoutLabel.bottomAnchor).isActive = true
 
-      if let workoutDate = workouts?[indexPath.row].workoutDate {
+      if let workoutDate = workoutsTableViewModel?.workouts?[indexPath.row].workoutDate {
          let dateFormatter = DateFormatter()
          dateFormatter.dateFormat = "dd"
          let dayString = dateFormatter.string(from: workoutDate)
