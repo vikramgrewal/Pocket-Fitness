@@ -17,17 +17,6 @@ class ExercisesViewController: UIViewController {
 
    override func viewDidLoad() {
       exercises = [Exercise]()
-      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
-      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
-      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
-      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
-      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
-      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
-      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
-      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
-      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
-      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
-      exercises?.append(Exercise(exerciseId: 123, exerciseName: "Bench Press", exerciseType: "Cardio", exerciseMuscle: "Abs", userId: 1111))
       setUpView()
    }
 

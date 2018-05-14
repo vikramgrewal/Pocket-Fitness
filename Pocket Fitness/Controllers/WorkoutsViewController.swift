@@ -47,7 +47,6 @@ class WorkoutsViewController: UIViewController {
 
    func initializeTestData()   {
       workouts = [Workout]()
-      workouts?.append(Workout(workoutId: 123, workoutName: "Chest", workoutDate: Date(), workoutNotes: "", userId: 123, userWeight: 10.5))
    }
 
    func setUpView()  {
