@@ -87,9 +87,15 @@ class EditWorkoutViewController: FormViewController {
       button.setTitleColor(.white, for: .normal)
       view.addSubview(button)
       button.translatesAutoresizingMaskIntoConstraints = false
-      button.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
-      button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
-      button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+      if #available(iOS 11.0, *) {
+         button.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+         button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
+         button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+      } else {
+         button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+         button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+         button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10).isActive = true
+      }
       button.heightAnchor.constraint(equalToConstant: 44).isActive = true
       button.addTarget(self, action: #selector(addNewExercise), for: .touchUpInside)
    }
@@ -209,10 +215,18 @@ extension EditWorkoutViewController {
       view.addSubview((pickerVC?.workoutExerciseSetPickerView)!)
       pickerVC?.workoutExerciseSetPickerView?.translatesAutoresizingMaskIntoConstraints = false
       pickerVC?.workoutExerciseSetPickerView?.layer.zPosition = 10
-      pickerVC?.workoutExerciseSetPickerView?.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-      pickerVC?.workoutExerciseSetPickerView?.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+      if #available(iOS 11.0, *) {
+         pickerViewHeight = pickerVC?.workoutExerciseSetPickerView?.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+         pickerVC?.workoutExerciseSetPickerView?.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+         pickerVC?.workoutExerciseSetPickerView?.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+      } else {
+         pickerViewHeight = pickerVC?.workoutExerciseSetPickerView?.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+         pickerVC?.workoutExerciseSetPickerView?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+         pickerVC?.workoutExerciseSetPickerView?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+
+      }
+
       pickerVC?.workoutExerciseSetPickerView?.heightAnchor.constraint(equalToConstant: 125).isActive = true
-      pickerViewHeight = pickerVC?.workoutExerciseSetPickerView?.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
       pickerViewHeight?.isActive = true
 
    }
@@ -228,9 +242,15 @@ extension EditWorkoutViewController {
       pickerCompleteButton?.addTarget(self, action: #selector(closePickerView), for: .touchUpInside)
       pickerCompleteButton?.translatesAutoresizingMaskIntoConstraints = false
       pickerCompleteButton?.heightAnchor.constraint(equalToConstant: 44).isActive = true
-      pickerCompleteButton?.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-      pickerCompleteButton?.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-      pickerCompleteViewTrailing = pickerCompleteButton?.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+      if #available(iOS 11.0, *) {
+         pickerCompleteButton?.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+         pickerCompleteButton?.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+         pickerCompleteViewTrailing = pickerCompleteButton?.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+      } else {
+         pickerCompleteButton?.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+         pickerCompleteButton?.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+         pickerCompleteViewTrailing = pickerCompleteButton?.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+      }
       pickerCompleteViewTrailing?.isActive = true
 
    }

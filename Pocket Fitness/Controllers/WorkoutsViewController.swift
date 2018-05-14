@@ -91,6 +91,7 @@ extension WorkoutsViewController {
 
       DispatchQueue.main.async(execute: {
          // Create a new workout in the database and pass that workout object to next view controller
+         
          let editWorkoutVC = EditWorkoutViewController()
          self.navigationController?.pushViewController(editWorkoutVC, animated: true)
       })
@@ -105,9 +106,15 @@ extension WorkoutsViewController {
       calendarView = UIView()
       view.addSubview(calendarView)
       calendarView.translatesAutoresizingMaskIntoConstraints = false
-      calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-      calendarView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-      calendarView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+      if #available(iOS 11.0, *) {
+         calendarView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+         calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+         calendarView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+      } else {
+         calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+         calendarView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+         calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+      }
       calendarHeightConstraint = calendarView.heightAnchor.constraint(equalToConstant: 0)
       calendarHeightConstraint.isActive = true
       calendarMonthLabel = UILabel()
@@ -335,14 +342,26 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       tableViewController.tableView.tableFooterView = UIView()
       tableViewController.tableView.translatesAutoresizingMaskIntoConstraints = false
       view.addSubview(tableViewController.tableView)
-      tableViewController.tableView.leadingAnchor.constraint(equalTo:
-         view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-      tableViewController.tableView.topAnchor.constraint(equalTo:
-         calendarView.bottomAnchor).isActive = true
-      tableViewController.tableView.trailingAnchor.constraint(equalTo:
-         view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-      tableViewController.tableView.bottomAnchor.constraint(equalTo:
-         view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+      if #available(iOS 11.0, *) {
+         tableViewController.tableView.leadingAnchor.constraint(equalTo:
+            view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+         tableViewController.tableView.topAnchor.constraint(equalTo:
+            calendarView.bottomAnchor).isActive = true
+         tableViewController.tableView.trailingAnchor.constraint(equalTo:
+            view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+         tableViewController.tableView.bottomAnchor.constraint(equalTo:
+            view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+      } else {
+         tableViewController.tableView.leadingAnchor.constraint(equalTo:
+            view.leadingAnchor).isActive = true
+         tableViewController.tableView.topAnchor.constraint(equalTo:
+            calendarView.bottomAnchor).isActive = true
+         tableViewController.tableView.trailingAnchor.constraint(equalTo:
+            view.trailingAnchor).isActive = true
+         tableViewController.tableView.bottomAnchor.constraint(equalTo:
+            view.bottomAnchor).isActive = true
+      }
+
    }
 
 }

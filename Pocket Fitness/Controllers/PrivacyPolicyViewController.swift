@@ -1,6 +1,7 @@
 import UIKit
 import PDFKit
 
+@available(iOS 11.0, *)
 class PrivacyPolicyViewController: UIViewController {
     
     var pdfView : PDFView?

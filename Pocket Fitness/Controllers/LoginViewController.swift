@@ -1,23 +1,16 @@
-//
-//  LoginViewController.swift
-//  Pocket Fitness
-//
-//  Created by Vikram Work/School on 4/11/18.
-//  Copyright © 2018 Vikram Work/School. All rights reserved.
-//
-
 import UIKit
 import FacebookCore
 import FacebookLogin
 
 class LoginViewController: UIViewController {
 
-   @IBOutlet weak var facebookLoginButton: UIButton!
+   var facebookLoginButton: UIButton!
 
    override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+         setUpView()
          setupFacebookLogin()
 
     }
@@ -31,9 +24,34 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+   func setUpView()  {
+      facebookLoginButton = UIButton()
+      view.addSubview(facebookLoginButton)
+      facebookLoginButton.translatesAutoresizingMaskIntoConstraints = false
+      facebookLoginButton.setTitle("Login with Facebook", for: .normal)
+      facebookLoginButton.setTitleColor(.white, for: .normal)
+      facebookLoginButton.backgroundColor = UIColor(red: 59/255, green: 89/255, blue: 152/255, alpha: 1.0)
+      if #available(iOS 11.0, *) {
+         facebookLoginButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
+                                                      constant: 20).isActive = true
+         facebookLoginButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+                                                       constant: -20).isActive = true
+         facebookLoginButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                                                     constant: -20).isActive = true
+      } else {
+         facebookLoginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                      constant: 20).isActive = true
+         facebookLoginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                       constant: -20).isActive = true
+         facebookLoginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+                                                     constant: -20).isActive = true
+      }
+
+      facebookLoginButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+   }
+
    func setupFacebookLogin() {
       facebookLoginButton.addTarget(self, action: #selector(loginButtonClicked), for: .touchUpInside)
-
    }
 
    @objc func loginButtonClicked()  {
@@ -48,8 +66,29 @@ class LoginViewController: UIViewController {
             let expirationDate = token.expirationDate
             let facebookId = token.userId!
 
-            let user = User(facebookId: facebookId)
+            guard let user = User.getUserWithFacebookId(facebookId: facebookId) else {
+               guard let userToInsert = User.insertUser(facebookId: facebookId)  else {
+                  return
+               }
+               var newUserAlert = UIAlertController(title: "Welcome!", message: "Would you like to load our preloaded exercises?", preferredStyle: UIAlertControllerStyle.alert)
 
+               newUserAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+                  // Handle loading exercises into database here
+               }))
+
+               newUserAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+                  // Don't do anything to the database here
+               }))
+
+               self.present(newUserAlert, animated: true, completion: nil)
+               print("Successfully created new user")
+               DispatchQueue.main.async {
+                  UserSession.login(user: userToInsert)
+               }
+               return
+            }
+
+            print("Successfully logged in as a previous user")
             DispatchQueue.main.async {
                UserSession.login(user: user)
             }
@@ -64,17 +103,14 @@ class LoginViewController: UIViewController {
 
    func checkCredentials() {
 
-      let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-
       if UserSession.isLoggedIn()   {
-         alertVC.title = "Logged In"
-         print("Logged in")
-      }  else  {
-         alertVC.title = "Not logged in"
-      }
-      alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
-      present(alertVC, animated: true, completion: nil)
+         guard let facebookId = KeychainController.loadID() else {
+            return
+         }
+         self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+
+      }
 
    }
 

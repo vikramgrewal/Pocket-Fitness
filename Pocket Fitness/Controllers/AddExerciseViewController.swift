@@ -74,17 +74,32 @@ class AddExerciseViewController: FormViewController {
       deleteButton.backgroundColor = UIColor(red: 246.0/255.0, green: 53.0/255.0, blue: 76.0/255.0, alpha: 1.0)
       view.addSubview(deleteButton)
       deleteButton.translatesAutoresizingMaskIntoConstraints = false
-      let bottom = deleteButton.bottomAnchor.constraint(equalTo:
-         view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
-      let leading = deleteButton.leadingAnchor.constraint(equalTo:
-         view.safeAreaLayoutGuide.leadingAnchor, constant: 20)
-      let trailing = deleteButton.trailingAnchor.constraint(equalTo:
-         view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
-      let height = NSLayoutConstraint.init(item: deleteButton, attribute: .height,
-                                           relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
-                                           multiplier: 1.0, constant: 50)
-      let constraints = [bottom, leading, trailing, height]
-      NSLayoutConstraint.activate(constraints)
+      if #available(iOS 11.0, *) {
+         let bottom = deleteButton.bottomAnchor.constraint(equalTo:
+            view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+         let leading = deleteButton.leadingAnchor.constraint(equalTo:
+            view.safeAreaLayoutGuide.leadingAnchor, constant: 20)
+         let trailing = deleteButton.trailingAnchor.constraint(equalTo:
+            view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
+         let height = NSLayoutConstraint.init(item: deleteButton, attribute: .height,
+                                              relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
+                                              multiplier: 1.0, constant: 50)
+         let constraints = [bottom, leading, trailing, height]
+         NSLayoutConstraint.activate(constraints)
+      } else {
+         let bottom = deleteButton.bottomAnchor.constraint(equalTo:
+            view.bottomAnchor, constant: -20)
+         let leading = deleteButton.leadingAnchor.constraint(equalTo:
+            view.leadingAnchor, constant: 20)
+         let trailing = deleteButton.trailingAnchor.constraint(equalTo:
+            view.trailingAnchor, constant: -20)
+         let height = NSLayoutConstraint.init(item: deleteButton, attribute: .height,
+                                              relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
+                                              multiplier: 1.0, constant: 50)
+         let constraints = [bottom, leading, trailing, height]
+         NSLayoutConstraint.activate(constraints)
+      }
+
    }
 
    @objc func saveExercise() {

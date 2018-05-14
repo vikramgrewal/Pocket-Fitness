@@ -28,6 +28,7 @@
 		F770F5F220A4FC4D000DC8B6 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770F5F020A4FC4C000DC8B6 /* ExercisesViewController.swift */; };
 		F790E31320840FD000FAB55D /* exercises.json in Resources */ = {isa = PBXBuildFile; fileRef = F790E31220840FD000FAB55D /* exercises.json */; };
 		F79F58DA20A7930B00D8CBB4 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79F58D920A7930B00D8CBB4 /* AppDatabase.swift */; };
+		F7B1BDEE20A8F73E003B5B3A /* AppEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B1BDED20A8F73E003B5B3A /* AppEntryViewController.swift */; };
 		F7BB1058208FEC4C00E84D5B /* WorkoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB1057208FEC4C00E84D5B /* WorkoutsViewController.swift */; };
 		F7CBA81B20A22D200072F676 /* WorkoutExerciseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBA81A20A22D200072F676 /* WorkoutExerciseSet.swift */; };
 		F7CBA81D20A22D3F0072F676 /* StrengthExerciseSetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CBA81C20A22D3F0072F676 /* StrengthExerciseSetRow.swift */; };
@@ -91,6 +92,7 @@
 		F770F5F020A4FC4C000DC8B6 /* ExercisesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
 		F790E31220840FD000FAB55D /* exercises.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exercises.json; sourceTree = "<group>"; };
 		F79F58D920A7930B00D8CBB4 /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
+		F7B1BDED20A8F73E003B5B3A /* AppEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEntryViewController.swift; sourceTree = "<group>"; };
 		F7BB1057208FEC4C00E84D5B /* WorkoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsViewController.swift; sourceTree = "<group>"; };
 		F7CBA81A20A22D200072F676 /* WorkoutExerciseSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseSet.swift; sourceTree = "<group>"; };
 		F7CBA81C20A22D3F0072F676 /* StrengthExerciseSetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrengthExerciseSetRow.swift; sourceTree = "<group>"; };
@@ -179,8 +181,8 @@
 		F702B9FA207AD52D00326E59 /* Pocket Fitness */ = {
 			isa = PBXGroup;
 			children = (
-				F79F58D820A7927A00D8CBB4 /* Database */,
 				F75A1C82209A8B4D008E1DED /* AppDelegate.swift */,
+				F79F58D820A7927A00D8CBB4 /* Database */,
 				F7CBA81920A22D000072F676 /* Models */,
 				F7FD468F209A6138008EBCEE /* Views */,
 				F77F366B2086F03B00B75932 /* Controllers */,
@@ -240,6 +242,7 @@
 				A16B184320A7B34200F2D110 /* SettingsViewController.swift */,
 				A16B184520A7B6C100F2D110 /* TermsOfServiceViewController.swift */,
 				A16B184B20A7C56800F2D110 /* PrivacyPolicyViewController.swift */,
+				F7B1BDED20A8F73E003B5B3A /* AppEntryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				F72D366020A3CBA60025F487 /* WorkoutExerciseSetPickerViewController.swift in Sources */,
 				F7BB1058208FEC4C00E84D5B /* WorkoutsViewController.swift in Sources */,
 				F7EDBB4F20A7EF46007513C0 /* UserSession.swift in Sources */,
+				F7B1BDEE20A8F73E003B5B3A /* AppEntryViewController.swift in Sources */,
 				F7FD5AAA20A63B0200B04657 /* User.swift in Sources */,
 				A16B184620A7B6C100F2D110 /* TermsOfServiceViewController.swift in Sources */,
 				F79F58DA20A7930B00D8CBB4 /* AppDatabase.swift in Sources */,
@@ -773,6 +777,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C7NV2676P8;
 				INFOPLIST_FILE = "Pocket Fitness/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vikramgrewal.Pocket-Fitness";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -789,6 +794,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C7NV2676P8;
 				INFOPLIST_FILE = "Pocket Fitness/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vikramgrewal.Pocket-Fitness";
 				PRODUCT_NAME = "$(TARGET_NAME)";

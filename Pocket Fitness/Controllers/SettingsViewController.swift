@@ -40,8 +40,18 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
             cell.accessoryType = .disclosureIndicator
             cell.editingAccessoryType = cell.accessoryType
         }.onCellSelection{ cell, row in
+         if #available(iOS 11.0, *) {
             let termsOfServiceVC = TermsOfServiceViewController()
             self.navigationController?.pushViewController(termsOfServiceVC, animated: true)
+         } else {
+            var newUserAlert = UIAlertController(title: "Error!", message: "Upgrade to IOS 11", preferredStyle: UIAlertControllerStyle.alert)
+
+            newUserAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
+               // Don't do anything to the database here
+            }))
+
+            self.present(newUserAlert, animated: true, completion: nil)
+         }
         }
         <<< ButtonRow() { row in
             row.title = "Privacy Policy"
@@ -51,8 +61,18 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
             cell.accessoryType = .disclosureIndicator
             cell.editingAccessoryType = cell.accessoryType
         }.onCellSelection{ cell, row in
+         if #available(iOS 11.0, *) {
             let privacyPolicyVC = PrivacyPolicyViewController()
             self.navigationController?.pushViewController(privacyPolicyVC, animated: true)
+         } else {
+            var newUserAlert = UIAlertController(title: "Error!", message: "Upgrade to IOS 11", preferredStyle: UIAlertControllerStyle.alert)
+
+            newUserAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
+               // Don't do anything to the database here
+            }))
+
+            self.present(newUserAlert, animated: true, completion: nil)
+         }
         }
         <<< ButtonRow() { row in
             row.title = "Contact Us"
@@ -83,7 +103,12 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
             cell.textLabel?.textAlignment = .left
             cell.accessoryType = .disclosureIndicator
             cell.editingAccessoryType = cell.accessoryType
-        }
+         }.onCellSelection { cell, row in
+         UserSession.logout()
+         if !UserSession.isLoggedIn() {
+            self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+         }
+      }
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {

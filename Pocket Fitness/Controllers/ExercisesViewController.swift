@@ -57,12 +57,22 @@ class ExercisesViewController: UIViewController {
          print("Error retrieving table view")
          return
       }
-      let top = tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-      let bottom = tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-      let leading = tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
-      let trailing = tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-      let constraints = [bottom,trailing, leading, top]
-      NSLayoutConstraint.activate(constraints)
+      if #available(iOS 11.0, *) {
+         let top = tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+         let bottom = tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+         let leading = tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
+         let trailing = tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+         let constraints = [bottom,trailing, leading, top]
+         NSLayoutConstraint.activate(constraints)
+      } else {
+         let top = tableView.topAnchor.constraint(equalTo: view.topAnchor)
+         let bottom = tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+         let leading = tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+         let trailing = tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+         let constraints = [bottom,trailing, leading, top]
+         NSLayoutConstraint.activate(constraints)
+      }
+
 
    }
 
