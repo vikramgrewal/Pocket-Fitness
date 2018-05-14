@@ -16,30 +16,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
       // Override point for customization after application launch.
+      AppDatabase.dropEntireDatabase()
+      AppDatabase.setUpSchema()
 
       // TODO: Checkto see if database table exists to preload exercises
 
       let windowFrame = UIScreen.main.bounds
       window = UIWindow(frame: windowFrame)
       window?.backgroundColor = .white
-      tabBarController = UITabBarController()
-      tabBarController.tabBar.barTintColor = .groupTableViewBackground
-      window?.rootViewController = tabBarController
 
-      let workoutsVC = WorkoutsViewController()
-      let workoutsNavigationController = UINavigationController(rootViewController: workoutsVC)
+      let appEntryVC = AppEntryViewController()
+//      tabBarController = UITabBarController()
+//      tabBarController.tabBar.barTintColor = .groupTableViewBackground
+      window?.rootViewController = appEntryVC
 
-      let exerciseVC = ExercisesViewController()
-      let exerciseNavigationController = UINavigationController(rootViewController: exerciseVC)
-
-        let settingsVC = SettingsViewController()
-        let settingsNavigationController = UINavigationController(rootViewController: settingsVC)
-
-      let tabBarControllers = [workoutsNavigationController, exerciseNavigationController, settingsNavigationController]
-      tabBarControllers[0].title = "Workouts"
-      tabBarControllers[1].title = "Exercises"
-    tabBarControllers[2].title = "Settings"
-      tabBarController.viewControllers = tabBarControllers
+//      let workoutsVC = WorkoutsViewController()
+//      let workoutsNavigationController = UINavigationController(rootViewController: workoutsVC)
+//
+//      let exerciseVC = ExercisesViewController()
+//      let exerciseNavigationController = UINavigationController(rootViewController: exerciseVC)
+//
+//        let settingsVC = SettingsViewController()
+//        let settingsNavigationController = UINavigationController(rootViewController: settingsVC)
+//
+//      let tabBarControllers = [workoutsNavigationController, exerciseNavigationController, settingsNavigationController]
+//      tabBarControllers[0].title = "Workouts"
+//      tabBarControllers[1].title = "Exercises"
+//    tabBarControllers[2].title = "Settings"
+//      tabBarController.viewControllers = tabBarControllers
 
       window?.makeKeyAndVisible()
       return true

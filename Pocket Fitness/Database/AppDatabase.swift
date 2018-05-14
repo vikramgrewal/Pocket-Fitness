@@ -68,10 +68,10 @@ public class AppDatabase {
          try dbConnection.run(userTable.create(ifNotExists: true) { userTable in
             userTable.column(userIdColumn, primaryKey: true)
             userTable.column(facebookIdColumn, unique: true)
-            userTable.column(firstNameColumn)
-            userTable.column(lastNameColumn)
-            userTable.column(emailColumn)
-            userTable.column(weightColumn)
+            userTable.column(firstNameColumn, defaultValue: nil)
+            userTable.column(lastNameColumn, defaultValue: nil)
+            userTable.column(emailColumn, defaultValue: nil)
+            userTable.column(weightColumn, defaultValue: nil)
             userTable.column(createdAtColumn)
          })
       } catch {
@@ -84,16 +84,16 @@ public class AppDatabase {
          let workoutIdColumn = Expression<Int64>(Workout.workoutIdColumn)
          let workoutNameColumn = Expression<String?>(Workout.workoutNameColumn)
          let workoutDateColumn = Expression<Date>(Workout.workoutDateColumn)
-         let workoutNotesColumn = Expression<String?>(Workout.workoutNameColumn)
+         let workoutNotesColumn = Expression<String?>(Workout.workoutNotesColumn )
          let workoutUserWeightColumn = Expression<Double?>(Workout.workoutUserWeightColumn)
          let userIdColumn = Expression<Int64>(User.userIdColumn)
 
          try dbConnection.run(workoutTable.create(ifNotExists: true) { workoutTable in
             workoutTable.column(workoutIdColumn, primaryKey: true)
-            workoutTable.column(workoutNameColumn)
+            workoutTable.column(workoutNameColumn, defaultValue: nil)
             workoutTable.column(workoutDateColumn)
-            workoutTable.column(workoutNotesColumn)
-            workoutTable.column(workoutUserWeightColumn)
+            workoutTable.column(workoutNotesColumn, defaultValue: nil)
+            workoutTable.column(workoutUserWeightColumn, defaultValue: nil)
             workoutTable.column(userIdColumn)
          })
       } catch {
@@ -107,12 +107,14 @@ public class AppDatabase {
          let workoutIdColumn = Expression<Int64>(Workout.workoutIdColumn) //FK
          let exerciseIdColumn = Expression<Int64>(Exercise.exerciseIdColumn) //FK
          let workoutExerciseDateColumn = Expression<Date>(WorkoutExercise.workoutExerciseDateColumn)
+         let userIdColumn = Expression<Int64>(User.userIdColumn)
 
          try dbConnection.run(workoutExerciseTable.create(ifNotExists: true) { workoutExerciseTable in
             workoutExerciseTable.column(workoutExerciseIdColumn, primaryKey: true)
             workoutExerciseTable.column(workoutIdColumn)
             workoutExerciseTable.column(exerciseIdColumn)
             workoutExerciseTable.column(workoutExerciseDateColumn)
+            workoutExerciseTable.column(userIdColumn)
          })
       } catch {
          print("\(error)")
@@ -140,10 +142,46 @@ public class AppDatabase {
             workoutExerciseSetTable.column(workoutId)
             workoutExerciseSetTable.column(userId)
          })
+
+         print("Successfully created database schema")
       } catch {
          print("\(error)")
       }
 
+   }
+
+   public static func dropEntireDatabase()   {
+      guard let dbConnection = AppDatabase.getConnection() else {
+         print("Error establishing connection while dropping database.")
+         return
+      }
+
+      do {
+         let exerciseTableName = Exercise.exerciseTableName
+         let exerciseTable = Table(exerciseTableName)
+
+         let userTableName = User.userTableName
+         let userTable = Table(userTableName)
+
+         let workoutTableName = Workout.workoutTableName
+         let workoutTable = Table(workoutTableName)
+
+         let workoutExerciseTableName = WorkoutExercise.workoutExerciseTableName
+         let workoutExerciseTable = Table(workoutExerciseTableName)
+
+         let workoutExerciseSetTableName = WorkoutExerciseSet.workoutExerciseSetTableName
+         let workoutExerciseSetTable = Table(workoutExerciseSetTableName)
+
+         try dbConnection.run(exerciseTable.drop(ifExists: true))
+         try dbConnection.run(userTable.drop(ifExists: true))
+         try dbConnection.run(workoutTable.drop(ifExists: true))
+         try dbConnection.run(workoutExerciseTable.drop(ifExists: true))
+         try dbConnection.run(workoutExerciseSetTable.drop(ifExists: true))
+         print("Successfully dropped database")
+
+      } catch {
+         print("\(error)")
+      }
    }
 
 }
