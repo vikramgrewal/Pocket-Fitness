@@ -11,9 +11,12 @@ import Eureka
 
 class EditProfileViewController: FormViewController {
 
+   var button : UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+         setUpNavigation()
          setUpView()
          fetchUserInfo()
       
@@ -54,18 +57,72 @@ class EditProfileViewController: FormViewController {
          cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
          cell.textField.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
       }
-      <<< DecimalRow() {
-         $0.title = "Weight"
-         $0.placeholder = "e.g. 150.0"
-         $0.tag = "userWeightRow"
-         }.cellUpdate { cell, row in
-            cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
-            cell.textField.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+//      <<< DecimalRow() {
+//         $0.title = "Weight"
+//         $0.placeholder = "e.g. 150.0"
+//         $0.tag = "userWeightRow"
+//         $0.useFormatterDuringInput = true
+//         $0.formatter = DecimalFormatter()
+//      }.cellUpdate { cell, row in
+//         cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+//         cell.textField.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+//      }
+
+   }
+
+   func setUpNavigation()  {
+      navigationController?.navigationBar.barStyle = .default
+
+      let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: nil)
+      navigationItem.rightBarButtonItem = saveButton
+      let rightBarOffset = UIOffset(horizontal: -16.0, vertical: 0.0)
+      navigationItem.rightBarButtonItem?.setTitlePositionAdjustment(rightBarOffset, for: .default)
+
+      navigationItem.rightBarButtonItem?.action = #selector(saveInformation)
+   }
+
+   @objc func saveInformation() {
+         view.endEditing(true)
+
+         guard let firstNameRow = form.rowBy(tag: "firstNameRow") as? TextRow,
+         let lastNameRow = form.rowBy(tag: "lastNameRow") as? TextRow,
+         let emailRow = form.rowBy(tag: "emailRow") as? TextRow else {
+            return
          }
-      }
+
+         let firstName = firstNameRow.value == nil ? "" : firstNameRow.value!
+         let lastName = lastNameRow.value == nil ? "" : lastNameRow.value!
+         let email = emailRow.value == nil ? "" : emailRow.value!
+
+         let user = User(userId: nil, facebookId: nil, firstName: firstName,
+                         lastName: lastName, email: email, bodyWeight: nil, createdAt: nil)
+         do {
+            try User.updateExistingUser(user: user)
+         } catch {
+            print(error.localizedDescription)
+         }
+
+   }
 
    func fetchUserInfo() {
+      do {
+         let user = try User.getCurrentUser()
+         let firstName = user.firstName == nil ? "" : user.firstName!
+         let lastName = user.lastName == nil ? "" : user.lastName!
+         let email = user.email == nil ? "" : user.email!
 
+         guard let firstNameRow = form.rowBy(tag: "firstNameRow") as? TextRow,
+            let lastNameRow = form.rowBy(tag: "lastNameRow") as? TextRow,
+            let emailRow = form.rowBy(tag: "emailRow") as? TextRow else {
+               return
+         }
+
+         firstNameRow.value = firstName
+         lastNameRow.value = lastName
+         emailRow.value = email
+      } catch {
+         print(error.localizedDescription)
+      }
    }
     
 

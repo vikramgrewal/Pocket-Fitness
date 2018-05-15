@@ -28,16 +28,21 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
         }
         <<< ButtonRow() { row in
             row.title = "Profile"
+            row.presentationMode = PresentationMode.show(
+               controllerProvider: ControllerProvider.callback(builder: { return EditProfileViewController() }),
+               onDismiss: nil
+            )
         }.cellUpdate { cell, row in
             cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 13.0)
             cell.textLabel?.textColor = .black
             cell.textLabel?.textAlignment = .left
             cell.accessoryType = .disclosureIndicator
             cell.editingAccessoryType = cell.accessoryType
-         }.onCellSelection{ _,_ in
-            let editProfileVC = EditProfileViewController()
-            self.navigationController?.pushViewController(editProfileVC, animated: true)
          }
+//         .onCellSelection{ _,_ in
+//            let editProfileVC = EditProfileViewController()
+//            self.navigationController?.pushViewController(editProfileVC, animated: true)
+//         }
         <<< ButtonRow() { row in
             row.title = "Terms of Service"
         }.cellUpdate { cell, row in

@@ -127,6 +127,81 @@ extension User {
       return userId
    }
 
+   public static func getCurrentUser() throws -> User  {
+      guard let dbConnection = AppDatabase.getConnection() else {
+         throw DatabaseError.databaseError
+      }
+
+      guard let userId = User.getUserIdForSession() else {
+         throw UserError.userNotFound
+      }
+
+
+      let userTableName = User.userTableName
+      let userTable = Table(userTableName)
+      let userIdColumn = Expression<Int64>(User.userIdColumn)
+      let facebookIdColumn = Expression<String>(User.facebookIdColumn)
+      let firstNameColumn = Expression<String?>(User.firstNameColumn)
+      let lastNameColumn = Expression<String?>(User.lastNameColumn)
+      let emailColumn = Expression<String?>(User.emailColumn)
+      let weightColumn = Expression<Double?>(User.weightColumn)
+      let createdAtColumn = Expression<Date>(User.createdAtColumn)
+
+      let userQuery = try userTable.filter(userIdColumn == userId)
+      let fetchedUser = Array<SQLite.Row>(try dbConnection.prepare(userQuery))
+      guard fetchedUser.count == 1 else {
+         throw UserError.userNotFound
+      }
+
+      let facebookId = fetchedUser[0][facebookIdColumn]
+      let firstName = fetchedUser[0][firstNameColumn]
+      let lastName = fetchedUser[0][lastNameColumn]
+      let email = fetchedUser[0][emailColumn]
+      let weight = fetchedUser[0][weightColumn]
+      let createdAt = fetchedUser[0][createdAtColumn]
+
+      let user = User(userId: userId, facebookId: facebookId, firstName: firstName,
+                      lastName: lastName, email: email, bodyWeight: weight, createdAt: createdAt)
+
+      return user
+   }
+
+   public static func updateExistingUser(user : User) throws {
+      guard let dbConnection = AppDatabase.getConnection() else {
+         print("Error establishing database connection")
+         throw DatabaseError.databaseError
+      }
+
+      guard let userId = User.getUserIdForSession() else {
+         throw UserError.userNotFound
+      }
+
+      
+
+      let userTableName = User.userTableName
+      let userTable = Table(userTableName)
+      let userIdColumn = Expression<Int64>(User.userIdColumn)
+      let firstNameColumn = Expression<String?>(User.firstNameColumn)
+      let lastNameColumn = Expression<String?>(User.lastNameColumn)
+      let emailColumn = Expression<String?>(User.emailColumn)
+
+      let firstName = user.firstName == nil ? "" : user.firstName!
+      let lastName = user.lastName == nil ? "" : user.lastName!
+      let email = user.email == nil ? "" : user.email!
+
+      let retrievedExercise = userTable.filter(userIdColumn == userId)
+      do {
+
+         try dbConnection.run(retrievedExercise.update(firstNameColumn <- firstName,
+                                                       lastNameColumn <- lastName,
+                                                       emailColumn <- email))
+      } catch {
+         print(error.localizedDescription)
+      }
+   }
+
+   
+
 }
 
 enum UserError : Error {

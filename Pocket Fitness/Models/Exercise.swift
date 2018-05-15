@@ -34,7 +34,7 @@ public class Exercise {
 extension Exercise : Equatable {
 
    public static func == (lhs: Exercise, rhs: Exercise) -> Bool {
-      return lhs.exerciseName == rhs.exerciseName
+      return lhs.exerciseId == rhs.exerciseId
    }
 
 }
