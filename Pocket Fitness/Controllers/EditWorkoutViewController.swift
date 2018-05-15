@@ -30,6 +30,7 @@ class EditWorkoutViewController: FormViewController {
       setUpDefaultForm()
       setUpAddExerciseButton()
       navigationOptions = .Enabled
+      navigationAccessoryView.tintColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
    }
 
    func setUpDefaultForm()  {
@@ -49,6 +50,8 @@ class EditWorkoutViewController: FormViewController {
          }.cellUpdate { cell, row in
             cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
             cell.textField.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+            self.saveWorkoutInformation()
+            cell.tintColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
          }
          <<< DateTimeRow() {
             $0.title = "Workout Date"
@@ -62,8 +65,10 @@ class EditWorkoutViewController: FormViewController {
                $0.value = nil
             }
          }.cellUpdate { cell, row in
-               cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
-               cell.detailTextLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+            cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+            cell.detailTextLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+            self.saveWorkoutInformation()
+            cell.tintColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
          }
          <<< TextRow() {
             $0.title = "Workout Notes"
@@ -78,6 +83,8 @@ class EditWorkoutViewController: FormViewController {
          }.cellUpdate { cell, row in
             cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
             cell.textField.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+            self.saveWorkoutInformation()
+            cell.tintColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
          }
          +++ Section("Workout Exercises")   {
             $0.header?.height = { 0 }
@@ -85,7 +92,8 @@ class EditWorkoutViewController: FormViewController {
             $0.footer?.height = { 0 }
       }
 
-      tableView.contentInset = UIEdgeInsetsMake(0, 0, 54, 0);
+      tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 64, right: 0)
+
    }
 
    func setUpAddExerciseButton() {
@@ -215,6 +223,30 @@ class EditWorkoutViewController: FormViewController {
       self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
    }
 
+   func saveWorkoutInformation() {
+      guard let workoutNameRow = form.rowBy(tag: "workoutNameRow") as? TextRow,
+         let workoutDateRow  = form.rowBy(tag: "workoutDateRow") as? DateTimeRow,
+         let workoutNotesRow = form.rowBy(tag: "workoutNotesRow") as? TextRow else {
+            print("Something went wrong")
+            return
+      }
+
+      guard  let workouId = workout?.workoutId else {
+         return
+      }
+      let workoutName = workoutNameRow.value == nil ? "" : workoutNameRow.value!
+      let workoutDate = workoutDateRow.value!
+      let workoutNotes = workoutNotesRow.value == nil ? "" : workoutNotesRow.value!
+
+      let workoutToUpdate = Workout(workoutId: workouId, workoutName: workoutName,
+                                    workoutDate: workoutDate, workoutNotes: workoutNotes)
+
+      do {
+         try Workout.updateExistingWorkout(workout: workoutToUpdate)
+      } catch {
+         print(error.localizedDescription)
+      }
+   }
     /*
     // MARK: - Navigation
 

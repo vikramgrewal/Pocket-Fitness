@@ -34,6 +34,13 @@ public class Workout {
       self.userId = userId
       self.userWeight = userWeight
    }
+
+   init(workoutId : Int64, workoutName : String, workoutDate : Date, workoutNotes : String)   {
+      self.workoutName = workoutName
+      self.workoutDate = workoutDate
+      self.workoutNotes = workoutNotes
+      self.workoutId = workoutId
+   }
    
 }
 
@@ -90,7 +97,7 @@ extension Workout {
       let workoutNotesColumn = Expression<String?>(Workout.workoutNotesColumn )
       let workoutUserWeightColumn = Expression<Double?>(Workout.workoutUserWeightColumn)
       let userIdColumn = Expression<Int64>(User.userIdColumn)
-      let getWorkoutQuery = workoutTable.filter(userIdColumn == userId)
+      let getWorkoutQuery = workoutTable.filter(userIdColumn == userId).order(workoutDateColumn.desc)
       do {
          for workout in try dbConnection.prepare(getWorkoutQuery) {
             do {
@@ -113,5 +120,39 @@ extension Workout {
          return nil
       }
       return workouts
+   }
+
+   public static func updateExistingWorkout(workout : Workout) throws {
+      guard let dbConnection = AppDatabase.getConnection() else {
+         throw DatabaseError.databaseError
+      }
+
+      guard let userId = User.getUserIdForSession() else {
+         throw UserError.userNotFound
+      }
+
+
+
+      let workoutTable = AppDatabase.workoutTable
+      let userIdColumn = AppDatabase.userIdColumn
+      let workoutIdColumn = AppDatabase.workoutIdColumn
+      let workoutNameColumn = AppDatabase.workoutNameColumn
+      let workoutDateColumn = AppDatabase.workoutDateColumn
+      let workoutNotescolumn = AppDatabase.workoutNotesColumn
+
+      let workoutName = workout.workoutName == nil ? "" : workout.workoutName!
+      let workoutDate = workout.workoutDate!
+      let workoutNotes = workout.workoutNotes == nil ? "" : workout.workoutNotes!
+
+      let retrievedWorkout = workoutTable.filter(userIdColumn == userId &&
+         workoutIdColumn == workout.workoutId!)
+
+      do {
+         try dbConnection.run(retrievedWorkout.update(workoutNameColumn <- workoutName,
+                                                      workoutNotescolumn <- workoutNotes,
+                                                      workoutDateColumn <- workoutDate))
+      } catch {
+         print(error.localizedDescription)
+      }
    }
 }

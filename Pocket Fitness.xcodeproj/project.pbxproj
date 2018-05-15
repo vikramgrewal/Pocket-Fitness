@@ -27,6 +27,7 @@
 		F74FCDDC20A93509000054F8 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74FCDDB20A93509000054F8 /* Date.swift */; };
 		F75A1C83209A8B4D008E1DED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75A1C82209A8B4D008E1DED /* AppDelegate.swift */; };
 		F75C89732098FDC300D9453B /* EditWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75C89722098FDC300D9453B /* EditWorkoutViewController.swift */; };
+		F76455AA20ABA3930037FF3B /* dumbbell.png in Resources */ = {isa = PBXBuildFile; fileRef = F76455A920ABA3930037FF3B /* dumbbell.png */; };
 		F77035386418932B7CF7A708 /* Pods_Pocket_Fitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7996C3789AB124093AF2C355 /* Pods_Pocket_Fitness.framework */; };
 		F770F5F220A4FC4D000DC8B6 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770F5F020A4FC4C000DC8B6 /* ExercisesViewController.swift */; };
 		F790E31320840FD000FAB55D /* exercises.json in Resources */ = {isa = PBXBuildFile; fileRef = F790E31220840FD000FAB55D /* exercises.json */; };
@@ -97,6 +98,7 @@
 		F74FCDDB20A93509000054F8 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F75A1C82209A8B4D008E1DED /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Pocket Fitness/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		F75C89722098FDC300D9453B /* EditWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutViewController.swift; sourceTree = "<group>"; };
+		F76455A920ABA3930037FF3B /* dumbbell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dumbbell.png; sourceTree = "<group>"; };
 		F770F5F020A4FC4C000DC8B6 /* ExercisesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
 		F790E31220840FD000FAB55D /* exercises.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = exercises.json; sourceTree = "<group>"; };
 		F79F58D920A7930B00D8CBB4 /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 		F75DCCAC2083E24B0014C350 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F76455A920ABA3930037FF3B /* dumbbell.png */,
 				A16B184720A7C31C00F2D110 /* TOS.pdf */,
 				A16B184920A7C33300F2D110 /* PrivacyPolicy.pdf */,
 				F790E31220840FD000FAB55D /* exercises.json */,
@@ -418,6 +421,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F76455AA20ABA3930037FF3B /* dumbbell.png in Resources */,
 				A16B184A20A7C33400F2D110 /* PrivacyPolicy.pdf in Resources */,
 				F702BA06207AD52D00326E59 /* LaunchScreen.storyboard in Resources */,
 				A16B184820A7C31C00F2D110 /* TOS.pdf in Resources */,

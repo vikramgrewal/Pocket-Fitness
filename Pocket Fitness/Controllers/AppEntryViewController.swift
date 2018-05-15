@@ -33,18 +33,26 @@ class AppEntryViewController: UIViewController {
          tabBarController.tabBar.barTintColor = .groupTableViewBackground
          let workoutsVC = WorkoutsViewController()
          let workoutsNavigationController = UINavigationController(rootViewController: workoutsVC)
+         workoutsNavigationController.navigationBar.tintColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
 
          let exerciseVC = ExercisesViewController()
          let exerciseNavigationController = UINavigationController(rootViewController: exerciseVC)
+         exerciseNavigationController.navigationBar.tintColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
 
          let settingsVC = SettingsViewController()
          let settingsNavigationController = UINavigationController(rootViewController: settingsVC)
+         settingsNavigationController.navigationBar.tintColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
 
          let tabBarControllers = [workoutsNavigationController, exerciseNavigationController, settingsNavigationController]
+         tabBarController.tabBar.tintColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
          tabBarControllers[0].title = "Workouts"
          tabBarControllers[1].title = "Exercises"
          tabBarControllers[2].title = "Settings"
          tabBarController.viewControllers = tabBarControllers
+
+         tabBarControllers[0].tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
+         tabBarControllers[1].tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
+         tabBarControllers[2].tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
 
          return tabBarController
       }  else {

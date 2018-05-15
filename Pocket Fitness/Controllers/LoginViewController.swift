@@ -14,7 +14,9 @@ class LoginViewController: UIViewController {
          preloadedExercisesLoading = false
         // Do any additional setup after loading the view.
          setUpView()
+         setImage()
          setupFacebookLogin()
+         setUpHeader()
 
     }
 
@@ -78,6 +80,41 @@ class LoginViewController: UIViewController {
 
    func setupFacebookLogin() {
       facebookLoginButton.addTarget(self, action: #selector(loginButtonClicked), for: .touchUpInside)
+   }
+
+   func setUpHeader()   {
+
+      let pocketTitle = UILabel()
+      pocketTitle.text = "Pocket Fitness"
+      pocketTitle.textAlignment = .center
+      pocketTitle.font = UIFont(name:"HelveticaNeue-Bold", size: 40.0)
+      pocketTitle.translatesAutoresizingMaskIntoConstraints = false
+      pocketTitle.textColor = .black
+      view.addSubview(pocketTitle)
+      if #available(iOS 11.0, *) {
+         pocketTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60).isActive = true
+      } else {
+         pocketTitle.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+      }
+      pocketTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+
+
+   }
+
+
+   func setImage()   {
+
+      guard let image = UIImage(named: "dumbbell") else {
+         return
+      }
+      let imageView = UIImageView(image: image)
+      imageView.translatesAutoresizingMaskIntoConstraints = false
+      view.addSubview(imageView)
+      imageView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+      imageView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+      imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+      imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+      imageView.contentMode = .scaleAspectFit
    }
 
    @objc func loginButtonClicked()  {

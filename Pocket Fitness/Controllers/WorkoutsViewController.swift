@@ -76,11 +76,11 @@ extension WorkoutsViewController {
       searchController = UISearchController(searchResultsController: nil)
 //      searchController.searchBar.sizeToFit()
 //      navigationItem.titleView = searchController.searchBar
-      navigationItem.leftBarButtonItem = UIBarButtonItem(title: "C", style: .plain, target: self, action: nil)
+//      navigationItem.leftBarButtonItem = UIBarButtonItem(title: "C", style: .plain, target: self, action: nil)
       let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewWorkout))
       navigationItem.rightBarButtonItem = addButton
       searchController.hidesNavigationBarDuringPresentation = false
-      navigationItem.leftBarButtonItem?.action = #selector(toggleCalendar)
+//      navigationItem.leftBarButtonItem?.action = #selector(toggleCalendar)
    }
 
 
@@ -224,7 +224,10 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
          guard let workoutId = workout.workoutId else {
             return
          }
-         workoutsTableViewModel?.setLabels?.append("0")
+         guard let exercisesAmount = WorkoutExercise.getWorkoutExercisesForWorkoutId(workoutId: workoutId)  else {
+            return
+         }
+         workoutsTableViewModel?.setLabels?.append("\(exercisesAmount)")
       }
       tableViewController.tableView.reloadData()
    }
@@ -404,6 +407,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
          tableViewController.tableView.bottomAnchor.constraint(equalTo:
             view.bottomAnchor).isActive = true
       }
+
 
    }
 

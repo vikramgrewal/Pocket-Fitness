@@ -40,6 +40,7 @@ class EditProfileViewController: FormViewController {
          }.cellUpdate { cell, row in
             cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
             cell.textField.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+            cell.tintColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
       }
       <<< TextRow() {
          $0.title = "Last Name"
@@ -48,6 +49,7 @@ class EditProfileViewController: FormViewController {
       }.cellUpdate { cell, row in
          cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
          cell.textField.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+         cell.tintColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
       }
       <<< TextRow() {
          $0.title = "Email"
@@ -56,18 +58,9 @@ class EditProfileViewController: FormViewController {
       }.cellUpdate { cell, row in
          cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
          cell.textField.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+         cell.tintColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
       }
-//      <<< DecimalRow() {
-//         $0.title = "Weight"
-//         $0.placeholder = "e.g. 150.0"
-//         $0.tag = "userWeightRow"
-//         $0.useFormatterDuringInput = true
-//         $0.formatter = DecimalFormatter()
-//      }.cellUpdate { cell, row in
-//         cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
-//         cell.textField.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
-//      }
-
+      navigationAccessoryView.tintColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
    }
 
    func setUpNavigation()  {

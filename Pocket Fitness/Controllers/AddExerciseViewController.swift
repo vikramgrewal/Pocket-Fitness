@@ -31,6 +31,7 @@ class AddExerciseViewController: FormViewController {
    func setView() {
       view.backgroundColor = .white
       setForm()
+      navigationAccessoryView.tintColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
       guard exercise != nil else {
          exercise = Exercise(exerciseName: nil, exerciseType: nil, exerciseMuscle: nil)
          return
