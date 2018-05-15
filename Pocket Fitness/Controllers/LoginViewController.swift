@@ -5,10 +5,13 @@ import FacebookLogin
 class LoginViewController: UIViewController {
 
    var facebookLoginButton: UIButton!
+   var preloadedExercisesLoading : Bool!
+   var activityIndicatorView : UIActivityIndicatorView?
 
    override func viewDidLoad() {
         super.viewDidLoad()
 
+         preloadedExercisesLoading = false
         // Do any additional setup after loading the view.
          setUpView()
          setupFacebookLogin()
@@ -16,7 +19,10 @@ class LoginViewController: UIViewController {
     }
 
    override func viewDidAppear(_ animated: Bool) {
-      checkCredentials()
+      if(!preloadedExercisesLoading) {
+         checkCredentials()
+      }
+
    }
 
     override func didReceiveMemoryWarning() {
@@ -49,6 +55,25 @@ class LoginViewController: UIViewController {
       }
 
       facebookLoginButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+
+      // Create progress spinner
+
+   }
+
+   func displaySpinner()   {
+      activityIndicatorView = UIActivityIndicatorView()
+      activityIndicatorView?.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+      activityIndicatorView?.center = view.center
+      activityIndicatorView?.hidesWhenStopped = true
+      activityIndicatorView?.activityIndicatorViewStyle =
+         UIActivityIndicatorViewStyle.gray
+      view.addSubview(activityIndicatorView!)
+      activityIndicatorView!.startAnimating()
+   }
+
+   func removeSpinner() {
+      activityIndicatorView?.stopAnimating()
+      activityIndicatorView?.removeFromSuperview()
    }
 
    func setupFacebookLogin() {
@@ -71,14 +96,24 @@ class LoginViewController: UIViewController {
                guard let userToInsert = User.insertUser(facebookId: facebookId)  else {
                   return
                }
+
+               self.preloadedExercisesLoading = true
+
                var newUserAlert = UIAlertController(title: "Welcome!", message: "Would you like to load our preloaded exercises?", preferredStyle: UIAlertControllerStyle.alert)
 
                newUserAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+                  self.displaySpinner()
+                  DispatchQueue.main.async {
+                     Exercise.preloadExercises()
+                     self.preloadedExercisesLoading = false
+                     self.removeSpinner()
+                     self.checkCredentials()
+                  }
                   // Handle loading exercises into database here
                }))
 
                newUserAlert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
-                  // Don't do anything to the database here
+                  self.checkCredentials()
                }))
 
                self.present(newUserAlert, animated: true, completion: nil)

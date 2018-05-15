@@ -16,7 +16,6 @@ class ExercisesViewController: UIViewController {
    var searchController: UISearchController!
 
    override func viewDidLoad() {
-      exercises = [Exercise]()
       setUpView()
    }
 
@@ -25,10 +24,10 @@ class ExercisesViewController: UIViewController {
       if let index = tableView.indexPathForSelectedRow{
          self.tableView.deselectRow(at: index, animated: true)
       }
+      fetchData()
    }
 
    func setUpView()  {
-
       view.backgroundColor = .white
       setUpSearchBar()
       setUpTableView()
@@ -71,6 +70,8 @@ extension ExercisesViewController : UISearchBarDelegate, SwipeTableViewCellDeleg
 
    func setUpSearchBar()   {
       searchController = UISearchController(searchResultsController: nil)
+      searchController.searchBar.delegate = self
+      searchController.dimsBackgroundDuringPresentation = false
       navigationItem.titleView = searchController.searchBar
       let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
       navigationItem.rightBarButtonItem = addButton
@@ -79,36 +80,76 @@ extension ExercisesViewController : UISearchBarDelegate, SwipeTableViewCellDeleg
       searchController.hidesNavigationBarDuringPresentation = false
    }
 
+
+
    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
 
       guard orientation == .right else { return nil }
 
       let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-         print("Start delete procedure for exercise")
+         do {
+            guard let exerciseToDelete = self.exercises?[indexPath.row] else {
+               return
+            }
+            try Exercise.deleteExercise(exercise: exerciseToDelete)
+            self.fetchData()
+         } catch {
+            print(error.localizedDescription)
+         }
       }
 
       return [deleteAction]
    }
 
 
-   @available(iOS 2.0, *)
-   public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar)   {
 
+
+   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+      guard let searchBarText = searchBar.text?.lowercased() else {
+         return
+      }
+      guard searchBarText.count > 0 else {
+         fetchData()
+         return
+      }
+
+      do {
+         guard let originalExercises = try Exercise.getAllExercises() else {
+            return
+         }
+         exercises = originalExercises.filter{ exercise in
+            return (exercise.exerciseName?.lowercased().contains(searchBarText))!
+         }
+         tableView.reloadData()
+      } catch {
+         print(error.localizedDescription)
+         fetchData()
+      }
    }
-
-   @available(iOS 2.0, *)
-   public func searchBarTextDidEndEditing(_ searchBar: UISearchBar)  {
-
-   }
-
 }
 
 extension ExercisesViewController : UITableViewDelegate, UITableViewDataSource {
 
+   public func fetchData() {
+      do {
+         exercises = try Exercise.getAllExercises()
+         let range = NSMakeRange(0, self.tableView.numberOfSections)
+         let sections = NSIndexSet(indexesIn: range)
+         self.tableView.reloadSections(sections as IndexSet, with: .automatic)
+      } catch {
+         print(error.localizedDescription)
+         exercises = [Exercise]()
+         let range = NSMakeRange(0, self.tableView.numberOfSections)
+         let sections = NSIndexSet(indexesIn: range)
+         self.tableView.reloadSections(sections as IndexSet, with: .automatic) 
+      }
+
+
+   }
+
    func numberOfSections(in tableView: UITableView) -> Int {
       return 1
    }
-
 
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       let addExerciseVC = AddExerciseViewController()
@@ -117,6 +158,7 @@ extension ExercisesViewController : UITableViewDelegate, UITableViewDataSource {
          return
       }
       addExerciseVC.exercise = exercise
+      self.searchController.isActive = false
       navigationController?.pushViewController(addExerciseVC, animated: true)
    }
 
@@ -129,7 +171,7 @@ extension ExercisesViewController : UITableViewDelegate, UITableViewDataSource {
 
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-      let cell = SwipeTableViewCell()
+      let cell = SwipeTableViewCell(style: .default, reuseIdentifier: nil)
       cell.heightAnchor.constraint(equalToConstant: 50).isActive = true
 
       cell.delegate = self
@@ -138,6 +180,7 @@ extension ExercisesViewController : UITableViewDelegate, UITableViewDataSource {
       let exerciseNameLabel = UILabel()
       exerciseNameLabel.translatesAutoresizingMaskIntoConstraints = false
       cell.addSubview(exerciseNameLabel)
+      exerciseNameLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
       exerciseNameLabel.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 22.0).isActive = true
       exerciseNameLabel.trailingAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true
       exerciseNameLabel.topAnchor.constraint(equalTo: cell.topAnchor).isActive = true
@@ -147,9 +190,10 @@ extension ExercisesViewController : UITableViewDelegate, UITableViewDataSource {
       exerciseMuscleLabel.textColor = .lightGray
       exerciseMuscleLabel.textAlignment = NSTextAlignment.right
       exerciseMuscleLabel.translatesAutoresizingMaskIntoConstraints = false
+      exerciseMuscleLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
       cell.addSubview(exerciseMuscleLabel)
       exerciseMuscleLabel.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: -22.0).isActive = true
-      exerciseMuscleLabel.leadingAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true
+      exerciseMuscleLabel.centerXAnchor.constraint(equalTo: exerciseNameLabel.trailingAnchor).isActive = true
       exerciseMuscleLabel.topAnchor.constraint(equalTo: cell.topAnchor).isActive = true
       exerciseMuscleLabel.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
 
@@ -170,6 +214,7 @@ extension ExercisesViewController : UITableViewDelegate, UITableViewDataSource {
 
    @objc func createNewExercise()   {
       let addExerciseVC = AddExerciseViewController()
+      self.searchController.isActive = false
       navigationController?.pushViewController(addExerciseVC, animated: true)
    }
 

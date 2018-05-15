@@ -11,6 +11,45 @@ import SQLite
 
 public class AppDatabase {
 
+   static let exerciseTableName = Exercise.exerciseTableName
+
+   static let exerciseTable = Table(exerciseTableName)
+   static let exerciseIdColumn = Expression<Int64>(Exercise.exerciseIdColumn)
+   static let exerciseNameColumn = Expression<String>(Exercise.exerciseNameColumn)
+   static let exerciseTypeColumn = Expression<String>(Exercise.exerciseTypeColumn)
+   static let exerciseMuscleColumn = Expression<String>(Exercise.exerciseMuscleColumn)
+   static let userIdColumn = Expression<Int64>(User.userIdColumn)
+
+   static let userTableName = User.userTableName
+   static let userTable = Table(userTableName)
+   static let facebookIdColumn = Expression<String>(User.facebookIdColumn)
+   static let firstNameColumn = Expression<String?>(User.firstNameColumn)
+   static let lastNameColumn = Expression<String?>(User.lastNameColumn)
+   static let emailColumn = Expression<String?>(User.emailColumn)
+   static let weightColumn = Expression<Double?>(User.weightColumn)
+   static let createdAtColumn = Expression<Date>(User.createdAtColumn)
+
+   static let workoutTableName = Workout.workoutTableName
+   static let workoutTable = Table(workoutTableName)
+   static let workoutIdColumn = Expression<Int64>(Workout.workoutIdColumn)
+   static let workoutNameColumn = Expression<String?>(Workout.workoutNameColumn)
+   static let workoutDateColumn = Expression<Date>(Workout.workoutDateColumn)
+   static let workoutNotesColumn = Expression<String?>(Workout.workoutNotesColumn )
+   static let workoutUserWeightColumn = Expression<Double?>(Workout.workoutUserWeightColumn)
+
+   static let workoutExerciseTableName = WorkoutExercise.workoutExerciseTableName
+   static let workoutExerciseTable = Table(workoutExerciseTableName)
+   static let workoutExerciseIdColumn = Expression<Int64>(WorkoutExercise.workoutExerciseIdColumn)
+   static let workoutExerciseDateColumn = Expression<Date>(WorkoutExercise.workoutExerciseDateColumn)
+
+   static let workoutExerciseSetTableName = WorkoutExerciseSet.workoutExerciseSetTableName
+   static let workoutExerciseSetTable = Table(workoutExerciseSetTableName)
+   static let workoutExerciseSetIdColumn = Expression<Int64>(WorkoutExerciseSet.workoutExerciseSetIdColumn)
+   static let workoutExerciseSetRepsColumn = Expression<Int?>(WorkoutExerciseSet.workoutExerciseSetRepsColumn)
+   static let workoutExerciseSetWeightColumn = Expression<Double?>(WorkoutExerciseSet.workoutExerciseSetWeightColumn)
+   static let workoutExerciseSetTimeColumn = Expression<Double?>(WorkoutExerciseSet.workoutExerciseSetTimeColumn)
+   static let workoutExerciseSetDateColumn = Expression<Date>(WorkoutExerciseSet.workoutExerciseSetDateColumn)
+
    public static func getConnection() -> Connection? {
 
       do {
@@ -34,15 +73,6 @@ public class AppDatabase {
 
       do {
 
-         let exerciseTableName = Exercise.exerciseTableName
-
-         let exerciseTable = Table(exerciseTableName)
-         let exerciseIdColumn = Expression<Int64>(Exercise.exerciseIdColumn)
-         let exerciseNameColumn = Expression<String>(Exercise.exerciseNameColumn)
-         let exerciseTypeColumn = Expression<String>(Exercise.exerciseTypeColumn)
-         let exerciseMuscleColumn = Expression<String>(Exercise.exerciseMuscleColumn)
-         let userIdColumn = Expression<Int64>(User.userIdColumn)
-
          try dbConnection.run(exerciseTable.create(ifNotExists: true) { exerciseTable in
             exerciseTable.column(exerciseIdColumn, primaryKey: true)
             exerciseTable.column(exerciseNameColumn, unique: true)
@@ -55,15 +85,6 @@ public class AppDatabase {
       }
 
       do {
-         let userTableName = User.userTableName
-         let userTable = Table(userTableName)
-         let userIdColumn = Expression<Int64>(User.userIdColumn)
-         let facebookIdColumn = Expression<String>(User.facebookIdColumn)
-         let firstNameColumn = Expression<String?>(User.firstNameColumn)
-         let lastNameColumn = Expression<String?>(User.lastNameColumn)
-         let emailColumn = Expression<String?>(User.emailColumn)
-         let weightColumn = Expression<Double?>(User.weightColumn)
-         let createdAtColumn = Expression<Date>(User.createdAtColumn)
 
          try dbConnection.run(userTable.create(ifNotExists: true) { userTable in
             userTable.column(userIdColumn, primaryKey: true)
@@ -79,14 +100,6 @@ public class AppDatabase {
       }
 
       do {
-         let workoutTableName = Workout.workoutTableName
-         let workoutTable = Table(workoutTableName)
-         let workoutIdColumn = Expression<Int64>(Workout.workoutIdColumn)
-         let workoutNameColumn = Expression<String?>(Workout.workoutNameColumn)
-         let workoutDateColumn = Expression<Date>(Workout.workoutDateColumn)
-         let workoutNotesColumn = Expression<String?>(Workout.workoutNotesColumn )
-         let workoutUserWeightColumn = Expression<Double?>(Workout.workoutUserWeightColumn)
-         let userIdColumn = Expression<Int64>(User.userIdColumn)
 
          try dbConnection.run(workoutTable.create(ifNotExists: true) { workoutTable in
             workoutTable.column(workoutIdColumn, primaryKey: true)
@@ -101,13 +114,6 @@ public class AppDatabase {
       }
 
       do {
-         let workoutExerciseTableName = WorkoutExercise.workoutExerciseTableName
-         let workoutExerciseTable = Table(workoutExerciseTableName)
-         let workoutExerciseIdColumn = Expression<Int64>(WorkoutExercise.workoutExerciseIdColumn) //PK
-         let workoutIdColumn = Expression<Int64>(Workout.workoutIdColumn) //FK
-         let exerciseIdColumn = Expression<Int64>(Exercise.exerciseIdColumn) //FK
-         let workoutExerciseDateColumn = Expression<Date>(WorkoutExercise.workoutExerciseDateColumn)
-         let userIdColumn = Expression<Int64>(User.userIdColumn)
 
          try dbConnection.run(workoutExerciseTable.create(ifNotExists: true) { workoutExerciseTable in
             workoutExerciseTable.column(workoutExerciseIdColumn, primaryKey: true)
@@ -121,29 +127,16 @@ public class AppDatabase {
       }
 
       do {
-         let workoutExerciseSetTableName = WorkoutExerciseSet.workoutExerciseSetTableName
-         let workoutExerciseSetTable = Table(workoutExerciseSetTableName)
-         let workoutExerciseSetId = Expression<Int64>(WorkoutExerciseSet.workoutExerciseSetIdColumn)
-         let workoutExerciseSetReps = Expression<Int?>(WorkoutExerciseSet.workoutExerciseSetRepsColumn)
-         let workoutExerciseSetWeight = Expression<Double?>(WorkoutExerciseSet.workoutExerciseSetWeightColumn)
-         let workoutExerciseSetTime = Expression<Double?>(WorkoutExerciseSet.workoutExerciseSetTimeColumn)
-         let workoutExerciseSetDate = Expression<Date>(WorkoutExerciseSet.workoutExerciseSetDateColumn)
-         let workoutExerciseId = Expression<Int64>(WorkoutExercise.workoutExerciseIdColumn) //FK
-         let workoutId = Expression<Int64>(Workout.workoutIdColumn) //FK
-         let userId = Expression<Int64>(User.userIdColumn) //FK
-
          try dbConnection.run(workoutExerciseSetTable.create(ifNotExists: true) { workoutExerciseSetTable in
-            workoutExerciseSetTable.column(workoutExerciseSetId, primaryKey: true)
-            workoutExerciseSetTable.column(workoutExerciseSetReps)
-            workoutExerciseSetTable.column(workoutExerciseSetWeight)
-            workoutExerciseSetTable.column(workoutExerciseSetTime)
-            workoutExerciseSetTable.column(workoutExerciseSetDate)
-            workoutExerciseSetTable.column(workoutExerciseId)
-            workoutExerciseSetTable.column(workoutId)
-            workoutExerciseSetTable.column(userId)
+            workoutExerciseSetTable.column(workoutExerciseSetIdColumn, primaryKey: true)
+            workoutExerciseSetTable.column(workoutExerciseSetRepsColumn)
+            workoutExerciseSetTable.column(workoutExerciseSetWeightColumn)
+            workoutExerciseSetTable.column(workoutExerciseSetTimeColumn)
+            workoutExerciseSetTable.column(workoutExerciseSetDateColumn)
+            workoutExerciseSetTable.column(workoutExerciseIdColumn)
+            workoutExerciseSetTable.column(workoutIdColumn)
+            workoutExerciseSetTable.column(userIdColumn)
          })
-
-         print("Successfully created database schema")
       } catch {
          print("\(error)")
       }
@@ -152,36 +145,24 @@ public class AppDatabase {
 
    public static func dropEntireDatabase()   {
       guard let dbConnection = AppDatabase.getConnection() else {
-         print("Error establishing connection while dropping database.")
          return
       }
 
       do {
-         let exerciseTableName = Exercise.exerciseTableName
-         let exerciseTable = Table(exerciseTableName)
-
-         let userTableName = User.userTableName
-         let userTable = Table(userTableName)
-
-         let workoutTableName = Workout.workoutTableName
-         let workoutTable = Table(workoutTableName)
-
-         let workoutExerciseTableName = WorkoutExercise.workoutExerciseTableName
-         let workoutExerciseTable = Table(workoutExerciseTableName)
-
-         let workoutExerciseSetTableName = WorkoutExerciseSet.workoutExerciseSetTableName
-         let workoutExerciseSetTable = Table(workoutExerciseSetTableName)
 
          try dbConnection.run(exerciseTable.drop(ifExists: true))
          try dbConnection.run(userTable.drop(ifExists: true))
          try dbConnection.run(workoutTable.drop(ifExists: true))
          try dbConnection.run(workoutExerciseTable.drop(ifExists: true))
          try dbConnection.run(workoutExerciseSetTable.drop(ifExists: true))
-         print("Successfully dropped database")
 
       } catch {
          print("\(error)")
       }
    }
 
+}
+
+enum DatabaseError : Error {
+   case databaseError
 }

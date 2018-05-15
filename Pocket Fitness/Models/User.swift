@@ -109,5 +109,26 @@ extension User {
       }
    }
 
+   public static func getUserIdForSession() -> Int64? {
+      guard let facebookId = KeychainController.loadID() else {
+         print("Error fetching facebookId")
+         return nil
+      }
+
+      guard let fetchedUser = User.getUserWithFacebookId(facebookId: facebookId as String) else {
+         print("Error fetching user id")
+         return nil
+      }
+
+      guard let userId = fetchedUser.userId else {
+         return nil
+      }
+
+      return userId
+   }
+
 }
 
+enum UserError : Error {
+   case userNotFound
+}

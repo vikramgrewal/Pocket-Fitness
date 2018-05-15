@@ -9,6 +9,7 @@
 import UIKit
 import Koyomi
 import SQLite
+import SwipeCellKit
 
 class WorkoutsViewController: UIViewController {
 
@@ -251,8 +252,30 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       return 70.0
    }
 
+   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+
+      guard orientation == .right else { return nil }
+
+      let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+         do {
+            guard let workoutToDelete = self.workouts?[indexPath.row] else {
+               return
+            }
+            self.view.window?.isUserInteractionEnabled = false
+//            try Exercise.deleteExercise(exercise: exerciseToDelete)
+            self.fetchData()
+            self.view.window?.isUserInteractionEnabled = true
+         } catch {
+            self.view.window?.isUserInteractionEnabled = true
+            print(error.localizedDescription)
+         }
+      }
+
+      return [deleteAction]
+   }
+
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+      let cell = SwipeTableViewCell(style: .default, reuseIdentifier: nil)
       cell.backgroundColor = .white
 
       let dateView = UIView()

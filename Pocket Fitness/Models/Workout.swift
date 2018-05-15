@@ -46,17 +46,7 @@ extension Workout {
          return nil
       }
 
-      guard let facebookId = KeychainController.loadID() else {
-         print("Error fetching facebookId")
-         return nil
-      }
-
-      guard let fetchedUser = User.getUserWithFacebookId(facebookId: facebookId as String) else {
-         print("Error fetching user id")
-         return nil
-      }
-
-      guard let userId = fetchedUser.userId else {
+      guard let userId = User.getUserIdForSession() else {
          return nil
       }
 
@@ -73,10 +63,8 @@ extension Workout {
          let workout = Workout(workoutId: rowid, workoutName: nil, workoutDate: workoutDate,
                                workoutNotes: nil, userId: userId, userWeight: nil)
 
-         print("inserted id: \(rowid)")
          return workout
       } catch {
-         print("insertion failed: \(error)")
          return nil
       }
       return nil
@@ -90,17 +78,7 @@ extension Workout {
          return nil
       }
 
-      guard let facebookId = KeychainController.loadID() else {
-         print("Error fetching facebookId")
-         return nil
-      }
-
-      guard let fetchedUser = User.getUserWithFacebookId(facebookId: facebookId as String) else {
-         print("Error fetching user id")
-         return nil
-      }
-
-      guard let userId = fetchedUser.userId else {
+      guard let userId = User.getUserIdForSession() else {
          return nil
       }
 
