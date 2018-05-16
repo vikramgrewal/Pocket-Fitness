@@ -18,12 +18,6 @@ public class Workout {
    var userWeight : Double?
 
    // Database fields
-   static let workoutTableName = "Workout"
-   static let workoutIdColumn = "workoutId"
-   static let workoutNameColumn = "workoutName"
-   static let workoutDateColumn = "workoutDate"
-   static let workoutNotesColumn = "workoutNotes"
-   static let workoutUserWeightColumn = "workoutUserWeight"
 
    init(workoutId : Int64?, workoutName : String?, workoutDate: Date?,
       workoutNotes : String?, userId :Int64?, userWeight : Double?)   {
@@ -35,11 +29,9 @@ public class Workout {
       self.userWeight = userWeight
    }
 
-   init(workoutId : Int64, workoutName : String, workoutDate : Date, workoutNotes : String)   {
-      self.workoutName = workoutName
-      self.workoutDate = workoutDate
-      self.workoutNotes = workoutNotes
-      self.workoutId = workoutId
+   convenience init() {
+      self.init(workoutId: nil, workoutName: nil, workoutDate: nil,
+                workoutNotes: nil, userId: nil, userWeight: nil)
    }
    
 }
@@ -58,7 +50,6 @@ extension Workout {
       }
 
       do {
-         let workoutTableName = Workout.workoutTableName
          let workoutTable = Table(workoutTableName)
          let workoutDateColumn = Expression<Date>(Workout.workoutDateColumn)
          let userIdColumn = Expression<Int64>(User.userIdColumn)

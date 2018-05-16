@@ -19,6 +19,11 @@
 		F702BA06207AD52D00326E59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F702BA04207AD52D00326E59 /* LaunchScreen.storyboard */; };
 		F702BA11207AD52D00326E59 /* Pocket_FitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702BA10207AD52D00326E59 /* Pocket_FitnessTests.swift */; };
 		F702BA1C207AD52D00326E59 /* Pocket_FitnessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F702BA1B207AD52D00326E59 /* Pocket_FitnessUITests.swift */; };
+		F704F5A820ACCFBA0014B0C3 /* UserTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F704F5A720ACCFBA0014B0C3 /* UserTable.swift */; };
+		F704F5AA20ACCFDB0014B0C3 /* ExerciseTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F704F5A920ACCFDB0014B0C3 /* ExerciseTable.swift */; };
+		F704F5AC20ACD00D0014B0C3 /* WorkoutTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F704F5AB20ACD00D0014B0C3 /* WorkoutTable.swift */; };
+		F704F5AE20ACD02B0014B0C3 /* WorkoutExerciseTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F704F5AD20ACD02B0014B0C3 /* WorkoutExerciseTable.swift */; };
+		F704F5B020ACD0400014B0C3 /* WorkoutExerciseSetTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F704F5AF20ACD0400014B0C3 /* WorkoutExerciseSetTable.swift */; };
 		F712A7EF20A4DA11006C392A /* WorkoutExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = F712A7EE20A4DA11006C392A /* WorkoutExercise.swift */; };
 		F718B07920AA8366000C76DF /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F718B07820AA8366000C76DF /* EditProfileViewController.swift */; };
 		F72D365E20A3BA6A0025F487 /* CustomExerciseSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D365D20A3BA6A0025F487 /* CustomExerciseSelectorView.swift */; };
@@ -90,6 +95,11 @@
 		F702BA17207AD52D00326E59 /* Pocket FitnessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pocket FitnessUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F702BA1B207AD52D00326E59 /* Pocket_FitnessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pocket_FitnessUITests.swift; sourceTree = "<group>"; };
 		F702BA1D207AD52D00326E59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F704F5A720ACCFBA0014B0C3 /* UserTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTable.swift; sourceTree = "<group>"; };
+		F704F5A920ACCFDB0014B0C3 /* ExerciseTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTable.swift; sourceTree = "<group>"; };
+		F704F5AB20ACD00D0014B0C3 /* WorkoutTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTable.swift; sourceTree = "<group>"; };
+		F704F5AD20ACD02B0014B0C3 /* WorkoutExerciseTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseTable.swift; sourceTree = "<group>"; };
+		F704F5AF20ACD0400014B0C3 /* WorkoutExerciseSetTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseSetTable.swift; sourceTree = "<group>"; };
 		F712A7EE20A4DA11006C392A /* WorkoutExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExercise.swift; sourceTree = "<group>"; };
 		F718B07820AA8366000C76DF /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		F72D365D20A3BA6A0025F487 /* CustomExerciseSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExerciseSelectorView.swift; sourceTree = "<group>"; };
@@ -193,6 +203,7 @@
 		F702B9FA207AD52D00326E59 /* Pocket Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				F704F5A620AC93D70014B0C3 /* View Models */,
 				F75A1C82209A8B4D008E1DED /* AppDelegate.swift */,
 				F79F58D820A7927A00D8CBB4 /* Database */,
 				F7CBA81920A22D000072F676 /* Models */,
@@ -223,6 +234,13 @@
 				F702BA1D207AD52D00326E59 /* Info.plist */,
 			);
 			path = "Pocket FitnessUITests";
+			sourceTree = "<group>";
+		};
+		F704F5A620AC93D70014B0C3 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 		F74DC1AF20AB62DA006303A7 /* External Libraries */ = {
@@ -258,15 +276,15 @@
 		F77F366B2086F03B00B75932 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A1D8F68A209A824E005153D4 /* AddExerciseViewController.swift */,
+				F7B1BDED20A8F73E003B5B3A /* AppEntryViewController.swift */,
 				F7EDBB4C20A7EC62007513C0 /* LoginViewController.swift */,
-				F770F5F020A4FC4C000DC8B6 /* ExercisesViewController.swift */,
 				F7BB1057208FEC4C00E84D5B /* WorkoutsViewController.swift */,
+				A1D8F68A209A824E005153D4 /* AddExerciseViewController.swift */,
+				F770F5F020A4FC4C000DC8B6 /* ExercisesViewController.swift */,
 				F75C89722098FDC300D9453B /* EditWorkoutViewController.swift */,
 				A16B184320A7B34200F2D110 /* SettingsViewController.swift */,
 				A16B184520A7B6C100F2D110 /* TermsOfServiceViewController.swift */,
 				A16B184B20A7C56800F2D110 /* PrivacyPolicyViewController.swift */,
-				F7B1BDED20A8F73E003B5B3A /* AppEntryViewController.swift */,
 				F718B07820AA8366000C76DF /* EditProfileViewController.swift */,
 			);
 			path = Controllers;
@@ -276,6 +294,11 @@
 			isa = PBXGroup;
 			children = (
 				F79F58D920A7930B00D8CBB4 /* AppDatabase.swift */,
+				F704F5A720ACCFBA0014B0C3 /* UserTable.swift */,
+				F704F5A920ACCFDB0014B0C3 /* ExerciseTable.swift */,
+				F704F5AB20ACD00D0014B0C3 /* WorkoutTable.swift */,
+				F704F5AD20ACD02B0014B0C3 /* WorkoutExerciseTable.swift */,
+				F704F5AF20ACD0400014B0C3 /* WorkoutExerciseSetTable.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -633,6 +656,7 @@
 				F75C89732098FDC300D9453B /* EditWorkoutViewController.swift in Sources */,
 				A16B184420A7B34200F2D110 /* SettingsViewController.swift in Sources */,
 				F7DB8FC620AB4434003C3AB3 /* SplitRowCellTableView.swift in Sources */,
+				F704F5AC20ACD00D0014B0C3 /* WorkoutTable.swift in Sources */,
 				F7BB1058208FEC4C00E84D5B /* WorkoutsViewController.swift in Sources */,
 				F7DB8FC220AB43B4003C3AB3 /* SplitRow.swift in Sources */,
 				F7EDBB4F20A7EF46007513C0 /* UserSession.swift in Sources */,
@@ -642,12 +666,16 @@
 				F7FD5AAA20A63B0200B04657 /* User.swift in Sources */,
 				A16B184620A7B6C100F2D110 /* TermsOfServiceViewController.swift in Sources */,
 				F79F58DA20A7930B00D8CBB4 /* AppDatabase.swift in Sources */,
+				F704F5AE20ACD02B0014B0C3 /* WorkoutExerciseTable.swift in Sources */,
+				F704F5A820ACCFBA0014B0C3 /* UserTable.swift in Sources */,
 				F7DB8FC420AB43D8003C3AB3 /* SplitRowCell.swift in Sources */,
 				F7FD5AAE20A63E5500B04657 /* Workout.swift in Sources */,
 				F73B4F9820A9E89300A0094A /* WorkoutsTableViewModel.swift in Sources */,
 				A16B184C20A7C56800F2D110 /* PrivacyPolicyViewController.swift in Sources */,
 				F72D365E20A3BA6A0025F487 /* CustomExerciseSelectorView.swift in Sources */,
 				F712A7EF20A4DA11006C392A /* WorkoutExercise.swift in Sources */,
+				F704F5AA20ACCFDB0014B0C3 /* ExerciseTable.swift in Sources */,
+				F704F5B020ACD0400014B0C3 /* WorkoutExerciseSetTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

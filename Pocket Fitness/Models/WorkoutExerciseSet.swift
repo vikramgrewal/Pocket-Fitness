@@ -10,15 +10,7 @@ public class WorkoutExerciseSet {
    var workoutExerciseSetDate : Date?
    var workoutExerciseSetTime : Date?
    var userId : Int64?
-
-   // Database field names
-   static let workoutExerciseSetTableName = "WorkoutExerciseSet"
-   static let workoutExerciseSetIdColumn = "workoutExerciseSetId"
-   static let workoutExerciseSetRepsColumn = "workoutExerciseSetReps"
-   static let workoutExerciseSetWeightColumn = "workoutExerciseSetWeight"
-   static let workoutExerciseSetTimeColumn = "workoutExerciseSetTime"
-   static let workoutExerciseSetDateColumn = "workoutExerciseSetDate"
-
+   
    init(workoutExerciseSetId : Int64?, workoutExerciseId : Int64?,
         workoutId : Int64?, workoutExerciseSetReps : Int?,
         workoutExerciseSetWeight : Float?, workoutExerciseSetDate : Date?,
@@ -33,6 +25,12 @@ public class WorkoutExerciseSet {
       self.workoutExerciseSetTime = workoutExerciseSetTime
       self.userId = userId
 
+   }
+
+   convenience init() {
+      self.init(workoutExerciseSetId: nil, workoutExerciseId: nil,
+                workoutId: nil, workoutExerciseSetReps: nil, workoutExerciseSetWeight: nil,
+                workoutExerciseSetDate: nil, workoutExerciseSetTime: nil, userId: nil)
    }
 
 }

@@ -9,11 +9,6 @@ public class Exercise {
    var exerciseMuscle : String?
    var userId : Int64? // Foreign key
 
-   static let exerciseTableName = "Exercise"
-   static let exerciseIdColumn = "exerciseId"
-   static let exerciseNameColumn = "exerciseName"
-   static let exerciseTypeColumn = "exerciseType"
-   static let exerciseMuscleColumn = "exerciseMuscle"
 
    init(exerciseId : Int64?, exerciseName : String?, exerciseType : String?, exerciseMuscle : String?, userId : Int64?)   {
       self.exerciseId = exerciseId
@@ -23,10 +18,9 @@ public class Exercise {
       self.userId = userId
    }
 
-   init(exerciseName : String?, exerciseType : String?, exerciseMuscle : String?) {
-      self.exerciseName = exerciseName
-      self.exerciseType = exerciseType
-      self.exerciseMuscle = exerciseMuscle
+   convenience init() {
+      self.init(exerciseId: nil, exerciseName: nil,
+                exerciseType: nil, exerciseMuscle: nil, userId: nil)
    }
 
 }
@@ -57,9 +51,10 @@ extension Exercise {
                      let exerciseName = try exerciseObject["name"] as! String
                      let exerciseMuscle = try exerciseObject["muscle"] as! String
                      let exerciseType = try exerciseObject["type"] as! String
-                     let exerciseToInsert = Exercise(exerciseName: exerciseName,
-                                                     exerciseType: exerciseType, exerciseMuscle: exerciseMuscle)
-
+                     let exerciseToInsert = Exercise()
+                     exerciseToInsert.exerciseType = exerciseType
+                     exerciseToInsert.exerciseMuscle = exerciseMuscle
+                     exerciseToInsert.exerciseName = exerciseName
 
                      Exercise.tryToInsert(exercise: exerciseToInsert)
 
@@ -77,23 +72,6 @@ extension Exercise {
       } catch {
          print(error.localizedDescription)
       }
-   }
-
-   public static func dropExerciseTable() {
-      guard let dbConnection = AppDatabase.getConnection() else {
-         print("Error establishing connection during dropping exercise table")
-         return
-      }
-
-      let exerciseTable = Table(exerciseTableName)
-
-      do {
-         try dbConnection.run(exerciseTable.drop(ifExists: true))
-         print("Dropping \(exerciseTableName) if does not exist")
-      } catch {
-         print("Error dropping Table(\"\(exerciseTableName))\"")
-      }
-      
    }
 
    public static func tryToInsert(exercise : Exercise)   {
@@ -119,12 +97,6 @@ extension Exercise {
          print("No user id found for user")
          return
       }
-
-      let userIdColumn = Expression<Int64>(User.userIdColumn)
-      let exerciseNameColumn = Expression<String>(Exercise.exerciseNameColumn)
-      let exerciseMuscleColumn = Expression<String>(Exercise.exerciseMuscleColumn)
-      let exerciseTypeColumn = Expression<String>(Exercise.exerciseTypeColumn)
-      let exerciseTable = Table(Exercise.exerciseTableName)
 
 
       do {
@@ -168,13 +140,6 @@ extension Exercise {
          throw UserError.userNotFound
       }
 
-      let userIdColumn = Expression<Int64>(User.userIdColumn)
-      let exerciseNameColumn = Expression<String>(Exercise.exerciseNameColumn)
-      let exerciseMuscleColumn = Expression<String>(Exercise.exerciseMuscleColumn)
-      let exerciseTypeColumn = Expression<String>(Exercise.exerciseTypeColumn)
-      let exerciseTable = Table(Exercise.exerciseTableName)
-
-
       do {
 
          let selectExerciseQuery  = try exerciseTable.filter(exerciseNameColumn == exerciseName && userIdColumn == userId)
@@ -206,12 +171,6 @@ extension Exercise {
          throw UserError.userNotFound
       }
 
-      let exerciseTable = Table(Exercise.exerciseTableName)
-      let exerciseIdColumn = Expression<Int64>(Exercise.exerciseIdColumn)
-      let exerciseNameColumn = Expression<String>(Exercise.exerciseNameColumn)
-      let exerciseMuscleColumn = Expression<String>(Exercise.exerciseMuscleColumn)
-      let exerciseTypeColumn = Expression<String>(Exercise.exerciseTypeColumn)
-      let userIdColumn = Expression<Int64>(User.userIdColumn)
       let getExerciseQuery = exerciseTable.filter(userIdColumn == userId).order(exerciseMuscleColumn, exerciseNameColumn.asc)
       do {
          for exercise in try dbConnection.prepare(getExerciseQuery) {

@@ -9,46 +9,41 @@
 import Foundation
 import SQLite
 
+// Defines all the database tables and columns
 public class AppDatabase {
 
-   static let exerciseTableName = Exercise.exerciseTableName
-
    static let exerciseTable = Table(exerciseTableName)
-   static let exerciseIdColumn = Expression<Int64>(Exercise.exerciseIdColumn)
-   static let exerciseNameColumn = Expression<String>(Exercise.exerciseNameColumn)
-   static let exerciseTypeColumn = Expression<String>(Exercise.exerciseTypeColumn)
-   static let exerciseMuscleColumn = Expression<String>(Exercise.exerciseMuscleColumn)
-   static let userIdColumn = Expression<Int64>(User.userIdColumn)
+   static let exerciseIdColumn = Expression<Int64>(exerciseIdColumnName)
+   static let exerciseNameColumn = Expression<String>(exerciseNameColumnName)
+   static let exerciseTypeColumn = Expression<String>(exerciseTypeColumnName)
+   static let exerciseMuscleColumn = Expression<String>(exerciseMuscleColumnName)
+   static let userIdColumn = Expression<Int64>(userIdColumnName)
 
-   static let userTableName = User.userTableName
    static let userTable = Table(userTableName)
-   static let facebookIdColumn = Expression<String>(User.facebookIdColumn)
-   static let firstNameColumn = Expression<String?>(User.firstNameColumn)
-   static let lastNameColumn = Expression<String?>(User.lastNameColumn)
-   static let emailColumn = Expression<String?>(User.emailColumn)
-   static let weightColumn = Expression<Double?>(User.weightColumn)
-   static let createdAtColumn = Expression<Date>(User.createdAtColumn)
+   static let facebookIdColumn = Expression<String>(facebookIdColumnName)
+   static let firstNameColumn = Expression<String?>(firstNameColumnName)
+   static let lastNameColumn = Expression<String?>(lastNameColumnName)
+   static let emailColumn = Expression<String?>(emailColumnName)
+   static let weightColumn = Expression<Double?>(weightColumnName)
+   static let createdAtColumn = Expression<Date>(createdAtColumnName)
 
-   static let workoutTableName = Workout.workoutTableName
    static let workoutTable = Table(workoutTableName)
-   static let workoutIdColumn = Expression<Int64>(Workout.workoutIdColumn)
-   static let workoutNameColumn = Expression<String?>(Workout.workoutNameColumn)
-   static let workoutDateColumn = Expression<Date>(Workout.workoutDateColumn)
-   static let workoutNotesColumn = Expression<String?>(Workout.workoutNotesColumn )
-   static let workoutUserWeightColumn = Expression<Double?>(Workout.workoutUserWeightColumn)
+   static let workoutIdColumn = Expression<Int64>(workoutIdColumnName)
+   static let workoutNameColumn = Expression<String?>(workoutNameColumnName)
+   static let workoutDateColumn = Expression<Date>(workoutDateColumnName)
+   static let workoutNotesColumn = Expression<String?>(workoutNotesColumnName)
+   static let workoutUserWeightColumn = Expression<Double?>(workoutUserWeightColumnName)
 
-   static let workoutExerciseTableName = WorkoutExercise.workoutExerciseTableName
    static let workoutExerciseTable = Table(workoutExerciseTableName)
-   static let workoutExerciseIdColumn = Expression<Int64>(WorkoutExercise.workoutExerciseIdColumn)
-   static let workoutExerciseDateColumn = Expression<Date>(WorkoutExercise.workoutExerciseDateColumn)
+   static let workoutExerciseIdColumn = Expression<Int64>(workoutExerciseIdColumnName)
+   static let workoutExerciseDateColumn = Expression<Date>(workoutExerciseDateColumnName)
 
-   static let workoutExerciseSetTableName = WorkoutExerciseSet.workoutExerciseSetTableName
    static let workoutExerciseSetTable = Table(workoutExerciseSetTableName)
-   static let workoutExerciseSetIdColumn = Expression<Int64>(WorkoutExerciseSet.workoutExerciseSetIdColumn)
-   static let workoutExerciseSetRepsColumn = Expression<Int?>(WorkoutExerciseSet.workoutExerciseSetRepsColumn)
-   static let workoutExerciseSetWeightColumn = Expression<Double?>(WorkoutExerciseSet.workoutExerciseSetWeightColumn)
-   static let workoutExerciseSetTimeColumn = Expression<Double?>(WorkoutExerciseSet.workoutExerciseSetTimeColumn)
-   static let workoutExerciseSetDateColumn = Expression<Date>(WorkoutExerciseSet.workoutExerciseSetDateColumn)
+   static let workoutExerciseSetIdColumn = Expression<Int64>(workoutExerciseSetIdColumnName)
+   static let workoutExerciseSetRepsColumn = Expression<Int?>(workoutExerciseSetRepsColumnName)
+   static let workoutExerciseSetWeightColumn = Expression<Double?>(workoutExerciseSetWeightColumnName)
+   static let workoutExerciseSetTimeColumn = Expression<Double?>(workoutExerciseSetTimeColumnName)
+   static let workoutExerciseSetDateColumn = Expression<Date>(workoutExerciseSetDateColumnName)
 
    public static func getConnection() -> Connection? {
 
@@ -160,6 +155,43 @@ public class AppDatabase {
          print("\(error)")
       }
    }
+
+}
+
+// Declare all app database table and column names below
+extension AppDatabase {
+   static let workoutExerciseSetTableName = "WorkoutExerciseSet"
+   static let workoutExerciseSetIdColumnName = "workoutExerciseSetId"
+   static let workoutExerciseSetRepsColumnName = "workoutExerciseSetReps"
+   static let workoutExerciseSetWeightColumnName = "workoutExerciseSetWeight"
+   static let workoutExerciseSetTimeColumnName = "workoutExerciseSetTime"
+   static let workoutExerciseSetDateColumnName = "workoutExerciseSetDate"
+
+   static let workoutExerciseTableName = "WorkoutExercise"
+   static let workoutExerciseIdColumnName = "workoutExerciseId"
+   static let workoutExerciseDateColumnName = "workoutExerciseDate"
+
+   static let userTableName = "User"
+   static let userIdColumnName = "userId"
+   static let facebookIdColumnName = "facebookId"
+   static let firstNameColumnName = "firstName"
+   static let lastNameColumnName = "lastName"
+   static let emailColumnName = "email"
+   static let weightColumnName = "weight"
+   static let createdAtColumnName = "createdAt"
+
+   static let workoutTableName = "Workout"
+   static let workoutIdColumnName = "workoutId"
+   static let workoutNameColumnName = "workoutName"
+   static let workoutDateColumnName = "workoutDate"
+   static let workoutNotesColumnName = "workoutNotes"
+   static let workoutUserWeightColumnName = "workoutUserWeight"
+
+   static let exerciseTableName = "Exercise"
+   static let exerciseIdColumnName = "exerciseId"
+   static let exerciseNameColumnName = "exerciseName"
+   static let exerciseTypeColumnName = "exerciseType"
+   static let exerciseMuscleColumnName = "exerciseMuscle"
 
 }
 
