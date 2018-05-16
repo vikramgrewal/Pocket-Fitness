@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Material
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,16 +14,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    var window: UIWindow?
    var tabBarController : UITabBarController!
 
-
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
       // Override point for customization after application launch.
+      AppDatabase.setUpSchema()
 
-      tabBarController = UITabBarController()
+      // TODO: Checkto see if database table exists to preload exercises
+
       let windowFrame = UIScreen.main.bounds
       window = UIWindow(frame: windowFrame)
-      window?.rootViewController = tabBarController
-      window?.makeKeyAndVisible()
+      window?.backgroundColor = .white
 
+      let appEntryVC = AppEntryViewController()
+//      tabBarController = UITabBarController()
+//      tabBarController.tabBar.barTintColor = .groupTableViewBackground
+      window?.rootViewController = appEntryVC
+
+//      let workoutsVC = WorkoutsViewController()
+//      let workoutsNavigationController = UINavigationController(rootViewController: workoutsVC)
+//
+//      let exerciseVC = ExercisesViewController()
+//      let exerciseNavigationController = UINavigationController(rootViewController: exerciseVC)
+//
+//        let settingsVC = SettingsViewController()
+//        let settingsNavigationController = UINavigationController(rootViewController: settingsVC)
+//
+//      let tabBarControllers = [workoutsNavigationController, exerciseNavigationController, settingsNavigationController]
+//      tabBarControllers[0].title = "Workouts"
+//      tabBarControllers[1].title = "Exercises"
+//    tabBarControllers[2].title = "Settings"
+//      tabBarController.viewControllers = tabBarControllers
+
+      window?.makeKeyAndVisible()
       return true
    }
 
@@ -49,7 +69,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    func applicationWillTerminate(_ application: UIApplication) {
       // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
    }
-
 
 }
 
