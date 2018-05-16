@@ -1,4 +1,5 @@
 import Foundation
+import SQLite
 
 public class WorkoutExercise {
 
@@ -9,7 +10,7 @@ public class WorkoutExercise {
    var userId : Int64? // Foreign key
 
    // Database
-   static let workoutExerciseTableName = "Workout"
+   static let workoutExerciseTableName = "WorkoutExercise"
    static let workoutExerciseIdColumn = "workoutExerciseId"
    static let workoutExerciseDateColumn = "workoutExerciseDate"
    
@@ -33,5 +34,27 @@ extension WorkoutExercise : Equatable {
 
 // TODO: Implement all database functions for particular model
 extension WorkoutExercise {
+
+   public static func getWorkoutExercisesForWorkoutId(workoutId : Int64) -> Int? {
+
+      guard let dbConnection = AppDatabase.getConnection() else {
+         return nil
+      }
+
+      let workoutExerciseTable = AppDatabase.workoutExerciseTable
+      let workoutIdColumn = AppDatabase.workoutIdColumn
+
+      do{
+         let workoutExercisesQuery = try workoutExerciseTable.filter(workoutIdColumn == workoutId)
+         let fetchedExercises = Array<SQLite.Row>(try dbConnection.prepare(workoutExercisesQuery))
+         return fetchedExercises.count
+      } catch {
+         print(error.localizedDescription)
+      }
+
+      return nil
+
+
+   }
    
 }

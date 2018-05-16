@@ -11,20 +11,41 @@ import Eureka
 
 class MyPushViewController: SelectorViewController<SelectorRow<PushSelectorCell<String>>> {
 
+   var exercises : [Exercise]?
+   var exerciseNames : [String]?
+
    override var preferredStatusBarStyle: UIStatusBarStyle {
       return .lightContent
    }
 
    override func viewDidLoad() {
       super.viewDidLoad()
-      let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+      let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openAddExerciseViewController))
       navigationItem.rightBarButtonItem = addButton
       // Will need to include action to add a new exercise right here
 
-      setupForm(with: ["Bench Press", "Squats", "Rows"])
+   }
+
+   override func viewDidAppear(_ animated: Bool) {
+      getAllExercises()
    }
 
    func getAllExercises()  {
-      // Fetch all exercises from sqlite 
+      do {
+         exercises = try Exercise.getAllExercises()
+         exerciseNames = [String]()
+         for exercise in exercises! {
+            exerciseNames?.append(exercise.exerciseName!)
+         }
+         setupForm(with: exerciseNames!)
+      } catch {
+         print(error.localizedDescription)
+      }
+   }
+
+
+   @objc func openAddExerciseViewController()   {
+      let addExerciseVC = AddExerciseViewController()
+      navigationController?.pushViewController(addExerciseVC, animated: true)
    }
 }

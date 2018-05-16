@@ -31,7 +31,9 @@ class AddExerciseViewController: FormViewController {
    func setView() {
       view.backgroundColor = .white
       setForm()
+      navigationAccessoryView.tintColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
       guard exercise != nil else {
+         exercise = Exercise(exerciseName: nil, exerciseType: nil, exerciseMuscle: nil)
          return
       }
       addDeleteButton()
@@ -47,29 +49,47 @@ class AddExerciseViewController: FormViewController {
                return
             }
             row.value = exerciseName
+         }.cellUpdate { cell, row in
+            cell.textField.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+         }.onChange{ row in
+            self.exercise?.exerciseName = row.value
          }
          <<< TextRow(){ row in
             row.placeholder = "Exercise Muscle Group"
-            row.tag = "exerciseCategoryRow"
+            row.tag = "exerciseMuscleRow"
             guard let exerciseMuscle = exercise?.exerciseMuscle else {
                return
             }
             row.value = exerciseMuscle
+         }.cellUpdate { cell, row in
+               cell.textField.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+         }.onChange{ row in
+               self.exercise?.exerciseMuscle = row.value
          }
          <<< PushRow<String>() { row in
             row.title = "Exercise Type"
             row.tag = "exerciseTypeRow"
-            row.options = ["Cardio", "Strength", "Bodyweight", "Other"]
+            row.options = ["Cardio", "Strength"]
             row.cell.textLabel?.textColor = .red
             guard let exerciseType = exercise?.exerciseType else {
                return
             }
             row.value = exerciseType
+         }.cellUpdate { cell, row in
+            cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+            cell.detailTextLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+         }.onPresent { from, to in
+            to.selectableRowCellUpdate = { cell, row in
+               cell.textLabel!.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+            }
+         }.onChange{ row in
+               self.exercise?.exerciseType = row.value
          }
    }
 
    func addDeleteButton()  {
       let deleteButton = UIButton()
+      deleteButton.addTarget(self, action: #selector(deleteExercise), for: .touchUpInside)
       deleteButton.setTitle("Delete Exercise", for: .normal)
       deleteButton.backgroundColor = UIColor(red: 246.0/255.0, green: 53.0/255.0, blue: 76.0/255.0, alpha: 1.0)
       view.addSubview(deleteButton)
@@ -103,12 +123,45 @@ class AddExerciseViewController: FormViewController {
    }
 
    @objc func saveExercise() {
-      if exercise != nil {
+
+      let exerciseNameRow : TextRow? = form.rowBy(tag: "exerciseNameRow")
+      let exerciseTypeRow : PushRow<String>? = form.rowBy(tag: "exerciseTypeRow")
+      let exerciseMuscleRow : TextRow? = form.rowBy(tag: "exerciseMuscleRow")
+      guard let exerciseName = exerciseNameRow?.value else {
+         print("No name found")
+         return
+      }
+      guard let exerciseType = exerciseTypeRow?.value else {
+         print("No type found")
+         return
+      }
+      guard let exerciseMuscle = exerciseMuscleRow?.value else {
+         print("No muscle found")
+         return
+      }
+      exercise?.exerciseName = exerciseName
+      exercise?.exerciseType = exerciseType
+      exercise?.exerciseMuscle = exerciseMuscle
+
+      if exercise?.exerciseId != nil {
          // TODO: Check to see if all fields are valid. Update all values for
          // this particular exerciseId. Once saved show alert in middle saying
          // saved. Pop this view controller off the navigation and go to the
          // previous screem.
+         do {
+            try Exercise.updateExistingExercise(exercise: exercise!)
+            navigationController?.popViewController(animated: true)
+         } catch {
+            print(error.localizedDescription)
+         }
+         
       }  else {
+         do {
+            try Exercise.saveNewExercise(exercise: exercise!)
+            navigationController?.popViewController(animated: true)
+         } catch {
+            print(error.localizedDescription)
+         }
          // TODO: Check to see if all fields are valid. Insert this new exercise
          // into the database.
       }
@@ -119,6 +172,12 @@ class AddExerciseViewController: FormViewController {
       // If the popped navigation controller is of exercises view controller reload
       // the data in the previous controller. If it is not, that means it is the push view
       // controller, so reload that data, so the user can make the correct choice
+      do {
+         try Exercise.deleteExercise(exercise: exercise!)
+         navigationController?.popViewController(animated: true)
+      } catch {
+         print(error.localizedDescription)
+      }
    }
     
 

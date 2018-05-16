@@ -9,6 +9,7 @@
 import UIKit
 import Koyomi
 import SQLite
+import SwipeCellKit
 
 class WorkoutsViewController: UIViewController {
 
@@ -19,6 +20,7 @@ class WorkoutsViewController: UIViewController {
    var koyomi : Koyomi!
    var calendarView : UIView!
    var workouts : [Workout]?
+   var workoutsTableViewModel : WorkoutsTableViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +30,8 @@ class WorkoutsViewController: UIViewController {
       // If the user is logged in the person will be prompted if they want to insert
       // default exercises into database
 
-      initializeTestData()
       setUpView()
+      fetchData()
 
       // Do any additional setup after loading the view.
     }
@@ -38,16 +40,13 @@ class WorkoutsViewController: UIViewController {
       if let index = tableViewController.tableView.indexPathForSelectedRow{
          tableViewController.tableView.deselectRow(at: index, animated: true)
       }
+      fetchData()
    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-   func initializeTestData()   {
-      workouts = [Workout]()
-   }
 
    func setUpView()  {
       view.backgroundColor = .white
@@ -75,13 +74,13 @@ extension WorkoutsViewController {
 
    func setUpSearchBar()   {
       searchController = UISearchController(searchResultsController: nil)
-      searchController.searchBar.sizeToFit()
-      navigationItem.titleView = searchController.searchBar
-      navigationItem.leftBarButtonItem = UIBarButtonItem(title: "C", style: .plain, target: self, action: nil)
+//      searchController.searchBar.sizeToFit()
+//      navigationItem.titleView = searchController.searchBar
+//      navigationItem.leftBarButtonItem = UIBarButtonItem(title: "C", style: .plain, target: self, action: nil)
       let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewWorkout))
       navigationItem.rightBarButtonItem = addButton
       searchController.hidesNavigationBarDuringPresentation = false
-      navigationItem.leftBarButtonItem?.action = #selector(toggleCalendar)
+//      navigationItem.leftBarButtonItem?.action = #selector(toggleCalendar)
    }
 
 
@@ -90,8 +89,11 @@ extension WorkoutsViewController {
 
       DispatchQueue.main.async(execute: {
          // Create a new workout in the database and pass that workout object to next view controller
-         
+         guard let workout = Workout.insertNewWorkout() else {
+            return
+         }
          let editWorkoutVC = EditWorkoutViewController()
+         editWorkoutVC.workout = workout
          self.navigationController?.pushViewController(editWorkoutVC, animated: true)
       })
       
@@ -120,7 +122,7 @@ extension WorkoutsViewController {
       calendarView.addSubview(calendarMonthLabel)
       calendarMonthLabel.textColor = .white
       calendarMonthLabel.backgroundColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
-      calendarMonthLabel.font = UIFont(name: "Helvetica", size: 18)
+      calendarMonthLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
       calendarMonthLabel.alpha = 0.0
       calendarMonthLabel.isHidden = true
       calendarMonthLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -130,6 +132,8 @@ extension WorkoutsViewController {
       calendarMonthLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
       calendarMonthLabel.textAlignment = .center
       koyomi = Koyomi(frame: .zero, sectionSpace: 1.5, cellSpace: 0.5, inset: .init(top: 1, left: 1, bottom: 1, right: 1), weekCellHeight: 25)
+      koyomi.setDayFont(fontName: "HelveticaNeue-Bold", size: 15.0)
+      koyomi.setWeekFont(fontName: "HelveticaNeue-Bold", size: 15.0)
       koyomi.alpha = 0.0
       koyomi.isHidden = true
       koyomi.selectionMode = .sequence(style: .background)
@@ -208,8 +212,28 @@ extension WorkoutsViewController {
 
 extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
 
+   func fetchData() {
+      workoutsTableViewModel = WorkoutsTableViewModel()
+      workouts = Workout.getAllWorkouts()
+      guard workouts != nil else {
+         tableViewController.tableView.reloadData()
+         return
+      }
+      workoutsTableViewModel?.workouts = workouts
+      for workout in workouts! {
+         guard let workoutId = workout.workoutId else {
+            return
+         }
+         guard let exercisesAmount = WorkoutExercise.getWorkoutExercisesForWorkoutId(workoutId: workoutId)  else {
+            return
+         }
+         workoutsTableViewModel?.setLabels?.append("\(exercisesAmount)")
+      }
+      tableViewController.tableView.reloadData()
+   }
+
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      guard let workoutCount = workouts?.count else {
+      guard let workoutCount = workoutsTableViewModel?.workouts?.count else {
          return 0
       }
       return workoutCount
@@ -217,7 +241,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
 
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       DispatchQueue.main.async(execute: {
-         guard let workout = self.workouts?[indexPath.row] else {
+         guard let workout = self.workoutsTableViewModel?.workouts?[indexPath.row] else {
             return
          }
          let editWorkoutVC = EditWorkoutViewController()
@@ -231,8 +255,30 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       return 70.0
    }
 
+   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+
+      guard orientation == .right else { return nil }
+
+      let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+         do {
+            guard let workoutToDelete = self.workouts?[indexPath.row] else {
+               return
+            }
+            self.view.window?.isUserInteractionEnabled = false
+//            try Exercise.deleteExercise(exercise: exerciseToDelete)
+            self.fetchData()
+            self.view.window?.isUserInteractionEnabled = true
+         } catch {
+            self.view.window?.isUserInteractionEnabled = true
+            print(error.localizedDescription)
+         }
+      }
+
+      return [deleteAction]
+   }
+
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+      let cell = SwipeTableViewCell(style: .default, reuseIdentifier: nil)
       cell.backgroundColor = .white
 
       let dateView = UIView()
@@ -251,7 +297,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       dateView.addSubview(dayLabel)
       dayLabel.text = ""
       dayLabel.textAlignment = .center
-      dayLabel.font = UIFont(name: "Helvetica", size: 18)
+      dayLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 16.0)
       dayLabel.translatesAutoresizingMaskIntoConstraints = false
       dayLabel.leadingAnchor.constraint(equalTo: dateView.leadingAnchor).isActive = true
       dayLabel.trailingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
@@ -263,7 +309,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       dateView.addSubview(monthLabel)
       monthLabel.text = ""
       monthLabel.textAlignment = .center
-      monthLabel.font = UIFont(name: "Helvetica", size: 14)
+      monthLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 13.0)
       monthLabel.translatesAutoresizingMaskIntoConstraints = false
       monthLabel.leadingAnchor.constraint(equalTo: dateView.leadingAnchor).isActive = true
       monthLabel.trailingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
@@ -275,7 +321,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       dateView.addSubview(yearLabel)
       yearLabel.text = ""
       yearLabel.textAlignment = .center
-      yearLabel.font = UIFont(name: "Helvetica", size: 14)
+      yearLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 13.0)
       yearLabel.translatesAutoresizingMaskIntoConstraints = false
       yearLabel.leadingAnchor.constraint(equalTo: dateView.leadingAnchor).isActive = true
       yearLabel.trailingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
@@ -285,9 +331,9 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       let workoutLabel = UILabel()
       workoutLabel.backgroundColor = .clear
       cell.addSubview(workoutLabel)
-      workoutLabel.text = workouts![indexPath.row].workoutName
+      workoutLabel.text = workoutsTableViewModel?.workouts![indexPath.row].workoutName
       workoutLabel.textAlignment = .left
-      workoutLabel.font = UIFont(name: "Helvetica", size: 18)
+      workoutLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 17.0)
       workoutLabel.translatesAutoresizingMaskIntoConstraints = false
       workoutLabel.leadingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
       workoutLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 7.5).isActive = true
@@ -298,9 +344,10 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       workoutSetsLabel.backgroundColor = .clear
       cell.addSubview(workoutSetsLabel)
       cell.addSubview(workoutSetsLabel)
-      workoutSetsLabel.text = "5 Sets"
+      let exercisesLabel = workoutsTableViewModel?.setLabels![indexPath.row] ?? "0"
+      workoutSetsLabel.text = "\(exercisesLabel) Exercises"
       workoutSetsLabel.textAlignment = .left
-      workoutSetsLabel.font = UIFont(name: "Helvetica", size: 14)
+      workoutSetsLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 14.0)
       workoutSetsLabel.textColor = .lightGray
       workoutSetsLabel.translatesAutoresizingMaskIntoConstraints = false
       workoutSetsLabel.leadingAnchor.constraint(equalTo: dateView.trailingAnchor).isActive = true
@@ -308,7 +355,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       workoutSetsLabel.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
       workoutSetsLabel.topAnchor.constraint(equalTo: workoutLabel.bottomAnchor).isActive = true
 
-      if let workoutDate = workouts?[indexPath.row].workoutDate {
+      if let workoutDate = workoutsTableViewModel?.workouts?[indexPath.row].workoutDate {
          let dateFormatter = DateFormatter()
          dateFormatter.dateFormat = "dd"
          let dayString = dateFormatter.string(from: workoutDate)
@@ -360,6 +407,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
          tableViewController.tableView.bottomAnchor.constraint(equalTo:
             view.bottomAnchor).isActive = true
       }
+
 
    }
 
