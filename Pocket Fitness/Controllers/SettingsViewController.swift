@@ -122,7 +122,7 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
                self.displaySpinner()
                self.view.window?.isUserInteractionEnabled = false
                DispatchQueue.main.async {
-                  Exercise.preloadExercises()
+                  ExerciseTable.preloadExercises()
                   self.removeSpinner()
                   self.view.window?.isUserInteractionEnabled = true
                }
@@ -155,14 +155,28 @@ class SettingsViewController: FormViewController, MFMailComposeViewControllerDel
          }.onCellSelection{ _,_ in
             self.view.window?.isUserInteractionEnabled = false
             UserSession.logout()
-            AppDatabase.dropEntireDatabase()
-            AppDatabase.setUpSchema()
-            self.view.window?.isUserInteractionEnabled = true
-            if !UserSession.isLoggedIn() {
-               self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+            DispatchQueue.main.async {
+               self.recreateDatabase()
+               self.view.window?.isUserInteractionEnabled = true
+               if !UserSession.isLoggedIn() {
+                  self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+               }
             }
          }
     }
+
+   func recreateDatabase() {
+      do {
+         try AppDatabase.dropEntireDatabase()
+      }  catch {
+         print(error)
+      }
+      do {
+         try AppDatabase.setUpSchema()
+      } catch {
+         print(error)
+      }
+   }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)

@@ -29,8 +29,9 @@ public class User {
       self.createdAt = createdAt
    }
 
-}
+   convenience init()   {
+      self.init(userId: nil, facebookId: nil, firstName: nil,
+                lastName: nil, email: nil, bodyWeight: nil, createdAt: nil)
+   }
 
-enum UserError : Error {
-   case userNotFound
 }

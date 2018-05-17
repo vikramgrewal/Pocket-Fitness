@@ -157,20 +157,10 @@ class AddExerciseViewController: FormViewController {
          // this particular exerciseId. Once saved show alert in middle saying
          // saved. Pop this view controller off the navigation and go to the
          // previous screem.
-         do {
-            try Exercise.updateExistingExercise(exercise: exercise!)
-            navigationController?.popViewController(animated: true)
-         } catch {
-            print(error.localizedDescription)
-         }
+
          
       }  else {
-         do {
-            try Exercise.saveNewExercise(exercise: exercise!)
-            navigationController?.popViewController(animated: true)
-         } catch {
-            print(error.localizedDescription)
-         }
+        
       }
    }
 
@@ -179,12 +169,7 @@ class AddExerciseViewController: FormViewController {
       // If the popped navigation controller is of exercises view controller reload
       // the data in the previous controller. If it is not, that means it is the push view
       // controller, so reload that data, so the user can make the correct choice
-      do {
-         try Exercise.deleteExercise(exercise: exercise!)
-         navigationController?.popViewController(animated: true)
-      } catch {
-         print(error.localizedDescription)
-      }
+
    }
     
 

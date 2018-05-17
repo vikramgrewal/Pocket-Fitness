@@ -77,20 +77,20 @@ extension WorkoutsViewController {
    // Action for right bar button item to add a new workout to database
    @objc func addNewWorkout() {
 
-      // Perform off main thread to ensure no freezes happen
-      DispatchQueue.main.async{
-         // Create a new workout in the database and pass that workout object to next view controller
-         guard let workout = Workout.insertNewWorkout() else {
-            // TODO: Change to try catch for easier error handling and user feedback
-            return
-         }
-
-         // Instantiate edit workout view controller with workout, so user
-         // can edit workout without having to load. Possibly put indicator view
-         let editWorkoutVC = EditWorkoutViewController()
-         editWorkoutVC.workout = workout
-         self.navigationController?.pushViewController(editWorkoutVC, animated: true)
-      }
+//      // Perform off main thread to ensure no freezes happen
+//      DispatchQueue.main.async{
+//         // Create a new workout in the database and pass that workout object to next view controller
+//         guard let workout = Workout.insertNewWorkout() else {
+//            // TODO: Change to try catch for easier error handling and user feedback
+//            return
+//         }
+//
+//         // Instantiate edit workout view controller with workout, so user
+//         // can edit workout without having to load. Possibly put indicator view
+//         let editWorkoutVC = EditWorkoutViewController()
+//         editWorkoutVC.workout = workout
+//         self.navigationController?.pushViewController(editWorkoutVC, animated: true)
+//      }
       
    }
 

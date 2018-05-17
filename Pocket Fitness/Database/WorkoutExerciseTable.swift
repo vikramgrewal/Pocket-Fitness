@@ -1,31 +1,27 @@
-//
-//  WorkoutExerciseTable.swift
-//  Pocket Fitness
-//
-//  Created by Vikram Work/School on 5/16/18.
-//  Copyright © 2018 Vikram Work/School. All rights reserved.
-//
-
 import Foundation
+import SQLite
 
 public class WorkoutExerciseTable {
-   public static func getWorkoutExercisesForWorkoutId(workoutId : Int64) -> Int? {
+
+   public static func getWorkoutExercisesForWorkoutId(workoutId : Int64) throws -> Int? {
 
       guard let dbConnection = AppDatabase.getConnection() else {
-         return nil
+         throw DatabaseError.databaseConnectionError
       }
 
       let workoutExerciseTable = AppDatabase.workoutExerciseTable
       let workoutIdColumn = AppDatabase.workoutIdColumn
 
       do{
-         let workoutExercisesQuery = try workoutExerciseTable.filter(workoutIdColumn == workoutId)
+         let workoutExercisesQuery = workoutExerciseTable.filter(workoutIdColumn == workoutId)
          let fetchedExercises = Array<SQLite.Row>(try dbConnection.prepare(workoutExercisesQuery))
          return fetchedExercises.count
       } catch {
-         print(error.localizedDescription)
+         throw WorkoutExerciseError.retrievalError
       }
-
-      return nil
    }
+}
+
+public enum WorkoutExerciseError : Error {
+   case retrievalError
 }

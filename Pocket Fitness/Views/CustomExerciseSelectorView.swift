@@ -31,16 +31,7 @@ class MyPushViewController: SelectorViewController<SelectorRow<PushSelectorCell<
    }
 
    func getAllExercises()  {
-      do {
-         exercises = try Exercise.getAllExercises()
-         exerciseNames = [String]()
-         for exercise in exercises! {
-            exerciseNames?.append(exercise.exerciseName!)
-         }
-         setupForm(with: exerciseNames!)
-      } catch {
-         print(error.localizedDescription)
-      }
+      
    }
 
 

@@ -139,12 +139,12 @@ class LoginViewController: UIViewController {
    }
 
    // Handles action for login button to connect to facebook login manager
-   @objc func loginButtonClicked()  {
+   @objc func loginButtonClicked() throws  {
       // Instantiates login manager to redirect user to correct page
       loginManager = LoginManager()
       // Edit permissions to what information is needed from Facebook user
       // Must comply with app settings in facebook developers console
-      loginManager.logIn(readPermissions: [.publicProfile], viewController: self)   { loginResult in
+      loginManager.logIn(readPermissions: [.publicProfile], viewController: self)  { loginResult in
          // Receives a callback from function with the login results for user
          switch loginResult {
          // TODO: Implement logic to give feedback to user with alert of some kind
@@ -165,11 +165,11 @@ class LoginViewController: UIViewController {
 
 
             // Checks the database to see if user exists with facebookId
-            guard let user = User.getUserWithFacebookId(facebookId: facebookId) else {
+            guard let user = UserTable.getUserWithFacebookId(facebookId: facebookId) else {
 
                // TODO: Change to try catch to give feedback to user and clean
                // database functions
-               guard let userToInsert = User.insertUser(facebookId: facebookId)  else {
+               guard let userToInsert = UserTable.insertUser(facebookId: facebookId)  else {
                   return
                }
 
@@ -191,7 +191,7 @@ class LoginViewController: UIViewController {
                   DispatchQueue.main.async {
                      // Performs the import off the main thread, so that no
                      // freezes will happen
-                     Exercise.preloadExercises()
+                     ExerciseTable.preloadExercises()
                      // Set the preloading boolean to false to show import is complete
                      self.preloadedExercisesLoading = false
                      self.removeSpinner()

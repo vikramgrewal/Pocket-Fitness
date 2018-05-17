@@ -9,12 +9,11 @@ public class WorkoutExerciseSet {
    var workoutExerciseSetWeight : Float?
    var workoutExerciseSetDate : Date?
    var workoutExerciseSetTime : Date?
-   var userId : Int64?
    
    init(workoutExerciseSetId : Int64?, workoutExerciseId : Int64?,
         workoutId : Int64?, workoutExerciseSetReps : Int?,
         workoutExerciseSetWeight : Float?, workoutExerciseSetDate : Date?,
-        workoutExerciseSetTime : Date?, userId : Int64?)  {
+        workoutExerciseSetTime : Date?)  {
 
       self.workoutExerciseSetId = workoutExerciseSetId
       self.workoutExerciseId = workoutExerciseId
@@ -23,19 +22,17 @@ public class WorkoutExerciseSet {
       self.workoutExerciseSetWeight = workoutExerciseSetWeight
       self.workoutExerciseSetDate = workoutExerciseSetDate
       self.workoutExerciseSetTime = workoutExerciseSetTime
-      self.userId = userId
 
    }
 
    convenience init() {
       self.init(workoutExerciseSetId: nil, workoutExerciseId: nil,
                 workoutId: nil, workoutExerciseSetReps: nil, workoutExerciseSetWeight: nil,
-                workoutExerciseSetDate: nil, workoutExerciseSetTime: nil, userId: nil)
+                workoutExerciseSetDate: nil, workoutExerciseSetTime: nil)
    }
 
 }
 
-// TODO: Database queries using correct parameters
 extension WorkoutExerciseSet : Equatable {
 
    public static func == (lhs: WorkoutExerciseSet, rhs: WorkoutExerciseSet) -> Bool {

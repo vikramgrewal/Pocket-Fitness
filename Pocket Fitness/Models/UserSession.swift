@@ -11,7 +11,7 @@ class UserSession {
       return loggedIn
    }
 
-   static func getUserId() -> Int64 {
+   static func getUserId() -> Int64? {
       let userId = UserDefaults.standard.object(forKey: userIdKey) as! Int64
       return userId
    }

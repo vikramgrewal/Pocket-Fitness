@@ -231,21 +231,18 @@ class EditWorkoutViewController: FormViewController {
             return
       }
 
-      guard  let workouId = workout?.workoutId else {
+      guard  let workoutId = workout?.workoutId else {
          return
       }
       let workoutName = workoutNameRow.value == nil ? "" : workoutNameRow.value!
       let workoutDate = workoutDateRow.value!
       let workoutNotes = workoutNotesRow.value == nil ? "" : workoutNotesRow.value!
 
-      let workoutToUpdate = Workout(workoutId: workouId, workoutName: workoutName,
-                                    workoutDate: workoutDate, workoutNotes: workoutNotes)
+      let workoutToUpdate = Workout(workoutId: workoutId, workoutName: workoutName,
+                                    workoutDate: workoutDate, workoutNotes: workoutNotes,
+                                    userWeight : nil)
 
-      do {
-         try Workout.updateExistingWorkout(workout: workoutToUpdate)
-      } catch {
-         print(error.localizedDescription)
-      }
+    
    }
     /*
     // MARK: - Navigation

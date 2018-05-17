@@ -239,6 +239,8 @@
 		F704F5A620AC93D70014B0C3 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				F73B4F9920A9ED4500A0094A /* EditWorkoutFormModel.swift */,
+				F73B4F9720A9E89300A0094A /* WorkoutsTableViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -279,13 +281,13 @@
 				F7B1BDED20A8F73E003B5B3A /* AppEntryViewController.swift */,
 				F7EDBB4C20A7EC62007513C0 /* LoginViewController.swift */,
 				F7BB1057208FEC4C00E84D5B /* WorkoutsViewController.swift */,
-				A1D8F68A209A824E005153D4 /* AddExerciseViewController.swift */,
-				F770F5F020A4FC4C000DC8B6 /* ExercisesViewController.swift */,
 				F75C89722098FDC300D9453B /* EditWorkoutViewController.swift */,
+				F770F5F020A4FC4C000DC8B6 /* ExercisesViewController.swift */,
+				A1D8F68A209A824E005153D4 /* AddExerciseViewController.swift */,
 				A16B184320A7B34200F2D110 /* SettingsViewController.swift */,
-				A16B184520A7B6C100F2D110 /* TermsOfServiceViewController.swift */,
-				A16B184B20A7C56800F2D110 /* PrivacyPolicyViewController.swift */,
 				F718B07820AA8366000C76DF /* EditProfileViewController.swift */,
+				A16B184B20A7C56800F2D110 /* PrivacyPolicyViewController.swift */,
+				A16B184520A7B6C100F2D110 /* TermsOfServiceViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -306,16 +308,14 @@
 		F7CBA81920A22D000072F676 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F7CBA81A20A22D200072F676 /* WorkoutExerciseSet.swift */,
 				F7EDBB5020A7EFA6007513C0 /* AuthenticationKeychain.swift */,
+				F7CBA81A20A22D200072F676 /* WorkoutExerciseSet.swift */,
 				F712A7EE20A4DA11006C392A /* WorkoutExercise.swift */,
 				F7FD5AA920A63B0200B04657 /* User.swift */,
 				F7FD5AAD20A63E5500B04657 /* Workout.swift */,
 				F7FD5AAF20A6466B00B04657 /* Exercise.swift */,
 				F7EDBB4E20A7EF46007513C0 /* UserSession.swift */,
 				F74FCDDB20A93509000054F8 /* Date.swift */,
-				F73B4F9720A9E89300A0094A /* WorkoutsTableViewModel.swift */,
-				F73B4F9920A9ED4500A0094A /* EditWorkoutFormModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

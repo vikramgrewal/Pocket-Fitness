@@ -91,7 +91,7 @@ extension ExercisesViewController : UISearchBarDelegate, SwipeTableViewCellDeleg
             guard let exerciseToDelete = self.exercises?[indexPath.row] else {
                return
             }
-            try Exercise.deleteExercise(exercise: exerciseToDelete)
+            try ExerciseTable.deleteExercise(exercise: exerciseToDelete)
             self.fetchData()
          } catch {
             print(error.localizedDescription)
@@ -114,7 +114,7 @@ extension ExercisesViewController : UISearchBarDelegate, SwipeTableViewCellDeleg
       }
 
       do {
-         guard let originalExercises = try Exercise.getAllExercises() else {
+         guard let originalExercises = try ExerciseTable.getAllExercises() else {
             return
          }
          exercises = originalExercises.filter{ exercise in
@@ -131,19 +131,6 @@ extension ExercisesViewController : UISearchBarDelegate, SwipeTableViewCellDeleg
 extension ExercisesViewController : UITableViewDelegate, UITableViewDataSource {
 
    public func fetchData() {
-      do {
-         exercises = try Exercise.getAllExercises()
-         let range = NSMakeRange(0, self.tableView.numberOfSections)
-         let sections = NSIndexSet(indexesIn: range)
-         self.tableView.reloadSections(sections as IndexSet, with: .automatic)
-      } catch {
-         print(error.localizedDescription)
-         exercises = [Exercise]()
-         let range = NSMakeRange(0, self.tableView.numberOfSections)
-         let sections = NSIndexSet(indexesIn: range)
-         self.tableView.reloadSections(sections as IndexSet, with: .automatic) 
-      }
-
 
    }
 

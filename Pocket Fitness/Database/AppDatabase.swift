@@ -1,11 +1,3 @@
-//
-//  Connection.swift
-//  Pocket Fitness
-//
-//  Created by Vikram Work/School on 5/12/18.
-//  Copyright © 2018 Vikram Work/School. All rights reserved.
-//
-
 import Foundation
 import SQLite
 
@@ -54,20 +46,17 @@ public class AppDatabase {
          let dbConnection = try Connection("\(path)/db.sqlite3")
          return dbConnection
       } catch {
-         print("\(error)")
+         return nil
       }
-      
-      return nil
+
    }
 
-   public static func setUpSchema() {
+   public static func setUpSchema() throws {
       guard let dbConnection = AppDatabase.getConnection() else {
-         print("Error establishing default schema for app")
-         return
+         throw DatabaseError.databaseConnectionError
       }
 
       do {
-
          try dbConnection.run(exerciseTable.create(ifNotExists: true) { exerciseTable in
             exerciseTable.column(exerciseIdColumn, primaryKey: true)
             exerciseTable.column(exerciseNameColumn, unique: true)
@@ -76,11 +65,10 @@ public class AppDatabase {
             exerciseTable.column(userIdColumn)
          })
       } catch {
-         print("\(error)")
+         throw DatabaseError.databaseSetupError
       }
 
       do {
-
          try dbConnection.run(userTable.create(ifNotExists: true) { userTable in
             userTable.column(userIdColumn, primaryKey: true)
             userTable.column(facebookIdColumn, unique: true)
@@ -91,7 +79,7 @@ public class AppDatabase {
             userTable.column(createdAtColumn)
          })
       } catch {
-         print("\(error)")
+         throw DatabaseError.databaseSetupError
       }
 
       do {
@@ -105,7 +93,7 @@ public class AppDatabase {
             workoutTable.column(userIdColumn)
          })
       } catch {
-         print("\(error)")
+         throw DatabaseError.databaseSetupError
       }
 
       do {
@@ -118,7 +106,7 @@ public class AppDatabase {
             workoutExerciseTable.column(userIdColumn)
          })
       } catch {
-         print("\(error)")
+         throw DatabaseError.databaseSetupError
       }
 
       do {
@@ -133,18 +121,17 @@ public class AppDatabase {
             workoutExerciseSetTable.column(userIdColumn)
          })
       } catch {
-         print("\(error)")
+         throw DatabaseError.databaseSetupError
       }
 
    }
 
-   public static func dropEntireDatabase()   {
+   public static func dropEntireDatabase() throws  {
       guard let dbConnection = AppDatabase.getConnection() else {
-         return
+         throw DatabaseError.databaseConnectionError
       }
 
       do {
-
          try dbConnection.run(exerciseTable.drop(ifExists: true))
          try dbConnection.run(userTable.drop(ifExists: true))
          try dbConnection.run(workoutTable.drop(ifExists: true))
@@ -152,7 +139,7 @@ public class AppDatabase {
          try dbConnection.run(workoutExerciseSetTable.drop(ifExists: true))
 
       } catch {
-         print("\(error)")
+         throw DatabaseError.databaseDropError
       }
    }
 
@@ -195,6 +182,8 @@ extension AppDatabase {
 
 }
 
-enum DatabaseError : Error {
-   case databaseError
+public enum DatabaseError : Error {
+   case databaseConnectionError
+   case databaseSetupError
+   case databaseDropError
 }
