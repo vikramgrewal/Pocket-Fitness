@@ -26,10 +26,10 @@
 		F704F5B020ACD0400014B0C3 /* WorkoutExerciseSetTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F704F5AF20ACD0400014B0C3 /* WorkoutExerciseSetTable.swift */; };
 		F712A7EF20A4DA11006C392A /* WorkoutExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = F712A7EE20A4DA11006C392A /* WorkoutExercise.swift */; };
 		F718B07920AA8366000C76DF /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F718B07820AA8366000C76DF /* EditProfileViewController.swift */; };
-		F72D365E20A3BA6A0025F487 /* CustomExerciseSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72D365D20A3BA6A0025F487 /* CustomExerciseSelectorView.swift */; };
 		F73B4F9820A9E89300A0094A /* WorkoutsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B4F9720A9E89300A0094A /* WorkoutsViewModel.swift */; };
 		F73B4F9A20A9ED4500A0094A /* EditWorkoutFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B4F9920A9ED4500A0094A /* EditWorkoutFormModel.swift */; };
 		F74FCDDC20A93509000054F8 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74FCDDB20A93509000054F8 /* Date.swift */; };
+		F7582BB320AF633200540E93 /* CustomExerciseSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7582BB220AF633200540E93 /* CustomExerciseSelectorRow.swift */; };
 		F75A1C83209A8B4D008E1DED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75A1C82209A8B4D008E1DED /* AppDelegate.swift */; };
 		F75C89732098FDC300D9453B /* EditWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75C89722098FDC300D9453B /* EditWorkoutViewController.swift */; };
 		F76455AA20ABA3930037FF3B /* dumbbell.png in Resources */ = {isa = PBXBuildFile; fileRef = F76455A920ABA3930037FF3B /* dumbbell.png */; };
@@ -102,10 +102,10 @@
 		F704F5AF20ACD0400014B0C3 /* WorkoutExerciseSetTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseSetTable.swift; sourceTree = "<group>"; };
 		F712A7EE20A4DA11006C392A /* WorkoutExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutExercise.swift; sourceTree = "<group>"; };
 		F718B07820AA8366000C76DF /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
-		F72D365D20A3BA6A0025F487 /* CustomExerciseSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExerciseSelectorView.swift; sourceTree = "<group>"; };
 		F73B4F9720A9E89300A0094A /* WorkoutsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsViewModel.swift; sourceTree = "<group>"; };
 		F73B4F9920A9ED4500A0094A /* EditWorkoutFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutFormModel.swift; sourceTree = "<group>"; };
 		F74FCDDB20A93509000054F8 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		F7582BB220AF633200540E93 /* CustomExerciseSelectorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExerciseSelectorRow.swift; sourceTree = "<group>"; };
 		F75A1C82209A8B4D008E1DED /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Pocket Fitness/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		F75C89722098FDC300D9453B /* EditWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutViewController.swift; sourceTree = "<group>"; };
 		F76455A920ABA3930037FF3B /* dumbbell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dumbbell.png; sourceTree = "<group>"; };
@@ -323,7 +323,7 @@
 		F7FD468F209A6138008EBCEE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F72D365D20A3BA6A0025F487 /* CustomExerciseSelectorView.swift */,
+				F7582BB220AF633200540E93 /* CustomExerciseSelectorRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -664,6 +664,7 @@
 				F7B1BDEE20A8F73E003B5B3A /* AppEntryViewController.swift in Sources */,
 				F7DB8FC820AB4454003C3AB3 /* SplitRowValue.swift in Sources */,
 				F7FD5AAA20A63B0200B04657 /* User.swift in Sources */,
+				F7582BB320AF633200540E93 /* CustomExerciseSelectorRow.swift in Sources */,
 				A16B184620A7B6C100F2D110 /* TermsOfServiceViewController.swift in Sources */,
 				F79F58DA20A7930B00D8CBB4 /* AppDatabase.swift in Sources */,
 				F704F5AE20ACD02B0014B0C3 /* WorkoutExerciseTable.swift in Sources */,
@@ -672,7 +673,6 @@
 				F7FD5AAE20A63E5500B04657 /* Workout.swift in Sources */,
 				F73B4F9820A9E89300A0094A /* WorkoutsViewModel.swift in Sources */,
 				A16B184C20A7C56800F2D110 /* PrivacyPolicyViewController.swift in Sources */,
-				F72D365E20A3BA6A0025F487 /* CustomExerciseSelectorView.swift in Sources */,
 				F712A7EF20A4DA11006C392A /* WorkoutExercise.swift in Sources */,
 				F704F5AA20ACCFDB0014B0C3 /* ExerciseTable.swift in Sources */,
 				F704F5B020ACD0400014B0C3 /* WorkoutExerciseSetTable.swift in Sources */,

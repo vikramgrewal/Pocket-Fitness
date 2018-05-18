@@ -1,11 +1,3 @@
-//
-//  EditWorkoutViewController.swift
-//  Pocket Fitness
-//
-//  Created by Vikram Work/School on 5/1/18.
-//  Copyright © 2018 Vikram Work/School. All rights reserved.
-//
-
 import UIKit
 import Eureka
 
@@ -134,11 +126,11 @@ class EditWorkoutViewController: FormViewController {
 
       form.append(newExerciseSection)
 
-      let exerciseNameRow = PushRow<String>()   {
+      let exerciseNameRow = PushRow<Exercise>()   {
          $0.title = "Exercise Name"
 
          $0.presentationMode = PresentationMode.show(
-            controllerProvider: ControllerProvider.callback(builder: { return MyPushViewController() }),
+            controllerProvider: ControllerProvider.callback(builder: { return ExercisePushViewController() }),
             onDismiss: { vc in let _ = vc.navigationController?.popViewController(animated: true) }
          )
 
@@ -241,7 +233,11 @@ class EditWorkoutViewController: FormViewController {
       let workoutToUpdate = Workout(workoutId: workoutId, workoutName: workoutName,
                                     workoutDate: workoutDate, workoutNotes: workoutNotes,
                                     userWeight : nil)
-
+      do {
+         try WorkoutTable.updateExistingWorkout(workout: workoutToUpdate)
+      } catch {
+         print(error)
+      }
     
    }
     /*

@@ -118,6 +118,7 @@ public class AppDatabase {
             workoutExerciseSetTable.column(workoutExerciseSetDateColumn)
             workoutExerciseSetTable.column(workoutExerciseIdColumn)
             workoutExerciseSetTable.column(workoutIdColumn)
+            workoutExerciseSetTable.column(exerciseIdColumn)
             workoutExerciseSetTable.column(userIdColumn)
          })
       } catch {

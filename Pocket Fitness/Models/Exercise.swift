@@ -25,7 +25,11 @@ public class Exercise {
 
 }
 
-extension Exercise : Equatable {
+extension Exercise : Equatable, CustomStringConvertible {
+   public var description: String {
+      return exerciseName!
+   }
+
 
    public static func == (lhs: Exercise, rhs: Exercise) -> Bool {
       return lhs.exerciseId == rhs.exerciseId

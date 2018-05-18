@@ -16,24 +16,19 @@ public class WorkoutsTableViewModel {
          let workouts = try WorkoutTable.getAllWorkouts()
          let workoutTableViewModel = WorkoutsTableViewModel()
          for workout in workouts {
-            do {
-               let exercisesAmount = try ExerciseTable.getExerciseCountForWorkout(workout: workout)
-               let workoutTableViewCellModel = WorkoutTableViewCellModel()
-               if exercisesAmount != nil {
-                  workoutTableViewCellModel.setWorkoutInformation(workout: workout, labelText: "\(exercisesAmount!)")
-               } else {
-                  workoutTableViewCellModel.setWorkoutInformation(workout: workout, labelText: "0")
-               }
-               workoutTableViewModel.addWorkoutInformation(workoutInformation: workoutTableViewCellModel)
-            } catch {
-               throw ExerciseError.retrieveError
+            let exercisesAmount = try ExerciseTable.getExerciseCountForWorkout(workout: workout)
+            let workoutTableViewCellModel = WorkoutTableViewCellModel()
+            if exercisesAmount != nil {
+               workoutTableViewCellModel.setWorkoutInformation(workout: workout, labelText: "\(exercisesAmount!)")
+            } else {
+               workoutTableViewCellModel.setWorkoutInformation(workout: workout, labelText: "0")
             }
+            workoutTableViewModel.addWorkoutInformation(workoutInformation: workoutTableViewCellModel)
          }
          return workoutTableViewModel
       } catch {
          throw WorkoutError.retrievalError
       }
-      return nil
    }
 
 }

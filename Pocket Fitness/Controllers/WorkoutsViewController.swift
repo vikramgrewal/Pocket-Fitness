@@ -11,7 +11,6 @@ class WorkoutsViewController: UIViewController {
    var calendarView : UIView!
    var workoutsTableViewModel : WorkoutsTableViewModel?
    var calendarHeightConstraint : NSLayoutConstraint!
-   private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
          super.viewDidLoad()
@@ -36,21 +35,8 @@ class WorkoutsViewController: UIViewController {
       setUpSearchBar()
       setUpCalendar()
       setUpTableView()
-      setUpRefreshControl()
    }
 
-   func setUpRefreshControl() {
-      if #available(iOS 10.0, *) {
-         tableViewController.tableView.refreshControl = refreshControl
-      } else {
-         tableViewController.tableView.addSubview(refreshControl)
-      }
-      refreshControl.addTarget(self, action: #selector(refreshWorkouts), for: .valueChanged)
-   }
-
-   @objc private func refreshWorkouts() {
-      fetchData()
-   }
 
 
     
@@ -106,7 +92,7 @@ extension WorkoutsViewController : SwipeTableViewCellDelegate {
       searchController.hidesNavigationBarDuringPresentation = false
       // TODO: Implement search bar functionality enable if functional
 //      searchController.searchBar.sizeToFit()
-      // Sets the center of a navigation bar to the search bar
+      //Sets the center of a navigation bar to the search bar
 //      navigationItem.titleView = searchController.searchBar
       // This will enable the koyomi calendar constraints
 //      navigationItem.leftBarButtonItem = UIBarButtonItem(title: "C", style: .plain, target: self, action: nil)
@@ -484,7 +470,6 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
             let range = NSMakeRange(0, self.tableViewController.tableView.numberOfSections)
             let sections = NSIndexSet(indexesIn: range)
             self.tableViewController.tableView.reloadSections(sections as IndexSet, with: .automatic)
-            self.refreshControl.endRefreshing()
          } catch {
             // If any errors go wrong do not do anything except maybe alert the user
             print(error)
@@ -493,3 +478,5 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
    }
 
 }
+
+
