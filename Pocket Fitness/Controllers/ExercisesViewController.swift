@@ -14,6 +14,7 @@ class ExercisesViewController: UIViewController {
    var exercises : [Exercise]?
    var tableView : UITableView!
    var searchController: UISearchController!
+   private let refreshControl = UIRefreshControl()
 
    override func viewDidLoad() {
       setUpView()
@@ -31,6 +32,7 @@ class ExercisesViewController: UIViewController {
       view.backgroundColor = .white
       setUpSearchBar()
       setUpTableView()
+      setUpRefreshControl()
    }
 
    func setUpTableView()   {
@@ -60,8 +62,21 @@ class ExercisesViewController: UIViewController {
          let constraints = [bottom,trailing, leading, top]
          NSLayoutConstraint.activate(constraints)
       }
+      
 
+   }
 
+   func setUpRefreshControl() {
+      if #available(iOS 10.0, *) {
+         tableView.refreshControl = refreshControl
+      } else {
+         tableView.addSubview(refreshControl)
+      }
+      refreshControl.addTarget(self, action: #selector(refreshExercises), for: .valueChanged)
+   }
+
+   @objc private func refreshExercises() {
+      fetchData()
    }
 
 }
@@ -92,7 +107,8 @@ extension ExercisesViewController : UISearchBarDelegate, SwipeTableViewCellDeleg
                return
             }
             try ExerciseTable.deleteExercise(exercise: exerciseToDelete)
-            self.fetchData()
+            self.exercises?.remove(at: indexPath.row)
+            self.tableView.reloadData()
          } catch {
             print(error.localizedDescription)
          }
@@ -131,7 +147,22 @@ extension ExercisesViewController : UISearchBarDelegate, SwipeTableViewCellDeleg
 extension ExercisesViewController : UITableViewDelegate, UITableViewDataSource {
 
    public func fetchData() {
-
+      DispatchQueue.main.async {
+         do {
+            self.exercises = try ExerciseTable.getAllExercises()
+            let range = NSMakeRange(0, self.tableView.numberOfSections)
+            let sections = NSIndexSet(indexesIn: range)
+            self.tableView.reloadSections(sections as IndexSet, with: .automatic)
+            self.refreshControl.endRefreshing()
+         } catch {
+            print(error.localizedDescription)
+            self.exercises = [Exercise]()
+            let range = NSMakeRange(0, self.tableView.numberOfSections)
+            let sections = NSIndexSet(indexesIn: range)
+            self.tableView.reloadSections(sections as IndexSet, with: .automatic)
+            self.refreshControl.endRefreshing()
+         }
+      }
    }
 
    func numberOfSections(in tableView: UITableView) -> Int {

@@ -8,6 +8,7 @@ public enum WorkoutError : Error {
 }
 
 public class WorkoutTable {
+
    public static func insertNewWorkout() throws -> Workout  {
       guard let dbConnection = AppDatabase.getConnection() else {
          throw DatabaseError.databaseConnectionError
@@ -109,6 +110,33 @@ public class WorkoutTable {
                                                       workoutDateColumn <- workoutDate))
       } catch {
          throw WorkoutError.updateError
+      }
+   }
+
+   public static func deleteWorkout(workout : Workout) throws {
+
+      guard let dbConnection = AppDatabase.getConnection() else {
+         throw DatabaseError.databaseConnectionError
+      }
+
+      guard let userId = UserSession.getUserId() else {
+         throw UserError.userNotFound
+      }
+
+      guard let workoutId = workout.workoutId else {
+         throw ExerciseError.fieldsNotValid
+      }
+
+      let workoutTable = AppDatabase.workoutTable
+      let userIdColumn = AppDatabase.userIdColumn
+      let workoutIdColumn = AppDatabase.workoutIdColumn
+
+      let retrievedWorkout = workoutTable.filter(workoutIdColumn == workoutId
+                                    && userIdColumn == userId)
+      do {
+         try dbConnection.run(retrievedWorkout.delete())
+      } catch {
+         throw error
       }
    }
 }

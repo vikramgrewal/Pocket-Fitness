@@ -252,4 +252,33 @@ public class ExerciseTable {
          throw error
       }
    }
+
+   public static func getExerciseCountForWorkout(workout : Workout) -> Int?   {
+      guard let workoutId = workout.workoutId else {
+         return nil
+      }
+
+      guard let dbConnection = AppDatabase.getConnection() else {
+         return nil
+      }
+
+      guard let userId = UserSession.getUserId() else {
+         return nil
+      }
+
+      let exerciseTable = AppDatabase.exerciseTable
+      let userIdColumn = AppDatabase.userIdColumn
+      let workoutIdColumn = AppDatabase.workoutIdColumn
+
+      let exerciseQuery = exerciseTable.filter(userIdColumn == userId &&
+         workoutIdColumn == workoutId)
+
+      do {
+         let fetchedExercises = Array<SQLite.Row>(try dbConnection.prepare(exerciseQuery))
+         return fetchedExercises.count
+      } catch {
+         return nil
+      }
+
+   }
 }

@@ -169,7 +169,7 @@ class LoginViewController: UIViewController {
 
                // TODO: Change to try catch to give feedback to user and clean
                // database functions
-               guard let userToInsert = UserTable.insertUser(facebookId: facebookId)  else {
+               guard let userToInsert = UserTable.insertNewUser(facebookId: facebookId)  else {
                   return
                }
 

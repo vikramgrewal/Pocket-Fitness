@@ -19,8 +19,10 @@ public class UserTable {
       let createdAtColumn = AppDatabase.createdAtColumn
 
       do {
+
          let userQuery = userTable.filter(facebookIdColumn == facebookId)
          let fetchedUser = Array<SQLite.Row>(try dbConnection.prepare(userQuery))
+
          guard fetchedUser.count == 1 else {
             return nil
          }
@@ -44,7 +46,8 @@ public class UserTable {
 
    }
 
-   public static func insertUser(facebookId : String) -> User? {
+   public static func insertNewUser(facebookId : String) -> User? {
+
       guard let dbConnection = AppDatabase.getConnection() else {
          return nil
       }
@@ -68,7 +71,8 @@ public class UserTable {
    }
 
    public static func getCurrentUser() throws -> User  {
-      guard let dbConnection = try AppDatabase.getConnection() else {
+
+      guard let dbConnection = AppDatabase.getConnection() else {
          throw DatabaseError.databaseConnectionError
       }
 
@@ -88,6 +92,7 @@ public class UserTable {
 
       let userQuery = userTable.filter(userIdColumn == userId)
       let fetchedUser = Array<SQLite.Row>(try dbConnection.prepare(userQuery))
+
       guard fetchedUser.count == 1 else {
          throw UserError.userNotFound
       }
@@ -102,7 +107,6 @@ public class UserTable {
       let user = User(userId : userId, facebookId: facebookId, firstName: firstName,
                       lastName: lastName, email: email, bodyWeight: weight, createdAt: createdAt)
 
-
       return user
    }
 
@@ -114,7 +118,6 @@ public class UserTable {
       guard let userId = UserSession.getUserId() else {
          throw UserError.userNotFound
       }
-
 
       let userTable = AppDatabase.userTable
       let userIdColumn = AppDatabase.userIdColumn

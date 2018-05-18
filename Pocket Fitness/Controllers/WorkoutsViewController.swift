@@ -1,7 +1,5 @@
 import UIKit
 import Koyomi
-// TODO: Remove dependency of sqlite from view controller and put into database models
-import SQLite
 import SwipeCellKit
 
 class WorkoutsViewController: UIViewController {
@@ -13,11 +11,11 @@ class WorkoutsViewController: UIViewController {
    var calendarView : UIView!
    var workoutsTableViewModel : WorkoutsTableViewModel?
    var calendarHeightConstraint : NSLayoutConstraint!
+   private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
          super.viewDidLoad()
          setUpView()
-//         fetchData()
       // Do any additional setup after loading the view.
     }
 
@@ -25,7 +23,7 @@ class WorkoutsViewController: UIViewController {
       if let index = tableViewController.tableView.indexPathForSelectedRow{
          tableViewController.tableView.deselectRow(at: index, animated: true)
       }
-//      fetchData()
+      fetchData()
    }
 
     override func didReceiveMemoryWarning() {
@@ -38,7 +36,23 @@ class WorkoutsViewController: UIViewController {
       setUpSearchBar()
       setUpCalendar()
       setUpTableView()
+      setUpRefreshControl()
    }
+
+   func setUpRefreshControl() {
+      if #available(iOS 10.0, *) {
+         tableViewController.tableView.refreshControl = refreshControl
+      } else {
+         tableViewController.tableView.addSubview(refreshControl)
+      }
+      refreshControl.addTarget(self, action: #selector(refreshWorkouts), for: .valueChanged)
+   }
+
+   @objc private func refreshWorkouts() {
+      fetchData()
+   }
+
+
     
 
     /*
@@ -54,7 +68,32 @@ class WorkoutsViewController: UIViewController {
 }
 
 // TODO: Implement search bar functionality and adapt search bar delegate
-extension WorkoutsViewController {
+extension WorkoutsViewController : SwipeTableViewCellDelegate {
+
+   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+
+   guard orientation == .right else { return nil }
+
+      let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+         do {
+            guard let workoutTableViewCellModel = self.workoutsTableViewModel?.workoutTableViewCellsModel![indexPath.row] else {
+               return
+            }
+
+            guard let workout = workoutTableViewCellModel.workout else {
+               return
+            }
+
+            try WorkoutTable.deleteWorkout(workout: workout)
+            self.workoutsTableViewModel?.workoutTableViewCellsModel?.remove(at: indexPath.row)
+            self.tableViewController.tableView.reloadData()
+         } catch {
+            print(error.localizedDescription)
+         }
+      }
+
+      return [deleteAction]
+   }
 
    func setUpSearchBar()   {
       // TODO: Implement search bar and search functionality of workouts
@@ -77,20 +116,21 @@ extension WorkoutsViewController {
    // Action for right bar button item to add a new workout to database
    @objc func addNewWorkout() {
 
-//      // Perform off main thread to ensure no freezes happen
-//      DispatchQueue.main.async{
-//         // Create a new workout in the database and pass that workout object to next view controller
-//         guard let workout = Workout.insertNewWorkout() else {
-//            // TODO: Change to try catch for easier error handling and user feedback
-//            return
-//         }
-//
-//         // Instantiate edit workout view controller with workout, so user
-//         // can edit workout without having to load. Possibly put indicator view
-//         let editWorkoutVC = EditWorkoutViewController()
-//         editWorkoutVC.workout = workout
-//         self.navigationController?.pushViewController(editWorkoutVC, animated: true)
-//      }
+      // Perform off main thread to ensure no freezes happen
+      DispatchQueue.main.async{
+         // Create a new workout in the database and pass that workout object to next view controller
+         do {
+            let workout = try WorkoutTable.insertNewWorkout()
+
+            // Instantiate edit workout view controller with workout, so user
+            // can edit workout without having to load. Possibly put indicator view
+            let editWorkoutVC = EditWorkoutViewController()
+            editWorkoutVC.workout = workout
+            self.navigationController?.pushViewController(editWorkoutVC, animated: true)
+         } catch {
+            print(error)
+         }
+      }
       
    }
 
@@ -270,7 +310,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
    }
 
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      guard let workoutCount = workoutsTableViewModel?.workouts?.count else {
+      guard let workoutCount = workoutsTableViewModel?.workoutTableViewCellsModel?.count else {
          return 0
       }
       return workoutCount
@@ -279,8 +319,12 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
    // Instantiates view controller off main thread with workout data and pushes
    // to navigationcontroller
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+      // Access data model for tableview cell
+      let workoutTableViewCellModel = workoutsTableViewModel?.workoutTableViewCellsModel![indexPath.row]
+
       DispatchQueue.main.async(execute: {
-         guard let workout = self.workoutsTableViewModel?.workouts?[indexPath.row] else {
+         guard let workout = workoutTableViewCellModel?.workout else {
             return
          }
          let editWorkoutVC = EditWorkoutViewController()
@@ -294,33 +338,15 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       return 70.0
    }
 
-   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-
-      guard orientation == .right else { return nil }
-
-      let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-         do {
-//            guard let workoutToDelete = self.workouts?[indexPath.row] else {
-//               return
-//            }
-            self.view.window?.isUserInteractionEnabled = false
-//            try Exercise.deleteExercise(exercise: exerciseToDelete)
-//            self.fetchData()
-            self.view.window?.isUserInteractionEnabled = true
-         } catch {
-            self.view.window?.isUserInteractionEnabled = true
-            print(error.localizedDescription)
-         }
-      }
-
-      return [deleteAction]
-   }
-
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       // Instantiate tableview cell with a default style
-      let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+      let cell = SwipeTableViewCell(style: .default, reuseIdentifier: nil)
       // Handle all cell properties below
       cell.backgroundColor = .white
+      cell.delegate = self
+
+      // Connect data model for tableview cell
+      let workoutTableViewCellModel = workoutsTableViewModel?.workoutTableViewCellsModel![indexPath.row]
 
       // Instantiate a uiview to hold the date label for each cell
       let dateView = UIView()
@@ -391,7 +417,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       let workoutLabel = UILabel()
       // Set all workout label properties below
       workoutLabel.backgroundColor = .clear
-      workoutLabel.text = workoutsTableViewModel?.workouts![indexPath.row].workoutName
+      workoutLabel.text = workoutTableViewCellModel?.workout?.workoutName ?? ""
       workoutLabel.textAlignment = .left
       workoutLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 17.0)
       // Set to false since programatically creating view
@@ -408,7 +434,7 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       let workoutSetsLabel = UILabel()
       // Set all workout sets label properties below
       workoutSetsLabel.backgroundColor = .clear
-      let exercisesLabel = workoutsTableViewModel?.setLabels![indexPath.row] ?? "0"
+      let exercisesLabel = workoutTableViewCellModel?.labelText ?? "0"
       workoutSetsLabel.text = "\(exercisesLabel) Exercises"
       workoutSetsLabel.textAlignment = .left
       workoutSetsLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 14.0)
@@ -423,18 +449,24 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       workoutSetsLabel.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
       workoutSetsLabel.topAnchor.constraint(equalTo: workoutLabel.bottomAnchor).isActive = true
 
-      // TODO: Edit to custom data structure
-      if let workoutDate = workoutsTableViewModel?.workouts?[indexPath.row].workoutDate {
+      // Check if our workout date is a nil value before changing the label
+      if let workoutDate = workoutTableViewCellModel?.workout?.workoutDate {
+
+         // Format the date into three sections for our month, day, and year labels
          let dateFormatter = DateFormatter()
+         // Represent day in 2 digit date
          dateFormatter.dateFormat = "dd"
          let dayString = dateFormatter.string(from: workoutDate)
 
+         // Represent month in 3 letters
          dateFormatter.dateFormat = "MMMM"
          let monthString = dateFormatter.string(from: workoutDate)
 
+         // Represent year in 4 digits
          dateFormatter.dateFormat = "YYYY"
          let yearString = dateFormatter.string(from: workoutDate)
 
+         // Set all our labels to the correct label values
          dayLabel.text = dayString
          monthLabel.text = monthString
          yearLabel.text = yearString
@@ -444,24 +476,20 @@ extension WorkoutsViewController : UITableViewDelegate, UITableViewDataSource {
       return cell
    }
 
-   //   func fetchData() {
-   //      workoutsTableViewModel = WorkoutsTableViewModel()
-   //      workouts = Workout.getAllWorkouts()
-   //      guard workouts != nil else {
-   //         tableViewController.tableView.reloadData()
-   //         return
-   //      }
-   //      workoutsTableViewModel?.workouts = workouts
-   //      for workout in workouts! {
-   //         guard let workoutId = workout.workoutId else {
-   //            return
-   //         }
-   //         guard let exercisesAmount = WorkoutExercise.getWorkoutExercisesForWorkoutId(workoutId: workoutId)  else {
-   //            return
-   //         }
-   //         workoutsTableViewModel?.setLabels?.append("\(exercisesAmount)")
-   //      }
-   //      tableViewController.tableView.reloadData()
-   //   }
+   func fetchData() {
+      DispatchQueue.main.async {
+         do {
+            // Fetch our data model from our sqlite database off main thread
+            self.workoutsTableViewModel = try WorkoutsTableViewModel.getWorkoutTableViewModel()
+            let range = NSMakeRange(0, self.tableViewController.tableView.numberOfSections)
+            let sections = NSIndexSet(indexesIn: range)
+            self.tableViewController.tableView.reloadSections(sections as IndexSet, with: .automatic)
+            self.refreshControl.endRefreshing()
+         } catch {
+            // If any errors go wrong do not do anything except maybe alert the user
+            print(error)
+         }
+      }
+   }
 
 }
