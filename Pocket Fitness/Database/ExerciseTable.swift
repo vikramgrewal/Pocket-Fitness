@@ -253,32 +253,51 @@ public class ExerciseTable {
       }
    }
 
-   public static func getExerciseCountForWorkout(workout : Workout) -> Int?   {
-      guard let workoutId = workout.workoutId else {
-         return nil
-      }
-
+   public static func getExerciseForId(exerciseId : Int64) throws -> Exercise?  {
       guard let dbConnection = AppDatabase.getConnection() else {
-         return nil
+         throw DatabaseError.databaseConnectionError
       }
 
       guard let userId = UserSession.getUserId() else {
-         return nil
+         throw UserError.userNotFound
       }
-
+      
       let exerciseTable = AppDatabase.exerciseTable
+      let exerciseNameColumn = AppDatabase.exerciseNameColumn
       let userIdColumn = AppDatabase.userIdColumn
-      let workoutIdColumn = AppDatabase.workoutIdColumn
+      let exerciseIdColumn = AppDatabase.exerciseIdColumn
+      let exerciseMuscleColumn = AppDatabase.exerciseMuscleColumn
+      let exerciseTypeColumn = AppDatabase.exerciseTypeColumn
 
       let exerciseQuery = exerciseTable.filter(userIdColumn == userId &&
-         workoutIdColumn == workoutId)
+      exerciseIdColumn == exerciseId)
 
       do {
+
          let fetchedExercises = Array<SQLite.Row>(try dbConnection.prepare(exerciseQuery))
-         return fetchedExercises.count
+
+         guard fetchedExercises.count == 1 else {
+            throw ExerciseError.retrieveError
+         }
+
+         let exerciseId = try fetchedExercises[0][exerciseIdColumn]
+         let exerciseName = try fetchedExercises[0][exerciseNameColumn]
+         let exerciseMuscle = try fetchedExercises[0][exerciseMuscleColumn]
+         let exerciseType = try fetchedExercises[0][exerciseTypeColumn]
+         let exercise = Exercise()
+         exercise.exerciseId = exerciseId
+         exercise.exerciseName = exerciseName
+         exercise.exerciseMuscle = exerciseMuscle
+         exercise.exerciseType = exerciseType
+
+         return exercise
+
       } catch {
-         return nil
+         throw ExerciseError.retrieveError
       }
 
    }
+
 }
+
+
