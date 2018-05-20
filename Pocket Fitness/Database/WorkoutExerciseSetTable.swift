@@ -56,7 +56,7 @@ public class WorkoutExerciseSetTable {
       let workoutExerciseSetWeightColumn = AppDatabase.workoutExerciseSetWeightColumn
 
       let getWorkoutExerciseSetsQuery = workoutExerciseSetTable.filter(userIdColumn == userId
-         && workoutExerciseIdColumn == workoutExerciseIdColumn).order(workoutExerciseSetDateColumn.asc)
+         && workoutExerciseIdColumn == workoutExerciseId).order(workoutExerciseSetDateColumn.asc)
       do {
          for workoutExerciseSet in try dbConnection.prepare(getWorkoutExerciseSetsQuery) {
             do {
@@ -83,7 +83,41 @@ public class WorkoutExerciseSetTable {
       } catch {
          throw WorkoutExerciseSetError.retrievalError
       }
+
       return workoutExerciseSets
+   }
+
+   public static func updateExistingWorkoutSet(workoutExerciseSetId : Int64, weightLifted : Double,
+                                               reps : Int) -> Bool {
+
+      guard let dbConnection = AppDatabase.getConnection() else {
+         return false
+      }
+
+      guard let userId = UserSession.getUserId() else {
+         return false
+      }
+
+      let workoutExerciseSetWeight = weightLifted
+      let workoutExerciseSetReps = reps
+
+      let workoutExerciseSetTable = AppDatabase.workoutExerciseSetTable
+      let userIdColumn = AppDatabase.userIdColumn
+      let workoutExerciseSetIdColumn = AppDatabase.workoutExerciseSetIdColumn
+      let workoutExerciseSetRepsColumn = AppDatabase.workoutExerciseSetRepsColumn
+      let workoutExerciseSetWeightColumn = AppDatabase.workoutExerciseSetWeightColumn
+
+
+      let retrievedWorkoutExerciseSet = workoutExerciseSetTable.filter(userIdColumn == userId
+      && workoutExerciseSetIdColumn == workoutExerciseSetId)
+      do {
+         try dbConnection.run(retrievedWorkoutExerciseSet.update(
+            workoutExerciseSetWeightColumn <- workoutExerciseSetWeight,
+            workoutExerciseSetRepsColumn <- workoutExerciseSetReps))
+         return true
+      } catch {
+         return false
+      }
    }
 
 }

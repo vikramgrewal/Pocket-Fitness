@@ -103,16 +103,12 @@ class EditWorkoutViewController: FormViewController {
 
    func setUpFormSections()   {
       guard let workoutFormSections = workoutFormModel?.workoutFormSectionModels else {
-         print("Something went wrong")
          return
       }
 
       guard let workoutExercisesSection = form.sectionBy(tag: "workoutExercisesSection")   else {
-         print("Could not find form")
          return
       }
-
-      workoutExercisesSection.removeAll()
 
       for workoutFormSection in workoutFormSections {
 
@@ -148,28 +144,13 @@ class EditWorkoutViewController: FormViewController {
             cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
             cell.detailTextLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
          }
-//            .onChange { row in
-//            if let exerciseId = row.value?.exerciseId {
-//               do {
-//                  guard let workoutId = self.workout?.workoutId else {
-//                     print("Whoops something went wrong")
-//                     return
-//                  }
-//                  try WorkoutExerciseTable.insertNewWorkoutExercise(workoutId: workoutId,
-//                                                                    exerciseId: exerciseId)
-//                  row.cell.isUserInteractionEnabled = false
-//               } catch {
-//                  print(error)
-//               }
-//
-//            }
-//         }
 
          workoutExerciseSection.append(exerciseNameRow)
 
          guard let workoutExerciseSets = workoutFormSection.workoutExerciseSets else {
             return
          }
+
 
          for workoutExerciseSet in workoutExerciseSets {
             let workoutExerciseSetRow = SplitRow<DecimalRow, IntRow>() {
@@ -178,19 +159,20 @@ class EditWorkoutViewController: FormViewController {
                   $0.placeholder = "e.g. 14 lbs"
                   $0.formatter = DecimalFormatter()
                   $0.useFormatterDuringInput = true
-                  $0.value = workoutExerciseSet.workoutExerciseSetWeight ?? nil
+//                  $0.value = workoutExerciseSet.workoutExerciseSetWeight ?? nil
                }
 
                $0.rowRight = IntRow(){
                   $0.placeholder = "e.g. 10 reps"
-                  $0.value = workoutExerciseSet.workoutExerciseSetReps ?? nil
+//                  $0.value = workoutExerciseSet.workoutExerciseSetReps ?? nil
                }
                $0.rowLeftPercentage = 0.5
                $0.rowLeft?.placeholder = "e.g. 14 lbs"
                $0.rowRight?.placeholder = "e.g. 5 reps"
-            }
+               }
 
             workoutExerciseSection.append(workoutExerciseSetRow)
+
          }
 
          let addButton = ButtonRow() {
@@ -226,50 +208,48 @@ class EditWorkoutViewController: FormViewController {
                   return
                }
 
-               print(workoutExerciseId)
-               print(exerciseId)
-
                do {
                   guard let workoutExerciseSetId = try WorkoutExerciseSetTable.insertNewWorkoutSet(
                      workoutId: workoutId, workoutExerciseId: workoutExerciseId, exerciseId: exerciseId) else {
                         return
                   }
-                  print(workoutExerciseSetId)
+
+
+               guard let indexPath = row.indexPath else {
+                  return
+               }
+
+               guard let workoutExerciseSectionTag = workoutExerciseSection.tag else {
+                  return
+               }
+
+               guard let indexOfRow = row.section?.index(of: row) else {
+                  return
+               }
+
+               let workoutExerciseSet = SplitRow<DecimalRow, IntRow>() {
+                  $0.rowLeft = DecimalRow(){
+                     $0.placeholder = "e.g. 14 lbs"
+                     $0.formatter = DecimalFormatter()
+                     $0.useFormatterDuringInput = true
+                  }
+
+                  $0.rowRight = IntRow(){
+                     $0.placeholder = "e.g. 10 reps"
+                  }
+                  $0.tag = "\(workoutExerciseSetId)"
+                  $0.rowLeftPercentage = 0.5
+                  $0.rowLeft?.placeholder = "e.g. 14 lbs"
+                  $0.rowRight?.placeholder = "e.g. 5 reps"
+               }
+
+               workoutExerciseSection.insert(workoutExerciseSet, at: indexOfRow)
+
+               self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+
                } catch {
                   print(error)
                }
-
-
-//               guard let indexPath = row.indexPath else {
-//                  return
-//               }
-//
-//               guard let workoutExerciseSectionTag = workoutExerciseSection.tag else {
-//                  return
-//               }
-//
-//               guard let indexOfRow = row.section?.index(of: row) else {
-//                  return
-//               }
-//
-//               let workoutExerciseSet = SplitRow<DecimalRow, IntRow>() {
-//                  $0.rowLeft = DecimalRow(){
-//                     $0.placeholder = "e.g. 14 lbs"
-//                     $0.formatter = DecimalFormatter()
-//                     $0.useFormatterDuringInput = true
-//                  }
-//
-//                  $0.rowRight = IntRow(){
-//                     $0.placeholder = "e.g. 10 reps"
-//                  }
-//                  $0.rowLeftPercentage = 0.5
-//                  $0.rowLeft?.placeholder = "e.g. 14 lbs"
-//                  $0.rowRight?.placeholder = "e.g. 5 reps"
-//               }
-//
-//               workoutExerciseSection.insert(workoutExerciseSet, at: indexOfRow)
-//
-//               self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
 
          }
 
@@ -310,10 +290,7 @@ class EditWorkoutViewController: FormViewController {
       }
 
       // Write new exercise to database using some model
-      let newExerciseId = UUID().uuidString
-
       let newExerciseSection = Section() {
-         $0.tag = newExerciseId
          $0.header?.height = { 0 }
       }
 
@@ -338,11 +315,21 @@ class EditWorkoutViewController: FormViewController {
             if let exerciseId = row.value?.exerciseId {
                do {
                   guard let workoutId = self.workout?.workoutId else {
-                     print("Whoops something went wrong")
                      return
                   }
-                  try WorkoutExerciseTable.insertNewWorkoutExercise(workoutId: workoutId,
+                  let rowid = try WorkoutExerciseTable.insertNewWorkoutExercise(workoutId: workoutId,
                                                                 exerciseId: exerciseId)
+
+                  guard let workoutExerciseSection = row.section else {
+                     return
+                  }
+
+                  guard let workoutExerciseId = rowid?.workoutExerciseId else {
+                     return
+                  }
+
+                  workoutExerciseSection.tag = "\(workoutExerciseId)"
+
                   row.cell.isUserInteractionEnabled = false
                } catch {
                   print(error)
@@ -357,53 +344,75 @@ class EditWorkoutViewController: FormViewController {
             cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
             cell.textLabel?.textColor = .white
             cell.backgroundColor = UIColor(red: 255.0/255.0, green: 182.0/255.0, blue: 55.0/255.0, alpha: 1.0)
-         }.onCellSelection{ cell, row in
+         }
+         .onCellSelection{ cell, row in
+
+            guard let workoutId = self.workout?.workoutId else  {
+               return
+            }
 
             guard var workoutExerciseSection : Section = row.section else {
                return
             }
 
-            guard let indexPath = row.indexPath else {
+            guard let workoutExerciseTag = workoutExerciseSection.tag else {
                return
             }
 
-            guard let workoutExerciseSectionTag = workoutExerciseSection.tag else {
+            guard let workoutExerciseId = Int64(workoutExerciseTag) else {
                return
             }
 
-            guard let indexOfRow = row.section?.index(of: row) else {
+            guard let exerciseRow = workoutExerciseSection.first as? PushRow<Exercise> else {
                return
             }
 
-            guard let firstRow = workoutExerciseSection.first as? PushRow<String> else {
+            guard let exerciseId = exerciseRow.value?.exerciseId else {
                return
             }
 
-            guard let exerciseValue = firstRow.value else {
-               let alertController = UIAlertController.init(title: "Warning", message: "Select an exercise!", preferredStyle: .alert)
-               alertController.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
-               self.present(alertController, animated: true, completion: nil)
-               return
-            }
-
-            let workoutExerciseSet = SplitRow<DecimalRow, IntRow>() {
-               $0.rowLeft = DecimalRow(){
-                  $0.placeholder = "e.g. 14 lbs"
-                  $0.formatter = DecimalFormatter()
-                  $0.useFormatterDuringInput = true
+            do {
+               guard let workoutExerciseSetId = try WorkoutExerciseSetTable.insertNewWorkoutSet(
+                  workoutId: workoutId, workoutExerciseId: workoutExerciseId, exerciseId: exerciseId) else {
+                     return
                }
 
-               $0.rowRight = IntRow(){
-                  $0.placeholder = "e.g. 10 reps"
+
+               guard let indexPath = row.indexPath else {
+                  return
                }
-               $0.rowLeftPercentage = 0.5
-               $0.rowLeft?.placeholder = "e.g. 14 lbs"
-               $0.rowRight?.placeholder = "e.g. 5 reps"
+
+               guard let workoutExerciseSectionTag = workoutExerciseSection.tag else {
+                  return
+               }
+
+               guard let indexOfRow = row.section?.index(of: row) else {
+                  return
+               }
+
+               let workoutExerciseSet = SplitRow<DecimalRow, IntRow>() {
+                  $0.rowLeft = DecimalRow(){
+                     $0.placeholder = "e.g. 14 lbs"
+                     $0.formatter = DecimalFormatter()
+                     $0.useFormatterDuringInput = true
+                  }
+
+                  $0.rowRight = IntRow(){
+                     $0.placeholder = "e.g. 10 reps"
+                  }
+                  $0.tag = "\(workoutExerciseSetId)"
+                  $0.rowLeftPercentage = 0.5
+                  $0.rowLeft?.placeholder = "e.g. 14 lbs"
+                  $0.rowRight?.placeholder = "e.g. 5 reps"
+               }
+
+               workoutExerciseSection.insert(workoutExerciseSet, at: indexOfRow)
+
+               self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+
+            } catch {
+               print(error)
             }
-
-            workoutExerciseSection.insert(workoutExerciseSet, at: indexOfRow)
-
-            self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
 
       }
 

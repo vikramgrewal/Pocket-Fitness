@@ -75,47 +75,47 @@ class EditProfileViewController: FormViewController {
    }
 
    @objc func saveInformation() {
-//         view.endEditing(true)
-//
-//         guard let firstNameRow = form.rowBy(tag: "firstNameRow") as? TextRow,
-//         let lastNameRow = form.rowBy(tag: "lastNameRow") as? TextRow,
-//         let emailRow = form.rowBy(tag: "emailRow") as? TextRow else {
-//            return
-//         }
-//
-//         let firstName = firstNameRow.value == nil ? "" : firstNameRow.value!
-//         let lastName = lastNameRow.value == nil ? "" : lastNameRow.value!
-//         let email = emailRow.value == nil ? "" : emailRow.value!
-//
-//         let user = User(userId: nil, facebookId: nil, firstName: firstName,
-//                         lastName: lastName, email: email, bodyWeight: nil, createdAt: nil)
-//         do {
-//            try UserTable.updateExistingUser(user: user)
-//         } catch {
-//            print(error.localizedDescription)
-//         }
+         view.endEditing(true)
+
+         guard let firstNameRow = form.rowBy(tag: "firstNameRow") as? TextRow,
+         let lastNameRow = form.rowBy(tag: "lastNameRow") as? TextRow,
+         let emailRow = form.rowBy(tag: "emailRow") as? TextRow else {
+            return
+         }
+
+         let firstName = firstNameRow.value == nil ? "" : firstNameRow.value!
+         let lastName = lastNameRow.value == nil ? "" : lastNameRow.value!
+         let email = emailRow.value == nil ? "" : emailRow.value!
+
+         let user = User(userId: nil, facebookId: nil, firstName: firstName,
+                         lastName: lastName, email: email, bodyWeight: nil, createdAt: nil)
+         do {
+            try UserTable.updateExistingUser(user: user)
+         } catch {
+            print(error.localizedDescription)
+         }
 
    }
 
    func fetchUserInfo() {
-//      do {
-//         let user = try UserTable.getCurrentUser()
-//         let firstName = user.firstName == nil ? "" : user.firstName!
-//         let lastName = user.lastName == nil ? "" : user.lastName!
-//         let email = user.email == nil ? "" : user.email!
-//
-//         guard let firstNameRow = form.rowBy(tag: "firstNameRow") as? TextRow,
-//            let lastNameRow = form.rowBy(tag: "lastNameRow") as? TextRow,
-//            let emailRow = form.rowBy(tag: "emailRow") as? TextRow else {
-//               return
-//         }
-//
-//         firstNameRow.value = firstName
-//         lastNameRow.value = lastName
-//         emailRow.value = email
-//      } catch {
-//         print(error.localizedDescription)
-//      }
+      do {
+         let user = try UserTable.getCurrentUser()
+         let firstName = user.firstName == nil ? "" : user.firstName!
+         let lastName = user.lastName == nil ? "" : user.lastName!
+         let email = user.email == nil ? "" : user.email!
+
+         guard let firstNameRow = form.rowBy(tag: "firstNameRow") as? TextRow,
+            let lastNameRow = form.rowBy(tag: "lastNameRow") as? TextRow,
+            let emailRow = form.rowBy(tag: "emailRow") as? TextRow else {
+               return
+         }
+
+         firstNameRow.value = firstName
+         lastNameRow.value = lastName
+         emailRow.value = email
+      } catch {
+         print(error.localizedDescription)
+      }
    }
     
 
