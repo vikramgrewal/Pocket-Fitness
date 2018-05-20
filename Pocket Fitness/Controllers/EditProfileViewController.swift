@@ -90,7 +90,7 @@ class EditProfileViewController: FormViewController {
          let user = User(userId: nil, facebookId: nil, firstName: firstName,
                          lastName: lastName, email: email, bodyWeight: nil, createdAt: nil)
          do {
-            try User.updateExistingUser(user: user)
+            try UserTable.updateExistingUser(user: user)
          } catch {
             print(error.localizedDescription)
          }
@@ -99,7 +99,7 @@ class EditProfileViewController: FormViewController {
 
    func fetchUserInfo() {
       do {
-         let user = try User.getCurrentUser()
+         let user = try UserTable.getCurrentUser()
          let firstName = user.firstName == nil ? "" : user.firstName!
          let lastName = user.lastName == nil ? "" : user.lastName!
          let email = user.email == nil ? "" : user.email!

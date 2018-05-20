@@ -27,11 +27,7 @@ let kSecMatchLimitOneValue = NSString(format: kSecMatchLimitOne)
 
 public class KeychainController: NSObject {
 
-   /**
-    * Exposed methods to perform save and load queries.
-    */
-
-   public class func saveToken(token: NSString) {
+  public class func saveToken(token: NSString) {
       self.save(service: tokenKey as String as NSString, data: token as String as NSString)
    }
    public class func saveID(ID: NSString) {
