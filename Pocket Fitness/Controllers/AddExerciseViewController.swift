@@ -7,7 +7,6 @@ class AddExerciseViewController: FormViewController {
 
     override func viewDidLoad() {
       super.viewDidLoad()
-      setUpNavigation()
       setView()
       // Do any additional setup after loading the view.
     }
@@ -17,26 +16,30 @@ class AddExerciseViewController: FormViewController {
         // Dispose of any resources that can be recreated.
     }
 
-   func setUpNavigation()  {
-      navigationController?.navigationBar.barStyle = .default
 
-      let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: nil)
-      navigationItem.rightBarButtonItem = saveButton
-      let rightBarOffset = UIOffset(horizontal: -16.0, vertical: 0.0)
-      navigationItem.rightBarButtonItem?.setTitlePositionAdjustment(rightBarOffset, for: .default)
-
-      navigationItem.rightBarButtonItem?.action = #selector(saveExercise)
-   }
 
    func setView() {
       view.backgroundColor = .white
-      setForm()
       navigationAccessoryView.tintColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
+      setUpNavigation()
+      setForm()
+      // Check if an exercise was passed and if so add the delete button to the view
       guard exercise != nil else {
-         exercise = Exercise(exerciseName: nil, exerciseType: nil, exerciseMuscle: nil)
+         exercise = Exercise()
          return
       }
       addDeleteButton()
+   }
+
+   // Set up navigation bar buttons
+   func setUpNavigation()  {
+      navigationController?.navigationBar.barStyle = .default
+      // Add navigation bar button with save display to save exercise
+      let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveExercise))
+      navigationItem.rightBarButtonItem = saveButton
+      // Set offset from end to ensure easy pressing
+      let rightBarOffset = UIOffset(horizontal: -16.0, vertical: 0.0)
+      navigationItem.rightBarButtonItem?.setTitlePositionAdjustment(rightBarOffset, for: .default)
    }
 
    func setForm() {
@@ -88,12 +91,17 @@ class AddExerciseViewController: FormViewController {
    }
 
    func addDeleteButton()  {
+      // Create delete button for exercise
       let deleteButton = UIButton()
+      // Set all properties for delete button below
       deleteButton.addTarget(self, action: #selector(deleteExercise), for: .touchUpInside)
       deleteButton.setTitle("Delete Exercise", for: .normal)
       deleteButton.backgroundColor = UIColor(red: 246.0/255.0, green: 53.0/255.0, blue: 76.0/255.0, alpha: 1.0)
-      view.addSubview(deleteButton)
+      // Set property to false since programatically created
       deleteButton.translatesAutoresizingMaskIntoConstraints = false
+      // Add delete button to view
+      view.addSubview(deleteButton)
+      // Set all constraints below
       if #available(iOS 11.0, *) {
          let bottom = deleteButton.bottomAnchor.constraint(equalTo:
             view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
@@ -124,6 +132,7 @@ class AddExerciseViewController: FormViewController {
 
    @objc func saveExercise() {
 
+      // Check and validate all fields before writing to database
       let exerciseNameRow : TextRow? = form.rowBy(tag: "exerciseNameRow")
       let exerciseTypeRow : PushRow<String>? = form.rowBy(tag: "exerciseTypeRow")
       let exerciseMuscleRow : TextRow? = form.rowBy(tag: "exerciseMuscleRow")
@@ -149,7 +158,7 @@ class AddExerciseViewController: FormViewController {
          // saved. Pop this view controller off the navigation and go to the
          // previous screem.
          do {
-            try Exercise.updateExistingExercise(exercise: exercise!)
+            try ExerciseTable.updateExistingExercise(exercise: exercise!)
             navigationController?.popViewController(animated: true)
          } catch {
             print(error.localizedDescription)
@@ -157,13 +166,11 @@ class AddExerciseViewController: FormViewController {
          
       }  else {
          do {
-            try Exercise.saveNewExercise(exercise: exercise!)
+            try ExerciseTable.saveNewExercise(exercise: exercise!)
             navigationController?.popViewController(animated: true)
          } catch {
             print(error.localizedDescription)
          }
-         // TODO: Check to see if all fields are valid. Insert this new exercise
-         // into the database.
       }
    }
 
@@ -173,7 +180,7 @@ class AddExerciseViewController: FormViewController {
       // the data in the previous controller. If it is not, that means it is the push view
       // controller, so reload that data, so the user can make the correct choice
       do {
-         try Exercise.deleteExercise(exercise: exercise!)
+         try ExerciseTable.deleteExercise(exercise: exercise!)
          navigationController?.popViewController(animated: true)
       } catch {
          print(error.localizedDescription)

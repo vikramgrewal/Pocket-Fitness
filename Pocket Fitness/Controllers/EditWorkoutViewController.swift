@@ -1,23 +1,27 @@
-//
-//  EditWorkoutViewController.swift
-//  Pocket Fitness
-//
-//  Created by Vikram Work/School on 5/1/18.
-//  Copyright © 2018 Vikram Work/School. All rights reserved.
-//
-
 import UIKit
 import Eureka
 
 class EditWorkoutViewController: FormViewController {
 
    var workout : Workout?
+   var workoutFormModel : WorkoutFormModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
          setUpView()
         // Do any additional setup after loading the view.
+
+      guard let workoutId = workout?.workoutId else {
+         return
+      }
+
+      do {
+         workoutFormModel = WorkoutFormModel(workoutId: workoutId)
+         setUpFormSections()
+      } catch {
+         print(error)
+      }
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,9 +78,10 @@ class EditWorkoutViewController: FormViewController {
             $0.title = "Workout Notes"
             $0.placeholder = "e.g pain in left hip during squats"
             $0.tag = "workoutNotesRow"
+
             if let workoutNotes = workout?.workoutNotes {
                $0.value = workoutNotes
-            }else {
+            }  else {
                $0.value = nil
             }
 
@@ -93,6 +98,166 @@ class EditWorkoutViewController: FormViewController {
       }
 
       tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 64, right: 0)
+
+   }
+
+   func setUpFormSections()   {
+      guard let workoutFormSections = workoutFormModel?.workoutFormSectionModels else {
+         return
+      }
+
+      guard let workoutExercisesSection = form.sectionBy(tag: "workoutExercisesSection")   else {
+         return
+      }
+
+      for workoutFormSection in workoutFormSections {
+
+         guard let workoutExercise = workoutFormSection.workoutExercise else {
+            return
+         }
+
+         guard let exercise = workoutFormSection.exercise else {
+            return
+         }
+
+         guard let workoutExerciseId = workoutExercise.workoutExerciseId else {
+            return
+         }
+
+         let workoutExerciseSection = Section() {
+            $0.tag = "\(workoutExerciseId)"
+            $0.header?.height = { 0 }
+         }
+
+         form.append(workoutExerciseSection)
+
+         let exerciseNameRow = PushRow<Exercise>()   {
+            $0.title = "Exercise Name"
+            $0.value = exercise
+            $0.cell.isUserInteractionEnabled = false
+
+         }.onPresent { from, to in
+            to.selectableRowCellUpdate = { cell, row in
+               cell.textLabel!.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+            }
+         }.cellUpdate{ cell, row in
+            cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+            cell.detailTextLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+         }
+
+         workoutExerciseSection.append(exerciseNameRow)
+
+         guard let workoutExerciseSets = workoutFormSection.workoutExerciseSets else {
+            return
+         }
+
+
+         for workoutExerciseSet in workoutExerciseSets {
+            let workoutExerciseSetRow = SplitRow<DecimalRow, IntRow>() {
+               $0.tag = "\(workoutExerciseSet.workoutExerciseSetId!)"
+               $0.rowLeft = DecimalRow(){
+                  $0.placeholder = "e.g. 14 lbs"
+                  $0.formatter = DecimalFormatter()
+                  $0.useFormatterDuringInput = true
+//                  $0.value = workoutExerciseSet.workoutExerciseSetWeight ?? nil
+               }
+
+               $0.rowRight = IntRow(){
+                  $0.placeholder = "e.g. 10 reps"
+//                  $0.value = workoutExerciseSet.workoutExerciseSetReps ?? nil
+               }
+               $0.rowLeftPercentage = 0.5
+               $0.rowLeft?.placeholder = "e.g. 14 lbs"
+               $0.rowRight?.placeholder = "e.g. 5 reps"
+               }
+
+            workoutExerciseSection.append(workoutExerciseSetRow)
+
+         }
+
+         let addButton = ButtonRow() {
+            $0.title = "Add Set"
+            }.cellUpdate { cell, row in
+               cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+               cell.textLabel?.textColor = .white
+               cell.backgroundColor = UIColor(red: 255.0/255.0, green: 182.0/255.0, blue: 55.0/255.0, alpha: 1.0)
+            }
+            .onCellSelection{ cell, row in
+
+               guard let workoutId = self.workout?.workoutId else  {
+                  return
+               }
+
+               guard var workoutExerciseSection : Section = row.section else {
+                  return
+               }
+
+               guard let workoutExerciseTag = workoutExerciseSection.tag else {
+                  return
+               }
+
+               guard let workoutExerciseId = Int64(workoutExerciseTag) else {
+                  return
+               }
+
+               guard let exerciseRow = workoutExerciseSection.first as? PushRow<Exercise> else {
+                  return
+               }
+
+               guard let exerciseId = exerciseRow.value?.exerciseId else {
+                  return
+               }
+
+               do {
+                  guard let workoutExerciseSetId = try WorkoutExerciseSetTable.insertNewWorkoutSet(
+                     workoutId: workoutId, workoutExerciseId: workoutExerciseId, exerciseId: exerciseId) else {
+                        return
+                  }
+
+
+               guard let indexPath = row.indexPath else {
+                  return
+               }
+
+               guard let workoutExerciseSectionTag = workoutExerciseSection.tag else {
+                  return
+               }
+
+               guard let indexOfRow = row.section?.index(of: row) else {
+                  return
+               }
+
+               let workoutExerciseSet = SplitRow<DecimalRow, IntRow>() {
+                  $0.rowLeft = DecimalRow(){
+                     $0.placeholder = "e.g. 14 lbs"
+                     $0.formatter = DecimalFormatter()
+                     $0.useFormatterDuringInput = true
+                  }
+
+                  $0.rowRight = IntRow(){
+                     $0.placeholder = "e.g. 10 reps"
+                  }
+                  $0.tag = "\(workoutExerciseSetId)"
+                  $0.rowLeftPercentage = 0.5
+                  $0.rowLeft?.placeholder = "e.g. 14 lbs"
+                  $0.rowRight?.placeholder = "e.g. 5 reps"
+               }
+
+               workoutExerciseSection.insert(workoutExerciseSet, at: indexOfRow)
+
+               self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+
+               } catch {
+                  print(error)
+               }
+
+         }
+
+         workoutExerciseSection.append(addButton)
+
+         workoutExerciseSection.footer?.height = { 44 }
+      }
+
 
    }
 
@@ -125,20 +290,17 @@ class EditWorkoutViewController: FormViewController {
       }
 
       // Write new exercise to database using some model
-      let newExerciseId = UUID().uuidString
-
       let newExerciseSection = Section() {
-         $0.tag = newExerciseId
          $0.header?.height = { 0 }
       }
 
       form.append(newExerciseSection)
 
-      let exerciseNameRow = PushRow<String>()   {
+      let exerciseNameRow = PushRow<Exercise>()   {
          $0.title = "Exercise Name"
 
          $0.presentationMode = PresentationMode.show(
-            controllerProvider: ControllerProvider.callback(builder: { return MyPushViewController() }),
+            controllerProvider: ControllerProvider.callback(builder: { return ExercisePushViewController() }),
             onDismiss: { vc in let _ = vc.navigationController?.popViewController(animated: true) }
          )
 
@@ -150,8 +312,29 @@ class EditWorkoutViewController: FormViewController {
             cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
             cell.detailTextLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
          }.onChange { row in
-            if row.value != nil {
-               row.cell.isUserInteractionEnabled = false
+            if let exerciseId = row.value?.exerciseId {
+               do {
+                  guard let workoutId = self.workout?.workoutId else {
+                     return
+                  }
+                  let rowid = try WorkoutExerciseTable.insertNewWorkoutExercise(workoutId: workoutId,
+                                                                exerciseId: exerciseId)
+
+                  guard let workoutExerciseSection = row.section else {
+                     return
+                  }
+
+                  guard let workoutExerciseId = rowid?.workoutExerciseId else {
+                     return
+                  }
+
+                  workoutExerciseSection.tag = "\(workoutExerciseId)"
+
+                  row.cell.isUserInteractionEnabled = false
+               } catch {
+                  print(error)
+               }
+
             }
          }
 
@@ -161,53 +344,75 @@ class EditWorkoutViewController: FormViewController {
             cell.textLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
             cell.textLabel?.textColor = .white
             cell.backgroundColor = UIColor(red: 255.0/255.0, green: 182.0/255.0, blue: 55.0/255.0, alpha: 1.0)
-         }.onCellSelection{ cell, row in
+         }
+         .onCellSelection{ cell, row in
+
+            guard let workoutId = self.workout?.workoutId else  {
+               return
+            }
 
             guard var workoutExerciseSection : Section = row.section else {
                return
             }
 
-            guard let indexPath = row.indexPath else {
+            guard let workoutExerciseTag = workoutExerciseSection.tag else {
                return
             }
 
-            guard let workoutExerciseSectionTag = workoutExerciseSection.tag else {
+            guard let workoutExerciseId = Int64(workoutExerciseTag) else {
                return
             }
 
-            guard let indexOfRow = row.section?.index(of: row) else {
+            guard let exerciseRow = workoutExerciseSection.first as? PushRow<Exercise> else {
                return
             }
 
-            guard let firstRow = workoutExerciseSection.first as? PushRow<String> else {
+            guard let exerciseId = exerciseRow.value?.exerciseId else {
                return
             }
 
-            guard let exerciseValue = firstRow.value else {
-               let alertController = UIAlertController.init(title: "Warning", message: "Select an exercise!", preferredStyle: .alert)
-               alertController.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
-               self.present(alertController, animated: true, completion: nil)
-               return
-            }
-
-            let workoutExerciseSet = SplitRow<DecimalRow, IntRow>() {
-               $0.rowLeft = DecimalRow(){
-                  $0.placeholder = "e.g. 14 lbs"
-                  $0.formatter = DecimalFormatter()
-                  $0.useFormatterDuringInput = true
+            do {
+               guard let workoutExerciseSetId = try WorkoutExerciseSetTable.insertNewWorkoutSet(
+                  workoutId: workoutId, workoutExerciseId: workoutExerciseId, exerciseId: exerciseId) else {
+                     return
                }
 
-               $0.rowRight = IntRow(){
-                  $0.placeholder = "e.g. 10 reps"
+
+               guard let indexPath = row.indexPath else {
+                  return
                }
-               $0.rowLeftPercentage = 0.5
-               $0.rowLeft?.placeholder = "e.g. 14 lbs"
-               $0.rowRight?.placeholder = "e.g. 5 reps"
+
+               guard let workoutExerciseSectionTag = workoutExerciseSection.tag else {
+                  return
+               }
+
+               guard let indexOfRow = row.section?.index(of: row) else {
+                  return
+               }
+
+               let workoutExerciseSet = SplitRow<DecimalRow, IntRow>() {
+                  $0.rowLeft = DecimalRow(){
+                     $0.placeholder = "e.g. 14 lbs"
+                     $0.formatter = DecimalFormatter()
+                     $0.useFormatterDuringInput = true
+                  }
+
+                  $0.rowRight = IntRow(){
+                     $0.placeholder = "e.g. 10 reps"
+                  }
+                  $0.tag = "\(workoutExerciseSetId)"
+                  $0.rowLeftPercentage = 0.5
+                  $0.rowLeft?.placeholder = "e.g. 14 lbs"
+                  $0.rowRight?.placeholder = "e.g. 5 reps"
+               }
+
+               workoutExerciseSection.insert(workoutExerciseSet, at: indexOfRow)
+
+               self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+
+            } catch {
+               print(error)
             }
-
-            workoutExerciseSection.insert(workoutExerciseSet, at: indexOfRow)
-
-            self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
 
       }
 
@@ -227,25 +432,25 @@ class EditWorkoutViewController: FormViewController {
       guard let workoutNameRow = form.rowBy(tag: "workoutNameRow") as? TextRow,
          let workoutDateRow  = form.rowBy(tag: "workoutDateRow") as? DateTimeRow,
          let workoutNotesRow = form.rowBy(tag: "workoutNotesRow") as? TextRow else {
-            print("Something went wrong")
             return
       }
 
-      guard  let workouId = workout?.workoutId else {
+      guard  let workoutId = workout?.workoutId else {
          return
       }
       let workoutName = workoutNameRow.value == nil ? "" : workoutNameRow.value!
       let workoutDate = workoutDateRow.value!
       let workoutNotes = workoutNotesRow.value == nil ? "" : workoutNotesRow.value!
 
-      let workoutToUpdate = Workout(workoutId: workouId, workoutName: workoutName,
-                                    workoutDate: workoutDate, workoutNotes: workoutNotes)
-
+      let workoutToUpdate = Workout(workoutId: workoutId, workoutName: workoutName,
+                                    workoutDate: workoutDate, workoutNotes: workoutNotes,
+                                    userWeight : nil)
       do {
-         try Workout.updateExistingWorkout(workout: workoutToUpdate)
+         try WorkoutTable.updateExistingWorkout(workout: workoutToUpdate)
       } catch {
-         print(error.localizedDescription)
+         print(error)
       }
+    
    }
     /*
     // MARK: - Navigation
