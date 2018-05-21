@@ -94,6 +94,7 @@ class EditProfileViewController: FormViewController {
          } catch {
             print(error.localizedDescription)
          }
+      navigationController?.popViewController(animated: true)
 
    }
 
