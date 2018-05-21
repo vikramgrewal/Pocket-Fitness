@@ -57,18 +57,18 @@ class LoginViewController: UIViewController {
       // Set constraints for button below
       if #available(iOS 11.0, *) {
          facebookLoginButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
-                                                      constant: 20).isActive = true
+                                                      constant: 40).isActive = true
          facebookLoginButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
-                                                       constant: -20).isActive = true
+                                                       constant: -40).isActive = true
          facebookLoginButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
-                                                     constant: -20).isActive = true
+                                                     constant: -60).isActive = true
       } else {
          facebookLoginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
-                                                      constant: 20).isActive = true
+                                                      constant: 40).isActive = true
          facebookLoginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
-                                                       constant: -20).isActive = true
+                                                       constant: -40).isActive = true
          facebookLoginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,
-                                                     constant: -20).isActive = true
+                                                     constant: -60).isActive = true
       }
       facebookLoginButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
 
@@ -109,11 +109,11 @@ class LoginViewController: UIViewController {
       // Add imageview to view
       view.addSubview(imageView!)
       // Setup constraints for image view
-      imageView?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-      imageView?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+      imageView?.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
+      imageView?.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
       imageView?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
       imageView?.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-
+      imageView?.contentMode = .scaleAspectFit
    }
 
    // Displays spinner if user decides to load preloading existing exercises
