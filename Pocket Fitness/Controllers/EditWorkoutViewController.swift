@@ -5,6 +5,7 @@ class EditWorkoutViewController: FormViewController {
 
    var workout : Workout?
    var workoutFormModel : WorkoutFormModel?
+   var pageLoaded : Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,10 @@ class EditWorkoutViewController: FormViewController {
       }
     }
 
+   override func viewDidAppear(_ animated: Bool) {
+      pageLoaded = true
+   }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -34,6 +39,7 @@ class EditWorkoutViewController: FormViewController {
       setUpDefaultForm()
       setUpAddExerciseButton()
       navigationOptions = .Enabled
+      navigationAccessoryView.backgroundColor = .groupTableViewBackground
       navigationAccessoryView.tintColor = UIColor(red: 0/255.0, green: 170/255.0, blue: 141.0/255.0, alpha: 1.0)
    }
 
@@ -159,17 +165,40 @@ class EditWorkoutViewController: FormViewController {
                   $0.placeholder = "e.g. 14 lbs"
                   $0.formatter = DecimalFormatter()
                   $0.useFormatterDuringInput = true
-//                  $0.value = workoutExerciseSet.workoutExerciseSetWeight ?? nil
+
+                  guard let weightValue = workoutExerciseSet.workoutExerciseSetWeight else {
+                     return
+                  }
+                  $0.value = weightValue
+                  $0.cell.detailTextLabel?.text = "\(weightValue) lbs"
                }
 
                $0.rowRight = IntRow(){
                   $0.placeholder = "e.g. 10 reps"
-//                  $0.value = workoutExerciseSet.workoutExerciseSetReps ?? nil
+
+                  guard let repsValue = workoutExerciseSet.workoutExerciseSetReps else {
+                     return
+                  }
+                  $0.value = repsValue
+                  $0.cell.detailTextLabel?.text = "\(repsValue) reps"
                }
                $0.rowLeftPercentage = 0.5
-               $0.rowLeft?.placeholder = "e.g. 14 lbs"
-               $0.rowRight?.placeholder = "e.g. 5 reps"
-               }
+               }.cellUpdate{ cell, row in
+
+                  guard self.pageLoaded == true else {
+                     return
+                  }
+                  let weight = row.rowLeft?.value
+                  let reps = row.rowRight?.value
+
+                  guard let workoutExerciseSetId = workoutExerciseSet.workoutExerciseSetId else {
+                     return
+                  }
+
+                  let updated = WorkoutExerciseSetTable.updateExistingWorkoutSet(workoutExerciseSetId:
+                     workoutExerciseSetId, weightLifted: weight, reps: reps)
+
+            }
 
             workoutExerciseSection.append(workoutExerciseSetRow)
 
@@ -241,7 +270,19 @@ class EditWorkoutViewController: FormViewController {
                   $0.rowLeftPercentage = 0.5
                   $0.rowLeft?.placeholder = "e.g. 14 lbs"
                   $0.rowRight?.placeholder = "e.g. 5 reps"
-               }
+                  }.cellUpdate{ cell, row in
+
+                     guard self.pageLoaded == true else {
+                        return
+                     }
+
+                     let weight = row.rowLeft?.value
+                     let reps = row.rowRight?.value
+
+                     let updated = WorkoutExerciseSetTable.updateExistingWorkoutSet(workoutExerciseSetId:
+                        workoutExerciseSetId, weightLifted: weight, reps: reps)
+
+                  }
 
                workoutExerciseSection.insert(workoutExerciseSet, at: indexOfRow)
 
@@ -257,7 +298,6 @@ class EditWorkoutViewController: FormViewController {
 
          workoutExerciseSection.footer?.height = { 44 }
       }
-
 
    }
 
@@ -404,6 +444,17 @@ class EditWorkoutViewController: FormViewController {
                   $0.rowLeftPercentage = 0.5
                   $0.rowLeft?.placeholder = "e.g. 14 lbs"
                   $0.rowRight?.placeholder = "e.g. 5 reps"
+                  }.cellUpdate{ cell, row in
+
+                     guard self.pageLoaded == true else {
+                        return
+                     }
+                     let weight = row.rowLeft?.value
+                     let reps = row.rowRight?.value
+
+                     let updated = WorkoutExerciseSetTable.updateExistingWorkoutSet(workoutExerciseSetId:
+                        workoutExerciseSetId, weightLifted: weight, reps: reps)
+
                }
 
                workoutExerciseSection.insert(workoutExerciseSet, at: indexOfRow)

@@ -65,7 +65,7 @@ public class WorkoutExerciseSetTable {
                let workoutExerciseSetDate = try workoutExerciseSet.get(workoutExerciseSetDateColumn).datatypeValue
                let workoutExerciseSetId = try workoutExerciseSet.get(workoutExerciseSetIdColumn).datatypeValue
                let workoutId = try workoutExerciseSet.get(workoutIdColumn).datatypeValue
-               let workoutExerciseSetReps = try workoutExerciseSet.get(workoutExerciseSetRepsColumn)?.distance(to: 0)
+               let workoutExerciseSetReps = try workoutExerciseSet.get(workoutExerciseSetRepsColumn)?.advanced(by: 0)
                let workoutExerciseSetWeight = try workoutExerciseSet.get(workoutExerciseSetWeightColumn)?.datatypeValue
                let workoutExerciseSet = WorkoutExerciseSet()
                workoutExerciseSet.workoutExerciseId = workoutExerciseId
@@ -87,8 +87,8 @@ public class WorkoutExerciseSetTable {
       return workoutExerciseSets
    }
 
-   public static func updateExistingWorkoutSet(workoutExerciseSetId : Int64, weightLifted : Double,
-                                               reps : Int) -> Bool {
+   public static func updateExistingWorkoutSet(workoutExerciseSetId : Int64, weightLifted : Double?,
+                                               reps : Int?) -> Bool {
 
       guard let dbConnection = AppDatabase.getConnection() else {
          return false

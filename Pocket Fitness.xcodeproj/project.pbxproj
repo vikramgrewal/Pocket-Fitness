@@ -839,7 +839,7 @@
 				INFOPLIST_FILE = "Pocket Fitness/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.vikramgrewal.Pocket-Fitness";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vikramgrewal.Pocket-Fitness-Workout";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -856,7 +856,7 @@
 				INFOPLIST_FILE = "Pocket Fitness/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.vikramgrewal.Pocket-Fitness";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vikramgrewal.Pocket-Fitness-Workout";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
